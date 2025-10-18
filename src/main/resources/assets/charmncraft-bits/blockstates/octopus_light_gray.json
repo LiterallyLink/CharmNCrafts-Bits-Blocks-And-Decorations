@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "charmncraft-bits:block/octopus_light_gray"
+    },
+    "lit=false": {
+      "model": "charmncraft-bits:block/octopus_light_gray"
+    }
+  }
+}

@@ -1,25 +1,27 @@
 package com.charmed.charmncraft.bits;
 
+import com.charmed.charmncraft.bits.blocks.InteractiveNightLightBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModBlocks {
     // Color arrays for each block type
     private static final String[] FAIRY_LIGHTS_COLORS = {
         "default", "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "light_green", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
+        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
     };
 
     private static final String[] HANGING_LIGHTS_COLORS = {
         "default", "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "light_green", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
+        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
     };
 
     private static final String[] FROG_COLORS = {
@@ -37,20 +39,44 @@ public class ModBlocks {
         "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
     };
 
+    // Store blocks for creative tab registration
+    private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
+
     static {
-        registerColoredBlocks("fairy_lights", FAIRY_LIGHTS_COLORS);
-        registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS);
-        registerColoredBlocks("frog", FROG_COLORS);
-        registerColoredBlocks("mushroom", MUSHROOM_COLORS);
-        registerColoredBlocks("octopus", OCTOPUS_COLORS);
+        // Non-interactive decorative blocks
+        registerColoredBlocks("fairy_lights", FAIRY_LIGHTS_COLORS, false);
+        registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS, false);
+        
+        // Interactive night light blocks
+        registerColoredBlocks("frog", FROG_COLORS, true);
+        registerColoredBlocks("mushroom", MUSHROOM_COLORS, true);
+        registerColoredBlocks("octopus", OCTOPUS_COLORS, true);
+        
+        // Register all blocks to creative tab in a single callback
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
+            .register(entries -> {
+                for (Block block : COLORED_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
     }
 
-    private static void registerColoredBlocks(String baseName, String[] colors) {
+    private static void registerColoredBlocks(String baseName, String[] colors, boolean interactive) {
         for (String color : colors) {
             String blockName = baseName + "_" + color;
-            Block block = new Block(Block.Settings.create()
-                .strength(0.8f, 0.8f)
-                .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
+            Block block;
+            
+            if (interactive) {
+                // Use interactive block class with state properties
+                block = new InteractiveNightLightBlock(Block.Settings.create()
+                    .strength(0.8f, 0.8f)
+                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
+            } else {
+                // Use basic decorative block
+                block = new Block(Block.Settings.create()
+                    .strength(0.8f, 0.8f)
+                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
+            }
             
             registerBlock(blockName, block);
         }
@@ -65,9 +91,8 @@ public class ModBlocks {
         // Register block item
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         
-        // Add to Building Blocks creative tab
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
-            .register(entries -> entries.add(block.asItem()));
+        // Add to our list for later creative tab registration
+        COLORED_BLOCKS.add(block);
     }
 
     public static void initialize() {

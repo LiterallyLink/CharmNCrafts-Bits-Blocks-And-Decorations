@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "charmncraft-bits:block/mushroom_red"
+    },
+    "lit=false": {
+      "model": "charmncraft-bits:block/mushroom_red"
+    }
+  }
+}
