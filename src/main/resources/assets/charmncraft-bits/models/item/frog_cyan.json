@@ -1,0 +1,12 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "charmncraft-bits:block/night_light_frog",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "2": "charmncraft-bits:block/frog_cyan",
+    "particle": "charmncraft-bits:block/frog_cyan"
+  }
+}

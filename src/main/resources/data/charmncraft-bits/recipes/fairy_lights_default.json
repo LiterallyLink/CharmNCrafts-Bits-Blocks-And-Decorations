@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "charmncraft-bits:fairy_lights"
+		}
+	],
+	"result": {
+		"item": "charmncraft-bits:fairy_lights_default",
+		"count": 1
+	}
+}
