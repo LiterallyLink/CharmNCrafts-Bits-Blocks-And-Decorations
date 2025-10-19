@@ -1,8 +1,5 @@
 package com.charmed.charmncraft.bits;
 
-import com.charmed.charmncraft.bits.blocks.InteractiveNightLightBlock;
-import com.charmed.charmncraft.bits.blocks.FairyLightsBlock;
-import com.charmed.charmncraft.bits.blocks.FairyLightsDecoBlock;
 import com.charmed.charmncraft.bits.blocks.SmallDecorativeBlock;
 import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -49,8 +46,8 @@ public class ModBlocks {
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
 
     static {
-        // Fairy lights - special handling, placeable only on blocks like vines
-        registerFairyLights("fairy_lights", FAIRY_LIGHTS_COLORS);
+        // Non-interactive decorative blocks
+        registerColoredBlocks("fairy_lights", FAIRY_LIGHTS_COLORS, "facing");
         registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS, "facing");
         
         // Interactive night light blocks (use lit property)
@@ -65,17 +62,6 @@ public class ModBlocks {
                     entries.add(block.asItem());
                 }
             });
-    }
-
-    private static void registerFairyLights(String baseName, String[] colors) {
-        for (String color : colors) {
-            String blockName = baseName + "_" + color;
-            // FairyLightsDecoBlock handles shapes internally based on attachment direction
-            Block block = new FairyLightsDecoBlock(Block.Settings.create()
-                .strength(0.8f, 0.8f)
-                .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), null);
-            registerBlock(blockName, block);
-        }
     }
 
     private static void registerColoredBlocks(String baseName, String[] colors, String propertyType) {
