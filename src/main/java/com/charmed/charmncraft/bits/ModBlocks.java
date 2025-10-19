@@ -1,6 +1,10 @@
 package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.InteractiveNightLightBlock;
+import com.charmed.charmncraft.bits.blocks.FairyLightsBlock;
+import com.charmed.charmncraft.bits.blocks.FairyLightsDecoBlock;
+import com.charmed.charmncraft.bits.blocks.SmallDecorativeBlock;
+import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -9,6 +13,8 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.util.shape.VoxelShape;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,14 +49,14 @@ public class ModBlocks {
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
 
     static {
-        // Non-interactive decorative blocks
-        registerColoredBlocks("fairy_lights", FAIRY_LIGHTS_COLORS, false);
-        registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS, false);
+        // Fairy lights - special handling, placeable only on blocks like vines
+        registerFairyLights("fairy_lights", FAIRY_LIGHTS_COLORS);
+        registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS, "facing");
         
-        // Interactive night light blocks
-        registerColoredBlocks("frog", FROG_COLORS, true);
-        registerColoredBlocks("mushroom", MUSHROOM_COLORS, true);
-        registerColoredBlocks("octopus", OCTOPUS_COLORS, true);
+        // Interactive night light blocks (use lit property)
+        registerColoredBlocks("frog", FROG_COLORS, "lit");
+        registerColoredBlocks("mushroom", MUSHROOM_COLORS, "lit");
+        registerColoredBlocks("octopus", OCTOPUS_COLORS, "lit");
         
         // Register all blocks to creative tab in a single callback
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
@@ -61,24 +67,65 @@ public class ModBlocks {
             });
     }
 
-    private static void registerColoredBlocks(String baseName, String[] colors, boolean interactive) {
+    private static void registerFairyLights(String baseName, String[] colors) {
+        for (String color : colors) {
+            String blockName = baseName + "_" + color;
+            // FairyLightsDecoBlock handles shapes internally based on attachment direction
+            Block block = new FairyLightsDecoBlock(Block.Settings.create()
+                .strength(0.8f, 0.8f)
+                .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), null);
+            registerBlock(blockName, block);
+        }
+    }
+
+    private static void registerColoredBlocks(String baseName, String[] colors, String propertyType) {
         for (String color : colors) {
             String blockName = baseName + "_" + color;
             Block block;
+            VoxelShape shape = getShapeForBlockType(baseName);
             
-            if (interactive) {
-                // Use interactive block class with state properties
-                block = new InteractiveNightLightBlock(Block.Settings.create()
+            if ("facing".equals(propertyType)) {
+                // Blocks with facing property (hanging lights)
+                block = new SmallDecorativeBlock(Block.Settings.create()
                     .strength(0.8f, 0.8f)
-                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
+                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), shape);
+            } else if ("lit".equals(propertyType)) {
+                // Blocks with lit property (frog, mushroom, octopus)
+                block = new SmallLitDecorativeBlock(Block.Settings.create()
+                    .strength(0.8f, 0.8f)
+                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), shape);
             } else {
-                // Use basic decorative block
                 block = new Block(Block.Settings.create()
                     .strength(0.8f, 0.8f)
                     .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
             }
             
             registerBlock(blockName, block);
+        }
+    }
+
+    private static VoxelShape getShapeForBlockType(String baseName) {
+        switch (baseName) {
+            case "hanging_lights":
+                // Make collision shape bigger for easier clicking
+                return VoxelShapes.cuboid(0.25f, 0.375f, 0.75f, 0.75f, 1f, 1f);
+            
+            case "frog":
+                // Frog: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
+                return VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 6/16f, 11/16f);
+            
+            case "mushroom":
+                // Mushroom: stem [5, 0, 5] to [11, 4, 11] + cap [4, 3, 4] to [12, 9, 12]
+                VoxelShape stem = VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 4/16f, 11/16f);
+                VoxelShape cap = VoxelShapes.cuboid(4/16f, 3/16f, 4/16f, 12/16f, 9/16f, 12/16f);
+                return VoxelShapes.union(stem, cap);
+            
+            case "octopus":
+                // Octopus: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
+                return VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 6/16f, 11/16f);
+            
+            default:
+                return VoxelShapes.fullCube();
         }
     }
 
