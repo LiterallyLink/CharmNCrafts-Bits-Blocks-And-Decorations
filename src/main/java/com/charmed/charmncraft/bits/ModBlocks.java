@@ -18,11 +18,6 @@ import java.util.List;
 
 public class ModBlocks {
     // Color arrays for each block type
-    private static final String[] FAIRY_LIGHTS_COLORS = {
-        "default", "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
-    };
-
     private static final String[] HANGING_LIGHTS_COLORS = {
         "default", "black", "blue", "brown", "cyan", "gray", "green",
         "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
@@ -48,7 +43,6 @@ public class ModBlocks {
 
     static {
         // Non-interactive decorative blocks
-        registerColoredBlocks("fairy_lights", FAIRY_LIGHTS_COLORS, "facing");
         registerColoredBlocks("hanging_lights", HANGING_LIGHTS_COLORS, "facing");
         
         // Interactive night light blocks (use lit property)
@@ -96,10 +90,6 @@ public class ModBlocks {
             case "hanging_lights":
                 // Wall-mounted hanging lights - thin layer against the wall
                 return VoxelShapes.cuboid(0.25, 0.375, 0.875, 0.75, 1.0, 1.0);
-
-            case "fairy_lights":
-                // Wall-mounted fairy lights - thin layer with wider coverage
-                return VoxelShapes.cuboid(0.0, 0.0, 0.875, 1.0, 1.0, 1.0);
 
             case "frog":
                 // Frog: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
