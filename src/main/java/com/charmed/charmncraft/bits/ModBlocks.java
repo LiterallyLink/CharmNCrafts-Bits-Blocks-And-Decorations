@@ -2,6 +2,7 @@ package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.SmallDecorativeBlock;
 import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
+import com.charmed.charmncraft.bits.blocks.WallMountedLightBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -69,10 +70,10 @@ public class ModBlocks {
             String blockName = baseName + "_" + color;
             Block block;
             VoxelShape shape = getShapeForBlockType(baseName);
-            
+
             if ("facing".equals(propertyType)) {
-                // Blocks with facing property (hanging lights)
-                block = new SmallDecorativeBlock(Block.Settings.create()
+                // Wall-mounted blocks (hanging lights, fairy lights)
+                block = new WallMountedLightBlock(Block.Settings.create()
                     .strength(0.8f, 0.8f)
                     .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), shape);
             } else if ("lit".equals(propertyType)) {
@@ -85,7 +86,7 @@ public class ModBlocks {
                     .strength(0.8f, 0.8f)
                     .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
             }
-            
+
             registerBlock(blockName, block);
         }
     }
@@ -93,9 +94,13 @@ public class ModBlocks {
     private static VoxelShape getShapeForBlockType(String baseName) {
         switch (baseName) {
             case "hanging_lights":
-                // Make collision shape bigger for easier clicking
-                return VoxelShapes.cuboid(0.25f, 0.375f, 0.75f, 0.75f, 1f, 1f);
-            
+                // Wall-mounted hanging lights - thin layer against the wall
+                return VoxelShapes.cuboid(0.25, 0.375, 0.875, 0.75, 1.0, 1.0);
+
+            case "fairy_lights":
+                // Wall-mounted fairy lights - thin layer with wider coverage
+                return VoxelShapes.cuboid(0.0, 0.0, 0.875, 1.0, 1.0, 1.0);
+
             case "frog":
                 // Frog: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
                 return VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 6/16f, 11/16f);

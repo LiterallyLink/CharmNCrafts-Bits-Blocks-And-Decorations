@@ -1,20 +1,19 @@
 {
   "variants": {
-    "north=false,south=false,east=false,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=false,east=false,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=true,east=false,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=false,east=true,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=false,east=false,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=true,east=false,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=false,east=true,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=false,east=false,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=true,east=true,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=true,east=false,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=false,east=true,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=true,east=true,west=false": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=true,east=false,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=false,east=true,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=false,south=true,east=true,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"},
-    "north=true,south=true,east=true,west=true": {"model": "charmncraft-bits:block/fairy_lights_cyan"}
+    "facing=east": {
+      "model": "charmncraft-bits:block/fairy_lights_cyan",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "charmncraft-bits:block/fairy_lights_cyan"
+    },
+    "facing=south": {
+      "model": "charmncraft-bits:block/fairy_lights_cyan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "charmncraft-bits:block/fairy_lights_cyan",
+      "y": 270
+    }
   }
 }

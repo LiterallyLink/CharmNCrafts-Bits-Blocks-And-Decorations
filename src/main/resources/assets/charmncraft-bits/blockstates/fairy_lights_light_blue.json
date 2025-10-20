@@ -1,36 +1,19 @@
 {
   "variants": {
-    "north=false,south=false,east=false,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=false,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=false,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=true,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=false,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=false,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=false,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=true,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=false,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=false,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=true,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=false,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=false,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=true,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=true,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=false,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=true,west=false,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=false,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=false,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=true,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=true,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=false,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=true,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=true,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=false,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=false,east=true,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=true,west=true,up=false": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=true,west=false,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=false,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=false,east=true,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=false,south=true,east=true,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"},
-    "north=true,south=true,east=true,west=true,up=true": {"model": "charmncraft-bits:block/fairy_lights_light_blue"}
+    "facing=east": {
+      "model": "charmncraft-bits:block/fairy_lights_light_blue",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "charmncraft-bits:block/fairy_lights_light_blue"
+    },
+    "facing=south": {
+      "model": "charmncraft-bits:block/fairy_lights_light_blue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "charmncraft-bits:block/fairy_lights_light_blue",
+      "y": 270
+    }
   }
 }
