@@ -68,7 +68,7 @@ public class ModBlocks {
                 Block.Settings.create()
                     .strength(0.8f, 0.8f)
                     .sounds(BlockSoundGroup.WOOL)
-                    .luminance(state -> state.get(SmallLitDecorativeBlock.LIT) ? 15 : 0),
+                    .luminance(state -> state.get(SmallLitDecorativeBlock.LIT) ? 7 : 0),
                 shape
             );
 
