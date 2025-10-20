@@ -1,22 +1,4 @@
 {
     "replace": false,
-    "values": [
-        "charmncraft-bits:hanging_lights_default",
-        "charmncraft-bits:hanging_lights_black",
-        "charmncraft-bits:hanging_lights_blue",
-        "charmncraft-bits:hanging_lights_brown",
-        "charmncraft-bits:hanging_lights_cyan",
-        "charmncraft-bits:hanging_lights_gray",
-        "charmncraft-bits:hanging_lights_green",
-        "charmncraft-bits:hanging_lights_light_blue",
-        "charmncraft-bits:hanging_lights_light_gray",
-        "charmncraft-bits:hanging_lights_light_green",
-        "charmncraft-bits:hanging_lights_magenta",
-        "charmncraft-bits:hanging_lights_orange",
-        "charmncraft-bits:hanging_lights_pink",
-        "charmncraft-bits:hanging_lights_purple",
-        "charmncraft-bits:hanging_lights_red",
-        "charmncraft-bits:hanging_lights_white",
-        "charmncraft-bits:hanging_lights_yellow"
-    ]
+    "values": []
 }
