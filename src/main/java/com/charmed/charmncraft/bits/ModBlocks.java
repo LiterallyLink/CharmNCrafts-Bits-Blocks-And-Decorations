@@ -1,8 +1,6 @@
 package com.charmed.charmncraft.bits;
 
-import com.charmed.charmncraft.bits.blocks.SmallDecorativeBlock;
 import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
-import com.charmed.charmncraft.bits.blocks.WallMountedLightBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -10,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.util.shape.VoxelShape;
@@ -17,31 +16,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModBlocks {
-    // Color arrays for each block type
-    private static final String[] FROG_COLORS = {
-        "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
-    };
+    // Hitbox dimension constants (in 1/16th block units)
+    private static final float FROG_MIN = 5/16f;
+    private static final float FROG_MAX = 11/16f;
+    private static final float FROG_HEIGHT = 6/16f;
 
-    private static final String[] MUSHROOM_COLORS = {
-        "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
-    };
+    private static final float MUSHROOM_STEM_MIN = 5/16f;
+    private static final float MUSHROOM_STEM_MAX = 11/16f;
+    private static final float MUSHROOM_STEM_HEIGHT = 4/16f;
+    private static final float MUSHROOM_CAP_MIN = 4/16f;
+    private static final float MUSHROOM_CAP_MAX = 12/16f;
+    private static final float MUSHROOM_CAP_START = 3/16f;
+    private static final float MUSHROOM_CAP_END = 9/16f;
 
-    private static final String[] OCTOPUS_COLORS = {
+    private static final float OCTOPUS_MIN = 5/16f;
+    private static final float OCTOPUS_MAX = 11/16f;
+    private static final float OCTOPUS_HEIGHT = 6/16f;
+
+    // Shared color array for all decorative blocks
+    private static final String[] COLORS = {
         "black", "blue", "brown", "cyan", "gray", "green",
-        "light_blue", "light_gray", "lime", "magenta", "orange", "pink", "purple", "red", "white", "yellow"
+        "light_blue", "light_gray", "lime", "magenta", "orange",
+        "pink", "purple", "red", "white", "yellow"
     };
 
     // Store blocks for creative tab registration
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
 
     static {
-        // Interactive night light blocks (use lit property)
-        registerColoredBlocks("frog", FROG_COLORS, "lit");
-        registerColoredBlocks("mushroom", MUSHROOM_COLORS, "lit");
-        registerColoredBlocks("octopus", OCTOPUS_COLORS, "lit");
-        
+        // Register all night light blocks with lit property
+        registerColoredBlocks("frog", COLORS);
+        registerColoredBlocks("mushroom", COLORS);
+        registerColoredBlocks("octopus", COLORS);
+
         // Register all blocks to creative tab in a single callback
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
             .register(entries -> {
@@ -51,22 +58,19 @@ public class ModBlocks {
             });
     }
 
-    private static void registerColoredBlocks(String baseName, String[] colors, String propertyType) {
+    private static void registerColoredBlocks(String baseName, String[] colors) {
         for (String color : colors) {
             String blockName = baseName + "_" + color;
-            Block block;
             VoxelShape shape = getShapeForBlockType(baseName);
 
-            if ("lit".equals(propertyType)) {
-                // Blocks with lit property (frog, mushroom, octopus)
-                block = new SmallLitDecorativeBlock(Block.Settings.create()
+            // Create night light block with glowstone-level lighting (15) when lit
+            Block block = new SmallLitDecorativeBlock(
+                Block.Settings.create()
                     .strength(0.8f, 0.8f)
-                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL), shape);
-            } else {
-                block = new Block(Block.Settings.create()
-                    .strength(0.8f, 0.8f)
-                    .sounds(net.minecraft.sound.BlockSoundGroup.WOOL));
-            }
+                    .sounds(BlockSoundGroup.WOOL)
+                    .luminance(state -> state.get(SmallLitDecorativeBlock.LIT) ? 15 : 0),
+                shape
+            );
 
             registerBlock(blockName, block);
         }
@@ -75,19 +79,25 @@ public class ModBlocks {
     private static VoxelShape getShapeForBlockType(String baseName) {
         switch (baseName) {
             case "frog":
-                // Frog: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
-                return VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 6/16f, 11/16f);
-            
+                // Frog: 6x6x6 centered cube for body
+                return VoxelShapes.cuboid(FROG_MIN, 0, FROG_MIN, FROG_MAX, FROG_HEIGHT, FROG_MAX);
+
             case "mushroom":
-                // Mushroom: stem [5, 0, 5] to [11, 4, 11] + cap [4, 3, 4] to [12, 9, 12]
-                VoxelShape stem = VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 4/16f, 11/16f);
-                VoxelShape cap = VoxelShapes.cuboid(4/16f, 3/16f, 4/16f, 12/16f, 9/16f, 12/16f);
+                // Mushroom: vertical stem + wider cap
+                VoxelShape stem = VoxelShapes.cuboid(
+                    MUSHROOM_STEM_MIN, 0, MUSHROOM_STEM_MIN,
+                    MUSHROOM_STEM_MAX, MUSHROOM_STEM_HEIGHT, MUSHROOM_STEM_MAX
+                );
+                VoxelShape cap = VoxelShapes.cuboid(
+                    MUSHROOM_CAP_MIN, MUSHROOM_CAP_START, MUSHROOM_CAP_MIN,
+                    MUSHROOM_CAP_MAX, MUSHROOM_CAP_END, MUSHROOM_CAP_MAX
+                );
                 return VoxelShapes.union(stem, cap);
-            
+
             case "octopus":
-                // Octopus: body [5, 0, 5] to [11, 6, 11] = 6x6x6 cube
-                return VoxelShapes.cuboid(5/16f, 0/16f, 5/16f, 11/16f, 6/16f, 11/16f);
-            
+                // Octopus: 6x6x6 centered cube for body
+                return VoxelShapes.cuboid(OCTOPUS_MIN, 0, OCTOPUS_MIN, OCTOPUS_MAX, OCTOPUS_HEIGHT, OCTOPUS_MAX);
+
             default:
                 return VoxelShapes.fullCube();
         }
