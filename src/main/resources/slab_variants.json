@@ -1,0 +1,40 @@
+{
+  "slabs": [
+    {
+      "name": "oak_log",
+      "base_block": "minecraft:oak_log"
+    },
+    {
+      "name": "oak_wood",
+      "base_block": "minecraft:oak_wood"
+    },
+    {
+      "name": "stripped_oak_log",
+      "base_block": "minecraft:stripped_oak_log"
+    },
+    {
+      "name": "stripped_oak_wood",
+      "base_block": "minecraft:stripped_oak_wood"
+    },
+    {
+      "name": "spruce_log",
+      "base_block": "minecraft:spruce_log"
+    },
+    {
+      "name": "spruce_wood",
+      "base_block": "minecraft:spruce_wood"
+    },
+    {
+      "name": "stripped_spruce_log",
+      "base_block": "minecraft:stripped_spruce_log"
+    },
+    {
+      "name": "stripped_spruce_wood",
+      "base_block": "minecraft:stripped_spruce_wood"
+    },
+    {
+      "name": "birch_log",
+      "base_block": "minecraft:birch_log"
+    }
+  ]
+}

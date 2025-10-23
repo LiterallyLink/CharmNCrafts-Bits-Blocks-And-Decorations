@@ -135,5 +135,17 @@
     "block.charmncraft-bits.wither_plushie": "Wither Plushie",
     "block.charmncraft-bits.armadillo_plushie": "Armadillo Plushie",
     "block.charmncraft-bits.breeze_plushie": "Breeze Plushie",
-    "block.charmncraft-bits.hoglin_plushie": "Hoglin Plushie"
+    "block.charmncraft-bits.hoglin_plushie": "Hoglin Plushie",
+
+    "block.charmncraft-bits.oak_log_slab": "Oak Log Slab",
+    "block.charmncraft-bits.oak_wood_slab": "Oak Wood Slab",
+    "block.charmncraft-bits.stripped_oak_log_slab": "Stripped Oak Log Slab",
+    "block.charmncraft-bits.stripped_oak_wood_slab": "Stripped Oak Wood Slab",
+    "block.charmncraft-bits.spruce_log_slab": "Spruce Log Slab",
+    "block.charmncraft-bits.spruce_wood_slab": "Spruce Wood Slab",
+    "block.charmncraft-bits.stripped_spruce_log_slab": "Stripped Spruce Log Slab",
+    "block.charmncraft-bits.stripped_spruce_wood_slab": "Stripped Spruce Wood Slab",
+    "block.charmncraft-bits.birch_log_slab": "Birch Log Slab",
+
+    "itemGroup.charmncraft-bits.new_slab_variants": "New Slab Variants"
 }
