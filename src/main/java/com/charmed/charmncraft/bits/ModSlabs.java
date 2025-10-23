@@ -76,15 +76,27 @@ public class ModSlabs {
         String slabName = variant.getName() + "_slab";
         Identifier id = new Identifier(Charmncraftbits.MOD_ID, slabName);
 
-        // Get base block to copy settings
+        // Get base block to reference for settings
         Block baseBlock = getBaseBlock(variant.getBaseBlock());
-        if (baseBlock == null) {
-            Charmncraftbits.LOGGER.error("Could not find base block: " + variant.getBaseBlock());
+        if (baseBlock == null || baseBlock == Registries.BLOCK.get(new Identifier("minecraft:air"))) {
+            Charmncraftbits.LOGGER.error("Could not find valid base block: " + variant.getBaseBlock());
             return;
         }
 
-        // Create slab with settings from base block
-        SlabBlock slab = new SlabBlock(Block.Settings.copy(baseBlock));
+        // Create slab with settings that only copy material properties, not blockstate properties
+        // Using create() instead of copy() to avoid copying axis and other blockstate properties
+        Block.Settings settings = Block.Settings.create()
+                .strength(baseBlock.getHardness(), baseBlock.getBlastResistance())
+                .sounds(baseBlock.getSoundGroup(baseBlock.getDefaultState()))
+                .requiresTool();
+
+        // Copy luminance if the base block has it
+        if (baseBlock.getDefaultState().getLuminance() > 0) {
+            final int luminance = baseBlock.getDefaultState().getLuminance();
+            settings.luminance(state -> luminance);
+        }
+
+        SlabBlock slab = new SlabBlock(settings);
 
         // Register block and item
         Registry.register(Registries.BLOCK, id, slab);
@@ -96,7 +108,21 @@ public class ModSlabs {
     }
 
     private static Block getBaseBlock(String blockId) {
-        return Registries.BLOCK.get(new Identifier(blockId));
+        try {
+            Identifier blockIdentifier = new Identifier(blockId);
+            Block block = Registries.BLOCK.get(blockIdentifier);
+
+            // Verify it's not air (which is the default when a block isn't found)
+            if (block != null && !blockIdentifier.equals(Registries.BLOCK.getId(block))) {
+                Charmncraftbits.LOGGER.warn("Block {} resolved to different ID: {}",
+                    blockId, Registries.BLOCK.getId(block));
+            }
+
+            return block;
+        } catch (Exception e) {
+            Charmncraftbits.LOGGER.error("Failed to parse block ID: " + blockId, e);
+            return null;
+        }
     }
 
     private static void generateAllData(SlabVariantConfig config) {
