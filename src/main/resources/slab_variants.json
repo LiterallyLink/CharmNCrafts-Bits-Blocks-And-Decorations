@@ -1,9 +1,0 @@
-{
-  "slabs": [
-    {
-      "name": "oak_log",
-      "base_block": "minecraft:oak_log",
-      "display_name": "Oak Log Slab"
-    }
-  ]
-}

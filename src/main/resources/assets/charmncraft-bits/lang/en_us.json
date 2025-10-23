@@ -286,10 +286,6 @@
     "block.charmncraft-bits.wither_plushie": "Wither Plushie",
     "block.charmncraft-bits.armadillo_plushie": "Armadillo Plushie",
     "block.charmncraft-bits.breeze_plushie": "Breeze Plushie",
-    "block.charmncraft-bits.hoglin_plushie": "Hoglin Plushie",
-
-    "block.charmncraft-bits.oak_log_slab": "Oak Log Slab",
-
-    "itemGroup.charmncraft-bits.more_slab_variants": "More Slab Variants"
+    "block.charmncraft-bits.hoglin_plushie": "Hoglin Plushie"
 }
 >>>>>>> claude/generate-slab-data-011CUQgyPt3trZZabsNQzRZv
