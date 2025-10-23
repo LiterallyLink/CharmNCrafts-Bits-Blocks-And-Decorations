@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "charmncraft-bits:block/oak_log_slab"
+    },
+    "type=top": {
+      "model": "charmncraft-bits:block/oak_log_slab_top"
+    },
+    "type=double": {
+      "model": "charmncraft-bits:block/oak_log_slab_double"
+    }
+  }
+}

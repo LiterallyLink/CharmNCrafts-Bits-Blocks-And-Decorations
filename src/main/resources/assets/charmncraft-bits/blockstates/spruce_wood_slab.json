@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "charmncraft-bits:block/spruce_wood_slab"
+    },
+    "type=top": {
+      "model": "charmncraft-bits:block/spruce_wood_slab_top"
+    },
+    "type=double": {
+      "model": "charmncraft-bits:block/spruce_wood_slab_double"
+    }
+  }
+}
