@@ -4,61 +4,6 @@
       "name": "oak_log",
       "base_block": "minecraft:oak_log",
       "display_name": "Oak Log Slab"
-    },
-    {
-      "name": "oak_wood",
-      "base_block": "minecraft:oak_wood",
-      "display_name": "Oak Wood Slab"
-    },
-    {
-      "name": "stripped_oak_log",
-      "base_block": "minecraft:stripped_oak_log",
-      "display_name": "Stripped Oak Log Slab"
-    },
-    {
-      "name": "stripped_oak_wood",
-      "base_block": "minecraft:stripped_oak_wood",
-      "display_name": "Stripped Oak Wood Slab"
-    },
-    {
-      "name": "spruce_log",
-      "base_block": "minecraft:spruce_log",
-      "display_name": "Spruce Log Slab"
-    },
-    {
-      "name": "spruce_wood",
-      "base_block": "minecraft:spruce_wood",
-      "display_name": "Spruce Wood Slab"
-    },
-    {
-      "name": "stripped_spruce_log",
-      "base_block": "minecraft:stripped_spruce_log",
-      "display_name": "Stripped Spruce Log Slab"
-    },
-    {
-      "name": "stripped_spruce_wood",
-      "base_block": "minecraft:stripped_spruce_wood",
-      "display_name": "Stripped Spruce Wood Slab"
-    },
-    {
-      "name": "birch_log",
-      "base_block": "minecraft:birch_log",
-      "display_name": "Birch Log Slab"
-    },
-    {
-      "name": "birch_wood",
-      "base_block": "minecraft:birch_wood",
-      "display_name": "Birch Wood Slab"
-    },
-    {
-      "name": "stripped_birch_log",
-      "base_block": "minecraft:stripped_birch_log",
-      "display_name": "Stripped Birch Log Slab"
-    },
-    {
-      "name": "stripped_birch_wood",
-      "base_block": "minecraft:stripped_birch_wood",
-      "display_name": "Stripped Birch Wood Slab"
     }
   ]
 }

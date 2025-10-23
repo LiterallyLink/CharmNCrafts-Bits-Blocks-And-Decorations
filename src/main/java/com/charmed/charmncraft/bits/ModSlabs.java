@@ -49,8 +49,9 @@ public class ModSlabs {
             registerSlab(variant);
         }
 
-        // Generate all data files
-        generateAllData(config);
+        // Generate all data files - DISABLED FOR TESTING
+        // Files are now pre-generated and stored in resources
+        // generateAllData(config);
 
         Charmncraftbits.LOGGER.info("Slab generation system initialized with {} slabs", SLABS.size());
     }
