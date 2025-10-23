@@ -82,8 +82,14 @@ public class ModSlabs {
                 return;
             }
 
-            // Create the slab block with properties copied from base block
-            SlabBlock slabBlock = new SlabBlock(AbstractBlock.Settings.copy(baseBlock));
+            // Create the slab block settings manually to avoid copying block state properties
+            // Copy only material properties, not state properties like axis
+            AbstractBlock.Settings settings = AbstractBlock.Settings.create()
+                    .strength(baseBlock.getHardness(), baseBlock.getBlastResistance())
+                    .sounds(baseBlock.getSoundGroup(baseBlock.getDefaultState()))
+                    .requiresTool();
+
+            SlabBlock slabBlock = new SlabBlock(settings);
 
             // Register the block
             Identifier slabId = new Identifier(Charmncraftbits.MOD_ID, entry.getSlabId());
