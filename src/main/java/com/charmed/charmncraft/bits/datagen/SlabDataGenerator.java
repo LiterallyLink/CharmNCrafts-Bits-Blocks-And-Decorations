@@ -4,6 +4,7 @@ import com.charmed.charmncraft.bits.Charmncraftbits;
 import com.charmed.charmncraft.bits.config.SlabVariantConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
@@ -12,34 +13,64 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SlabDataGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger("SlabDataGenerator");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static boolean hasGenerated = false;
 
     public static void generateAll() {
+        if (hasGenerated) {
+            LOGGER.info("Slab data already generated, skipping...");
+            return;
+        }
+
         LOGGER.info("Starting slab data generation...");
 
         SlabVariantConfig config = SlabVariantConfig.load();
-        Path gameDir = FabricLoader.getInstance().getGameDir();
-        Path resourcesPath = gameDir.resolve("config").resolve("charmncraft-bits-generated");
+
+        // Determine if we're in dev environment
+        boolean isDev = FabricLoader.getInstance().isDevelopmentEnvironment();
+
+        Path basePath;
+        if (isDev) {
+            // In dev, write directly to src/main/resources
+            basePath = FabricLoader.getInstance().getGameDir()
+                    .resolve("src/main/resources");
+            LOGGER.info("Development environment detected, writing to: {}", basePath);
+        } else {
+            // In production, write to config folder (won't be used at runtime, but good for reference)
+            basePath = FabricLoader.getInstance().getConfigDir()
+                    .resolve("charmncraft-bits-generated");
+            LOGGER.warn("Production environment - generated files won't be loaded! Copy from: {}", basePath);
+        }
 
         try {
-            Files.createDirectories(resourcesPath);
+            Files.createDirectories(basePath);
+
+            // Generate lang file first to collect all entries
+            Map<String, String> langEntries = new HashMap<>();
 
             for (SlabVariantConfig.SlabVariantEntry entry : config.getSlabs()) {
-                generateRecipe(entry, resourcesPath);
-                generateBlockstate(entry, resourcesPath);
-                generateBlockModel(entry, resourcesPath);
-                generateItemModel(entry, resourcesPath);
-                generateLootTable(entry, resourcesPath);
-            }
-            
-            // Generate language file after all slabs are processed
-            generateLanguageFile(config, resourcesPath);
+                generateRecipe(entry, basePath);
+                generateBlockstate(entry, basePath);
+                generateBlockModels(entry, basePath);
+                generateItemModel(entry, basePath);
+                generateLootTable(entry, basePath);
 
-            LOGGER.info("Slab data generation complete! Files saved to: {}", resourcesPath);
-            LOGGER.info("Copy the contents of this folder to src/main/resources/data/ and src/main/resources/assets/");
+                // Add to lang entries
+                String key = "block." + Charmncraftbits.MOD_ID + "." + entry.getSlabId();
+                String displayName = entry.getDisplayName();
+                langEntries.put(key, displayName);
+            }
+
+            // Generate language file
+            generateLanguageFile(langEntries, basePath);
+
+            hasGenerated = true;
+            LOGGER.info("Slab data generation complete! Generated {} slabs", config.getSlabs().size());
 
         } catch (Exception e) {
             LOGGER.error("Failed to generate slab data", e);
@@ -48,24 +79,23 @@ public class SlabDataGenerator {
 
     private static void generateRecipe(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
         try {
-            Path recipePath = basePath.resolve("data").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("recipes").resolve(entry.getSlabId() + ".json");
+            Path recipePath = basePath.resolve("data")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("recipes")
+                    .resolve(entry.getSlabId() + ".json");
             Files.createDirectories(recipePath.getParent());
 
             JsonObject recipe = new JsonObject();
             recipe.addProperty("type", "minecraft:crafting_shaped");
 
-            JsonObject pattern = new JsonObject();
-            com.google.gson.JsonArray patternArray = new com.google.gson.JsonArray();
-            patternArray.add("###");
-            pattern.add("pattern", patternArray);
+            JsonArray pattern = new JsonArray();
+            pattern.add("###");
+            recipe.add("pattern", pattern);
 
             JsonObject key = new JsonObject();
             JsonObject ingredient = new JsonObject();
             ingredient.addProperty("item", entry.getBaseBlock());
             key.add("#", ingredient);
-
-            recipe.add("pattern", patternArray);
             recipe.add("key", key);
 
             JsonObject result = new JsonObject();
@@ -83,8 +113,10 @@ public class SlabDataGenerator {
 
     private static void generateBlockstate(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
         try {
-            Path blockstatePath = basePath.resolve("assets").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("blockstates").resolve(entry.getSlabId() + ".json");
+            Path blockstatePath = basePath.resolve("assets")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("blockstates")
+                    .resolve(entry.getSlabId() + ".json");
             Files.createDirectories(blockstatePath.getParent());
 
             JsonObject blockstate = new JsonObject();
@@ -115,10 +147,12 @@ public class SlabDataGenerator {
         }
     }
 
-    private static void generateBlockModel(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
+    private static void generateBlockModels(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
         try {
-            Path modelPath = basePath.resolve("assets").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("models").resolve("block");
+            Path modelPath = basePath.resolve("assets")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("models")
+                    .resolve("block");
             Files.createDirectories(modelPath);
 
             // Extract namespace and path from base block
@@ -163,8 +197,11 @@ public class SlabDataGenerator {
 
     private static void generateItemModel(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
         try {
-            Path modelPath = basePath.resolve("assets").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("models").resolve("item").resolve(entry.getSlabId() + ".json");
+            Path modelPath = basePath.resolve("assets")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("models")
+                    .resolve("item")
+                    .resolve(entry.getSlabId() + ".json");
             Files.createDirectories(modelPath.getParent());
 
             JsonObject itemModel = new JsonObject();
@@ -180,39 +217,47 @@ public class SlabDataGenerator {
 
     private static void generateLootTable(SlabVariantConfig.SlabVariantEntry entry, Path basePath) {
         try {
-            Path lootTablePath = basePath.resolve("data").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("loot_tables").resolve("blocks").resolve(entry.getSlabId() + ".json");
+            Path lootTablePath = basePath.resolve("data")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("loot_tables")
+                    .resolve("blocks")
+                    .resolve(entry.getSlabId() + ".json");
             Files.createDirectories(lootTablePath.getParent());
 
             JsonObject lootTable = new JsonObject();
             lootTable.addProperty("type", "minecraft:block");
 
-            com.google.gson.JsonArray pools = new com.google.gson.JsonArray();
+            JsonArray pools = new JsonArray();
             JsonObject pool = new JsonObject();
-
             pool.addProperty("rolls", 1);
             pool.addProperty("bonus_rolls", 0);
 
-            com.google.gson.JsonArray entries = new com.google.gson.JsonArray();
+            JsonArray entries = new JsonArray();
             JsonObject poolEntry = new JsonObject();
             poolEntry.addProperty("type", "minecraft:item");
             poolEntry.addProperty("name", Charmncraftbits.MOD_ID + ":" + entry.getSlabId());
 
-            com.google.gson.JsonArray functions = new com.google.gson.JsonArray();
-            JsonObject function = new JsonObject();
-            function.addProperty("function", "minecraft:set_count");
+            JsonArray functions = new JsonArray();
 
-            JsonObject conditions = new JsonObject();
-            conditions.addProperty("block_state", Charmncraftbits.MOD_ID + ":" + entry.getSlabId());
-            conditions.addProperty("property", "type");
-            conditions.addProperty("value", "double");
+            // Set count to 2 if double slab
+            JsonObject setCountFunction = new JsonObject();
+            setCountFunction.addProperty("function", "minecraft:set_count");
+            setCountFunction.addProperty("count", 2);
 
-            function.addProperty("count", 2);
-            function.add("conditions", new com.google.gson.JsonArray());
-            function.getAsJsonArray("conditions").add(createCondition());
+            JsonArray conditions = new JsonArray();
+            JsonObject blockStateCondition = new JsonObject();
+            blockStateCondition.addProperty("condition", "minecraft:block_state_property");
+            blockStateCondition.addProperty("block", Charmncraftbits.MOD_ID + ":" + entry.getSlabId());
 
-            functions.add(function);
+            JsonObject properties = new JsonObject();
+            properties.addProperty("type", "double");
+            blockStateCondition.add("properties", properties);
 
+            conditions.add(blockStateCondition);
+            setCountFunction.add("conditions", conditions);
+            functions.add(setCountFunction);
+
+            // Explosion decay
             JsonObject explosionDecay = new JsonObject();
             explosionDecay.addProperty("function", "minecraft:explosion_decay");
             functions.add(explosionDecay);
@@ -233,52 +278,46 @@ public class SlabDataGenerator {
         }
     }
 
-    private static void generateLanguageFile(SlabVariantConfig config, Path basePath) {
+    private static void generateLanguageFile(Map<String, String> langEntries, Path basePath) {
         try {
-            Path langPath = basePath.resolve("assets").resolve(Charmncraftbits.MOD_ID)
-                    .resolve("lang").resolve("en_us.json");
+            Path langPath = basePath.resolve("assets")
+                    .resolve(Charmncraftbits.MOD_ID)
+                    .resolve("lang")
+                    .resolve("en_us.json");
             Files.createDirectories(langPath.getParent());
 
             JsonObject langFile = new JsonObject();
 
-            for (SlabVariantConfig.SlabVariantEntry entry : config.getSlabs()) {
-                String key = "block." + Charmncraftbits.MOD_ID + "." + entry.getSlabId();
-                String displayName = formatSlabName(entry.getName());
-                langFile.addProperty(key, displayName + " Slab");
+            // Load existing lang file if it exists
+            if (Files.exists(langPath)) {
+                try {
+                    String existing = Files.readString(langPath);
+                    JsonObject existingLang = GSON.fromJson(existing, JsonObject.class);
+                    // Copy all existing entries
+                    for (String key : existingLang.keySet()) {
+                        langFile.addProperty(key, existingLang.get(key).getAsString());
+                    }
+                } catch (Exception e) {
+                    LOGGER.warn("Could not load existing lang file, will overwrite", e);
+                }
+            }
+
+            // Add/update slab entries
+            for (Map.Entry<String, String> entry : langEntries.entrySet()) {
+                langFile.addProperty(entry.getKey(), entry.getValue());
+            }
+
+            // Add creative tab if not present
+            String tabKey = "itemGroup." + Charmncraftbits.MOD_ID + ".new_slab_variants";
+            if (!langFile.has(tabKey)) {
+                langFile.addProperty(tabKey, "New Slab Variants");
             }
 
             Files.writeString(langPath, GSON.toJson(langFile));
-            LOGGER.debug("Generated language file: en_us.json");
+            LOGGER.info("Generated language file with {} entries", langEntries.size());
 
         } catch (IOException e) {
             LOGGER.error("Failed to generate language file", e);
         }
-    }
-
-    private static String formatSlabName(String name) {
-        // Convert oak_log to Oak Log, stripped_oak_log to Stripped Oak Log, etc
-        String[] words = name.split("_");
-        StringBuilder result = new StringBuilder();
-
-        for (String word : words) {
-            if (result.length() > 0) {
-                result.append(" ");
-            }
-            result.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
-        }
-
-        return result.toString();
-    }
-
-    private static JsonObject createCondition() {
-        JsonObject condition = new JsonObject();
-        condition.addProperty("condition", "minecraft:block_state_property");
-        condition.addProperty("block", Charmncraftbits.MOD_ID + ":oak_log_slab");
-
-        JsonObject properties = new JsonObject();
-        properties.addProperty("type", "double");
-        condition.add("properties", properties);
-
-        return condition;
     }
 }

@@ -1,6 +1,7 @@
 package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.config.SlabVariantConfig;
+import com.charmed.charmncraft.bits.datagen.SlabDataGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -41,6 +42,9 @@ public class ModSlabs {
 
         // Load configuration
         SlabVariantConfig config = SlabVariantConfig.load();
+
+        // Generate all data files (models, lang, recipes, etc.)
+        SlabDataGenerator.generateAll();
 
         // Register each slab from the configuration
         for (SlabVariantConfig.SlabVariantEntry entry : config.getSlabs()) {

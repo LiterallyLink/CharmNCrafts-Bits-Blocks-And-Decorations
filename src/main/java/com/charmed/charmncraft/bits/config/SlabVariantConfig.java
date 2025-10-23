@@ -23,10 +23,12 @@ public class SlabVariantConfig {
     public static class SlabVariantEntry {
         private final String name;
         private final String baseBlock;
+        private final String displayName;
 
-        public SlabVariantEntry(String name, String baseBlock) {
+        public SlabVariantEntry(String name, String baseBlock, String displayName) {
             this.name = name;
             this.baseBlock = baseBlock;
+            this.displayName = displayName != null ? displayName : formatDisplayName(name);
         }
 
         public String getName() {
@@ -37,8 +39,27 @@ public class SlabVariantConfig {
             return baseBlock;
         }
 
+        public String getDisplayName() {
+            return displayName;
+        }
+
         public String getSlabId() {
             return name + "_slab";
+        }
+
+        private static String formatDisplayName(String name) {
+            // Convert oak_log to Oak Log Slab
+            String[] words = name.split("_");
+            StringBuilder result = new StringBuilder();
+
+            for (String word : words) {
+                if (result.length() > 0) {
+                    result.append(" ");
+                }
+                result.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
+            }
+
+            return result.append(" Slab").toString();
         }
     }
 
@@ -64,8 +85,9 @@ public class SlabVariantConfig {
                     JsonObject slabObj = element.getAsJsonObject();
                     String name = slabObj.get("name").getAsString();
                     String baseBlock = slabObj.get("base_block").getAsString();
+                    String displayName = slabObj.has("display_name") ? slabObj.get("display_name").getAsString() : null;
 
-                    config.slabs.add(new SlabVariantEntry(name, baseBlock));
+                    config.slabs.add(new SlabVariantEntry(name, baseBlock, displayName));
                     LOGGER.info("Loaded slab variant: {} from base block: {}", name, baseBlock);
                 }
             }

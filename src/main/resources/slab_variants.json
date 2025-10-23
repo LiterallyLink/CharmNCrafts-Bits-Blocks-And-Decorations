@@ -1,166 +1,652 @@
 {
   "slabs": [
-    {"name": "stone_slab", "base_block": "minecraft:stone"},
-    {"name": "granite_slab", "base_block": "minecraft:granite"},
-    {"name": "polished_granite_slab", "base_block": "minecraft:polished_granite"},
-    {"name": "diorite_slab", "base_block": "minecraft:diorite"},
-    {"name": "polished_diorite_slab", "base_block": "minecraft:polished_diorite"},
-    {"name": "andesite_slab", "base_block": "minecraft:andesite"},
-    {"name": "polished_andesite_slab", "base_block": "minecraft:polished_andesite"},
-    {"name": "deepslate_slab", "base_block": "minecraft:deepslate"},
-    {"name": "cobbled_deepslate_slab", "base_block": "minecraft:cobbled_deepslate"},
-    {"name": "polished_deepslate_slab", "base_block": "minecraft:polished_deepslate"},
-    {"name": "calcite_slab", "base_block": "minecraft:calcite"},
-    {"name": "tuff_slab", "base_block": "minecraft:tuff"},
-    {"name": "dripstone_block_slab", "base_block": "minecraft:dripstone_block"},
-    {"name": "grass_block_slab", "base_block": "minecraft:grass_block"},
-    {"name": "dirt_slab", "base_block": "minecraft:dirt"},
-    {"name": "coarse_dirt_slab", "base_block": "minecraft:coarse_dirt"},
-    {"name": "podzol_slab", "base_block": "minecraft:podzol"},
-    {"name": "rooted_dirt_slab", "base_block": "minecraft:rooted_dirt"},
-    {"name": "mud_slab", "base_block": "minecraft:mud"},
-    {"name": "crimson_nylium_slab", "base_block": "minecraft:crimson_nylium"},
-    {"name": "warped_nylium_slab", "base_block": "minecraft:warped_nylium"},
-    {"name": "cobblestone_slab", "base_block": "minecraft:cobblestone"},
-    {"name": "oak_planks_slab", "base_block": "minecraft:oak_planks"},
-    {"name": "spruce_planks_slab", "base_block": "minecraft:spruce_planks"},
-    {"name": "birch_planks_slab", "base_block": "minecraft:birch_planks"},
-    {"name": "jungle_planks_slab", "base_block": "minecraft:jungle_planks"},
-    {"name": "acacia_planks_slab", "base_block": "minecraft:acacia_planks"},
-    {"name": "dark_oak_planks_slab", "base_block": "minecraft:dark_oak_planks"},
-    {"name": "mangrove_planks_slab", "base_block": "minecraft:mangrove_planks"},
-    {"name": "crimson_planks_slab", "base_block": "minecraft:crimson_planks"},
-    {"name": "warped_planks_slab", "base_block": "minecraft:warped_planks"},
-    {"name": "sand_slab", "base_block": "minecraft:sand"},
-    {"name": "red_sand_slab", "base_block": "minecraft:red_sand"},
-    {"name": "gravel_slab", "base_block": "minecraft:gravel"},
-    {"name": "coal_ore_slab", "base_block": "minecraft:coal_ore"},
-    {"name": "deepslate_coal_ore_slab", "base_block": "minecraft:deepslate_coal_ore"},
-    {"name": "iron_ore_slab", "base_block": "minecraft:iron_ore"},
-    {"name": "deepslate_iron_ore_slab", "base_block": "minecraft:deepslate_iron_ore"},
-    {"name": "copper_ore_slab", "base_block": "minecraft:copper_ore"},
-    {"name": "deepslate_copper_ore_slab", "base_block": "minecraft:deepslate_copper_ore"},
-    {"name": "gold_ore_slab", "base_block": "minecraft:gold_ore"},
-    {"name": "deepslate_gold_ore_slab", "base_block": "minecraft:deepslate_gold_ore"},
-    {"name": "redstone_ore_slab", "base_block": "minecraft:redstone_ore"},
-    {"name": "deepslate_redstone_ore_slab", "base_block": "minecraft:deepslate_redstone_ore"},
-    {"name": "emerald_ore_slab", "base_block": "minecraft:emerald_ore"},
-    {"name": "deepslate_emerald_ore_slab", "base_block": "minecraft:deepslate_emerald_ore"},
-    {"name": "lapis_ore_slab", "base_block": "minecraft:lapis_ore"},
-    {"name": "deepslate_lapis_ore_slab", "base_block": "minecraft:deepslate_lapis_ore"},
-    {"name": "diamond_ore_slab", "base_block": "minecraft:diamond_ore"},
-    {"name": "deepslate_diamond_ore_slab", "base_block": "minecraft:deepslate_diamond_ore"},
-    {"name": "nether_gold_ore_slab", "base_block": "minecraft:nether_gold_ore"},
-    {"name": "nether_quartz_ore_slab", "base_block": "minecraft:nether_quartz_ore"},
-    {"name": "ancient_debris_slab", "base_block": "minecraft:ancient_debris"},
-    {"name": "coal_block_slab", "base_block": "minecraft:coal_block"},
-    {"name": "raw_iron_block_slab", "base_block": "minecraft:raw_iron_block"},
-    {"name": "raw_copper_block_slab", "base_block": "minecraft:raw_copper_block"},
-    {"name": "raw_gold_block_slab", "base_block": "minecraft:raw_gold_block"},
-    {"name": "amethyst_block_slab", "base_block": "minecraft:amethyst_block"},
-    {"name": "iron_block_slab", "base_block": "minecraft:iron_block"},
-    {"name": "copper_block_slab", "base_block": "minecraft:copper_block"},
-    {"name": "gold_block_slab", "base_block": "minecraft:gold_block"},
-    {"name": "diamond_block_slab", "base_block": "minecraft:diamond_block"},
-    {"name": "netherite_block_slab", "base_block": "minecraft:netherite_block"},
-    {"name": "exposed_copper_slab", "base_block": "minecraft:exposed_copper"},
-    {"name": "weathered_copper_slab", "base_block": "minecraft:weathered_copper"},
-    {"name": "oxidized_copper_slab", "base_block": "minecraft:oxidized_copper"},
-    {"name": "cut_copper_slab", "base_block": "minecraft:cut_copper"},
-    {"name": "exposed_cut_copper_slab", "base_block": "minecraft:exposed_cut_copper"},
-    {"name": "weathered_cut_copper_slab", "base_block": "minecraft:weathered_cut_copper"},
-    {"name": "oxidized_cut_copper_slab", "base_block": "minecraft:oxidized_cut_copper"},
-    {"name": "cut_copper_stairs_slab", "base_block": "minecraft:cut_copper_stairs"},
-    {"name": "exposed_cut_copper_stairs_slab", "base_block": "minecraft:exposed_cut_copper_stairs"},
-    {"name": "weathered_cut_copper_stairs_slab", "base_block": "minecraft:weathered_cut_copper_stairs"},
-    {"name": "oxidized_cut_copper_stairs_slab", "base_block": "minecraft:oxidized_cut_copper_stairs"},
-    {"name": "waxed_copper_block_slab", "base_block": "minecraft:waxed_copper"},
-    {"name": "waxed_exposed_copper_slab", "base_block": "minecraft:waxed_exposed_copper"},
-    {"name": "waxed_weathered_copper_slab", "base_block": "minecraft:waxed_weathered_copper"},
-    {"name": "waxed_oxidized_copper_slab", "base_block": "minecraft:waxed_oxidized_copper"},
-    {"name": "waxed_cut_copper_slab", "base_block": "minecraft:waxed_cut_copper"},
-    {"name": "waxed_exposed_cut_copper_slab", "base_block": "minecraft:waxed_exposed_cut_copper"},
-    {"name": "waxed_weathered_cut_copper_slab", "base_block": "minecraft:waxed_weathered_cut_copper"},
-    {"name": "waxed_oxidized_cut_copper_slab", "base_block": "minecraft:waxed_oxidized_cut_copper"},
-    {"name": "waxed_cut_copper_stairs_slab", "base_block": "minecraft:waxed_cut_copper_stairs"},
-    {"name": "waxed_exposed_cut_copper_stairs_slab", "base_block": "minecraft:waxed_exposed_cut_copper_stairs"},
-    {"name": "waxed_weathered_cut_copper_stairs_slab", "base_block": "minecraft:waxed_weathered_cut_copper_stairs"},
-    {"name": "waxed_oxidized_cut_copper_stairs_slab", "base_block": "minecraft:waxed_oxidized_cut_copper_stairs"},
-    {"name": "oak_log_slab", "base_block": "minecraft:oak_log"},
-    {"name": "spruce_log_slab", "base_block": "minecraft:spruce_log"},
-    {"name": "birch_log_slab", "base_block": "minecraft:birch_log"},
-    {"name": "jungle_log_slab", "base_block": "minecraft:jungle_log"},
-    {"name": "acacia_log_slab", "base_block": "minecraft:acacia_log"},
-    {"name": "dark_oak_log_slab", "base_block": "minecraft:dark_oak_log"},
-    {"name": "mangrove_log_slab", "base_block": "minecraft:mangrove_log"},
-    {"name": "mangrove_roots_slab", "base_block": "minecraft:mangrove_roots"},
-    {"name": "muddy_mangrove_roots_slab", "base_block": "minecraft:muddy_mangrove_roots"},
-    {"name": "crimson_stem_slab", "base_block": "minecraft:crimson_stem"},
-    {"name": "warped_stem_slab", "base_block": "minecraft:warped_stem"},
-    {"name": "stripped_oak_log_slab", "base_block": "minecraft:stripped_oak_log"},
-    {"name": "stripped_spruce_log_slab", "base_block": "minecraft:stripped_spruce_log"},
-    {"name": "stripped_birch_log_slab", "base_block": "minecraft:stripped_birch_log"},
-    {"name": "stripped_jungle_log_slab", "base_block": "minecraft:stripped_jungle_log"},
-    {"name": "stripped_acacia_log_slab", "base_block": "minecraft:stripped_acacia_log"},
-    {"name": "stripped_dark_oak_log_slab", "base_block": "minecraft:stripped_dark_oak_log"},
-    {"name": "stripped_mangrove_log_slab", "base_block": "minecraft:stripped_mangrove_log"},
-    {"name": "stripped_crimson_stem_slab", "base_block": "minecraft:stripped_crimson_stem"},
-    {"name": "stripped_warped_stem_slab", "base_block": "minecraft:stripped_warped_stem"},
-    {"name": "stripped_oak_wood_slab", "base_block": "minecraft:stripped_oak_wood"},
-    {"name": "stripped_spruce_wood_slab", "base_block": "minecraft:stripped_spruce_wood"},
-    {"name": "stripped_birch_wood_slab", "base_block": "minecraft:stripped_birch_wood"},
-    {"name": "stripped_jungle_wood_slab", "base_block": "minecraft:stripped_jungle_wood"},
-    {"name": "stripped_acacia_wood_slab", "base_block": "minecraft:stripped_acacia_wood"},
-    {"name": "stripped_dark_oak_wood_slab", "base_block": "minecraft:stripped_dark_oak_wood"},
-    {"name": "stripped_mangrove_wood_slab", "base_block": "minecraft:stripped_mangrove_wood"},
-    {"name": "stripped_crimson_hyphae_slab", "base_block": "minecraft:stripped_crimson_hyphae"},
-    {"name": "oak_wood_slab", "base_block": "minecraft:oak_wood"},
-    {"name": "spruce_wood_slab", "base_block": "minecraft:spruce_wood"},
-    {"name": "birch_wood_slab", "base_block": "minecraft:birch_wood"},
-    {"name": "jungle_wood_slab", "base_block": "minecraft:jungle_wood"},
-    {"name": "acacia_wood_slab", "base_block": "minecraft:acacia_wood"},
-    {"name": "dark_oak_wood_slab", "base_block": "minecraft:dark_oak_wood"},
-    {"name": "mangrove_wood_slab", "base_block": "minecraft:mangrove_wood"},
-    {"name": "crimson_hyphae_slab", "base_block": "minecraft:crimson_hyphae"},
-    {"name": "warped_hyphae_slab", "base_block": "minecraft:warped_hyphae"},
-    {"name": "oak_leaves_slab", "base_block": "minecraft:oak_leaves"},
-    {"name": "spruce_leaves_slab", "base_block": "minecraft:spruce_leaves"},
-    {"name": "birch_leaves_slab", "base_block": "minecraft:birch_leaves"},
-    {"name": "jungle_leaves_slab", "base_block": "minecraft:jungle_leaves"},
-    {"name": "acacia_leaves_slab", "base_block": "minecraft:acacia_leaves"},
-    {"name": "dark_oak_leaves_slab", "base_block": "minecraft:dark_oak_leaves"},
-    {"name": "mangrove_leaves_slab", "base_block": "minecraft:mangrove_leaves"},
-    {"name": "azalea_leaves_slab", "base_block": "minecraft:azalea_leaves"},
-    {"name": "flowering_azalea_leaves_slab", "base_block": "minecraft:flowering_azalea_leaves"},
-    {"name": "sponge_slab", "base_block": "minecraft:sponge"},
-    {"name": "wet_sponge_slab", "base_block": "minecraft:wet_sponge"},
-    {"name": "glass_slab", "base_block": "minecraft:glass"},
-    {"name": "tinted_glass_slab", "base_block": "minecraft:tinted_glass"},
-    {"name": "lapis_block_slab", "base_block": "minecraft:lapis_block"},
-    {"name": "sandstone_slab", "base_block": "minecraft:sandstone"},
-    {"name": "chiseled_sandstone_slab", "base_block": "minecraft:chiseled_sandstone"},
-    {"name": "cut_sandstone_slab", "base_block": "minecraft:cut_sandstone"},
-    {"name": "white_wool_slab", "base_block": "minecraft:white_wool"},
-    {"name": "orange_wool_slab", "base_block": "minecraft:orange_wool"},
-    {"name": "magenta_wool_slab", "base_block": "minecraft:magenta_wool"},
-    {"name": "light_blue_wool_slab", "base_block": "minecraft:light_blue_wool"},
-    {"name": "yellow_wool_slab", "base_block": "minecraft:yellow_wool"},
-    {"name": "lime_wool_slab", "base_block": "minecraft:lime_wool"},
-    {"name": "pink_wool_slab", "base_block": "minecraft:pink_wool"},
-    {"name": "gray_wool_slab", "base_block": "minecraft:gray_wool"},
-    {"name": "light_gray_wool_slab", "base_block": "minecraft:light_gray_wool"},
-    {"name": "cyan_wool_slab", "base_block": "minecraft:cyan_wool"},
-    {"name": "purple_wool_slab", "base_block": "minecraft:purple_wool"},
-    {"name": "blue_wool_slab", "base_block": "minecraft:blue_wool"},
-    {"name": "brown_wool_slab", "base_block": "minecraft:brown_wool"},
-    {"name": "green_wool_slab", "base_block": "minecraft:green_wool"},
-    {"name": "red_wool_slab", "base_block": "minecraft:red_wool"},
-    {"name": "black_wool_slab", "base_block": "minecraft:black_wool"},
-    {"name": "moss_block_slab", "base_block": "minecraft:moss_block"},
-    {"name": "smooth_quartz_slab", "base_block": "minecraft:smooth_quartz"},
-    {"name": "bricks_slab", "base_block": "minecraft:bricks"},
-    {"name": "bookshelf_slab", "base_block": "minecraft:bookshelf"},
-    {"name": "mossy_cobblestone_slab", "base_block": "minecraft:mossy_cobblestone"},
-    {"name": "obsidian_slab", "base_block": "minecraft:obsidian"}
+    {
+      "name": "stone",
+      "base_block": "minecraft:stone"
+    },
+    {
+      "name": "granite",
+      "base_block": "minecraft:granite"
+    },
+    {
+      "name": "polished_granite",
+      "base_block": "minecraft:polished_granite"
+    },
+    {
+      "name": "diorite",
+      "base_block": "minecraft:diorite"
+    },
+    {
+      "name": "polished_diorite",
+      "base_block": "minecraft:polished_diorite"
+    },
+    {
+      "name": "andesite",
+      "base_block": "minecraft:andesite"
+    },
+    {
+      "name": "polished_andesite",
+      "base_block": "minecraft:polished_andesite"
+    },
+    {
+      "name": "deepslate",
+      "base_block": "minecraft:deepslate"
+    },
+    {
+      "name": "cobbled_deepslate",
+      "base_block": "minecraft:cobbled_deepslate"
+    },
+    {
+      "name": "polished_deepslate",
+      "base_block": "minecraft:polished_deepslate"
+    },
+    {
+      "name": "calcite",
+      "base_block": "minecraft:calcite"
+    },
+    {
+      "name": "tuff",
+      "base_block": "minecraft:tuff"
+    },
+    {
+      "name": "dripstone_block",
+      "base_block": "minecraft:dripstone_block"
+    },
+    {
+      "name": "grass_block",
+      "base_block": "minecraft:grass_block"
+    },
+    {
+      "name": "dirt",
+      "base_block": "minecraft:dirt"
+    },
+    {
+      "name": "coarse_dirt",
+      "base_block": "minecraft:coarse_dirt"
+    },
+    {
+      "name": "podzol",
+      "base_block": "minecraft:podzol"
+    },
+    {
+      "name": "rooted_dirt",
+      "base_block": "minecraft:rooted_dirt"
+    },
+    {
+      "name": "mud",
+      "base_block": "minecraft:mud"
+    },
+    {
+      "name": "crimson_nylium",
+      "base_block": "minecraft:crimson_nylium"
+    },
+    {
+      "name": "warped_nylium",
+      "base_block": "minecraft:warped_nylium"
+    },
+    {
+      "name": "cobblestone",
+      "base_block": "minecraft:cobblestone"
+    },
+    {
+      "name": "oak_planks",
+      "base_block": "minecraft:oak_planks"
+    },
+    {
+      "name": "spruce_planks",
+      "base_block": "minecraft:spruce_planks"
+    },
+    {
+      "name": "birch_planks",
+      "base_block": "minecraft:birch_planks"
+    },
+    {
+      "name": "jungle_planks",
+      "base_block": "minecraft:jungle_planks"
+    },
+    {
+      "name": "acacia_planks",
+      "base_block": "minecraft:acacia_planks"
+    },
+    {
+      "name": "dark_oak_planks",
+      "base_block": "minecraft:dark_oak_planks"
+    },
+    {
+      "name": "mangrove_planks",
+      "base_block": "minecraft:mangrove_planks"
+    },
+    {
+      "name": "crimson_planks",
+      "base_block": "minecraft:crimson_planks"
+    },
+    {
+      "name": "warped_planks",
+      "base_block": "minecraft:warped_planks"
+    },
+    {
+      "name": "sand",
+      "base_block": "minecraft:sand"
+    },
+    {
+      "name": "red_sand",
+      "base_block": "minecraft:red_sand"
+    },
+    {
+      "name": "gravel",
+      "base_block": "minecraft:gravel"
+    },
+    {
+      "name": "coal_ore",
+      "base_block": "minecraft:coal_ore"
+    },
+    {
+      "name": "deepslate_coal_ore",
+      "base_block": "minecraft:deepslate_coal_ore"
+    },
+    {
+      "name": "iron_ore",
+      "base_block": "minecraft:iron_ore"
+    },
+    {
+      "name": "deepslate_iron_ore",
+      "base_block": "minecraft:deepslate_iron_ore"
+    },
+    {
+      "name": "copper_ore",
+      "base_block": "minecraft:copper_ore"
+    },
+    {
+      "name": "deepslate_copper_ore",
+      "base_block": "minecraft:deepslate_copper_ore"
+    },
+    {
+      "name": "gold_ore",
+      "base_block": "minecraft:gold_ore"
+    },
+    {
+      "name": "deepslate_gold_ore",
+      "base_block": "minecraft:deepslate_gold_ore"
+    },
+    {
+      "name": "redstone_ore",
+      "base_block": "minecraft:redstone_ore"
+    },
+    {
+      "name": "deepslate_redstone_ore",
+      "base_block": "minecraft:deepslate_redstone_ore"
+    },
+    {
+      "name": "emerald_ore",
+      "base_block": "minecraft:emerald_ore"
+    },
+    {
+      "name": "deepslate_emerald_ore",
+      "base_block": "minecraft:deepslate_emerald_ore"
+    },
+    {
+      "name": "lapis_ore",
+      "base_block": "minecraft:lapis_ore"
+    },
+    {
+      "name": "deepslate_lapis_ore",
+      "base_block": "minecraft:deepslate_lapis_ore"
+    },
+    {
+      "name": "diamond_ore",
+      "base_block": "minecraft:diamond_ore"
+    },
+    {
+      "name": "deepslate_diamond_ore",
+      "base_block": "minecraft:deepslate_diamond_ore"
+    },
+    {
+      "name": "nether_gold_ore",
+      "base_block": "minecraft:nether_gold_ore"
+    },
+    {
+      "name": "nether_quartz_ore",
+      "base_block": "minecraft:nether_quartz_ore"
+    },
+    {
+      "name": "ancient_debris",
+      "base_block": "minecraft:ancient_debris"
+    },
+    {
+      "name": "coal_block",
+      "base_block": "minecraft:coal_block"
+    },
+    {
+      "name": "raw_iron_block",
+      "base_block": "minecraft:raw_iron_block"
+    },
+    {
+      "name": "raw_copper_block",
+      "base_block": "minecraft:raw_copper_block"
+    },
+    {
+      "name": "raw_gold_block",
+      "base_block": "minecraft:raw_gold_block"
+    },
+    {
+      "name": "amethyst_block",
+      "base_block": "minecraft:amethyst_block"
+    },
+    {
+      "name": "iron_block",
+      "base_block": "minecraft:iron_block"
+    },
+    {
+      "name": "copper_block",
+      "base_block": "minecraft:copper_block"
+    },
+    {
+      "name": "gold_block",
+      "base_block": "minecraft:gold_block"
+    },
+    {
+      "name": "diamond_block",
+      "base_block": "minecraft:diamond_block"
+    },
+    {
+      "name": "netherite_block",
+      "base_block": "minecraft:netherite_block"
+    },
+    {
+      "name": "exposed_copper",
+      "base_block": "minecraft:exposed_copper"
+    },
+    {
+      "name": "weathered_copper",
+      "base_block": "minecraft:weathered_copper"
+    },
+    {
+      "name": "oxidized_copper",
+      "base_block": "minecraft:oxidized_copper"
+    },
+    {
+      "name": "cut_copper",
+      "base_block": "minecraft:cut_copper"
+    },
+    {
+      "name": "exposed_cut_copper",
+      "base_block": "minecraft:exposed_cut_copper"
+    },
+    {
+      "name": "weathered_cut_copper",
+      "base_block": "minecraft:weathered_cut_copper"
+    },
+    {
+      "name": "oxidized_cut_copper",
+      "base_block": "minecraft:oxidized_cut_copper"
+    },
+    {
+      "name": "cut_copper_stairs",
+      "base_block": "minecraft:cut_copper_stairs"
+    },
+    {
+      "name": "exposed_cut_copper_stairs",
+      "base_block": "minecraft:exposed_cut_copper_stairs"
+    },
+    {
+      "name": "weathered_cut_copper_stairs",
+      "base_block": "minecraft:weathered_cut_copper_stairs"
+    },
+    {
+      "name": "oxidized_cut_copper_stairs",
+      "base_block": "minecraft:oxidized_cut_copper_stairs"
+    },
+    {
+      "name": "waxed_copper_block",
+      "base_block": "minecraft:waxed_copper"
+    },
+    {
+      "name": "waxed_exposed_copper",
+      "base_block": "minecraft:waxed_exposed_copper"
+    },
+    {
+      "name": "waxed_weathered_copper",
+      "base_block": "minecraft:waxed_weathered_copper"
+    },
+    {
+      "name": "waxed_oxidized_copper",
+      "base_block": "minecraft:waxed_oxidized_copper"
+    },
+    {
+      "name": "waxed_cut_copper",
+      "base_block": "minecraft:waxed_cut_copper"
+    },
+    {
+      "name": "waxed_exposed_cut_copper",
+      "base_block": "minecraft:waxed_exposed_cut_copper"
+    },
+    {
+      "name": "waxed_weathered_cut_copper",
+      "base_block": "minecraft:waxed_weathered_cut_copper"
+    },
+    {
+      "name": "waxed_oxidized_cut_copper",
+      "base_block": "minecraft:waxed_oxidized_cut_copper"
+    },
+    {
+      "name": "waxed_cut_copper_stairs",
+      "base_block": "minecraft:waxed_cut_copper_stairs"
+    },
+    {
+      "name": "waxed_exposed_cut_copper_stairs",
+      "base_block": "minecraft:waxed_exposed_cut_copper_stairs"
+    },
+    {
+      "name": "waxed_weathered_cut_copper_stairs",
+      "base_block": "minecraft:waxed_weathered_cut_copper_stairs"
+    },
+    {
+      "name": "waxed_oxidized_cut_copper_stairs",
+      "base_block": "minecraft:waxed_oxidized_cut_copper_stairs"
+    },
+    {
+      "name": "oak_log",
+      "base_block": "minecraft:oak_log"
+    },
+    {
+      "name": "spruce_log",
+      "base_block": "minecraft:spruce_log"
+    },
+    {
+      "name": "birch_log",
+      "base_block": "minecraft:birch_log"
+    },
+    {
+      "name": "jungle_log",
+      "base_block": "minecraft:jungle_log"
+    },
+    {
+      "name": "acacia_log",
+      "base_block": "minecraft:acacia_log"
+    },
+    {
+      "name": "dark_oak_log",
+      "base_block": "minecraft:dark_oak_log"
+    },
+    {
+      "name": "mangrove_log",
+      "base_block": "minecraft:mangrove_log"
+    },
+    {
+      "name": "mangrove_roots",
+      "base_block": "minecraft:mangrove_roots"
+    },
+    {
+      "name": "muddy_mangrove_roots",
+      "base_block": "minecraft:muddy_mangrove_roots"
+    },
+    {
+      "name": "crimson_stem",
+      "base_block": "minecraft:crimson_stem"
+    },
+    {
+      "name": "warped_stem",
+      "base_block": "minecraft:warped_stem"
+    },
+    {
+      "name": "stripped_oak_log",
+      "base_block": "minecraft:stripped_oak_log"
+    },
+    {
+      "name": "stripped_spruce_log",
+      "base_block": "minecraft:stripped_spruce_log"
+    },
+    {
+      "name": "stripped_birch_log",
+      "base_block": "minecraft:stripped_birch_log"
+    },
+    {
+      "name": "stripped_jungle_log",
+      "base_block": "minecraft:stripped_jungle_log"
+    },
+    {
+      "name": "stripped_acacia_log",
+      "base_block": "minecraft:stripped_acacia_log"
+    },
+    {
+      "name": "stripped_dark_oak_log",
+      "base_block": "minecraft:stripped_dark_oak_log"
+    },
+    {
+      "name": "stripped_mangrove_log",
+      "base_block": "minecraft:stripped_mangrove_log"
+    },
+    {
+      "name": "stripped_crimson_stem",
+      "base_block": "minecraft:stripped_crimson_stem"
+    },
+    {
+      "name": "stripped_warped_stem",
+      "base_block": "minecraft:stripped_warped_stem"
+    },
+    {
+      "name": "stripped_oak_wood",
+      "base_block": "minecraft:stripped_oak_wood"
+    },
+    {
+      "name": "stripped_spruce_wood",
+      "base_block": "minecraft:stripped_spruce_wood"
+    },
+    {
+      "name": "stripped_birch_wood",
+      "base_block": "minecraft:stripped_birch_wood"
+    },
+    {
+      "name": "stripped_jungle_wood",
+      "base_block": "minecraft:stripped_jungle_wood"
+    },
+    {
+      "name": "stripped_acacia_wood",
+      "base_block": "minecraft:stripped_acacia_wood"
+    },
+    {
+      "name": "stripped_dark_oak_wood",
+      "base_block": "minecraft:stripped_dark_oak_wood"
+    },
+    {
+      "name": "stripped_mangrove_wood",
+      "base_block": "minecraft:stripped_mangrove_wood"
+    },
+    {
+      "name": "stripped_crimson_hyphae",
+      "base_block": "minecraft:stripped_crimson_hyphae"
+    },
+    {
+      "name": "oak_wood",
+      "base_block": "minecraft:oak_wood"
+    },
+    {
+      "name": "spruce_wood",
+      "base_block": "minecraft:spruce_wood"
+    },
+    {
+      "name": "birch_wood",
+      "base_block": "minecraft:birch_wood"
+    },
+    {
+      "name": "jungle_wood",
+      "base_block": "minecraft:jungle_wood"
+    },
+    {
+      "name": "acacia_wood",
+      "base_block": "minecraft:acacia_wood"
+    },
+    {
+      "name": "dark_oak_wood",
+      "base_block": "minecraft:dark_oak_wood"
+    },
+    {
+      "name": "mangrove_wood",
+      "base_block": "minecraft:mangrove_wood"
+    },
+    {
+      "name": "crimson_hyphae",
+      "base_block": "minecraft:crimson_hyphae"
+    },
+    {
+      "name": "warped_hyphae",
+      "base_block": "minecraft:warped_hyphae"
+    },
+    {
+      "name": "oak_leaves",
+      "base_block": "minecraft:oak_leaves"
+    },
+    {
+      "name": "spruce_leaves",
+      "base_block": "minecraft:spruce_leaves"
+    },
+    {
+      "name": "birch_leaves",
+      "base_block": "minecraft:birch_leaves"
+    },
+    {
+      "name": "jungle_leaves",
+      "base_block": "minecraft:jungle_leaves"
+    },
+    {
+      "name": "acacia_leaves",
+      "base_block": "minecraft:acacia_leaves"
+    },
+    {
+      "name": "dark_oak_leaves",
+      "base_block": "minecraft:dark_oak_leaves"
+    },
+    {
+      "name": "mangrove_leaves",
+      "base_block": "minecraft:mangrove_leaves"
+    },
+    {
+      "name": "azalea_leaves",
+      "base_block": "minecraft:azalea_leaves"
+    },
+    {
+      "name": "flowering_azalea_leaves",
+      "base_block": "minecraft:flowering_azalea_leaves"
+    },
+    {
+      "name": "sponge",
+      "base_block": "minecraft:sponge"
+    },
+    {
+      "name": "wet_sponge",
+      "base_block": "minecraft:wet_sponge"
+    },
+    {
+      "name": "glass",
+      "base_block": "minecraft:glass"
+    },
+    {
+      "name": "tinted_glass",
+      "base_block": "minecraft:tinted_glass"
+    },
+    {
+      "name": "lapis_block",
+      "base_block": "minecraft:lapis_block"
+    },
+    {
+      "name": "sandstone",
+      "base_block": "minecraft:sandstone"
+    },
+    {
+      "name": "chiseled_sandstone",
+      "base_block": "minecraft:chiseled_sandstone"
+    },
+    {
+      "name": "cut_sandstone",
+      "base_block": "minecraft:cut_sandstone"
+    },
+    {
+      "name": "white_wool",
+      "base_block": "minecraft:white_wool"
+    },
+    {
+      "name": "orange_wool",
+      "base_block": "minecraft:orange_wool"
+    },
+    {
+      "name": "magenta_wool",
+      "base_block": "minecraft:magenta_wool"
+    },
+    {
+      "name": "light_blue_wool",
+      "base_block": "minecraft:light_blue_wool"
+    },
+    {
+      "name": "yellow_wool",
+      "base_block": "minecraft:yellow_wool"
+    },
+    {
+      "name": "lime_wool",
+      "base_block": "minecraft:lime_wool"
+    },
+    {
+      "name": "pink_wool",
+      "base_block": "minecraft:pink_wool"
+    },
+    {
+      "name": "gray_wool",
+      "base_block": "minecraft:gray_wool"
+    },
+    {
+      "name": "light_gray_wool",
+      "base_block": "minecraft:light_gray_wool"
+    },
+    {
+      "name": "cyan_wool",
+      "base_block": "minecraft:cyan_wool"
+    },
+    {
+      "name": "purple_wool",
+      "base_block": "minecraft:purple_wool"
+    },
+    {
+      "name": "blue_wool",
+      "base_block": "minecraft:blue_wool"
+    },
+    {
+      "name": "brown_wool",
+      "base_block": "minecraft:brown_wool"
+    },
+    {
+      "name": "green_wool",
+      "base_block": "minecraft:green_wool"
+    },
+    {
+      "name": "red_wool",
+      "base_block": "minecraft:red_wool"
+    },
+    {
+      "name": "black_wool",
+      "base_block": "minecraft:black_wool"
+    },
+    {
+      "name": "moss_block",
+      "base_block": "minecraft:moss_block"
+    },
+    {
+      "name": "smooth_quartz",
+      "base_block": "minecraft:smooth_quartz"
+    },
+    {
+      "name": "bricks",
+      "base_block": "minecraft:bricks"
+    },
+    {
+      "name": "bookshelf",
+      "base_block": "minecraft:bookshelf"
+    },
+    {
+      "name": "mossy_cobblestone",
+      "base_block": "minecraft:mossy_cobblestone"
+    },
+    {
+      "name": "obsidian",
+      "base_block": "minecraft:obsidian"
+    }
   ]
 }
