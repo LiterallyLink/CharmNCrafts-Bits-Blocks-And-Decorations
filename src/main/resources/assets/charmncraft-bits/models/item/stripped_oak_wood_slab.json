@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "minecraft:block/stripped_oak_log_top"
-  }
-}

@@ -36,12 +36,6 @@ public class CharmncraftbitsClient implements ClientModInitializer {
 				} catch (Exception e) {
 					LOGGER.error("Error checking textures", e);
 				}
-				
-				LOGGER.info("==== SLAB BLOCKS REGISTERED ====");
-				var slabBlocks = ModSlabs.getSlabBlocks();
-				for (var entry : slabBlocks.entrySet()) {
-					LOGGER.info("Slab: {} -> Block: {}", entry.getKey(), entry.getValue());
-				}
 			}
 		});
 	}
