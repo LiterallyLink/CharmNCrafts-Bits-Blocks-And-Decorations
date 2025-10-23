@@ -17,6 +17,13 @@ import net.minecraft.world.BlockView;
 public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
+    // Default plushie hitbox: 8x8x8 centered cube (similar to your other decorative blocks)
+    private static final VoxelShape DEFAULT_SHAPE = VoxelShapes.cuboid(
+        4/16f, 0, 4/16f,      // min x, y, z
+        12/16f, 8/16f, 12/16f  // max x, y, z
+    );
+
     private final VoxelShape shape;
 
     public PlushieBlock(Settings settings, VoxelShape shape) {
@@ -30,7 +37,7 @@ public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable
     }
 
     public PlushieBlock(Settings settings) {
-        this(settings, VoxelShapes.fullCube());
+        this(settings, DEFAULT_SHAPE);
     }
 
     @Override
