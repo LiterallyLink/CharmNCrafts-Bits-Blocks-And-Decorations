@@ -34,6 +34,9 @@ public class SlabDataGenerator {
                 generateItemModel(entry, resourcesPath);
                 generateLootTable(entry, resourcesPath);
             }
+            
+            // Generate language file after all slabs are processed
+            generateLanguageFile(config, resourcesPath);
 
             LOGGER.info("Slab data generation complete! Files saved to: {}", resourcesPath);
             LOGGER.info("Copy the contents of this folder to src/main/resources/data/ and src/main/resources/assets/");
@@ -99,7 +102,7 @@ public class SlabDataGenerator {
 
             // type=double
             JsonObject doubleBlock = new JsonObject();
-            doubleBlock.addProperty("model", Charmncraftbits.MOD_ID + ":block/" + entry.getName() + "_double");
+            doubleBlock.addProperty("model", Charmncraftbits.MOD_ID + ":block/" + entry.getSlabId() + "_double");
             variants.add("type=double", doubleBlock);
 
             blockstate.add("variants", variants);
@@ -149,7 +152,7 @@ public class SlabDataGenerator {
             JsonObject doubleTextures = new JsonObject();
             doubleTextures.addProperty("all", namespace + ":block/" + blockName);
             doubleModel.add("textures", doubleTextures);
-            Files.writeString(modelPath.resolve(entry.getName() + "_double.json"), GSON.toJson(doubleModel));
+            Files.writeString(modelPath.resolve(entry.getSlabId() + "_double.json"), GSON.toJson(doubleModel));
 
             LOGGER.debug("Generated block models: {}", entry.getSlabId());
 
@@ -228,6 +231,43 @@ public class SlabDataGenerator {
         } catch (IOException e) {
             LOGGER.error("Failed to generate loot table for {}", entry.getSlabId(), e);
         }
+    }
+
+    private static void generateLanguageFile(SlabVariantConfig config, Path basePath) {
+        try {
+            Path langPath = basePath.resolve("assets").resolve(Charmncraftbits.MOD_ID)
+                    .resolve("lang").resolve("en_us.json");
+            Files.createDirectories(langPath.getParent());
+
+            JsonObject langFile = new JsonObject();
+
+            for (SlabVariantConfig.SlabVariantEntry entry : config.getSlabs()) {
+                String key = "block." + Charmncraftbits.MOD_ID + "." + entry.getSlabId();
+                String displayName = formatSlabName(entry.getName());
+                langFile.addProperty(key, displayName + " Slab");
+            }
+
+            Files.writeString(langPath, GSON.toJson(langFile));
+            LOGGER.debug("Generated language file: en_us.json");
+
+        } catch (IOException e) {
+            LOGGER.error("Failed to generate language file", e);
+        }
+    }
+
+    private static String formatSlabName(String name) {
+        // Convert oak_log to Oak Log, stripped_oak_log to Stripped Oak Log, etc
+        String[] words = name.split("_");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            if (result.length() > 0) {
+                result.append(" ");
+            }
+            result.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
+        }
+
+        return result.toString();
     }
 
     private static JsonObject createCondition() {

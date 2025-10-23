@@ -7,7 +7,7 @@
       "model": "charmncraft-bits:block/oak_log_slab_top"
     },
     "type=double": {
-      "model": "minecraft:block/oak_log"
+      "model": "charmncraft-bits:block/oak_log_slab_double"
     }
   }
 }
