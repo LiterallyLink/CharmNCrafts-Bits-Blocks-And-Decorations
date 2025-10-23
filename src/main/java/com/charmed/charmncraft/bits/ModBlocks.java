@@ -1,5 +1,6 @@
 package com.charmed.charmncraft.bits;
 
+import com.charmed.charmncraft.bits.blocks.PlushieBlock;
 import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
@@ -42,6 +43,32 @@ public class ModBlocks {
 
     // Store blocks for creative tab registration
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
+    private static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
+
+    // List of all plushie types to register
+    private static final String[] PLUSHIES = {
+        "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie",
+        "black_rabbit_plushie", "blaze_plushie", "brown_rabbit_plushie", "camel_plushie",
+        "cat_plushie", "cave_spider_plushie", "chicken_plushie", "cod_plushie",
+        "cold_frog_plushie", "cow_plushie", "creeper_plushie", "dolphin_plushie",
+        "dragon_plushie", "drowned_plushie", "elder_guardian_plushie", "enderman_plushie",
+        "endermite_plushie", "evoker_plushie", "frog_plushie", "ghast_plushie",
+        "glow_squid_plushie", "goat_plushie", "guardian_plushie", "hoglin_plushie",
+        "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
+        "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "mooshroom_plushie",
+        "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
+        "pig_plushie", "piglin_brute_plushie", "piglin_plushie", "pillager_plushie",
+        "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie", "red_fox_plushie",
+        "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
+        "silverfish_plushie", "skeleton_horse_plushie", "skeleton_plushie", "slime_plushie",
+        "sniffer_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
+        "stray_plushie", "strider_plushie", "tadpole_plushie", "toast_rabbit_plushie",
+        "turtle_plushie", "vex_plushie", "villager_plushie", "vindicator_plushie",
+        "wandering_trader_plushie", "warden_plushie", "warm_frog_plushie", "white_fox_plushie",
+        "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
+        "wither_skeleton_plushie", "wolf_plushie", "yellow_rabbit_plushie", "zoglin_plushie",
+        "zombie_plushie", "zombie_villager_plushie", "zombiefied_piglin_plushie"
+    };
 
     static {
         // Register all night light blocks with lit property
@@ -49,10 +76,21 @@ public class ModBlocks {
         registerColoredBlocks("mushroom", COLORS);
         registerColoredBlocks("octopus", COLORS);
 
+        // Register all plushie blocks
+        registerPlushies();
+
         // Register all blocks to creative tab in a single callback
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
             .register(entries -> {
                 for (Block block : COLORED_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register plushies to their own creative tab section
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
+            .register(entries -> {
+                for (Block block : PLUSHIE_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -103,17 +141,43 @@ public class ModBlocks {
         }
     }
 
+    private static void registerPlushies() {
+        for (String plushieName : PLUSHIES) {
+            // Create plushie block with wool sounds and waterlogging
+            Block plushieBlock = new PlushieBlock(
+                Block.Settings.create()
+                    .strength(0.7f, 0.7f)
+                    .sounds(BlockSoundGroup.WOOL)
+            );
+
+            registerPlushieBlock(plushieName, plushieBlock);
+        }
+    }
+
     private static void registerBlock(String name, Block block) {
         Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
-        
+
         // Register block
         Registry.register(Registries.BLOCK, id, block);
-        
+
         // Register block item
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-        
+
         // Add to our list for later creative tab registration
         COLORED_BLOCKS.add(block);
+    }
+
+    private static void registerPlushieBlock(String name, Block block) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to plushie list for creative tab registration
+        PLUSHIE_BLOCKS.add(block);
     }
 
     public static void initialize() {
