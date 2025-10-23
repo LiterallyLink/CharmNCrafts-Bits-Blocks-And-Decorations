@@ -21,6 +21,5 @@ public class Charmncraftbits implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		ModBlocks.initialize();
-		ModSlabs.initialize();
 	}
 }
