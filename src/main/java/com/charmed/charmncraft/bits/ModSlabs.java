@@ -130,22 +130,37 @@ public class ModSlabs {
             Path basePath = FabricLoader.getInstance().getGameDir().getParent()
                     .resolve("src/main/resources");
 
+            Charmncraftbits.LOGGER.info("Generating data files to: {}", basePath.toAbsolutePath());
+
+            // Verify base path exists or can be created
+            if (!Files.exists(basePath)) {
+                Charmncraftbits.LOGGER.warn("Base resource path does not exist: {}. Files will be created but may not load until rebuild.", basePath);
+            }
+
             // Generate all data files for each slab
+            int successCount = 0;
             for (SlabVariantConfig.SlabVariant variant : config.getSlabs()) {
                 String slabName = variant.getName() + "_slab";
                 String baseBlock = variant.getBaseBlock();
                 String baseBlockPath = baseBlock.replace("minecraft:", "");
 
-                generateBlockstate(basePath, slabName);
-                generateModels(basePath, slabName, baseBlockPath);
-                generateRecipe(basePath, slabName, baseBlock);
-                generateLootTable(basePath, slabName);
+                try {
+                    generateBlockstate(basePath, slabName);
+                    generateModels(basePath, slabName, baseBlockPath);
+                    generateRecipe(basePath, slabName, baseBlock);
+                    generateLootTable(basePath, slabName);
+                    successCount++;
+                    Charmncraftbits.LOGGER.info("Generated data for: {}", slabName);
+                } catch (Exception e) {
+                    Charmncraftbits.LOGGER.error("Failed to generate data for {}", slabName, e);
+                }
             }
 
             // Update lang file
             updateLangFile(basePath, config);
 
-            Charmncraftbits.LOGGER.info("Generated all data files successfully");
+            Charmncraftbits.LOGGER.info("Generated data files for {}/{} slabs successfully", successCount, config.getSlabs().size());
+            Charmncraftbits.LOGGER.warn("IMPORTANT: You must rebuild/restart for texture and model changes to take effect!");
         } catch (Exception e) {
             Charmncraftbits.LOGGER.error("Failed to generate data files", e);
         }
@@ -178,7 +193,46 @@ public class ModSlabs {
         Path blockModelPath = basePath.resolve("assets/charmncraft-bits/models/block");
         Files.createDirectories(blockModelPath);
 
-        String texturePath = "minecraft:block/" + baseBlockPath;
+        // Determine texture paths based on block type
+        String bottomTexture;
+        String topTexture;
+        String sideTexture;
+        String doubleTexture;
+
+        if (baseBlockPath.contains("_log")) {
+            // Logs have different top and side textures
+            bottomTexture = "minecraft:block/" + baseBlockPath + "_top";
+            topTexture = "minecraft:block/" + baseBlockPath + "_top";
+            sideTexture = "minecraft:block/" + baseBlockPath;
+
+            // For double slab, use cube_column (like full log blocks)
+            String doubleModel = String.format("""
+                    {
+                      "parent": "minecraft:block/cube_column",
+                      "textures": {
+                        "end": "%s",
+                        "side": "%s"
+                      }
+                    }""", topTexture, sideTexture);
+            Files.writeString(blockModelPath.resolve(slabName + "_double.json"), doubleModel, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        } else {
+            // Wood blocks and other blocks have same texture on all sides
+            bottomTexture = "minecraft:block/" + baseBlockPath;
+            topTexture = "minecraft:block/" + baseBlockPath;
+            sideTexture = "minecraft:block/" + baseBlockPath;
+
+            // Double slab uses cube_all
+            String doubleModel = String.format("""
+                    {
+                      "parent": "minecraft:block/cube_all",
+                      "textures": {
+                        "all": "%s"
+                      }
+                    }""", topTexture);
+            Files.writeString(blockModelPath.resolve(slabName + "_double.json"), doubleModel, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        }
 
         // Bottom slab model
         String bottomModel = String.format("""
@@ -189,7 +243,7 @@ public class ModSlabs {
                     "top": "%s",
                     "side": "%s"
                   }
-                }""", texturePath, texturePath, texturePath);
+                }""", bottomTexture, topTexture, sideTexture);
         Files.writeString(blockModelPath.resolve(slabName + ".json"), bottomModel, StandardCharsets.UTF_8,
                 StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
@@ -202,19 +256,8 @@ public class ModSlabs {
                     "top": "%s",
                     "side": "%s"
                   }
-                }""", texturePath, texturePath, texturePath);
+                }""", bottomTexture, topTexture, sideTexture);
         Files.writeString(blockModelPath.resolve(slabName + "_top.json"), topModel, StandardCharsets.UTF_8,
-                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
-
-        // Double slab model (full block)
-        String doubleModel = String.format("""
-                {
-                  "parent": "minecraft:block/cube_all",
-                  "textures": {
-                    "all": "%s"
-                  }
-                }""", texturePath);
-        Files.writeString(blockModelPath.resolve(slabName + "_double.json"), doubleModel, StandardCharsets.UTF_8,
                 StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
         // Item model
