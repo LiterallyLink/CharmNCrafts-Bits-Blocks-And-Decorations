@@ -1,6 +1,15 @@
 {
+<<<<<<< HEAD
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "minecraft:block/stripped_spruce_log"
   }
 }
+=======
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/stripped_spruce_log_top",
+    "side": "minecraft:block/stripped_spruce_log"
+  }
+}
+>>>>>>> claude/generate-slab-data-011CUQgyPt3trZZabsNQzRZv

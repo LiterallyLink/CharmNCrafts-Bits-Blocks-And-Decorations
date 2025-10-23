@@ -1,8 +1,16 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
+<<<<<<< HEAD
     "bottom": "minecraft:block/spruce_log",
     "top": "minecraft:block/spruce_log",
     "side": "minecraft:block/spruce_log"
   }
 }
+=======
+    "bottom": "minecraft:block/spruce_log_top",
+    "top": "minecraft:block/spruce_log_top",
+    "side": "minecraft:block/spruce_log"
+  }
+}
+>>>>>>> claude/generate-slab-data-011CUQgyPt3trZZabsNQzRZv
