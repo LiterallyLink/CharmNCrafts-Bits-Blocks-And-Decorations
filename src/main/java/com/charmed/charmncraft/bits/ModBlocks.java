@@ -148,6 +148,7 @@ public class ModBlocks {
                 Block.Settings.create()
                     .strength(0.7f, 0.7f)
                     .sounds(BlockSoundGroup.WOOL)
+                    .nonOpaque() // Prevent face culling on blocks below
             );
 
             registerPlushieBlock(plushieName, plushieBlock);
