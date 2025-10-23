@@ -36,39 +36,38 @@ public class ModSlabs {
             new Identifier(Charmncraftbits.MOD_ID, "new_slab_variants")
     );
 
-    public static final ItemGroup NEW_SLAB_VARIANTS = FabricItemGroup.builder()
-            .icon(() -> {
-                // Use the first slab as the icon, or oak_log_slab if available
-                if (SLAB_BLOCKS.containsKey("oak_log_slab")) {
-                    return new ItemStack(SLAB_BLOCKS.get("oak_log_slab"));
-                } else if (!SLAB_LIST.isEmpty()) {
-                    return new ItemStack(SLAB_LIST.get(0));
-                }
-                return new ItemStack(Blocks.STONE_SLAB);
-            })
-            .displayName(Text.translatable("itemGroup.charmncraft-bits.new_slab_variants"))
-            .build();
-
     public static void registerSlabs() {
         LOGGER.info("Loading slab variants from configuration...");
 
         // Load configuration
         SlabVariantConfig config = SlabVariantConfig.load();
 
-        // Register the custom creative tab first
-        Registry.register(Registries.ITEM_GROUP, NEW_SLAB_VARIANTS_GROUP, NEW_SLAB_VARIANTS);
-
         // Register each slab from the configuration
         for (SlabVariantConfig.SlabVariantEntry entry : config.getSlabs()) {
             registerSlab(entry);
         }
 
-        // Add all slabs to the custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(NEW_SLAB_VARIANTS_GROUP).register(content -> {
-            for (SlabBlock slab : SLAB_LIST) {
-                content.add(slab);
-            }
-        });
+        // Register the custom creative tab after slabs are created
+        ItemGroup newSlabVariants = FabricItemGroup.builder()
+                .icon(() -> {
+                    // Use the first slab as the icon, or oak_log_slab if available
+                    if (SLAB_BLOCKS.containsKey("oak_log_slab")) {
+                        return new ItemStack(SLAB_BLOCKS.get("oak_log_slab"));
+                    } else if (!SLAB_LIST.isEmpty()) {
+                        return new ItemStack(SLAB_LIST.get(0));
+                    }
+                    return new ItemStack(Blocks.STONE_SLAB);
+                })
+                .displayName(Text.translatable("itemGroup.charmncraft-bits.new_slab_variants"))
+                .entries((context, entries) -> {
+                    // Add all slabs to the tab
+                    for (SlabBlock slab : SLAB_LIST) {
+                        entries.add(slab);
+                    }
+                })
+                .build();
+
+        Registry.register(Registries.ITEM_GROUP, NEW_SLAB_VARIANTS_GROUP, newSlabVariants);
 
         LOGGER.info("Registered {} slab variants", SLAB_BLOCKS.size());
     }
