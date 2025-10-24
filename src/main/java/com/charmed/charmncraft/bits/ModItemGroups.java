@@ -5,10 +5,16 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
+    // Registry keys for item groups
+    public static final RegistryKey<ItemGroup> DELTARUNE_DOODADS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"));
+    public static final RegistryKey<ItemGroup> NIGHT_LIGHTS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "night_lights"));
+    public static final RegistryKey<ItemGroup> PLUSHIES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "plushies"));
     // Register custom creative tabs for each mod
     public static final ItemGroup DELTARUNE_DOODADS_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"),

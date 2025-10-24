@@ -108,7 +108,7 @@ public class ModBlocks {
         registerPlushies();
 
         // Register Night Lights to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_GROUP)
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
             .register(entries -> {
                 for (Block block : COLORED_BLOCKS) {
                     entries.add(block.asItem());
@@ -116,7 +116,7 @@ public class ModBlocks {
             });
 
         // Register Plushies to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.PLUSHIES_GROUP)
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.PLUSHIES_KEY)
             .register(entries -> {
                 for (Block block : PLUSHIE_BLOCKS) {
                     entries.add(block.asItem());
@@ -124,7 +124,7 @@ public class ModBlocks {
             });
 
         // Register Deltarune Doodads to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_GROUP)
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_KEY)
             .register(entries -> {
                 for (Block block : DELTARUNE_BLOCKS) {
                     entries.add(block.asItem());
