@@ -3,7 +3,7 @@
 	"parent": "charmncraft-bits:block/night_lights/night_light_octopus",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "charmncraft-bits:block/octopus_lime",
-		"particle": "charmncraft-bits:block/octopus_lime"
+		"2": "charmncraft-bits:block/night_lights/octopus_lime",
+		"particle": "charmncraft-bits:block/night_lights/octopus_lime"
 	}
 }

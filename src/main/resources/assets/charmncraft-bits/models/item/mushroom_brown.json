@@ -3,7 +3,7 @@
 	"parent": "charmncraft-bits:block/night_lights/night_light_mushroom",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "charmncraft-bits:block/mushroom_brown",
-		"particle": "charmncraft-bits:block/mushroom_brown"
+		"2": "charmncraft-bits:block/night_lights/mushroom_brown",
+		"particle": "charmncraft-bits:block/night_lights/mushroom_brown"
 	}
 }

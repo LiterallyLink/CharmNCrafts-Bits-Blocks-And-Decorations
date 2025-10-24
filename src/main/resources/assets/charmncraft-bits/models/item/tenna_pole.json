@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/deltarune_doodads/tenna_pole"
+    "layer0": "charmncraft-bits:item/tenna_pole"
   }
 }
