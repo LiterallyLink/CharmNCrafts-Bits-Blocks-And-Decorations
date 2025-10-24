@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "charmncraft-bits:block/nubert"},
+    "facing=east":  { "model": "charmncraft-bits:block/nubert", "y":  90},
+    "facing=south": { "model": "charmncraft-bits:block/nubert", "y": 180},
+    "facing=west":  { "model": "charmncraft-bits:block/nubert", "y": 270}
+  }
+}
