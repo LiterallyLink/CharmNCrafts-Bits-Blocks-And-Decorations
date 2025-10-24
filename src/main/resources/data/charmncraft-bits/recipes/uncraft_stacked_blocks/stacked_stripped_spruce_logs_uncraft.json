@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_stripped_spruce_logs_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_stripped_spruce_logs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stripped_spruce_log",
+    "count": 8
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_warped_stems_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_warped_stems"
+    }
+  ],
+  "result": {
+    "item": "minecraft:warped_stem",
+    "count": 8
+  }
+}

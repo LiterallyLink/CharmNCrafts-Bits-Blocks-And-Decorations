@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_birch_planks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_birch_planks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:birch_planks",
+    "count": 8
+  }
+}

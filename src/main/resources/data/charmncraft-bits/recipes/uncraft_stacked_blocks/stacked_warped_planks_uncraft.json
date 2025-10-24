@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_warped_planks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_warped_planks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:warped_planks",
+    "count": 8
+  }
+}

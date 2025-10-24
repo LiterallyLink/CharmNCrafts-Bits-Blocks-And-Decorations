@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_emerald_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_emerald_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:emerald_block",
+    "count": 8
+  }
+}

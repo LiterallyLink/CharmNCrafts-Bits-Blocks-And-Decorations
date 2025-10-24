@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_mangrove_logs_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_mangrove_logs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mangrove_log",
+    "count": 8
+  }
+}

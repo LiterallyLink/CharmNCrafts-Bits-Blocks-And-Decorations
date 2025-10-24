@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_pumpkins_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_pumpkins"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pumpkin",
+    "count": 8
+  }
+}

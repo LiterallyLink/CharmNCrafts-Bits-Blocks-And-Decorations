@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_netherrack_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_netherrack_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:netherrack",
+    "count": 8
+  }
+}

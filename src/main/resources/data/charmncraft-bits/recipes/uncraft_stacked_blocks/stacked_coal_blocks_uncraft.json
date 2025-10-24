@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_coal_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_coal_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:coal_block",
+    "count": 8
+  }
+}

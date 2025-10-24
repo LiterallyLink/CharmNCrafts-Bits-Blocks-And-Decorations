@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_raw_gold_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_raw_gold_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:raw_gold_block",
+    "count": 8
+  }
+}

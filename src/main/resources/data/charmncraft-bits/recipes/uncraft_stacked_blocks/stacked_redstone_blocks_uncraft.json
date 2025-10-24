@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_redstone_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_redstone_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone_block",
+    "count": 8
+  }
+}

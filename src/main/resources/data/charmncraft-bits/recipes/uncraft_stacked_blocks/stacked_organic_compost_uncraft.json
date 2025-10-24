@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_organic_compost_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_organic_compost"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dirt",
+    "count": 8
+  }
+}

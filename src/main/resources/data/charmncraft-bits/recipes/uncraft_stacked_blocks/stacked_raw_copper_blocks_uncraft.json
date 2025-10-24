@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_raw_copper_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_raw_copper_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:raw_copper_block",
+    "count": 8
+  }
+}

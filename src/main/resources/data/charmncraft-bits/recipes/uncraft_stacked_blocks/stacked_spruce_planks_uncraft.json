@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_spruce_planks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_spruce_planks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_planks",
+    "count": 8
+  }
+}

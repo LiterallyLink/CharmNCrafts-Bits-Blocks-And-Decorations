@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_quartz_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_quartz_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:quartz_block",
+    "count": 8
+  }
+}

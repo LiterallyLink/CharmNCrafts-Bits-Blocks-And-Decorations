@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_crimson_stems_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_crimson_stems"
+    }
+  ],
+  "result": {
+    "item": "minecraft:crimson_stem",
+    "count": 8
+  }
+}

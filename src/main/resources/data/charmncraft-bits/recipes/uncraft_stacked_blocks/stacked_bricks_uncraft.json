@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_bricks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_bricks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bricks",
+    "count": 8
+  }
+}

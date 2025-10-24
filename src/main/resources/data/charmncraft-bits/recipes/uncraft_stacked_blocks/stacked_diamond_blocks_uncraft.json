@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_diamond_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_diamond_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:diamond_block",
+    "count": 8
+  }
+}

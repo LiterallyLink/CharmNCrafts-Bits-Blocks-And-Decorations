@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_jungle_logs_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_jungle_logs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_log",
+    "count": 8
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_acacia_logs_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_acacia_logs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_log",
+    "count": 8
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_cobblestone_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_cobblestone_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobblestone",
+    "count": 8
+  }
+}

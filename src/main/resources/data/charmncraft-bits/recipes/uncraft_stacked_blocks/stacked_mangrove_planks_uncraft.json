@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_mangrove_planks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_mangrove_planks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mangrove_planks",
+    "count": 8
+  }
+}

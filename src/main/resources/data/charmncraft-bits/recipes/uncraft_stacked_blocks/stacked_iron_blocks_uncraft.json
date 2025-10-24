@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stacked_iron_blocks_uncraft",
+  "ingredients": [
+    {
+      "item": "charmncraft-bits:stacked_iron_blocks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:iron_block",
+    "count": 8
+  }
+}
