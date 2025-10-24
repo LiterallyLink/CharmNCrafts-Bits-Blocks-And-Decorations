@@ -1,7 +1,7 @@
 package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
-import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
+import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -129,11 +129,11 @@ public class ModBlocks {
             VoxelShape shape = getShapeForBlockType(baseName);
 
             // Create night light block with glowstone-level lighting (15) when lit
-            Block block = new SmallLitDecorativeBlock(
+            Block block = new NightLightBlock(
                 Block.Settings.create()
                     .strength(0.8f, 0.8f)
                     .sounds(BlockSoundGroup.WOOL)
-                    .luminance(state -> state.get(SmallLitDecorativeBlock.LIT) ? 7 : 0),
+                    .luminance(state -> state.get(NightLightBlock.LIT) ? 7 : 0),
                 shape
             );
 
