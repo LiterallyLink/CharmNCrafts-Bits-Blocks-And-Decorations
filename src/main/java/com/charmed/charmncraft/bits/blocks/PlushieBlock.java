@@ -70,19 +70,19 @@ public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable
 
     /**
      * Rotates a VoxelShape based on the horizontal facing direction.
-     * North is the default orientation (0 degrees).
+     * West is the default orientation (0 degrees) as models are defined facing west.
      */
     private static VoxelShape rotateShape(VoxelShape shape, Direction direction) {
-        if (direction == Direction.NORTH) {
+        if (direction == Direction.WEST) {
             return shape;
         }
 
         VoxelShape[] buffer = {shape, VoxelShapes.empty()};
 
         int rotations = switch (direction) {
-            case SOUTH -> 2;  // 180 degrees
-            case WEST -> 3;   // 270 degrees
-            case EAST -> 1;   // 90 degrees
+            case NORTH -> 1;  // 90 degrees clockwise from west
+            case EAST -> 2;   // 180 degrees from west
+            case SOUTH -> 3;  // 270 degrees clockwise from west
             default -> 0;
         };
 
