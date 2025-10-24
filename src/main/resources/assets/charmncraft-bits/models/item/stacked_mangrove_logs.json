@@ -1,0 +1,6 @@
+{
+  "parent": "charmncraft-bits:block/stacked_blocks/stacked_mangrove_logs",
+  "textures": {
+    "layer0": "charmncraft-bits:item/stacked_mangrove_logs"
+  }
+}

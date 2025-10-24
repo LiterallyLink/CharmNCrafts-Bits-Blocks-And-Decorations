@@ -1,0 +1,6 @@
+{
+  "parent": "charmncraft-bits:block/stacked_blocks/stacked_raw_gold_blocks",
+  "textures": {
+    "layer0": "charmncraft-bits:item/stacked_raw_gold_blocks"
+  }
+}

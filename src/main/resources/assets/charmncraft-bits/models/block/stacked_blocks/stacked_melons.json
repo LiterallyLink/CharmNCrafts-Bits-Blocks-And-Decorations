@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "charmncraft-bits:block/stacked_blocks/stacked_melons_side",
+    "bottom": "charmncraft-bits:block/stacked_blocks/stacked_melons_bottom",
+    "top": "charmncraft-bits:block/stacked_blocks/stacked_melons_top"
+  }
+}

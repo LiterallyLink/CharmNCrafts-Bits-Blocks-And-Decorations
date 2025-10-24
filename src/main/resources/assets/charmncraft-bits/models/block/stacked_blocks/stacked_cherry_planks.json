@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "charmncraft-bits:block/stacked_blocks/stacked_cherry_planks_side",
+    "bottom": "charmncraft-bits:block/stacked_blocks/stacked_cherry_planks_bottom",
+    "top": "charmncraft-bits:block/stacked_blocks/stacked_cherry_planks_top"
+  }
+}
