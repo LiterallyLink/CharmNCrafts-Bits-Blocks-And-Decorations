@@ -1,9 +1,0 @@
-{
-	"credit": "Made with Blockbench",
-	"parent": "charmncraft-bits:block/night_light_octopus1",
-	"texture_size": [32, 32],
-	"textures": {
-		"2": "charmncraft-bits:block/octopus_magenta",
-		"particle": "charmncraft-bits:block/octopus_magenta"
-	}
-}

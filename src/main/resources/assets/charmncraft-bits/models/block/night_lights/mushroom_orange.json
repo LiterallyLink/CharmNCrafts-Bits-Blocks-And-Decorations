@@ -1,0 +1,9 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "charmncraft-bits:block/night_lights/night_light_mushroom",
+	"texture_size": [32, 32],
+	"textures": {
+		"2": "charmncraft-bits:block/night_lights/mushroom_orange",
+		"particle": "charmncraft-bits:block/night_lights/mushroom_orange"
+	}
+}
