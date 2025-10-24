@@ -60,11 +60,46 @@ public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shape;
+        return rotateShape(shape, state.get(FACING));
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shape;
+        return rotateShape(shape, state.get(FACING));
+    }
+
+    /**
+     * Rotates a VoxelShape based on the horizontal facing direction.
+     * North is the default orientation (0 degrees).
+     */
+    private static VoxelShape rotateShape(VoxelShape shape, Direction direction) {
+        if (direction == Direction.NORTH) {
+            return shape;
+        }
+
+        VoxelShape[] buffer = {shape, VoxelShapes.empty()};
+
+        int rotations = switch (direction) {
+            case SOUTH -> 2;  // 180 degrees
+            case WEST -> 3;   // 270 degrees
+            case EAST -> 1;   // 90 degrees
+            default -> 0;
+        };
+
+        for (int i = 0; i < rotations; i++) {
+            buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> {
+                // Rotate 90 degrees clockwise around Y axis (center at 0.5, 0.5)
+                double newMinX = 1 - maxZ;
+                double newMaxX = 1 - minZ;
+                double newMinZ = minX;
+                double newMaxZ = maxX;
+                buffer[1] = VoxelShapes.union(buffer[1],
+                    VoxelShapes.cuboid(newMinX, minY, newMinZ, newMaxX, maxY, newMaxZ));
+            });
+            buffer[0] = buffer[1];
+            buffer[1] = VoxelShapes.empty();
+        }
+
+        return buffer[0];
     }
 }
