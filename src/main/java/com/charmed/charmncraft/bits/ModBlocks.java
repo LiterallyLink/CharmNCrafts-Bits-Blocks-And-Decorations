@@ -57,7 +57,7 @@ public class ModBlocks {
         "glow_squid_plushie", "goat_plushie", "guardian_plushie", "hoglin_plushie",
         "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
         "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "mooshroom_plushie",
-        "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
+        "nubert_plushie", "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
         "pig_plushie", "piglin_brute_plushie", "piglin_plushie", "pillager_plushie",
         "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie", "red_fox_plushie",
         "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
@@ -70,6 +70,13 @@ public class ModBlocks {
         "wither_skeleton_plushie", "wolf_plushie", "yellow_rabbit_plushie", "zoglin_plushie",
         "zombie_plushie", "zombie_villager_plushie", "zombiefied_piglin_plushie"
     };
+
+    // Nubert plushie hitbox - custom shape based on the model
+    private static final VoxelShape NUBERT_SHAPE = VoxelShapes.union(
+        VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
+        VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
+        VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
+    );
 
     static {
         // Register all night light blocks with lit property
@@ -144,13 +151,27 @@ public class ModBlocks {
 
     private static void registerPlushies() {
         for (String plushieName : PLUSHIES) {
+            // Use custom shape for Nubert, default for others
+            VoxelShape shape = plushieName.equals("nubert_plushie") ? NUBERT_SHAPE : null;
+
             // Create plushie block with wool sounds and waterlogging
-            Block plushieBlock = new PlushieBlock(
-                Block.Settings.create()
-                    .strength(0.7f, 0.7f)
-                    .sounds(BlockSoundGroup.WOOL)
-                    .nonOpaque() // Prevent face culling on blocks below
-            );
+            Block plushieBlock;
+            if (shape != null) {
+                plushieBlock = new PlushieBlock(
+                    Block.Settings.create()
+                        .strength(0.7f, 0.7f)
+                        .sounds(BlockSoundGroup.WOOL)
+                        .nonOpaque(), // Prevent face culling on blocks below
+                    shape
+                );
+            } else {
+                plushieBlock = new PlushieBlock(
+                    Block.Settings.create()
+                        .strength(0.7f, 0.7f)
+                        .sounds(BlockSoundGroup.WOOL)
+                        .nonOpaque() // Prevent face culling on blocks below
+                );
+            }
 
             registerPlushieBlock(plushieName, plushieBlock);
         }
