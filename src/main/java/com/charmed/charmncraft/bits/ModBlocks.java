@@ -57,7 +57,7 @@ public class ModBlocks {
         "glow_squid_plushie", "goat_plushie", "guardian_plushie", "hoglin_plushie",
         "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
         "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "mooshroom_plushie",
-        "nubert_plushie", "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
+        "nubert", "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
         "pig_plushie", "piglin_brute_plushie", "piglin_plushie", "pillager_plushie",
         "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie", "red_fox_plushie",
         "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
@@ -71,7 +71,7 @@ public class ModBlocks {
         "zombie_plushie", "zombie_villager_plushie", "zombiefied_piglin_plushie"
     };
 
-    // Nubert plushie hitbox - custom shape based on the model
+    // Nubert hitbox - custom shape based on the model
     private static final VoxelShape NUBERT_SHAPE = VoxelShapes.union(
         VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
         VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
@@ -161,7 +161,7 @@ public class ModBlocks {
         for (String plushieName : PLUSHIES) {
             // Use custom shapes for special blocks, default for others
             VoxelShape shape = null;
-            if (plushieName.equals("nubert_plushie")) {
+            if (plushieName.equals("nubert")) {
                 shape = NUBERT_SHAPE;
             } else if (plushieName.equals("tenna_stick")) {
                 shape = TENNA_STICK_SHAPE;
