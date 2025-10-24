@@ -14,11 +14,11 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.util.shape.VoxelShape;
 
-public class SmallLitDecorativeBlock extends Block {
+public class NightLightBlock extends Block {
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final VoxelShape shape;
 
-    public SmallLitDecorativeBlock(Settings settings, VoxelShape shape) {
+    public NightLightBlock(Settings settings, VoxelShape shape) {
         super(settings);
         this.shape = shape;
         this.setDefaultState(

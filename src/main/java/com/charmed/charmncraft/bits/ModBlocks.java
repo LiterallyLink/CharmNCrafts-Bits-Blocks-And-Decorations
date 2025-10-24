@@ -1,7 +1,7 @@
 package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
-import com.charmed.charmncraft.bits.blocks.SmallLitDecorativeBlock;
+import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -45,6 +45,7 @@ public class ModBlocks {
     // Store blocks for creative tab registration
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
     private static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
+    private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
 
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
@@ -106,18 +107,26 @@ public class ModBlocks {
         // Register all plushie blocks
         registerPlushies();
 
-        // Register all blocks to creative tab in a single callback
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
+        // Register Night Lights to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_GROUP)
             .register(entries -> {
                 for (Block block : COLORED_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
 
-        // Register plushies to their own creative tab section
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
+        // Register Plushies to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.PLUSHIES_GROUP)
             .register(entries -> {
                 for (Block block : PLUSHIE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Deltarune Doodads to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_GROUP)
+            .register(entries -> {
+                for (Block block : DELTARUNE_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -129,11 +138,11 @@ public class ModBlocks {
             VoxelShape shape = getShapeForBlockType(baseName);
 
             // Create night light block with glowstone-level lighting (15) when lit
-            Block block = new SmallLitDecorativeBlock(
+            Block block = new NightLightBlock(
                 Block.Settings.create()
                     .strength(0.8f, 0.8f)
                     .sounds(BlockSoundGroup.WOOL)
-                    .luminance(state -> state.get(SmallLitDecorativeBlock.LIT) ? 7 : 0),
+                    .luminance(state -> state.get(NightLightBlock.LIT) ? 7 : 0),
                 shape
             );
 
@@ -225,8 +234,12 @@ public class ModBlocks {
         // Register block item
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
 
-        // Add to plushie list for creative tab registration
-        PLUSHIE_BLOCKS.add(block);
+        // Add to appropriate list for creative tab registration
+        if (name.equals("nubert") || name.equals("tenna_pole") || name.equals("tenna_statue")) {
+            DELTARUNE_BLOCKS.add(block);
+        } else {
+            PLUSHIE_BLOCKS.add(block);
+        }
     }
 
     public static void initialize() {

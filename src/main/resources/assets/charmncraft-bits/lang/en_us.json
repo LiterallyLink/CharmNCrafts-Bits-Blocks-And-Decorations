@@ -135,5 +135,8 @@
   "block.charmncraft-bits.zombie_plushie": "Zombie Plushie",
   "block.charmncraft-bits.tenna_pole": "Tenna Pole",
   "block.charmncraft-bits.tenna_statue": "Tenna Statue",
-  "block.charmncraft-bits.nubert": "Nubert"
+  "block.charmncraft-bits.nubert": "Nubert",
+  "itemgroup.charmncraft-bits.deltarune_doodads": "Deltarune Doodads",
+  "itemgroup.charmncraft-bits.night_lights": "Night Lights",
+  "itemgroup.charmncraft-bits.plushies": "Plushies"
 }
