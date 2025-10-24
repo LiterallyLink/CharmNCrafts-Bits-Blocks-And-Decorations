@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "charmncraft-bits:block/tenna_statue", "y": 180},
+    "facing=east":  { "model": "charmncraft-bits:block/tenna_statue", "y": 270},
+    "facing=south": { "model": "charmncraft-bits:block/tenna_statue"},
+    "facing=west":  { "model": "charmncraft-bits:block/tenna_statue", "y":  90}
+  }
+}
