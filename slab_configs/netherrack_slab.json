@@ -1,7 +1,0 @@
-{
-  "name": "netherrack_slab",
-  "displayName": "Netherrack Slab",
-  "referenceBlock": "minecraft:netherrack",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

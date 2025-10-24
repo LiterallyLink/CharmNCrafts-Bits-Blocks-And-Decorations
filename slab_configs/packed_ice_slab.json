@@ -1,7 +1,0 @@
-{
-  "name": "packed_ice_slab",
-  "displayName": "Packed Ice Slab",
-  "referenceBlock": "minecraft:packed_ice",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

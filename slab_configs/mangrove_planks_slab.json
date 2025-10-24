@@ -1,7 +1,0 @@
-{
-  "name": "mangrove_planks_slab",
-  "displayName": "Mangrove Planks Slab",
-  "referenceBlock": "minecraft:mangrove_planks",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

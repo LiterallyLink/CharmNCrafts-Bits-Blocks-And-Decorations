@@ -1,7 +1,0 @@
-{
-  "name": "honeycomb_block_slab",
-  "displayName": "Honeycomb Block Slab",
-  "referenceBlock": "minecraft:honeycomb_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

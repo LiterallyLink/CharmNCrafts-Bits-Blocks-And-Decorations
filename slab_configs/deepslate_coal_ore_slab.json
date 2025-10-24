@@ -1,7 +1,0 @@
-{
-  "name": "deepslate_coal_ore_slab",
-  "displayName": "Deepslate Coal Ore Slab",
-  "referenceBlock": "minecraft:deepslate_coal_ore",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

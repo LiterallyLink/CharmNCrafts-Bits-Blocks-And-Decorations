@@ -1,7 +1,0 @@
-{
-  "name": "netherite_block_slab",
-  "displayName": "Block of Netherite Slab",
-  "referenceBlock": "minecraft:netherite_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

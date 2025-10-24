@@ -1,7 +1,0 @@
-{
-  "name": "emerald_block_slab",
-  "displayName": "Block of Emerald Slab",
-  "referenceBlock": "minecraft:emerald_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

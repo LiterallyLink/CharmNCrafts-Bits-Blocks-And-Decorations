@@ -1,7 +1,0 @@
-{
-  "name": "deepslate_emerald_ore_slab",
-  "displayName": "Deepslate Emerald Ore Slab",
-  "referenceBlock": "minecraft:deepslate_emerald_ore",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

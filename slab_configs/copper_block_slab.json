@@ -1,7 +1,0 @@
-{
-  "name": "copper_block_slab",
-  "displayName": "Block of Copper Slab",
-  "referenceBlock": "minecraft:copper_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

@@ -1,7 +1,0 @@
-{
-  "name": "nether_quartz_ore_slab",
-  "displayName": "Nether Quartz Ore Slab",
-  "referenceBlock": "minecraft:nether_quartz_ore",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

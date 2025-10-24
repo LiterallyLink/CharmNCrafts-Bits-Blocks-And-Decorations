@@ -1,7 +1,0 @@
-{
-  "name": "chiseled_nether_bricks_slab",
-  "displayName": "Chiseled Nether Bricks Slab",
-  "referenceBlock": "minecraft:chiseled_nether_bricks",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

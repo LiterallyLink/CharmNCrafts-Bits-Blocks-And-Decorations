@@ -1,7 +1,0 @@
-{
-  "name": "snow_block_slab",
-  "displayName": "Snow Block Slab",
-  "referenceBlock": "minecraft:snow_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

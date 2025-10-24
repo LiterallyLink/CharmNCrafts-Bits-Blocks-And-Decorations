@@ -1,7 +1,0 @@
-{
-  "name": "deepslate_iron_ore_slab",
-  "displayName": "Deepslate Iron Ore Slab",
-  "referenceBlock": "minecraft:deepslate_iron_ore",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

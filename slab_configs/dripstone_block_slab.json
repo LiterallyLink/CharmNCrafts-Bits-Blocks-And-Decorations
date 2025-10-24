@@ -1,7 +1,0 @@
-{
-  "name": "dripstone_block_slab",
-  "displayName": "Dripstone Block Slab",
-  "referenceBlock": "minecraft:dripstone_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

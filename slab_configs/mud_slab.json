@@ -1,7 +1,0 @@
-{
-  "name": "mud_slab",
-  "displayName": "Mud Slab",
-  "referenceBlock": "minecraft:mud",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

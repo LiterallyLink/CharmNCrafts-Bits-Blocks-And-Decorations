@@ -1,7 +1,0 @@
-{
-  "name": "raw_gold_block_slab",
-  "displayName": "Block of Raw Gold Slab",
-  "referenceBlock": "minecraft:raw_gold_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

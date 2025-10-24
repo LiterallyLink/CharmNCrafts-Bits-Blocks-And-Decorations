@@ -1,7 +1,0 @@
-{
-  "name": "stone_bricks_slab",
-  "displayName": "Stone Bricks Slab",
-  "referenceBlock": "minecraft:stone_bricks",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

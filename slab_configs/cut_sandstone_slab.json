@@ -1,7 +1,0 @@
-{
-  "name": "cut_sandstone_slab",
-  "displayName": "Cut Sandstone Slab",
-  "referenceBlock": "minecraft:cut_sandstone",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

@@ -1,7 +1,0 @@
-{
-  "name": "sculk_catalyst_slab",
-  "displayName": "Sculk Catalyst Slab",
-  "referenceBlock": "minecraft:sculk_catalyst",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

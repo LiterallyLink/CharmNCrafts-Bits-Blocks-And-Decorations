@@ -1,7 +1,0 @@
-{
-  "name": "amethyst_block_slab",
-  "displayName": "Block of Amethyst Slab",
-  "referenceBlock": "minecraft:amethyst_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

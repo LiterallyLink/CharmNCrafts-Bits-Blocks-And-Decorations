@@ -1,7 +1,0 @@
-{
-  "name": "note_block_slab",
-  "displayName": "Note Block Slab",
-  "referenceBlock": "minecraft:note_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

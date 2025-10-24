@@ -1,7 +1,0 @@
-{
-  "name": "red_nether_bricks_slab",
-  "displayName": "Red Nether Bricks Slab",
-  "referenceBlock": "minecraft:red_nether_bricks",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

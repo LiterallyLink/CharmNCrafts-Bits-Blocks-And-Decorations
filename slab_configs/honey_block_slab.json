@@ -1,7 +1,0 @@
-{
-  "name": "honey_block_slab",
-  "displayName": "Honey Block Slab",
-  "referenceBlock": "minecraft:honey_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

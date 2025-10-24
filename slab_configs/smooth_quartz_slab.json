@@ -1,7 +1,0 @@
-{
-  "name": "smooth_quartz_slab",
-  "displayName": "Smooth Quartz Block Slab",
-  "referenceBlock": "minecraft:smooth_quartz",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

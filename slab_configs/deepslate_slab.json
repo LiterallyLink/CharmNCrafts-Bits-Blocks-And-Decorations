@@ -1,7 +1,0 @@
-{
-  "name": "deepslate_slab",
-  "displayName": "Deepslate Slab",
-  "referenceBlock": "minecraft:deepslate",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

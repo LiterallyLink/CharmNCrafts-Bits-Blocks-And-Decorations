@@ -1,7 +1,0 @@
-{
-  "name": "target_slab",
-  "displayName": "Target Slab",
-  "referenceBlock": "minecraft:target",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

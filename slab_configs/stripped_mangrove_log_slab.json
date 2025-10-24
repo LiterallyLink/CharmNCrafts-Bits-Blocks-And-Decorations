@@ -1,7 +1,0 @@
-{
-  "name": "stripped_mangrove_log_slab",
-  "displayName": "Stripped Mangrove Log Slab",
-  "referenceBlock": "minecraft:stripped_mangrove_log",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

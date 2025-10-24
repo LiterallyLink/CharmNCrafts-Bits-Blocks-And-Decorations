@@ -1,7 +1,0 @@
-{
-  "name": "magma_block_slab",
-  "displayName": "Magma Block Slab",
-  "referenceBlock": "minecraft:magma_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

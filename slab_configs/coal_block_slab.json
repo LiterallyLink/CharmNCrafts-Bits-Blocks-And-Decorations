@@ -1,7 +1,0 @@
-{
-  "name": "coal_block_slab",
-  "displayName": "Block of Coal Slab",
-  "referenceBlock": "minecraft:coal_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

@@ -1,7 +1,0 @@
-{
-  "name": "redstone_lamp_slab",
-  "displayName": "Redstone Lamp Slab",
-  "referenceBlock": "minecraft:redstone_lamp",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

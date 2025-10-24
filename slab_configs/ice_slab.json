@@ -1,7 +1,0 @@
-{
-  "name": "ice_slab",
-  "displayName": "Ice Slab",
-  "referenceBlock": "minecraft:ice",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

@@ -1,7 +1,0 @@
-{
-  "name": "tnt_slab",
-  "displayName": "TNT Slab",
-  "referenceBlock": "minecraft:tnt",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

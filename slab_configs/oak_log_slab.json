@@ -1,7 +1,0 @@
-{
-  "name": "oak_log_slab",
-  "displayName": "Oak Log Slab",
-  "referenceBlock": "minecraft:oak_log",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

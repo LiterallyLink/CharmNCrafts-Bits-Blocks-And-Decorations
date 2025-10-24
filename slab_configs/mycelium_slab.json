@@ -1,7 +1,0 @@
-{
-  "name": "mycelium_slab",
-  "displayName": "Mycelium Slab",
-  "referenceBlock": "minecraft:mycelium",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

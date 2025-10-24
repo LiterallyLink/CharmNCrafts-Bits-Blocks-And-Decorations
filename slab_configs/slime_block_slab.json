@@ -1,7 +1,0 @@
-{
-  "name": "slime_block_slab",
-  "displayName": "Slime Block Slab",
-  "referenceBlock": "minecraft:slime_block",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}

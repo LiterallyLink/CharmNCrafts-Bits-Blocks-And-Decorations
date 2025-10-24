@@ -1,7 +1,0 @@
-{
-  "name": "glowstone_slab",
-  "displayName": "Glowstone Slab",
-  "referenceBlock": "minecraft:glowstone",
-  "recipeInputCount": 3,
-  "recipeOutputCount": 6
-}
