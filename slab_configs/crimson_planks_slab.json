@@ -1,0 +1,7 @@
+{
+  "name": "crimson_planks_slab",
+  "displayName": "Crimson Planks Slab",
+  "referenceBlock": "minecraft:crimson_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

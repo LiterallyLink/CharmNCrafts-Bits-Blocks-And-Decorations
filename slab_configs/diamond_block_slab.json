@@ -1,0 +1,7 @@
+{
+  "name": "diamond_block_slab",
+  "displayName": "Block of Diamond Slab",
+  "referenceBlock": "minecraft:diamond_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

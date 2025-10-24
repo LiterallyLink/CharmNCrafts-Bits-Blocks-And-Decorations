@@ -1,0 +1,7 @@
+{
+  "name": "stripped_birch_wood_slab",
+  "displayName": "Stripped Birch Wood Slab",
+  "referenceBlock": "minecraft:stripped_birch_wood",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

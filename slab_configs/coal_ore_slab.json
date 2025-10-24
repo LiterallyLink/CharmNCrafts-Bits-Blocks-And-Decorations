@@ -1,0 +1,7 @@
+{
+  "name": "coal_ore_slab",
+  "displayName": "Coal Ore Slab",
+  "referenceBlock": "minecraft:coal_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

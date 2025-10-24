@@ -1,0 +1,7 @@
+{
+  "name": "red_mushroom_block_slab",
+  "displayName": "Red Mushroom Block Slab",
+  "referenceBlock": "minecraft:red_mushroom_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

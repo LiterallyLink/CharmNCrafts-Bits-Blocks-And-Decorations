@@ -1,0 +1,7 @@
+{
+  "name": "mud_bricks_slab",
+  "displayName": "Mud Bricks Slab",
+  "referenceBlock": "minecraft:mud_bricks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

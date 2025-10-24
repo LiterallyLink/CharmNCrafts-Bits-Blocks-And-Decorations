@@ -1,0 +1,7 @@
+{
+  "name": "azalea_leaves_slab",
+  "displayName": "Azalea Leaves Slab",
+  "referenceBlock": "minecraft:azalea_leaves",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

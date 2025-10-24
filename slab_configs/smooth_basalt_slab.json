@@ -1,0 +1,7 @@
+{
+  "name": "smooth_basalt_slab",
+  "displayName": "Smooth Basalt Slab",
+  "referenceBlock": "minecraft:smooth_basalt",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

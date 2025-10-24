@@ -1,0 +1,7 @@
+{
+  "name": "yellow_wool_slab",
+  "displayName": "Yellow Wool Slab",
+  "referenceBlock": "minecraft:yellow_wool",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

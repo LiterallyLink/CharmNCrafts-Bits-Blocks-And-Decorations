@@ -1,0 +1,7 @@
+{
+  "name": "bamboo_planks_slab",
+  "displayName": "Bamboo Planks Slab",
+  "referenceBlock": "minecraft:bamboo_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

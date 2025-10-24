@@ -1,0 +1,7 @@
+{
+  "name": "clay_slab",
+  "displayName": "Clay Slab",
+  "referenceBlock": "minecraft:clay",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

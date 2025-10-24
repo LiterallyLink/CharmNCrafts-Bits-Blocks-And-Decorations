@@ -1,0 +1,7 @@
+{
+  "name": "redstone_block_slab",
+  "displayName": "Block of Redstone Slab",
+  "referenceBlock": "minecraft:redstone_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

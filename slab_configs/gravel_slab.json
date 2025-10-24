@@ -1,0 +1,7 @@
+{
+  "name": "gravel_slab",
+  "displayName": "Gravel Slab",
+  "referenceBlock": "minecraft:gravel",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

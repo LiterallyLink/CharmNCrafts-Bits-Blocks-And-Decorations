@@ -1,0 +1,7 @@
+{
+  "name": "sculk_slab",
+  "displayName": "Sculk Slab",
+  "referenceBlock": "minecraft:sculk",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

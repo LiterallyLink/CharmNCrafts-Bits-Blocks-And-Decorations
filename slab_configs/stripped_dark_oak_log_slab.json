@@ -1,0 +1,7 @@
+{
+  "name": "stripped_dark_oak_log_slab",
+  "displayName": "Stripped Dark Oak Log Slab",
+  "referenceBlock": "minecraft:stripped_dark_oak_log",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

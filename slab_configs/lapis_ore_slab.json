@@ -1,0 +1,7 @@
+{
+  "name": "lapis_ore_slab",
+  "displayName": "Lapis Lazuli Ore Slab",
+  "referenceBlock": "minecraft:lapis_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

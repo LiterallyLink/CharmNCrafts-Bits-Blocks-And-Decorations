@@ -1,0 +1,7 @@
+{
+  "name": "dirt_slab",
+  "displayName": "Dirt Slab",
+  "referenceBlock": "minecraft:dirt",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

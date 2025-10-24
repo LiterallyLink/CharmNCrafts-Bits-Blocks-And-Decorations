@@ -1,0 +1,7 @@
+{
+  "name": "warped_planks_slab",
+  "displayName": "Warped Planks Slab",
+  "referenceBlock": "minecraft:warped_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

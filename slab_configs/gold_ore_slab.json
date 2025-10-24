@@ -1,0 +1,7 @@
+{
+  "name": "gold_ore_slab",
+  "displayName": "Gold Ore Slab",
+  "referenceBlock": "minecraft:gold_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

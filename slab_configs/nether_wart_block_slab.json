@@ -1,0 +1,7 @@
+{
+  "name": "nether_wart_block_slab",
+  "displayName": "Nether Wart Block Slab",
+  "referenceBlock": "minecraft:nether_wart_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

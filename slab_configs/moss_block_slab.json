@@ -1,0 +1,7 @@
+{
+  "name": "moss_block_slab",
+  "displayName": "Moss Block Slab",
+  "referenceBlock": "minecraft:moss_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

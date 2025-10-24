@@ -1,0 +1,7 @@
+{
+  "name": "dried_kelp_block_slab",
+  "displayName": "Dried Kelp Block Slab",
+  "referenceBlock": "minecraft:dried_kelp_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

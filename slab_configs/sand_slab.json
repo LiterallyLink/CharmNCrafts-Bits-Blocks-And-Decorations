@@ -1,0 +1,7 @@
+{
+  "name": "sand_slab",
+  "displayName": "Sand Slab",
+  "referenceBlock": "minecraft:sand",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

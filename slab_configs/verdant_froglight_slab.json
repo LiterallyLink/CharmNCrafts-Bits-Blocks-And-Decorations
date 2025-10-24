@@ -1,0 +1,7 @@
+{
+  "name": "verdant_froglight_slab",
+  "displayName": "Verdant Froglight Slab",
+  "referenceBlock": "minecraft:verdant_froglight",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

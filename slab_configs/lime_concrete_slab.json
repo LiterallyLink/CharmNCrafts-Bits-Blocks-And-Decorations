@@ -1,0 +1,7 @@
+{
+  "name": "lime_concrete_slab",
+  "displayName": "Lime Concrete Slab",
+  "referenceBlock": "minecraft:lime_concrete",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

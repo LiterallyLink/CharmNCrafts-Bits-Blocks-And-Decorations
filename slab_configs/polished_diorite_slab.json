@@ -1,0 +1,7 @@
+{
+  "name": "polished_diorite_slab",
+  "displayName": "Polished Diorite Slab",
+  "referenceBlock": "minecraft:polished_diorite",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

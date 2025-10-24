@@ -1,0 +1,7 @@
+{
+  "name": "gray_concrete_slab",
+  "displayName": "Gray Concrete Slab",
+  "referenceBlock": "minecraft:gray_concrete",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

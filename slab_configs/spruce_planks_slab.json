@@ -1,0 +1,7 @@
+{
+  "name": "spruce_planks_slab",
+  "displayName": "Spruce Planks Slab",
+  "referenceBlock": "minecraft:spruce_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

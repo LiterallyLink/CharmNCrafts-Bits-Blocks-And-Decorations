@@ -1,0 +1,7 @@
+{
+  "name": "packed_mud_slab",
+  "displayName": "Packed Mud Slab",
+  "referenceBlock": "minecraft:packed_mud",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

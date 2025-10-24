@@ -1,0 +1,7 @@
+{
+  "name": "acacia_wood_slab",
+  "displayName": "Acacia Wood Slab",
+  "referenceBlock": "minecraft:acacia_wood",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

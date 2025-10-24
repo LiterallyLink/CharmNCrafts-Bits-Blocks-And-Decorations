@@ -1,0 +1,7 @@
+{
+  "name": "smooth_sandstone_slab",
+  "displayName": "Smooth Sandstone Slab",
+  "referenceBlock": "minecraft:smooth_sandstone",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

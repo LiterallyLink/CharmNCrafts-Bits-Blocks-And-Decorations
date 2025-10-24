@@ -1,0 +1,7 @@
+{
+  "name": "waxed_exposed_copper_slab",
+  "displayName": "Waxed Exposed Copper Slab",
+  "referenceBlock": "minecraft:waxed_exposed_copper",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "red_glazed_terracotta_slab",
+  "displayName": "Red Glazed Terracotta Slab",
+  "referenceBlock": "minecraft:red_glazed_terracotta",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

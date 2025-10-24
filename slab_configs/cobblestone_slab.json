@@ -1,0 +1,7 @@
+{
+  "name": "cobblestone_slab",
+  "displayName": "Cobblestone Slab",
+  "referenceBlock": "minecraft:cobblestone",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

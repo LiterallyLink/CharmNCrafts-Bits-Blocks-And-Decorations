@@ -1,0 +1,7 @@
+{
+  "name": "crimson_nylium_slab",
+  "displayName": "Crimson Nylium Slab",
+  "referenceBlock": "minecraft:crimson_nylium",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

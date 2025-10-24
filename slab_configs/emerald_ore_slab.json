@@ -1,0 +1,7 @@
+{
+  "name": "emerald_ore_slab",
+  "displayName": "Emerald Ore Slab",
+  "referenceBlock": "minecraft:emerald_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

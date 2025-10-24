@@ -1,0 +1,7 @@
+{
+  "name": "quartz_bricks_slab",
+  "displayName": "Quartz Bricks Slab",
+  "referenceBlock": "minecraft:quartz_bricks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

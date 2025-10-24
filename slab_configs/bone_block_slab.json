@@ -1,0 +1,7 @@
+{
+  "name": "bone_block_slab",
+  "displayName": "Bone Block Slab",
+  "referenceBlock": "minecraft:bone_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

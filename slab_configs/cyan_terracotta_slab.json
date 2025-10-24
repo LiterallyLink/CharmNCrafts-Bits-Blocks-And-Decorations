@@ -1,0 +1,7 @@
+{
+  "name": "cyan_terracotta_slab",
+  "displayName": "Cyan Terracotta Slab",
+  "referenceBlock": "minecraft:cyan_terracotta",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

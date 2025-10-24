@@ -1,0 +1,7 @@
+{
+  "name": "exposed_cut_copper_slab",
+  "displayName": "Exposed Cut Copper Slab",
+  "referenceBlock": "minecraft:exposed_cut_copper",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

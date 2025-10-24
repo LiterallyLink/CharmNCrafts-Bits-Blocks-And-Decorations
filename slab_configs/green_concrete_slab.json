@@ -1,0 +1,7 @@
+{
+  "name": "green_concrete_slab",
+  "displayName": "Green Concrete Slab",
+  "referenceBlock": "minecraft:green_concrete",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

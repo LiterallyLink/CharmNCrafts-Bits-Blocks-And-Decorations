@@ -1,0 +1,7 @@
+{
+  "name": "dead_fire_coral_block_slab",
+  "displayName": "Dead Fire Coral Block Slab",
+  "referenceBlock": "minecraft:dead_fire_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

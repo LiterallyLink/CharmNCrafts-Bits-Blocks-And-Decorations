@@ -1,0 +1,7 @@
+{
+  "name": "dark_prismarine_slab",
+  "displayName": "Dark Prismarine Slab",
+  "referenceBlock": "minecraft:dark_prismarine",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

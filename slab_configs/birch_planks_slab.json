@@ -1,0 +1,7 @@
+{
+  "name": "birch_planks_slab",
+  "displayName": "Birch Planks Slab",
+  "referenceBlock": "minecraft:birch_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

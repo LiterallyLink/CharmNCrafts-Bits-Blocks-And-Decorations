@@ -1,0 +1,7 @@
+{
+  "name": "cherry_leaves_slab",
+  "displayName": "Cherry Leaves Slab",
+  "referenceBlock": "minecraft:cherry_leaves",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

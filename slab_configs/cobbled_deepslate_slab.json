@@ -1,0 +1,7 @@
+{
+  "name": "cobbled_deepslate_slab",
+  "displayName": "Cobbled Deepslate Slab",
+  "referenceBlock": "minecraft:cobbled_deepslate",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "dead_brain_coral_block_slab",
+  "displayName": "Dead Brain Coral Block Slab",
+  "referenceBlock": "minecraft:dead_brain_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

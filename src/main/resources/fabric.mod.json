@@ -23,11 +23,7 @@
 		]
 	},
 	"mixins": [
-		"charmncraft-bits.mixins.json",
-		{
-			"config": "charmncraft-bits.client.mixins.json",
-			"environment": "client"
-		}
+		"charmncraft-bits.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.3",

@@ -1,0 +1,7 @@
+{
+  "name": "deepslate_diamond_ore_slab",
+  "displayName": "Deepslate Diamond Ore Slab",
+  "referenceBlock": "minecraft:deepslate_diamond_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

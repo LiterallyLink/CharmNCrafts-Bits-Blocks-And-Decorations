@@ -1,0 +1,7 @@
+{
+  "name": "red_stained_glass_slab",
+  "displayName": "Red Stained Glass Slab",
+  "referenceBlock": "minecraft:red_stained_glass",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

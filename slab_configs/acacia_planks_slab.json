@@ -1,0 +1,7 @@
+{
+  "name": "acacia_planks_slab",
+  "displayName": "Acacia Planks Slab",
+  "referenceBlock": "minecraft:acacia_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

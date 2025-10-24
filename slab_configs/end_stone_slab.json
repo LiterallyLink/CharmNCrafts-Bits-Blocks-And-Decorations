@@ -1,0 +1,7 @@
+{
+  "name": "end_stone_slab",
+  "displayName": "End Stone Slab",
+  "referenceBlock": "minecraft:end_stone",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

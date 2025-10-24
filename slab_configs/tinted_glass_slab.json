@@ -1,0 +1,7 @@
+{
+  "name": "tinted_glass_slab",
+  "displayName": "Tinted Glass Slab",
+  "referenceBlock": "minecraft:tinted_glass",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "warped_nylium_slab",
+  "displayName": "Warped Nylium Slab",
+  "referenceBlock": "minecraft:warped_nylium",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

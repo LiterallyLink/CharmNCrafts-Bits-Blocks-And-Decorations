@@ -1,0 +1,7 @@
+{
+  "name": "jungle_planks_slab",
+  "displayName": "Jungle Planks Slab",
+  "referenceBlock": "minecraft:jungle_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

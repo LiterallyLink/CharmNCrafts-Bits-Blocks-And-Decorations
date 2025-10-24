@@ -1,0 +1,7 @@
+{
+  "name": "bubble_coral_block_slab",
+  "displayName": "Bubble Coral Block Slab",
+  "referenceBlock": "minecraft:bubble_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

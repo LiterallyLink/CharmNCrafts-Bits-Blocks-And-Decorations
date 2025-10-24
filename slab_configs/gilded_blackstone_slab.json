@@ -1,0 +1,7 @@
+{
+  "name": "gilded_blackstone_slab",
+  "displayName": "Gilded Blackstone Slab",
+  "referenceBlock": "minecraft:gilded_blackstone",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

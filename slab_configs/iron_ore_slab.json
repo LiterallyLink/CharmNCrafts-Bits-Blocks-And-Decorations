@@ -1,0 +1,7 @@
+{
+  "name": "iron_ore_slab",
+  "displayName": "Iron Ore Slab",
+  "referenceBlock": "minecraft:iron_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

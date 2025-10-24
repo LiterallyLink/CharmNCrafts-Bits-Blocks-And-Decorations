@@ -1,0 +1,7 @@
+{
+  "name": "tube_coral_block_slab",
+  "displayName": "Tube Coral Block Slab",
+  "referenceBlock": "minecraft:tube_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

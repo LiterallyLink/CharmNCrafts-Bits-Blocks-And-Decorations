@@ -1,0 +1,7 @@
+{
+  "name": "dark_oak_planks_slab",
+  "displayName": "Dark Oak Planks Slab",
+  "referenceBlock": "minecraft:dark_oak_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

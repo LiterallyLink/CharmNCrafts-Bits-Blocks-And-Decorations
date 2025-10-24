@@ -1,0 +1,7 @@
+{
+  "name": "muddy_mangrove_roots_slab",
+  "displayName": "Muddy Mangrove Roots Slab",
+  "referenceBlock": "minecraft:muddy_mangrove_roots",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

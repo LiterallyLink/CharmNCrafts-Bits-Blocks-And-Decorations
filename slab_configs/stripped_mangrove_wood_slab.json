@@ -1,0 +1,7 @@
+{
+  "name": "stripped_mangrove_wood_slab",
+  "displayName": "Stripped Mangrove Wood Slab",
+  "referenceBlock": "minecraft:stripped_mangrove_wood",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

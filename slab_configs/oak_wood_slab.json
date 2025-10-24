@@ -1,0 +1,7 @@
+{
+  "name": "oak_wood_slab",
+  "displayName": "Oak Wood Slab",
+  "referenceBlock": "minecraft:oak_wood",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "chiseled_quartz_block_slab",
+  "displayName": "Chiseled Quartz Block Slab",
+  "referenceBlock": "minecraft:chiseled_quartz_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

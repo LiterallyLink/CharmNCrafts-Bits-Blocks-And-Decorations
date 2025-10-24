@@ -1,0 +1,7 @@
+{
+  "name": "dead_horn_coral_block_slab",
+  "displayName": "Dead Horn Coral Block Slab",
+  "referenceBlock": "minecraft:dead_horn_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

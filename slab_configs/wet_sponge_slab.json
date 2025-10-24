@@ -1,0 +1,7 @@
+{
+  "name": "wet_sponge_slab",
+  "displayName": "Wet Sponge Slab",
+  "referenceBlock": "minecraft:wet_sponge",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

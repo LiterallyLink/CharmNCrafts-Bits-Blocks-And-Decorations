@@ -1,0 +1,7 @@
+{
+  "name": "stripped_acacia_log_slab",
+  "displayName": "Stripped Acacia Log Slab",
+  "referenceBlock": "minecraft:stripped_acacia_log",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

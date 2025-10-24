@@ -1,0 +1,7 @@
+{
+  "name": "warped_wart_block_slab",
+  "displayName": "Warped Wart Block Slab",
+  "referenceBlock": "minecraft:warped_wart_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

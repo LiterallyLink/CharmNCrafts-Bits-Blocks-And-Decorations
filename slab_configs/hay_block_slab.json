@@ -1,0 +1,7 @@
+{
+  "name": "hay_block_slab",
+  "displayName": "Hay Bale Slab",
+  "referenceBlock": "minecraft:hay_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

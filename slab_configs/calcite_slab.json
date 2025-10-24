@@ -1,0 +1,7 @@
+{
+  "name": "calcite_slab",
+  "displayName": "Calcite Slab",
+  "referenceBlock": "minecraft:calcite",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

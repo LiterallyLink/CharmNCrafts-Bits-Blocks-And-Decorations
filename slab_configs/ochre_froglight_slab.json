@@ -1,0 +1,7 @@
+{
+  "name": "ochre_froglight_slab",
+  "displayName": "Ochre Froglight Slab",
+  "referenceBlock": "minecraft:ochre_froglight",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

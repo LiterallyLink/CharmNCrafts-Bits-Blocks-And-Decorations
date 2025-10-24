@@ -1,0 +1,7 @@
+{
+  "name": "magenta_concrete_slab",
+  "displayName": "Magenta Concrete Slab",
+  "referenceBlock": "minecraft:magenta_concrete",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "redstone_ore_slab",
+  "displayName": "Redstone Ore Slab",
+  "referenceBlock": "minecraft:redstone_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

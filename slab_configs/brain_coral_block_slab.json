@@ -1,0 +1,7 @@
+{
+  "name": "brain_coral_block_slab",
+  "displayName": "Brain Coral Block Slab",
+  "referenceBlock": "minecraft:brain_coral_block",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

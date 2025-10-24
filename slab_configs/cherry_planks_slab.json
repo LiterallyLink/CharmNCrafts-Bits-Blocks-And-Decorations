@@ -1,0 +1,7 @@
+{
+  "name": "cherry_planks_slab",
+  "displayName": "Cherry Planks Slab",
+  "referenceBlock": "minecraft:cherry_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

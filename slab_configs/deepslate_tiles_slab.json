@@ -1,0 +1,7 @@
+{
+  "name": "deepslate_tiles_slab",
+  "displayName": "Deepslate Tiles Slab",
+  "referenceBlock": "minecraft:deepslate_tiles",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

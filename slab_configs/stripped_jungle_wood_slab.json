@@ -1,0 +1,7 @@
+{
+  "name": "stripped_jungle_wood_slab",
+  "displayName": "Stripped Jungle Wood Slab",
+  "referenceBlock": "minecraft:stripped_jungle_wood",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

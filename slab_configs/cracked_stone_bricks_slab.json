@@ -1,0 +1,7 @@
+{
+  "name": "cracked_stone_bricks_slab",
+  "displayName": "Cracked Stone Bricks Slab",
+  "referenceBlock": "minecraft:cracked_stone_bricks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

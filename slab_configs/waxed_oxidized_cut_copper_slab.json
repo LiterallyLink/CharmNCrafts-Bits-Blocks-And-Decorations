@@ -1,0 +1,7 @@
+{
+  "name": "waxed_oxidized_cut_copper_slab",
+  "displayName": "Waxed Oxidized Cut Copper Slab",
+  "referenceBlock": "minecraft:waxed_oxidized_cut_copper",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

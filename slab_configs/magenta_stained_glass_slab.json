@@ -1,0 +1,7 @@
+{
+  "name": "magenta_stained_glass_slab",
+  "displayName": "Magenta Stained Glass Slab",
+  "referenceBlock": "minecraft:magenta_stained_glass",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

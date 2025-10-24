@@ -1,0 +1,7 @@
+{
+  "name": "gray_terracotta_slab",
+  "displayName": "Gray Terracotta Slab",
+  "referenceBlock": "minecraft:gray_terracotta",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

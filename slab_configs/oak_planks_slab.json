@@ -1,0 +1,7 @@
+{
+  "name": "oak_planks_slab",
+  "displayName": "Oak Planks Slab",
+  "referenceBlock": "minecraft:oak_planks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

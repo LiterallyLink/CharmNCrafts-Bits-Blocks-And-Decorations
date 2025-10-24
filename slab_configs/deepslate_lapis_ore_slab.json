@@ -1,0 +1,7 @@
+{
+  "name": "deepslate_lapis_ore_slab",
+  "displayName": "Deepslate Lapis Lazuli Ore Slab",
+  "referenceBlock": "minecraft:deepslate_lapis_ore",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

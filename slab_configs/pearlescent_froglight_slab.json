@@ -1,0 +1,7 @@
+{
+  "name": "pearlescent_froglight_slab",
+  "displayName": "Pearlescent Froglight Slab",
+  "referenceBlock": "minecraft:pearlescent_froglight",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

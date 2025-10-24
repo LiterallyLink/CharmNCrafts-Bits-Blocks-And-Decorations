@@ -1,0 +1,7 @@
+{
+  "name": "polished_blackstone_bricks_slab",
+  "displayName": "Polished Blackstone Bricks Slab",
+  "referenceBlock": "minecraft:polished_blackstone_bricks",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}

@@ -1,0 +1,7 @@
+{
+  "name": "tuff_slab",
+  "displayName": "Tuff Slab",
+  "referenceBlock": "minecraft:tuff",
+  "recipeInputCount": 3,
+  "recipeOutputCount": 6
+}
