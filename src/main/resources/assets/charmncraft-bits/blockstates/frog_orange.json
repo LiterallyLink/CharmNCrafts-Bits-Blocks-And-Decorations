@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=true": {
-      "model": "charmncraft-bits:block/frog_orange"
+      "model": "charmncraft-bits:block/night_lights/frog_orange"
     },
     "lit=false": {
-      "model": "charmncraft-bits:block/frog_orange"
+      "model": "charmncraft-bits:block/night_lights/frog_orange"
     }
   }
 }

@@ -1,8 +1,8 @@
 {
   "variants": {
-    "facing=north": { "model": "charmncraft-bits:block/horse_plushie"},
-    "facing=east":  { "model": "charmncraft-bits:block/horse_plushie", "y":  90},
-    "facing=south": { "model": "charmncraft-bits:block/horse_plushie", "y": 180},
-    "facing=west":  { "model": "charmncraft-bits:block/horse_plushie", "y": 270}
+    "facing=north": { "model": "charmncraft-bits:block/plushies/horse_plushie"},
+    "facing=east":  { "model": "charmncraft-bits:block/plushies/horse_plushie", "y":  90},
+    "facing=south": { "model": "charmncraft-bits:block/plushies/horse_plushie", "y": 180},
+    "facing=west":  { "model": "charmncraft-bits:block/plushies/horse_plushie", "y": 270}
   }
 }

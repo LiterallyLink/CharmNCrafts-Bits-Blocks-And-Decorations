@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=true": {
-      "model": "charmncraft-bits:block/mushroom_white"
+      "model": "charmncraft-bits:block/night_lights/mushroom_white"
     },
     "lit=false": {
-      "model": "charmncraft-bits:block/mushroom_white"
+      "model": "charmncraft-bits:block/night_lights/mushroom_white"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=true": {
-      "model": "charmncraft-bits:block/octopus_brown"
+      "model": "charmncraft-bits:block/night_lights/octopus_brown"
     },
     "lit=false": {
-      "model": "charmncraft-bits:block/octopus_brown"
+      "model": "charmncraft-bits:block/night_lights/octopus_brown"
     }
   }
 }
