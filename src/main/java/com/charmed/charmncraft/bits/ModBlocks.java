@@ -88,10 +88,13 @@ public class ModBlocks {
 
     // Tenna statue hitbox - custom shape based on the model
     private static final VoxelShape TENNA_STATUE_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(3/16f, 0, 3/16f, 13/16f, 2/16f, 13/16f),  // Base
-        VoxelShapes.cuboid(6/16f, 13/16f, 5/16f, 11/16f, 20/16f, 12/16f),  // Body lower
-        VoxelShapes.cuboid(6/16f, 19/16f, 4/16f, 11/16f, 26/16f, 12/16f),  // Body upper
-        VoxelShapes.cuboid(6/16f, 21/16f, 4/16f, 11/16f, 32/16f, 16/16f)   // Head and antenna
+        VoxelShapes.cuboid(3/16f, 0, 3/16f, 13/16f, 2/16f, 13/16f),  // Base platform
+        VoxelShapes.cuboid(7/16f, 0, 5/16f, 10/16f, 3/16f, 11/16f),   // Feet
+        VoxelShapes.cuboid(7/16f, 3/16f, 6/16f, 10/16f, 13/16f, 10/16f),  // Lower body/stick
+        VoxelShapes.cuboid(0/16f, 14/16f, 1/16f, 8/16f, 18/16f, 6/16f),   // Left arm extended
+        VoxelShapes.cuboid(6/16f, 13/16f, 4/16f, 11/16f, 21/16f, 12/16f), // Main body
+        VoxelShapes.cuboid(6/16f, 21/16f, 4/16f, 11/16f, 29/16f, 16/16f), // Upper body and head
+        VoxelShapes.cuboid(6/16f, 26/16f, 13/16f, 10/16f, 32/16f, 16/16f) // Antenna extending back
     );
 
     static {
