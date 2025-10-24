@@ -63,7 +63,7 @@ public class ModBlocks {
         "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
         "silverfish_plushie", "skeleton_horse_plushie", "skeleton_plushie", "slime_plushie",
         "sniffer_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
-        "stray_plushie", "strider_plushie", "tadpole_plushie", "tenna_statue", "tenna_stick", "toast_rabbit_plushie",
+        "stray_plushie", "strider_plushie", "tadpole_plushie", "tenna_statue", "tenna_pole", "toast_rabbit_plushie",
         "turtle_plushie", "vex_plushie", "villager_plushie", "vindicator_plushie",
         "wandering_trader_plushie", "warden_plushie", "warm_frog_plushie", "white_fox_plushie",
         "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
@@ -78,8 +78,8 @@ public class ModBlocks {
         VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
     );
 
-    // Tenna stick hitbox - custom shape based on the model
-    private static final VoxelShape TENNA_STICK_SHAPE = VoxelShapes.union(
+    // Tenna pole hitbox - custom shape based on the model
+    private static final VoxelShape TENNA_POLE_SHAPE = VoxelShapes.union(
         VoxelShapes.cuboid(7/16f, 0, 7/16f, 9/16f, 9/16f, 9/16f),  // Stick base
         VoxelShapes.cuboid(6/16f, 9/16f, 6/16f, 10/16f, 10/16f, 10/16f),  // Connection
         VoxelShapes.cuboid(5/16f, 10/16f, 6/16f, 11/16f, 14/16f, 10/16f),  // Main antenna body
@@ -174,8 +174,8 @@ public class ModBlocks {
             VoxelShape shape = null;
             if (plushieName.equals("nubert")) {
                 shape = NUBERT_SHAPE;
-            } else if (plushieName.equals("tenna_stick")) {
-                shape = TENNA_STICK_SHAPE;
+            } else if (plushieName.equals("tenna_pole")) {
+                shape = TENNA_POLE_SHAPE;
             } else if (plushieName.equals("tenna_statue")) {
                 shape = TENNA_STATUE_SHAPE;
             }

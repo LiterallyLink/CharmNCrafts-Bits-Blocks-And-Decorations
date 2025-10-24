@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "charmncraft-bits:block/tenna_pole", "y": 180},
+    "facing=east":  { "model": "charmncraft-bits:block/tenna_pole", "y": 270},
+    "facing=south": { "model": "charmncraft-bits:block/tenna_pole"},
+    "facing=west":  { "model": "charmncraft-bits:block/tenna_pole", "y":  90}
+  }
+}
