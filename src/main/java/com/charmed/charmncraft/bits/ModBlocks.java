@@ -46,6 +46,7 @@ public class ModBlocks {
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
     private static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
     private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
+    private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
 
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
@@ -70,6 +71,29 @@ public class ModBlocks {
         "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
         "wither_skeleton_plushie", "wolf_plushie", "yellow_rabbit_plushie", "zoglin_plushie",
         "zombie_plushie", "zombie_villager_plushie", "zombiefied_piglin_plushie"
+    };
+
+    // List of all stacked block types to register
+    private static final String[] STACKED_BLOCK_TYPES = {
+        "stacked_acacia_logs", "stacked_acacia_planks", "stacked_bamboo_blocks",
+        "stacked_bamboo_planks", "stacked_birch_logs", "stacked_birch_planks",
+        "stacked_bricks", "stacked_cherry_logs", "stacked_cherry_planks",
+        "stacked_coal_blocks", "stacked_cobblestone_blocks", "stacked_crimson_planks",
+        "stacked_crimson_stems", "stacked_dark_oak_logs", "stacked_dark_oak_planks",
+        "stacked_diamond_blocks", "stacked_emerald_blocks", "stacked_gold_blocks",
+        "stacked_iron_blocks", "stacked_jungle_logs", "stacked_jungle_planks",
+        "stacked_lapis_blocks", "stacked_mangrove_logs", "stacked_mangrove_planks",
+        "stacked_melons", "stacked_netherite_blocks", "stacked_netherrack_blocks",
+        "stacked_oak_logs", "stacked_oak_planks", "stacked_organic_compost",
+        "stacked_pale_oak_logs", "stacked_pale_oak_planks", "stacked_pumpkins",
+        "stacked_quartz_blocks", "stacked_raw_copper_blocks", "stacked_raw_gold_blocks",
+        "stacked_raw_iron_blocks", "stacked_redstone_blocks", "stacked_resin_blocks",
+        "stacked_resin_bricks", "stacked_spruce_logs", "stacked_spruce_planks",
+        "stacked_stone_blocks", "stacked_stripped_acacia_logs", "stacked_stripped_bamboo_blocks",
+        "stacked_stripped_birch_logs", "stacked_stripped_cherry_logs", "stacked_stripped_crimson_stems",
+        "stacked_stripped_dark_oak_logs", "stacked_stripped_jungle_logs", "stacked_stripped_mangrove_logs",
+        "stacked_stripped_oak_logs", "stacked_stripped_pale_oak_logs", "stacked_stripped_spruce_logs",
+        "stacked_stripped_warped_stems", "stacked_warped_planks", "stacked_warped_stems"
     };
 
     // Nubert hitbox - custom shape based on the model
@@ -107,6 +131,9 @@ public class ModBlocks {
         // Register all plushie blocks
         registerPlushies();
 
+        // Register all stacked blocks
+        registerStackedBlocks();
+
         // Register Night Lights to custom creative tab
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
             .register(entries -> {
@@ -127,6 +154,14 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_KEY)
             .register(entries -> {
                 for (Block block : DELTARUNE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Stacked Blocks to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.STACKED_BLOCKS_KEY)
+            .register(entries -> {
+                for (Block block : STACKED_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -212,6 +247,20 @@ public class ModBlocks {
         }
     }
 
+    private static void registerStackedBlocks() {
+        for (String blockName : STACKED_BLOCK_TYPES) {
+            // Create simple block with stone properties
+            Block stackedBlock = new Block(
+                Block.Settings.create()
+                    .strength(2.0f, 6.0f)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .requiresTool()
+            );
+
+            registerStackedBlock(blockName, stackedBlock);
+        }
+    }
+
     private static void registerBlock(String name, Block block) {
         Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
 
@@ -240,6 +289,19 @@ public class ModBlocks {
         } else {
             PLUSHIE_BLOCKS.add(block);
         }
+    }
+
+    private static void registerStackedBlock(String name, Block block) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to stacked blocks list for creative tab registration
+        STACKED_BLOCKS.add(block);
     }
 
     public static void initialize() {
