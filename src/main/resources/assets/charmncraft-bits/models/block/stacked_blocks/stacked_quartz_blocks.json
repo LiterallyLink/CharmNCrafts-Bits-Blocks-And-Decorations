@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "charmncraft-bits:block/stacked_blocks/stacked_quartz_blocks_side",
+    "bottom": "charmncraft-bits:block/stacked_blocks/stacked_quartz_blocks_bottom",
+    "top": "charmncraft-bits:block/stacked_blocks/stacked_quartz_blocks_top"
+  }
+}
