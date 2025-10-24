@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"particle": "charmncraft-bits:block/tenna_stick",
-		"texture": "charmncraft-bits:block/tenna_stick"
+		"particle": "charmncraft-bits:block/tenna_pole",
+		"texture": "charmncraft-bits:block/tenna_pole"
 	},
 	"elements": [
 		{
