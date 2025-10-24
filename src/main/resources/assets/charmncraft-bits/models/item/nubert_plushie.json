@@ -1,3 +1,6 @@
 {
-  "parent": "charmncraft-bits:block/nubert_plushie"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "charmncraft-bits:item/nubert_plushie"
+  }
 }
