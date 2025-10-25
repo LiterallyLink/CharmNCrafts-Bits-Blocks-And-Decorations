@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/nes",
+  "textures": {
+    "all": "charmncraft-bits:block/nes",
+    "particle": "charmncraft-bits:block/nes",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}
