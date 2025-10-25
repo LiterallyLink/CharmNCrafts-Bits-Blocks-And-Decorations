@@ -146,9 +146,9 @@ public class AzaleaFlowersBlock extends Block implements Waterloggable {
      * Check if flowers can be placed on this face
      */
     private boolean canPlaceOn(WorldView world, Direction face, BlockPos pos) {
-        BlockPos attachPos = pos.offset(face.getOpposite());
+        BlockPos attachPos = pos.offset(face);
         BlockState attachState = world.getBlockState(attachPos);
-        return attachState.isSideSolidFullSquare(world, attachPos, face);
+        return attachState.isSideSolidFullSquare(world, attachPos, face.getOpposite());
     }
 
     /**
