@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/dock"
+    "layer0": "charmncraft-bits:item/consoles/dock"
   },
   "render_type": "translucent"
 }
