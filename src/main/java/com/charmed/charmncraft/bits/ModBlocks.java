@@ -318,25 +318,84 @@ public class ModBlocks {
     }
 
     private static void registerConsoles() {
-        // NES console hitbox (from custom model: 14x4x11 pixels)
-        VoxelShape nesShape = VoxelShapes.cuboid(
-            1/16f, 0, 2/16f,      // min x, y, z
-            15/16f, 4/16f, 13/16f  // max x, y, z
-        );
+        // NES console hitbox (14x4x11 pixels)
+        registerConsoleBlock("nes", VoxelShapes.cuboid(1/16f, 0, 2/16f, 15/16f, 4/16f, 13/16f));
 
-        Block nesBlock = new ConsoleBlock(
+        // Dreamcast (13x4x12 pixels)
+        registerConsoleBlock("dreamcast", VoxelShapes.cuboid(1.5f/16f, 0, 2/16f, 14.5f/16f, 4/16f, 14/16f));
+
+        // DS (9x1x6 pixels)
+        registerConsoleBlock("ds", VoxelShapes.cuboid(5/16f, 0, 2.8f/16f, 14/16f, 1/16f, 8.8f/16f));
+
+        // Gameboys (6x2x10 pixels)
+        registerConsoleBlock("gameboys", VoxelShapes.cuboid(9/16f, 0, 1.8f/16f, 15/16f, 2/16f, 11.8f/16f));
+
+        // GameCube (11x8x11 pixels)
+        registerConsoleBlock("gamecube", VoxelShapes.cuboid(2.5f/16f, 0, 2.5f/16f, 13.5f/16f, 8/16f, 13.5f/16f));
+
+        // Switch Dock (13x9x1 pixels)
+        registerConsoleBlock("dock", VoxelShapes.cuboid(1.5f/16f, 0, 6/16f, 14.5f/16f, 9/16f, 7/16f));
+
+        // N64 (3x2x4 pixels, clamped)
+        registerConsoleBlock("n_64", VoxelShapes.cuboid(0, 0, 1.49f/16f, 3.01f/16f, 2.01f/16f, 5.51f/16f));
+
+        // PS1 (13x2x9 pixels)
+        registerConsoleBlock("ps_1", VoxelShapes.cuboid(1.5f/16f, 0, 3.5f/16f, 14.5f/16f, 2/16f, 12.5f/16f));
+
+        // PS2 (15x2x10 pixels)
+        registerConsoleBlock("ps_2", VoxelShapes.cuboid(0.5f/16f, 2/16f, 3/16f, 15.5f/16f, 4/16f, 13/16f));
+
+        // PS4 (15x1x12 pixels)
+        registerConsoleBlock("ps_4", VoxelShapes.cuboid(0.5f/16f, 3/16f, 2/16f, 15.5f/16f, 4/16f, 14/16f));
+
+        // PS5 (3x22x12 pixels - tall!)
+        registerConsoleBlock("ps_5", VoxelShapes.cuboid(6.4848f/16f, 1.4467f/16f, 1.2322f/16f, 9.8384f/16f, 1.0f, 13.8082f/16f));
+
+        // PSP (10x2x6 pixels)
+        registerConsoleBlock("psp", VoxelShapes.cuboid(3/16f, 0, 5/16f, 13/16f, 2/16f, 11/16f));
+
+        // Sega Genesis (12x2x10 pixels)
+        registerConsoleBlock("sega_genesis", VoxelShapes.cuboid(2/16f, 0, 3/16f, 14/16f, 2/16f, 13/16f));
+
+        // SNES (10x3x12 pixels)
+        registerConsoleBlock("snes", VoxelShapes.cuboid(3.5f/16f, 0, 2/16f, 13.5f/16f, 3/16f, 14/16f));
+
+        // Switch In Dock (3x8x1 pixels, clamped)
+        registerConsoleBlock("switch_in_dock", VoxelShapes.cuboid(0, 2/16f, 7/16f, 1/16f, 10/16f, 8/16f));
+
+        // Switch (3x1x8 pixels, clamped)
+        registerConsoleBlock("switcsh", VoxelShapes.cuboid(0, 0, 6/16f, 2/16f, 1/16f, 14/16f));
+
+        // TV (15x11x8 pixels)
+        registerConsoleBlock("tv", VoxelShapes.cuboid(0.5f/16f, 0, 4/16f, 15.5f/16f, 11/16f, 12/16f));
+
+        // Wii (5x3x13 pixels)
+        registerConsoleBlock("wii", VoxelShapes.cuboid(6.5f/16f, 0, 0.75f/16f, 11.5f/16f, 3/16f, 13.75f/16f));
+
+        // Original Xbox (16x6x15 pixels, clamped)
+        registerConsoleBlock("xbox", VoxelShapes.cuboid(0, 0, 0.5f/16f, 1.0f, 6/16f, 15.5f/16f));
+
+        // Xbox One (16x3x13 pixels, clamped)
+        registerConsoleBlock("xbox_1", VoxelShapes.cuboid(0, 1/16f, 2/16f, 1.0f, 4/16f, 15/16f));
+
+        // Xbox Series S (4x19x11 pixels - tall!)
+        registerConsoleBlock("xbox_series_s", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 1.0f, 13.5f/16f));
+
+        // Xbox Series X (4x19x11 pixels - tall!)
+        registerConsoleBlock("xbox_series_x", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 1.0f, 13.5f/16f));
+    }
+
+    private static void registerConsoleBlock(String name, VoxelShape shape) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Create console block with custom hitbox
+        Block block = new ConsoleBlock(
             Block.Settings.create()
                 .strength(1.5f, 6.0f)
                 .sounds(BlockSoundGroup.METAL)
                 .nonOpaque(),
-            nesShape
+            shape
         );
-
-        registerConsoleBlock("nes", nesBlock);
-    }
-
-    private static void registerConsoleBlock(String name, Block block) {
-        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
 
         // Register block
         Registry.register(Registries.BLOCK, id, block);
