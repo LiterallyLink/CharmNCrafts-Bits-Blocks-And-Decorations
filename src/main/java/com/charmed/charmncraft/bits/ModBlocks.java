@@ -340,8 +340,14 @@ public class ModBlocks {
         // Switch Dock (13x9x1 pixels)
         registerConsoleBlock("dock", VoxelShapes.cuboid(1.5f/16f, 0, 6/16f, 14.5f/16f, 9/16f, 7/16f));
 
-        // N64 (3x2x4 pixels, clamped)
-        registerConsoleBlock("n_64", VoxelShapes.cuboid(0, 0, 1.49f/16f, 3.01f/16f, 2.01f/16f, 5.51f/16f));
+        // N64 (4 parts: left controller + console body + right controller + top)
+        VoxelShape n64Shape = VoxelShapes.union(
+            VoxelShapes.cuboid(0, 0, 1.49f/16f, 3.01f/16f, 2.01f/16f, 5.51f/16f),       // Left controller (clamped from -0.01)
+            VoxelShapes.cuboid(1.5f/16f, 0, 3/16f, 14.5f/16f, 3/16f, 14/16f),           // Main console body
+            VoxelShapes.cuboid(12.99f/16f, 0, 1.49f/16f, 1.0f, 2.01f/16f, 5.51f/16f),   // Right controller (clamped from 16.01)
+            VoxelShapes.cuboid(4.5f/16f, 3/16f, 9/16f, 11.5f/16f, 6/16f, 11/16f)        // Top part
+        );
+        registerConsoleBlock("n_64", n64Shape);
 
         // PS1 (13x2x9 pixels)
         registerConsoleBlock("ps_1", VoxelShapes.cuboid(1.5f/16f, 0, 3.5f/16f, 14.5f/16f, 2/16f, 12.5f/16f));
@@ -352,8 +358,14 @@ public class ModBlocks {
         // PS4 (15x1x12 pixels)
         registerConsoleBlock("ps_4", VoxelShapes.cuboid(0.5f/16f, 3/16f, 2/16f, 15.5f/16f, 4/16f, 14/16f));
 
-        // PS5 (3x22x12 pixels - tall!)
-        registerConsoleBlock("ps_5", VoxelShapes.cuboid(6.4848f/16f, 1.4467f/16f, 1.2322f/16f, 9.8384f/16f, 1.0f, 13.8082f/16f));
+        // PS5 (4 parts - tall vertical console - extends above one block!)
+        VoxelShape ps5Shape = VoxelShapes.union(
+            VoxelShapes.cuboid(6.4848f/16f, 1.4467f/16f, 1.2322f/16f, 9.8384f/16f, 24.0835f/16f, 13.8082f/16f),   // Center
+            VoxelShapes.cuboid(5.6464f/16f, 1.2371f/16f, 0.3938f/16f, 6.4848f/16f, 25.5507f/16f, 14.6466f/16f),   // Left side (tallest)
+            VoxelShapes.cuboid(9.8384f/16f, 1.2371f/16f, 0.3938f/16f, 10.6768f/16f, 25.5507f/16f, 14.6466f/16f),  // Right side (tallest)
+            VoxelShapes.cuboid(4.808f/16f, 0.3987f/16f, 4.5858f/16f, 11.5152f/16f, 2.0755f/16f, 11.293f/16f)      // Base
+        );
+        registerConsoleBlock("ps_5", ps5Shape);
 
         // PSP (10x2x6 pixels)
         registerConsoleBlock("psp", VoxelShapes.cuboid(3/16f, 0, 5/16f, 13/16f, 2/16f, 11/16f));
@@ -364,8 +376,16 @@ public class ModBlocks {
         // SNES (10x3x12 pixels)
         registerConsoleBlock("snes", VoxelShapes.cuboid(3.5f/16f, 0, 2/16f, 13.5f/16f, 3/16f, 14/16f));
 
-        // Switch In Dock (3x8x1 pixels, clamped)
-        registerConsoleBlock("switch_in_dock", VoxelShapes.cuboid(0, 2/16f, 7/16f, 1/16f, 10/16f, 8/16f));
+        // Switch In Dock (6 parts: dock base + switch tablet + various components)
+        VoxelShape switchInDockShape = VoxelShapes.union(
+            VoxelShapes.cuboid(0, 2/16f, 7/16f, 1/16f, 10/16f, 8/16f),               // Left side (clamped from -2)
+            VoxelShapes.cuboid(1/16f, 0, 6/16f, 14/16f, 9/16f, 7/16f),               // Dock base front
+            VoxelShapes.cuboid(14/16f, 2/16f, 7/16f, 1.0f, 10/16f, 8/16f),           // Right side (clamped from 17)
+            VoxelShapes.cuboid(1/16f, 2/16f, 7/16f, 14/16f, 10/16f, 8/16f),          // Center tablet
+            VoxelShapes.cuboid(1/16f, 0, 8/16f, 14/16f, 9/16f, 10/16f),              // Dock base back
+            VoxelShapes.cuboid(1/16f, 0, 7/16f, 14/16f, 2/16f, 8/16f)                // Bottom connector
+        );
+        registerConsoleBlock("switch_in_dock", switchInDockShape);
 
         // Switch (3 parts: left joy-con + center tablet + right joy-con)
         VoxelShape switchShape = VoxelShapes.union(
@@ -395,11 +415,15 @@ public class ModBlocks {
         );
         registerConsoleBlock("xbox_1", xboxOneShape);
 
-        // Xbox Series S (4x19x11 pixels - tall!)
-        registerConsoleBlock("xbox_series_s", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 1.0f, 13.5f/16f));
+        // Xbox Series S (4x19x11 pixels - tall vertical tower)
+        registerConsoleBlock("xbox_series_s", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 19/16f, 13.5f/16f));
 
-        // Xbox Series X (4x19x11 pixels - tall!)
-        registerConsoleBlock("xbox_series_x", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 1.0f, 13.5f/16f));
+        // Xbox Series X (2 parts - tall vertical tower with top vent - extends above one block!)
+        VoxelShape xboxSeriesXShape = VoxelShapes.union(
+            VoxelShapes.cuboid(2.5f/16f, 0, 2.5f/16f, 13.5f/16f, 21/16f, 13.5f/16f),         // Main tower
+            VoxelShapes.cuboid(2.6f/16f, 20.05f/16f, 2.6f/16f, 13.4f/16f, 20.85f/16f, 13.4f/16f)  // Top vent
+        );
+        registerConsoleBlock("xbox_series_x", xboxSeriesXShape);
     }
 
     private static void registerConsoleBlock(String name, VoxelShape shape) {
