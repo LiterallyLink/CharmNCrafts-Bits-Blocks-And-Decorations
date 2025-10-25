@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/wii",
+  "textures": {
+    "all": "charmncraft-bits:block/wii",
+    "particle": "charmncraft-bits:block/wii",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

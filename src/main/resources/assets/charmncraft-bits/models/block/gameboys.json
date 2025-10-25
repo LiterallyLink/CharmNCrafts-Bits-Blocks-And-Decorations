@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/gameboys",
+  "textures": {
+    "all": "charmncraft-bits:block/gameboys",
+    "particle": "charmncraft-bits:block/gameboys",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

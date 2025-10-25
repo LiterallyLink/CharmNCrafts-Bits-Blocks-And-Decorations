@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/tv",
+  "textures": {
+    "all": "charmncraft-bits:block/tv",
+    "particle": "charmncraft-bits:block/tv",
+    "0": "charmncraft-bits:block/tv"
+  },
+  "render_type": "solid"
+}

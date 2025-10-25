@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/gamecube",
+  "textures": {
+    "all": "charmncraft-bits:block/gamecube",
+    "particle": "charmncraft-bits:block/gamecube",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

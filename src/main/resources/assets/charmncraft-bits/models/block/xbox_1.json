@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/xbox_1",
+  "textures": {
+    "all": "charmncraft-bits:block/xbox_1",
+    "particle": "charmncraft-bits:block/xbox_1",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/n64",
+  "textures": {
+    "all": "charmncraft-bits:block/n64",
+    "particle": "charmncraft-bits:block/n64",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

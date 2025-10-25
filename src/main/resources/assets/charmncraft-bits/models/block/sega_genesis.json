@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/sega_gen",
+  "textures": {
+    "all": "charmncraft-bits:block/sega_gen",
+    "particle": "charmncraft-bits:block/sega_gen",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}

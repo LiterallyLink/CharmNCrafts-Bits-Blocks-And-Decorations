@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/ps1",
+  "textures": {
+    "all": "charmncraft-bits:block/ps1",
+    "particle": "charmncraft-bits:block/ps1",
+    "2": "charmncraft-bits:block/pasted"
+  },
+  "render_type": "solid"
+}
