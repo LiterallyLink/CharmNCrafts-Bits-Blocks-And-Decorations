@@ -53,6 +53,7 @@ public class ModBlocks {
     private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
     private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
     private static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
+    private static final List<Block> CRATE_BLOCKS = new ArrayList<>();
 
     // Azalea Flowers blocks
     public static final Block AZALEA_FLOWERS;
@@ -81,6 +82,19 @@ public class ModBlocks {
         "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
         "wither_skeleton_plushie", "wolf_plushie", "yellow_rabbit_plushie", "zoglin_plushie",
         "zombie_plushie", "zombie_villager_plushie", "zombiefied_piglin_plushie"
+    };
+
+    // List of all crate and bag types to register
+    private static final String[] CRATE_TYPES = {
+        "apple_crate", "bass_crate", "beetroot_crate", "berry_crate",
+        "black_berry_crate", "blueberry_crate", "brown_mushroom_crate", "carrot_crate",
+        "catfish_crate", "cinder_flour_bag", "cocoabeans_bag", "cod_crate",
+        "cookie_bag", "diamond_apple_crate", "duck_egg_crate", "egg_crate",
+        "end_fish_crate", "ender_dust_bag", "glowberry_crate", "golden_apple_crate",
+        "golden_carrot_crate", "green_berry_crate", "ground_cinnamon_bag", "gunpowder_bag",
+        "kiwi_egg_crate", "kiwifruit_crate", "orange_berry_crate", "peanut_crate",
+        "potato_crate", "powdered_obsidian_bag", "purple_berry_crate", "red_mushroom_crate",
+        "salmon_crate", "salt_bag", "sugar_bag", "wheat_flour_bag", "yellow_berry_crate"
     };
 
     // List of all stacked block types to register
@@ -151,6 +165,9 @@ public class ModBlocks {
         // Register all stacked blocks
         registerStackedBlocks();
 
+        // Register all crate and bag blocks
+        registerCrates();
+
         // Register console blocks (starting with NES as test)
         registerConsoles();
 
@@ -198,6 +215,14 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.TWIGS_KEY)
             .register(entries -> {
                 for (Block block : TWIGS_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Crates to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CRATES_KEY)
+            .register(entries -> {
+                for (Block block : CRATE_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -297,6 +322,19 @@ public class ModBlocks {
         }
     }
 
+    private static void registerCrates() {
+        for (String crateName : CRATE_TYPES) {
+            // Create crate block with wood properties (similar to vanilla crates)
+            Block crateBlock = new Block(
+                Block.Settings.create()
+                    .strength(2.0f, 3.0f)
+                    .sounds(BlockSoundGroup.WOOD)
+            );
+
+            registerCrateBlock(crateName, crateBlock);
+        }
+    }
+
     private static void registerBlock(String name, Block block) {
         Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
 
@@ -338,6 +376,19 @@ public class ModBlocks {
 
         // Add to stacked blocks list for creative tab registration
         STACKED_BLOCKS.add(block);
+    }
+
+    private static void registerCrateBlock(String name, Block block) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to crate blocks list for creative tab registration
+        CRATE_BLOCKS.add(block);
     }
 
     private static void registerConsoles() {

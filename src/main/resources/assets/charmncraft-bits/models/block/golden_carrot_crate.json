@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "charmncraft-bits:block/golden_carrot_crate_side",
+    "bottom": "charmncraft-bits:block/crate_bottom",
+    "top": "charmncraft-bits:block/golden_carrot_crate_top"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "charmncraft-bits:block/rice_bag_bottom",
+    "east": "charmncraft-bits:block/rice_bag_side",
+    "north": "charmncraft-bits:block/rice_bag_side_tied",
+    "particle": "charmncraft-bits:block/cookie_bag_top",
+    "south": "charmncraft-bits:block/rice_bag_side_tied",
+    "up": "charmncraft-bits:block/cookie_bag_top",
+    "west": "charmncraft-bits:block/rice_bag_side"
+  }
+}

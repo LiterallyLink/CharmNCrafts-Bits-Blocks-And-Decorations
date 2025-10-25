@@ -1,0 +1,113 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "charmncraft-bits:carrot_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:potato_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:beetroot_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:apple_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:blueberry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:black_berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:green_berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:orange_berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:purple_berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:yellow_berry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:glowberry_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:egg_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:duck_egg_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:peanut_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:salmon_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:cod_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:end_fish_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:catfish_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:bass_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:golden_apple_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:red_mushroom_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:brown_mushroom_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:golden_carrot_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:kiwi_egg_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:kiwifruit_crate",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:diamond_apple_crate",
+      "required": false
+    }
+  ]
+}

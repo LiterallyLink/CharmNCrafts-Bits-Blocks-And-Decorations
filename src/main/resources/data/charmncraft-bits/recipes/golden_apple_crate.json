@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "result": {
+    "count": 1,
+    "item": "charmncraft-bits:golden_apple_crate"
+  }
+}

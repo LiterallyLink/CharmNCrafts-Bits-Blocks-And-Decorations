@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "charmncraft-bits:block/brown_mushroom_crate_side",
+    "bottom": "charmncraft-bits:block/crate_bottom",
+    "top": "charmncraft-bits:block/brown_mushroom_crate_top"
+  }
+}
