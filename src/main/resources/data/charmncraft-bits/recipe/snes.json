@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "bcb",
+    "ded"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:white_concrete"
+    },
+    "b": {
+      "item": "minecraft:purple_concrete_powder"
+    },
+    "c": {
+      "item": "minecraft:redstone_block"
+    },
+    "d": {
+      "item": "minecraft:repeater"
+    },
+    "e": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:snes",
+    "count": 1
+  }
+}

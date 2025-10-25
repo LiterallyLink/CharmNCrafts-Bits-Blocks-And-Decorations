@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ab"
+  ],
+  "key": {
+    "a": {
+      "item": "charmncraft-bits:switcsh"
+    },
+    "b": {
+      "item": "charmncraft-bits:dock"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:switch_in_dock",
+    "count": 1
+  }
+}

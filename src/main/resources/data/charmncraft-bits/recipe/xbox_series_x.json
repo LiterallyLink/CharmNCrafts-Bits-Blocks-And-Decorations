@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca",
+    "ada"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:black_concrete"
+    },
+    "b": {
+      "item": "minecraft:lime_concrete"
+    },
+    "c": {
+      "item": "minecraft:redstone_block"
+    },
+    "d": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:xbox_series_x",
+    "count": 1
+  }
+}

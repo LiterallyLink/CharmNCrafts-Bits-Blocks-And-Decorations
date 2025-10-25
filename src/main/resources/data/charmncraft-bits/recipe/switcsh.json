@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    "adc"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:light_blue_concrete"
+    },
+    "b": {
+      "item": "minecraft:black_concrete"
+    },
+    "c": {
+      "item": "minecraft:red_concrete"
+    },
+    "d": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:switcsh",
+    "count": 1
+  }
+}
