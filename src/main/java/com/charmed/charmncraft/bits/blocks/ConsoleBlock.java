@@ -46,7 +46,7 @@ public class ConsoleBlock extends HorizontalFacingBlock implements Waterloggable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         return this.getDefaultState()
-            .with(FACING, ctx.getHorizontalPlayerFacing())
+            .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite())
             .with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
     }
 
