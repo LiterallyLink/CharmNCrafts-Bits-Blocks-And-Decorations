@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/switch",
+  "textures": {
+    "all": "consoles:block/switch",
+    "particle": "consoles:block/switch",
+    "2": "consoles:block/pasted"
+  },
+  "render_type": "solid"
+}

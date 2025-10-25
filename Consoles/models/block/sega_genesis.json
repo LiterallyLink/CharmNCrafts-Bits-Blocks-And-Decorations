@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/sega_gen",
+  "textures": {
+    "all": "consoles:block/sega_gen",
+    "particle": "consoles:block/sega_gen",
+    "2": "consoles:block/pasted"
+  },
+  "render_type": "solid"
+}

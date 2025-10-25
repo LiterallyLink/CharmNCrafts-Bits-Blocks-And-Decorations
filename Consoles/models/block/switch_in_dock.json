@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/switch-in-dock",
+  "textures": {
+    "all": "consoles:block/switch-in-dock",
+    "particle": "consoles:block/switch-in-dock",
+    "2": "consoles:block/pasted"
+  },
+  "render_type": "solid"
+}

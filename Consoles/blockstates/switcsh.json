@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/switcsh"
+    },
+    "facing=east": {
+      "model": "consoles:block/switcsh",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/switcsh",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/switcsh",
+      "y": 270
+    }
+  }
+}

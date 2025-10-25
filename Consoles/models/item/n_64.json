@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "consoles:item/n64"
+  },
+  "render_type": "translucent"
+}

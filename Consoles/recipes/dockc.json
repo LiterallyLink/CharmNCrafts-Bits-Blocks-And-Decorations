@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a a",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:gray_concrete"
+    },
+    "b": {
+      "item": "minecraft:observer"
+    }
+  },
+  "result": {
+    "item": "consoles:dock",
+    "count": 1
+  }
+}

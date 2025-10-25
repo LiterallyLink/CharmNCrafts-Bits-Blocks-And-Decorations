@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/xbox_1",
+  "textures": {
+    "all": "consoles:block/xbox_1",
+    "particle": "consoles:block/xbox_1",
+    "2": "consoles:block/pasted"
+  },
+  "render_type": "solid"
+}
