@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,waterlogged=false": {
-      "model": "charmncraft-bits:block/ps_1"
+      "model": "charmncraft-bits:block/consoles/ps_1"
     },
     "facing=east,waterlogged=false": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 90
     },
     "facing=south,waterlogged=false": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 180
     },
     "facing=west,waterlogged=false": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 270
     },
     "facing=north,waterlogged=true": {
-      "model": "charmncraft-bits:block/ps_1"
+      "model": "charmncraft-bits:block/consoles/ps_1"
     },
     "facing=east,waterlogged=true": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 90
     },
     "facing=south,waterlogged=true": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 180
     },
     "facing=west,waterlogged=true": {
-      "model": "charmncraft-bits:block/ps_1",
+      "model": "charmncraft-bits:block/consoles/ps_1",
       "y": 270
     }
   }

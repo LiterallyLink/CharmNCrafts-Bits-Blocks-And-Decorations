@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,waterlogged=false": {
-      "model": "charmncraft-bits:block/switch_in_dock"
+      "model": "charmncraft-bits:block/consoles/switch_in_dock"
     },
     "facing=east,waterlogged=false": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 90
     },
     "facing=south,waterlogged=false": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 180
     },
     "facing=west,waterlogged=false": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 270
     },
     "facing=north,waterlogged=true": {
-      "model": "charmncraft-bits:block/switch_in_dock"
+      "model": "charmncraft-bits:block/consoles/switch_in_dock"
     },
     "facing=east,waterlogged=true": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 90
     },
     "facing=south,waterlogged=true": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 180
     },
     "facing=west,waterlogged=true": {
-      "model": "charmncraft-bits:block/switch_in_dock",
+      "model": "charmncraft-bits:block/consoles/switch_in_dock",
       "y": 270
     }
   }
