@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "charmncraft-bits:brown_mushroom_crate"
+        "recipe": "charmncraft-bits:crates/brown_mushroom_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "charmncraft-bits:brown_mushroom_crate"
+      "charmncraft-bits:crates/brown_mushroom_crate"
     ]
   },
   "sends_telemetry_event": false

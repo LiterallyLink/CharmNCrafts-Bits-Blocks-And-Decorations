@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "charmncraft-bits:apple_crate"
+        "recipe": "charmncraft-bits:crates/apple_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "charmncraft-bits:apple_crate"
+      "charmncraft-bits:crates/apple_crate"
     ]
   },
   "sends_telemetry_event": false

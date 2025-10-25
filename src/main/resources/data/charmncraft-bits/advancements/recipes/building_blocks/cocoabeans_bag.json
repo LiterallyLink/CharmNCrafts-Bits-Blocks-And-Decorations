@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "charmncraft-bits:cocoabeans_bag"
+        "recipe": "charmncraft-bits:crates/cocoabeans_bag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "charmncraft-bits:cocoabeans_bag"
+      "charmncraft-bits:crates/cocoabeans_bag"
     ]
   },
   "sends_telemetry_event": false

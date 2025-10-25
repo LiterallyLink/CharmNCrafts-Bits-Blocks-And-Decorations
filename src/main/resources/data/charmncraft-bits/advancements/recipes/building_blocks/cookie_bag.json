@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "charmncraft-bits:cookie_bag"
+        "recipe": "charmncraft-bits:crates/cookie_bag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "charmncraft-bits:cookie_bag"
+      "charmncraft-bits:crates/cookie_bag"
     ]
   },
   "sends_telemetry_event": false
