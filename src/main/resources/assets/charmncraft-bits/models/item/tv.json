@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/tv",
+  "parent": "charmncraft-bits:block/consoles/tv",
   "display": {
     "thirdperson": {
       "rotation": [

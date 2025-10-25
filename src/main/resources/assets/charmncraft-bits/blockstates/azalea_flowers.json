@@ -35,7 +35,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers"
+        "model": "charmncraft-bits:block/twigs/azalea_flowers"
       }
     },
     {
