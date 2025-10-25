@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glow_berries"
+    }
+  },
+  "result": {
+    "count": 1,
+    "item": "cratedelight:glowberry_crate"
+  }
+}
