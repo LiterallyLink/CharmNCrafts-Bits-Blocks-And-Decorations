@@ -367,8 +367,13 @@ public class ModBlocks {
         // Switch In Dock (3x8x1 pixels, clamped)
         registerConsoleBlock("switch_in_dock", VoxelShapes.cuboid(0, 2/16f, 7/16f, 1/16f, 10/16f, 8/16f));
 
-        // Switch (3x1x8 pixels, clamped)
-        registerConsoleBlock("switcsh", VoxelShapes.cuboid(0, 0, 6/16f, 2/16f, 1/16f, 14/16f));
+        // Switch (3 parts: left joy-con + center tablet + right joy-con)
+        VoxelShape switchShape = VoxelShapes.union(
+            VoxelShapes.cuboid(0, 0, 6/16f, 2/16f, 1/16f, 14/16f),           // Left joy-con (clamped from -1)
+            VoxelShapes.cuboid(2/16f, 0, 6/16f, 14/16f, 1/16f, 14/16f),      // Center tablet
+            VoxelShapes.cuboid(14/16f, 0, 6/16f, 1.0f, 1/16f, 14/16f)        // Right joy-con (clamped from 17)
+        );
+        registerConsoleBlock("switcsh", switchShape);
 
         // TV (15x11x8 pixels)
         registerConsoleBlock("tv", VoxelShapes.cuboid(0.5f/16f, 0, 4/16f, 15.5f/16f, 11/16f, 12/16f));
@@ -383,8 +388,12 @@ public class ModBlocks {
         // Original Xbox (16x6x15 pixels, clamped)
         registerConsoleBlock("xbox", VoxelShapes.cuboid(0, 0, 0.5f/16f, 1.0f, 6/16f, 15.5f/16f));
 
-        // Xbox One (16x3x13 pixels, clamped)
-        registerConsoleBlock("xbox_1", VoxelShapes.cuboid(0, 1/16f, 2/16f, 1.0f, 4/16f, 15/16f));
+        // Xbox One (2 parts: top + base)
+        VoxelShape xboxOneShape = VoxelShapes.union(
+            VoxelShapes.cuboid(0, 1/16f, 2/16f, 1.0f, 4/16f, 15/16f),        // Top (clamped from 17)
+            VoxelShapes.cuboid(0, 0, 2/16f, 1.0f, 1/16f, 14/16f)             // Base (clamped from 16)
+        );
+        registerConsoleBlock("xbox_1", xboxOneShape);
 
         // Xbox Series S (4x19x11 pixels - tall!)
         registerConsoleBlock("xbox_series_s", VoxelShapes.cuboid(1/16f, 0, 2.5f/16f, 5/16f, 1.0f, 13.5f/16f));
