@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/gameboys"
+    "layer0": "charmncraft-bits:item/consoles/gameboys"
   },
   "render_type": "translucent"
 }

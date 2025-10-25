@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/nes"
+    "layer0": "charmncraft-bits:item/consoles/nes"
   },
   "render_type": "translucent"
 }

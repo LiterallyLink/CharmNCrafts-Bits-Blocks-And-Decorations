@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/snes"
+    "layer0": "charmncraft-bits:item/consoles/snes"
   },
   "render_type": "translucent"
 }

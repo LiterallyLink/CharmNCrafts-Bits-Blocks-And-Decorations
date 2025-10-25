@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/n64"
+    "layer0": "charmncraft-bits:item/consoles/n64"
   },
   "render_type": "translucent"
 }

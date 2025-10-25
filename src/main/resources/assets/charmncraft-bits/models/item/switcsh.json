@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/switch"
+    "layer0": "charmncraft-bits:item/consoles/switch"
   },
   "render_type": "translucent"
 }

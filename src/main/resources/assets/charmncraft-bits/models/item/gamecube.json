@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/gamecube"
+    "layer0": "charmncraft-bits:item/consoles/gamecube"
   },
   "render_type": "translucent"
 }

@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/og_xbox",
   "textures": {
-    "all": "charmncraft-bits:block/og_xbox",
-    "particle": "charmncraft-bits:block/og_xbox",
-    "2": "charmncraft-bits:block/pasted"
+    "all": "charmncraft-bits:block/consoles/og_xbox",
+    "particle": "charmncraft-bits:block/consoles/og_xbox",
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
   "render_type": "solid"
 }

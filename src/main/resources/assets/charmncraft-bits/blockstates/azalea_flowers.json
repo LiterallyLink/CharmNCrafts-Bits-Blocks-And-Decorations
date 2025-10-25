@@ -5,7 +5,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers",
+        "model": "charmncraft-bits:block/twigs/azalea_flowers",
         "y": 180,
         "uvlock": true
       }
@@ -15,7 +15,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers",
+        "model": "charmncraft-bits:block/twigs/azalea_flowers",
         "x": 270,
         "uvlock": true
       }
@@ -25,7 +25,7 @@
         "down": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers",
+        "model": "charmncraft-bits:block/twigs/azalea_flowers",
         "x": 90,
         "uvlock": true
       }
@@ -43,7 +43,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers",
+        "model": "charmncraft-bits:block/twigs/azalea_flowers",
         "y": 90,
         "uvlock": true
       }
@@ -53,7 +53,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "charmncraft-bits:block/azalea_flowers",
+        "model": "charmncraft-bits:block/twigs/azalea_flowers",
         "y": 270,
         "uvlock": true
       }

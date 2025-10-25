@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/azalea_flowers"
+    "layer0": "charmncraft-bits:item/twigs/azalea_flowers"
   }
 }

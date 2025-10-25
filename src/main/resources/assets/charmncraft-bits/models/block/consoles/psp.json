@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/psp",
   "textures": {
-    "all": "charmncraft-bits:block/psp",
-    "particle": "charmncraft-bits:block/psp",
-    "2": "charmncraft-bits:block/pasted"
+    "all": "charmncraft-bits:block/consoles/psp",
+    "particle": "charmncraft-bits:block/consoles/psp",
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
   "render_type": "solid"
 }
