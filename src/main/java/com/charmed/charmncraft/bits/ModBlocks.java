@@ -3,8 +3,11 @@ package com.charmed.charmncraft.bits;
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
 import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
+import com.charmed.charmncraft.bits.blocks.AzaleaFlowersBlock;
+import com.charmed.charmncraft.bits.blocks.PottedAzaleaFlowersBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -49,6 +52,10 @@ public class ModBlocks {
     private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
     private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
     private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
+
+    // Azalea Flowers blocks
+    public static final Block AZALEA_FLOWERS;
+    public static final Block POTTED_AZALEA_FLOWERS;
 
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
@@ -125,6 +132,13 @@ public class ModBlocks {
     );
 
     static {
+        // Register Azalea Flowers first (needed for potted version)
+        AZALEA_FLOWERS = registerAzaleaFlowersBlock("azalea_flowers");
+        POTTED_AZALEA_FLOWERS = registerPottedAzaleaFlowersBlock("potted_azalea_flowers");
+
+        // Register flower pot interaction for azalea flowers
+        FlowerPotBlock.CONTENT_TO_POTTED.put(AZALEA_FLOWERS, POTTED_AZALEA_FLOWERS);
+
         // Register all night light blocks with lit property
         registerColoredBlocks("frog", COLORS);
         registerColoredBlocks("mushroom", COLORS);
@@ -446,6 +460,54 @@ public class ModBlocks {
 
         // Add to console blocks list for creative tab registration
         CONSOLE_BLOCKS.add(block);
+    }
+
+    private static Block registerAzaleaFlowersBlock(String name) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Create azalea flowers block
+        Block block = new AzaleaFlowersBlock(
+            Block.Settings.create()
+                .strength(0.0f)
+                .sounds(BlockSoundGroup.GRASS)
+                .nonOpaque()
+                .noCollision()
+        );
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to plushie blocks list for creative tab registration
+        PLUSHIE_BLOCKS.add(block);
+
+        return block;
+    }
+
+    private static Block registerPottedAzaleaFlowersBlock(String name) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Create potted azalea flowers block
+        Block block = new PottedAzaleaFlowersBlock(
+            AZALEA_FLOWERS,
+            Block.Settings.create()
+                .strength(0.0f)
+                .sounds(BlockSoundGroup.STONE)
+                .nonOpaque()
+        );
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to plushie blocks list for creative tab registration
+        PLUSHIE_BLOCKS.add(block);
+
+        return block;
     }
 
     public static void initialize() {
