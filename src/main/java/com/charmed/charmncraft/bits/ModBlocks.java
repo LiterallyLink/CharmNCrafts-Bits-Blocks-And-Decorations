@@ -318,12 +318,18 @@ public class ModBlocks {
     }
 
     private static void registerConsoles() {
-        // For now, just register NES as a test
+        // NES console hitbox (from custom model: 14x4x11 pixels)
+        VoxelShape nesShape = VoxelShapes.cuboid(
+            1/16f, 0, 2/16f,      // min x, y, z
+            15/16f, 4/16f, 13/16f  // max x, y, z
+        );
+
         Block nesBlock = new ConsoleBlock(
             Block.Settings.create()
                 .strength(1.5f, 6.0f)
                 .sounds(BlockSoundGroup.METAL)
-                .nonOpaque()
+                .nonOpaque(),
+            nesShape
         );
 
         registerConsoleBlock("nes", nesBlock);
