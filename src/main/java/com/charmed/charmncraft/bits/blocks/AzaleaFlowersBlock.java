@@ -63,11 +63,12 @@ public class AzaleaFlowersBlock extends Block implements Waterloggable {
 
         if (blockState.isOf(this)) {
             // If block already exists at this position, add to it
-            return blockState.with(getProperty(ctx.getSide()), true);
+            return blockState.with(getProperty(ctx.getSide().getOpposite()), true);
         }
 
         // New placement - place on the clicked face
-        Direction side = ctx.getSide();
+        // Use opposite direction so flowers appear on the surface clicked (like carpet)
+        Direction side = ctx.getSide().getOpposite();
         BlockState state = this.getDefaultState()
             .with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
 
