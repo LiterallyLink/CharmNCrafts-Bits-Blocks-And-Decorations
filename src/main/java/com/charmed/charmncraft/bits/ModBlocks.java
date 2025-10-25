@@ -327,8 +327,12 @@ public class ModBlocks {
         // DS (9x1x6 pixels)
         registerConsoleBlock("ds", VoxelShapes.cuboid(5/16f, 0, 2.8f/16f, 14/16f, 1/16f, 8.8f/16f));
 
-        // Gameboys (6x2x10 pixels)
-        registerConsoleBlock("gameboys", VoxelShapes.cuboid(9/16f, 0, 1.8f/16f, 15/16f, 2/16f, 11.8f/16f));
+        // Gameboys (2 gameboys - compound shape)
+        VoxelShape gameboysShape = VoxelShapes.union(
+            VoxelShapes.cuboid(9/16f, 0, 1.8f/16f, 15/16f, 2/16f, 11.8f/16f),      // Right gameboy
+            VoxelShapes.cuboid(1/16f, 0, 1.8f/16f, 8/16f, 2/16f, 12.8f/16f)        // Left gameboy
+        );
+        registerConsoleBlock("gameboys", gameboysShape);
 
         // GameCube (11x8x11 pixels)
         registerConsoleBlock("gamecube", VoxelShapes.cuboid(2.5f/16f, 0, 2.5f/16f, 13.5f/16f, 8/16f, 13.5f/16f));
@@ -369,8 +373,12 @@ public class ModBlocks {
         // TV (15x11x8 pixels)
         registerConsoleBlock("tv", VoxelShapes.cuboid(0.5f/16f, 0, 4/16f, 15.5f/16f, 11/16f, 12/16f));
 
-        // Wii (5x3x13 pixels)
-        registerConsoleBlock("wii", VoxelShapes.cuboid(6.5f/16f, 0, 0.75f/16f, 11.5f/16f, 3/16f, 13.75f/16f));
+        // Wii (base + vertical stand - compound shape)
+        VoxelShape wiiShape = VoxelShapes.union(
+            VoxelShapes.cuboid(6.5f/16f, 0, 0.75f/16f, 11.5f/16f, 3/16f, 13.75f/16f),      // Base
+            VoxelShapes.cuboid(7/16f, 2.4f/16f, 1.7f/16f, 11/16f, 13.4f/16f, 12.7f/16f)   // Vertical stand
+        );
+        registerConsoleBlock("wii", wiiShape);
 
         // Original Xbox (16x6x15 pixels, clamped)
         registerConsoleBlock("xbox", VoxelShapes.cuboid(0, 0, 0.5f/16f, 1.0f, 6/16f, 15.5f/16f));
