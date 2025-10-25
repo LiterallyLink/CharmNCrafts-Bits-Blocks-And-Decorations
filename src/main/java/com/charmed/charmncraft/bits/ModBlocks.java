@@ -2,6 +2,7 @@ package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
 import com.charmed.charmncraft.bits.blocks.NightLightBlock;
+import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -47,6 +48,7 @@ public class ModBlocks {
     private static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
     private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
     private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
+    private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
 
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
@@ -134,6 +136,9 @@ public class ModBlocks {
         // Register all stacked blocks
         registerStackedBlocks();
 
+        // Register console blocks (starting with NES as test)
+        registerConsoles();
+
         // Register Night Lights to custom creative tab
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
             .register(entries -> {
@@ -162,6 +167,14 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.STACKED_BLOCKS_KEY)
             .register(entries -> {
                 for (Block block : STACKED_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Consoles to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CONSOLES_KEY)
+            .register(entries -> {
+                for (Block block : CONSOLE_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -302,6 +315,31 @@ public class ModBlocks {
 
         // Add to stacked blocks list for creative tab registration
         STACKED_BLOCKS.add(block);
+    }
+
+    private static void registerConsoles() {
+        // For now, just register NES as a test
+        Block nesBlock = new ConsoleBlock(
+            Block.Settings.create()
+                .strength(1.5f, 6.0f)
+                .sounds(BlockSoundGroup.METAL)
+                .nonOpaque()
+        );
+
+        registerConsoleBlock("nes", nesBlock);
+    }
+
+    private static void registerConsoleBlock(String name, Block block) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to console blocks list for creative tab registration
+        CONSOLE_BLOCKS.add(block);
     }
 
     public static void initialize() {
