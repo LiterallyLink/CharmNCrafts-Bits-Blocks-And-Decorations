@@ -21,6 +21,8 @@ repositories {
 loom {
 	splitEnvironmentSourceSets()
 
+	accessWidenerPath = file("src/main/resources/charmncraft-bits.accesswidener")
+
 	mods {
 		"charmncraft-bits" {
 			sourceSet sourceSets.main
