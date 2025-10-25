@@ -16,6 +16,7 @@ public class ModItemGroups {
     public static final RegistryKey<ItemGroup> NIGHT_LIGHTS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "night_lights"));
     public static final RegistryKey<ItemGroup> PLUSHIES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "plushies"));
     public static final RegistryKey<ItemGroup> STACKED_BLOCKS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "stacked_blocks"));
+    public static final RegistryKey<ItemGroup> CONSOLES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "consoles"));
     // Register custom creative tabs for each mod
     public static final ItemGroup DELTARUNE_DOODADS_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"),
@@ -43,6 +44,13 @@ public class ModItemGroups {
             FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.charmncraft-bits.stacked_blocks"))
                     .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "stacked_oak_logs"))))
+                    .build());
+
+    public static final ItemGroup CONSOLES_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Charmncraftbits.MOD_ID, "consoles"),
+            FabricItemGroup.builder()
+                    .displayName(Text.translatable("itemgroup.charmncraft-bits.consoles"))
+                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "nes"))))
                     .build());
 
     public static void initialize() {
