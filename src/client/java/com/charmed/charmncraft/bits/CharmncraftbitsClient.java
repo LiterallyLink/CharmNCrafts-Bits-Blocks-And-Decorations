@@ -12,6 +12,11 @@ public class CharmncraftbitsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("=== CLIENT INITIALIZATION STARTING ===");
+
+		// Register render layers for blocks with transparency
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.AZALEA_FLOWERS, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_AZALEA_FLOWERS, RenderLayer.getCutout());
+
 		LOGGER.info("=== CLIENT INITIALIZATION COMPLETE ===");
 	}
 }

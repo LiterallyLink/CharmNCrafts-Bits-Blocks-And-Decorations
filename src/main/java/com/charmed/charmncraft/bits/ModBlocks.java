@@ -52,6 +52,7 @@ public class ModBlocks {
     private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
     private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
     private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
+    private static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
 
     // Azalea Flowers blocks
     public static final Block AZALEA_FLOWERS;
@@ -189,6 +190,14 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CONSOLES_KEY)
             .register(entries -> {
                 for (Block block : CONSOLE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Twigs items to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.TWIGS_KEY)
+            .register(entries -> {
+                for (Block block : TWIGS_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -480,8 +489,8 @@ public class ModBlocks {
         // Register block item
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
 
-        // Add to plushie blocks list for creative tab registration
-        PLUSHIE_BLOCKS.add(block);
+        // Add to Twigs blocks list for creative tab registration
+        TWIGS_BLOCKS.add(block);
 
         return block;
     }
@@ -504,8 +513,8 @@ public class ModBlocks {
         // Register block item
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
 
-        // Add to plushie blocks list for creative tab registration
-        PLUSHIE_BLOCKS.add(block);
+        // Add to Twigs blocks list for creative tab registration
+        TWIGS_BLOCKS.add(block);
 
         return block;
     }
