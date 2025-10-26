@@ -254,11 +254,15 @@
   "block.charmncraft-bits.sugar_bag": "Bag of Sugar",
   "block.charmncraft-bits.wheat_flour_bag": "Wheat Flour Bag",
   "block.charmncraft-bits.yellow_berry_crate": "Yellow Berry Crate",
+  "block.charmncraft-bits.amethyst_magnum_torch": "Amethyst Magnum Torch",
+  "block.charmncraft-bits.diamond_magnum_torch": "Diamond Magnum Torch",
+  "block.charmncraft-bits.emerald_magnum_torch": "Emerald Magnum Torch",
   "itemgroup.charmncraft-bits.deltarune_doodads": "Deltarune Doodads",
   "itemgroup.charmncraft-bits.night_lights": "Night Lights",
   "itemgroup.charmncraft-bits.plushies": "Plushies",
   "itemgroup.charmncraft-bits.stacked_blocks": "Stacked Blocks",
   "itemgroup.charmncraft-bits.consoles": "Consoles",
   "itemgroup.charmncraft-bits.twigs": "Twigs",
-  "itemgroup.charmncraft-bits.crates": "Crates"
+  "itemgroup.charmncraft-bits.crates": "Crates",
+  "itemgroup.charmncraft-bits.magnum_torches": "Magnum Torches"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "charmncraft-bits:block/magnum_torch",
+  "textures": {
+    "texture": "charmncraft-bits:block/amethyst_magnum_torch"
+  }
+}

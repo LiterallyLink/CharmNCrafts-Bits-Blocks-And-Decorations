@@ -19,6 +19,7 @@ public class ModItemGroups {
     public static final RegistryKey<ItemGroup> CONSOLES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "consoles"));
     public static final RegistryKey<ItemGroup> TWIGS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "twigs"));
     public static final RegistryKey<ItemGroup> CRATES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "crates"));
+    public static final RegistryKey<ItemGroup> MAGNUM_TORCHES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "magnum_torches"));
     // Register custom creative tabs for each mod
     public static final ItemGroup DELTARUNE_DOODADS_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"),
@@ -67,6 +68,13 @@ public class ModItemGroups {
             FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.charmncraft-bits.crates"))
                     .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "apple_crate"))))
+                    .build());
+
+    public static final ItemGroup MAGNUM_TORCHES_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Charmncraftbits.MOD_ID, "magnum_torches"),
+            FabricItemGroup.builder()
+                    .displayName(Text.translatable("itemgroup.charmncraft-bits.magnum_torches"))
+                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "diamond_magnum_torch"))))
                     .build());
 
     public static void initialize() {

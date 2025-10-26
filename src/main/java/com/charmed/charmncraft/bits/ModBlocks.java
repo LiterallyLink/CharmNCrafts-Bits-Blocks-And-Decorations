@@ -5,6 +5,7 @@ import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import com.charmed.charmncraft.bits.blocks.AzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.PottedAzaleaFlowersBlock;
+import com.charmed.charmncraft.bits.blocks.MagnumTorchBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerPotBlock;
@@ -54,6 +55,7 @@ public class ModBlocks {
     private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
     private static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
     private static final List<Block> CRATE_BLOCKS = new ArrayList<>();
+    private static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>();
 
     // Azalea Flowers blocks
     public static final Block AZALEA_FLOWERS;
@@ -171,6 +173,9 @@ public class ModBlocks {
         // Register console blocks (starting with NES as test)
         registerConsoles();
 
+        // Register magnum torches
+        registerMagnumTorches();
+
         // Register Night Lights to custom creative tab
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
             .register(entries -> {
@@ -223,6 +228,14 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CRATES_KEY)
             .register(entries -> {
                 for (Block block : CRATE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Magnum Torches to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGNUM_TORCHES_KEY)
+            .register(entries -> {
+                for (Block block : MAGNUM_TORCH_BLOCKS) {
                     entries.add(block.asItem());
                 }
             });
@@ -568,6 +581,39 @@ public class ModBlocks {
         TWIGS_BLOCKS.add(block);
 
         return block;
+    }
+
+    private static void registerMagnumTorches() {
+        // Amethyst Magnum Torch - light level 14 (same as regular torch)
+        registerMagnumTorchBlock("amethyst_magnum_torch", 14);
+
+        // Diamond Magnum Torch - light level 14 (same as regular torch)
+        registerMagnumTorchBlock("diamond_magnum_torch", 14);
+
+        // Emerald Magnum Torch - light level 15 (max light, rarest material)
+        registerMagnumTorchBlock("emerald_magnum_torch", 15);
+    }
+
+    private static void registerMagnumTorchBlock(String name, int lightLevel) {
+        Identifier id = Identifier.of(Charmncraftbits.MOD_ID, name);
+
+        // Create magnum torch block with wood sounds (it's made of logs)
+        Block block = new MagnumTorchBlock(
+            Block.Settings.create()
+                .strength(1.0f, 1.0f)
+                .sounds(BlockSoundGroup.WOOD)
+                .luminance(state -> lightLevel)
+                .nonOpaque()
+        );
+
+        // Register block
+        Registry.register(Registries.BLOCK, id, block);
+
+        // Register block item
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+
+        // Add to magnum torch blocks list for creative tab registration
+        MAGNUM_TORCH_BLOCKS.add(block);
     }
 
     public static void initialize() {

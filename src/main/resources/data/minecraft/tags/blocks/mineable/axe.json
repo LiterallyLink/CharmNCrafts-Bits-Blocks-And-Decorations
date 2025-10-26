@@ -108,6 +108,18 @@
     {
       "id": "charmncraft-bits:diamond_apple_crate",
       "required": false
+    },
+    {
+      "id": "charmncraft-bits:amethyst_magnum_torch",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:diamond_magnum_torch",
+      "required": false
+    },
+    {
+      "id": "charmncraft-bits:emerald_magnum_torch",
+      "required": false
     }
   ]
 }
