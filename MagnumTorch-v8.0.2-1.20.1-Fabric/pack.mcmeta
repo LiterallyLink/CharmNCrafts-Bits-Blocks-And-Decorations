@@ -1,8 +1,0 @@
-{
-    "pack": {
-        "description": "Powerful torches to prevent mob spawns around your home in a large area.",
-        "pack_format": 15,
-        "forge:resource_pack_format": 15,
-        "forge:data_pack_format": 15
-    }
-}
