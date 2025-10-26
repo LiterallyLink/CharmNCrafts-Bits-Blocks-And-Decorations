@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "magnumtorch",
+  "version": "8.0.2",
+
+  "name": "Magnum Torch",
+  "description": "Powerful torches to prevent mob spawns around your home in a large area.",
+
+  "authors": [
+    "Fuzs"
+  ],
+  
+  "contact": {
+    "homepage": "https://github.com/Fuzss/magnumtorch",
+    "issues": "https://github.com/Fuzss/magnumtorch/issues",
+    "sources": "https://github.com/Fuzss/magnumtorch"
+  },
+
+  "license": "MPL-2.0",
+  "icon": "mod_logo.png",
+
+  "environment": "*",
+
+  "entrypoints": {
+    "main": [
+      "fuzs.magnumtorch.MagnumTorchFabric"
+    ],
+    "client": [
+    ]
+  },
+
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric-api": ">=0.83.0",
+    "puzzleslib": ">=8.0.0",
+    "minecraft": "1.20.1",
+    "java": ">=17"
+  }
+}
