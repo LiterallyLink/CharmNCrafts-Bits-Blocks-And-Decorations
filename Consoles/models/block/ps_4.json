@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/ps4",
-  "textures": {
-    "all": "consoles:block/ps4",
-    "particle": "consoles:block/ps4",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

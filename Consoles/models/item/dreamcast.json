@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "consoles:item/deamcast"
-  },
-  "render_type": "translucent"
-}

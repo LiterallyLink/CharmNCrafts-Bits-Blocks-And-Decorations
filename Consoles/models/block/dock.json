@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/switch-dock",
-  "textures": {
-    "all": "consoles:block/pasted",
-    "particle": "consoles:block/pasted",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

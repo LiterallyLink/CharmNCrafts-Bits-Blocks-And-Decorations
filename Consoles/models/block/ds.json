@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/ds",
-  "textures": {
-    "all": "consoles:block/ds",
-    "particle": "consoles:block/ds",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}
