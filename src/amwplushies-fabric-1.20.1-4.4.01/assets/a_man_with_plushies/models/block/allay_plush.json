@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/allay_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/allay_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/allay_texture"
+  },
+  "render_type": "cutout_mipped"
+}

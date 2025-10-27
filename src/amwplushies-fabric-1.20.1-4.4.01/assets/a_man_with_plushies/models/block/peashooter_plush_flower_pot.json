@@ -1,0 +1,11 @@
+{
+  "parent": "a_man_with_plushies:custom/peashooter_flower_pot",
+  "textures": {
+    "all": "a_man_with_plushies:block/flower_pot",
+    "particle": "a_man_with_plushies:block/flower_pot",
+    "0": "a_man_with_plushies:block/peashooter_texture",
+    "flowerpot": "a_man_with_plushies:block/flower_pot",
+    "dirt": "a_man_with_plushies:block/dirt"
+  },
+  "render_type": "solid"
+}

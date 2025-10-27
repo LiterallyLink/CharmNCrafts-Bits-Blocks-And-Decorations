@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:space_core_plush"
+    },
+    "title": "SPAAAAACE!!",
+    "description": "Take a Space Core plushie to the maximum height",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spaaaaace": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "a_man_with_plushies:get_wheatley_plush"
+}

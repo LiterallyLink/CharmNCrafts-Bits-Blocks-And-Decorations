@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:wool"
+    },
+    "b": {
+      "item": "a_man_with_plushies:audino_plush"
+    }
+  },
+  "result": {
+    "item": "a_man_with_plushies:audino_plush",
+    "count": 2
+  }
+}

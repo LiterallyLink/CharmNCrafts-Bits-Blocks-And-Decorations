@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "a_man_with_plushies:item/odd_tree_item_texture"
+  }
+}

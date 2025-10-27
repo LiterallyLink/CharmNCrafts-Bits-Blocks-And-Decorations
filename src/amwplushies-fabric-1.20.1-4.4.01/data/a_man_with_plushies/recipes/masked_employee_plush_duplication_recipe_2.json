@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " ab",
+    "aca",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:wool"
+    },
+    "b": {
+      "item": "minecraft:quartz"
+    },
+    "c": {
+      "item": "a_man_with_plushies:masked_employee_orange_suit_plush"
+    }
+  },
+  "result": {
+    "item": "a_man_with_plushies:masked_employee_orange_suit_plush",
+    "count": 2
+  }
+}

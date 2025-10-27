@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "plains",
+    "sunflower_plains",
+    "meadow",
+    "windswept_hills",
+    "windswept_gravelly_hills"
+  ],
+  "features": "a_man_with_plushies:yellow_pikmin_sprout_plant_feature",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/companion_cube_plushie_v2",
+  "textures": {
+    "all": "a_man_with_plushies:block/companion_cube_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/companion_cube_texture"
+  },
+  "render_type": "solid"
+}

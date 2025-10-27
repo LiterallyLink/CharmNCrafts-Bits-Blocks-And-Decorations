@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/freddy_fazbear_plushie_standing",
+  "textures": {
+    "all": "a_man_with_plushies:block/fredbear_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/fredbear_texture"
+  },
+  "render_type": "solid"
+}

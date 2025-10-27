@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:wiglin_plush"
+    },
+    "title": "Big Brain Strategy",
+    "description": "Have 6 Wiglin plushies",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "have_6_wiglins": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:wiglin_plush"
+            ],
+            "count": {
+              "min": 6,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "a_man_with_plushies:first_uncommon_plush_trigger",
+    "recipes": [
+      "a_man_with_plushies:plush_box_recipe",
+      "a_man_with_plushies:plush_box_recipe_2",
+      "a_man_with_plushies:golden_plush_box_recipe",
+      "a_man_with_plushies:golden_plush_box_smelt",
+      "a_man_with_plushies:golden_plush_box_blasting"
+    ]
+  },
+  "parent": "a_man_with_plushies:get_wiglin_plush"
+}

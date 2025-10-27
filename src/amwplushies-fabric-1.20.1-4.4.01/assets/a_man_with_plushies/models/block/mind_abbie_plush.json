@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/mind_abbie_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/mind_abbie_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/mind_abbie_texture"
+  },
+  "render_type": "cutout_mipped"
+}

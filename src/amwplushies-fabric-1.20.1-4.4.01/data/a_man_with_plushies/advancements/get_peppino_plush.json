@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:peppino_plush"
+    },
+    "title": "The Best-a Pizza In-a Town-a!",
+    "description": "Obtain a Peppino plushie",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "get_peppino_plush": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:peppino_plush"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "a_man_with_plushies:first_uncommon_plush_trigger"
+  },
+  "parent": "a_man_with_plushies:get_madeline_plush"
+}

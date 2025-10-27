@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:wiglin_plush"
+    },
+    "title": "Ten Out Of Ten!",
+    "description": "Play a disc near Wiglin, Steppa and Rhyth plushies",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "jukebox_seaweeds": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "a_man_with_plushies:plush_box_recipe",
+      "a_man_with_plushies:plush_box_recipe_2",
+      "a_man_with_plushies:golden_plush_box_recipe",
+      "a_man_with_plushies:golden_plush_box_smelt",
+      "a_man_with_plushies:golden_plush_box_blasting"
+    ]
+  },
+  "parent": "a_man_with_plushies:place_4_animal_plushies"
+}

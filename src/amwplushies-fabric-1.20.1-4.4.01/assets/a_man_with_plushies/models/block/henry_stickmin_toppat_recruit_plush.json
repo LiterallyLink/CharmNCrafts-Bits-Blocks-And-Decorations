@@ -1,0 +1,10 @@
+{
+  "parent": "a_man_with_plushies:custom/henry_stickmin_toppat_recruit_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/henry_stickmin_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/henry_stickmin_texture",
+    "1": "a_man_with_plushies:block/toppat_recruit_texture"
+  },
+  "render_type": "solid"
+}

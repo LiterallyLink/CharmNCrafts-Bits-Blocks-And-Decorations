@@ -1,0 +1,10 @@
+{
+  "parent": "a_man_with_plushies:custom/hat_kid_raincoat_plushie_sitting",
+  "textures": {
+    "all": "a_man_with_plushies:block/hat_kid_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "1": "a_man_with_plushies:block/hat_kid_raincoat_texture",
+    "5": "a_man_with_plushies:block/hat_kid_texture"
+  },
+  "render_type": "solid"
+}

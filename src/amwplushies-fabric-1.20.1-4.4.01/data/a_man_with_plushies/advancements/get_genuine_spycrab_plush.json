@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:genuine_red_spycrab_plush"
+    },
+    "title": "Genuine!",
+    "description": "It's the only one of its kind!",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "get_genuine_spycrab_plush": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:genuine_red_spycrab_plush"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "a_man_with_plushies:first_common_plush_trigger",
+    "recipes": [
+      "a_man_with_plushies:plush_box_recipe",
+      "a_man_with_plushies:plush_box_recipe_2",
+      "a_man_with_plushies:golden_plush_box_recipe",
+      "a_man_with_plushies:golden_plush_box_smelt",
+      "a_man_with_plushies:golden_plush_box_blasting"
+    ]
+  },
+  "parent": "a_man_with_plushies:get_spycrab_plush"
+}

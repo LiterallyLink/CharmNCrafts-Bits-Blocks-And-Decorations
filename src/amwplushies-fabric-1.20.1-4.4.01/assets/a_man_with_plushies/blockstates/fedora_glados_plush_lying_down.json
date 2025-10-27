@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "a_man_with_plushies:block/fedora_glados_plush_lying_down"
+    },
+    "facing=east": {
+      "model": "a_man_with_plushies:block/fedora_glados_plush_lying_down",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "a_man_with_plushies:block/fedora_glados_plush_lying_down",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "a_man_with_plushies:block/fedora_glados_plush_lying_down",
+      "y": 270
+    }
+  }
+}

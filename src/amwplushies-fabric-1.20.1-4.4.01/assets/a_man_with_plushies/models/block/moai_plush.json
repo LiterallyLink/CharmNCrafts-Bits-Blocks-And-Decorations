@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/moai_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/moai_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/moai_texture"
+  },
+  "render_type": "solid"
+}

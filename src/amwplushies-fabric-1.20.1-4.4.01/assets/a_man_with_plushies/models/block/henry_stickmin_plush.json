@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/henry_stickmin_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/henry_stickmin_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/henry_stickmin_texture"
+  },
+  "render_type": "solid"
+}

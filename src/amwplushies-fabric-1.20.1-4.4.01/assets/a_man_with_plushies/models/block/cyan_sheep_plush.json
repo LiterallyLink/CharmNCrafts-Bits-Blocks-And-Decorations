@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/sheep_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/cyan_sheep_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/cyan_sheep_texture"
+  },
+  "render_type": "solid"
+}

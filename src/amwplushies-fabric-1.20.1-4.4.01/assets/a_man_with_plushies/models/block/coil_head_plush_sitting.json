@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/coil_head_plushie_sitting",
+  "textures": {
+    "all": "a_man_with_plushies:block/coil_head_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/coil_head_texture"
+  },
+  "render_type": "cutout_mipped"
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "a_man_with_plushies:custom/the_lamb_purple_cape_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/the_lamb_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/the_lamb_texture",
+    "1": "a_man_with_plushies:block/capes_texture"
+  },
+  "render_type": "cutout_mipped"
+}

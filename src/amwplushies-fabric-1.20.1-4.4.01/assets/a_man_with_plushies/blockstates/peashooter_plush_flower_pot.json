@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "a_man_with_plushies:block/peashooter_plush_flower_pot"
+    },
+    "facing=east": {
+      "model": "a_man_with_plushies:block/peashooter_plush_flower_pot",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "a_man_with_plushies:block/peashooter_plush_flower_pot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "a_man_with_plushies:block/peashooter_plush_flower_pot",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/gd_cube_plushie_3",
+  "textures": {
+    "all": "a_man_with_plushies:block/gd_cube_texture_3",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "3": "a_man_with_plushies:block/gd_cube_texture_3"
+  },
+  "render_type": "solid"
+}

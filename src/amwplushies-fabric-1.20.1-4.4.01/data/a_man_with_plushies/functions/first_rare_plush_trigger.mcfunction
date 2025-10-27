@@ -1,0 +1,1 @@
+advancement grant @s only a_man_with_plushies:first_rare_plush

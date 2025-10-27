@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "plains",
+    "sunflower_plains"
+  ],
+  "features": "a_man_with_plushies:plushies_shrine_feature",
+  "step": "surface_structures"
+}

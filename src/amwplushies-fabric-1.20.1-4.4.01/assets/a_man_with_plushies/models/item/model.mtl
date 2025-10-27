@@ -1,0 +1,41 @@
+newmtl m_34b5e004-b58f-c2b2-bd44-fab2ba5f9c4e
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+map_Kd a_man_with_plushies:block/texture1
+Ns 100.0
+d 1.0
+newmtl m_13b6bc54-182b-4c87-6685-65229146956f
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+map_Kd a_man_with_plushies:block/texture4
+Ns 100.0
+d 1.0
+newmtl m_5b731fa4-cf19-8bc9-51b6-01982a907752
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+map_Kd a_man_with_plushies:block/texture5
+Ns 100.0
+d 1.0
+newmtl m_50649553-8cc3-8b1a-9a70-7840baf84db4
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+map_Kd a_man_with_plushies:block/texture2
+Ns 100.0
+d 1.0
+newmtl m_8d1cd9ca-79cc-3ed3-14a5-638acb0d55ae
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+map_Kd a_man_with_plushies:block/texture3
+Ns 100.0
+d 1.0
+newmtl none
+Ka 0.0 0.0 0.0
+Kd 0.0 0.0 0.0
+Ks 0.0 0.0 0.0
+Ns 100.0
+d 1.0

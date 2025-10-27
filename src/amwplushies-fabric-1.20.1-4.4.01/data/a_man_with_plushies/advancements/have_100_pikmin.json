@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:yellow_pikmin_plush"
+    },
+    "title": "PIKLIMIT",
+    "description": "Have 100 (64+36) Pikmin in your inventory",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "have_100_pikmin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:red_pikmin_plush"
+            ],
+            "count": {
+              "min": 100,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "a_man_with_plushies:plush_box_recipe",
+      "a_man_with_plushies:plush_box_recipe_2",
+      "a_man_with_plushies:golden_plush_box_recipe",
+      "a_man_with_plushies:golden_plush_box_smelt",
+      "a_man_with_plushies:golden_plush_box_blasting"
+    ]
+  },
+  "parent": "a_man_with_plushies:get_pikmin_plush"
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.mcreator.a_man_with_plushies.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AManWithPlushiesModRepairItemRecipeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "a_man_with_plushies.refmap.json"
+}

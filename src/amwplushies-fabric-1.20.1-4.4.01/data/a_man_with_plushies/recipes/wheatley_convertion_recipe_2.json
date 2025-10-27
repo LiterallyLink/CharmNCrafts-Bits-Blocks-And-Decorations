@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdb",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:white_wool"
+    },
+    "b": {
+      "item": "minecraft:black_wool"
+    },
+    "c": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "d": {
+      "item": "a_man_with_plushies:wheatley_crab"
+    }
+  },
+  "result": {
+    "item": "a_man_with_plushies:wheatley_plush",
+    "count": 1
+  }
+}

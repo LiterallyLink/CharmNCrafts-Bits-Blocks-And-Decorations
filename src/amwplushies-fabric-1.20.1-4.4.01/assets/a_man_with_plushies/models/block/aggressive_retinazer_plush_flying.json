@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/aggressive_retinazer_plushie_flying",
+  "textures": {
+    "all": "a_man_with_plushies:block/retinazer_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "1": "a_man_with_plushies:block/retinazer_texture"
+  },
+  "render_type": "solid"
+}

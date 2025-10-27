@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "river",
+    "beach",
+    "mangrove_swamp",
+    "swamp",
+    "stony_shore"
+  ],
+  "features": "a_man_with_plushies:blue_pikmin_sprout_plant_feature",
+  "step": "vegetal_decoration"
+}

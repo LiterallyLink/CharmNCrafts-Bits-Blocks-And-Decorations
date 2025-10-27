@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/open_shulker_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/shulker_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "4": "a_man_with_plushies:block/shulker_texture"
+  },
+  "render_type": "cutout_mipped"
+}

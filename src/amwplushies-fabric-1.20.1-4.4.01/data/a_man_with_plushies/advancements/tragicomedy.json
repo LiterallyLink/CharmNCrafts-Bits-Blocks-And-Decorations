@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:masked_employee_orange_suit_plush"
+    },
+    "title": "Tragicomedy",
+    "description": "Give a nether quartz to one of your employees!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tragicomedy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "a_man_with_plushies:first_uncommon_plush_trigger"
+  },
+  "parent": "a_man_with_plushies:get_employee_plush"
+}

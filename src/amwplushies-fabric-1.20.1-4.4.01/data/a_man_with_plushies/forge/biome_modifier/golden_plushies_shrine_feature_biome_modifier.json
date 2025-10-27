@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "stony_shore",
+  "features": "a_man_with_plushies:golden_plushies_shrine_feature",
+  "step": "surface_structures"
+}

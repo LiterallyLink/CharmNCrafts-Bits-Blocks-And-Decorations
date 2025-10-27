@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/pig_plushie_sitting",
+  "textures": {
+    "all": "a_man_with_plushies:block/pig_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/pig_texture"
+  },
+  "render_type": "solid"
+}

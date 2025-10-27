@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:potatos_plush"
+    },
+    "title": "How are you holding up?",
+    "description": "Turn GLaDOS into a potato",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "im_a_potato": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "a_man_with_plushies:glados_convertion_recipe"
+    ]
+  },
+  "parent": "a_man_with_plushies:get_glados_plush"
+}

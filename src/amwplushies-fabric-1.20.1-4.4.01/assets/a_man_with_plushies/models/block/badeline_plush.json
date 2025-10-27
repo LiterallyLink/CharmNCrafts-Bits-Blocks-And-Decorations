@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/madeline_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/badeline_texture",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/badeline_texture"
+  },
+  "render_type": "solid"
+}

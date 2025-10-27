@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "a_man_with_plushies:block/golden_plush_box_bottom",
+    "up": "a_man_with_plushies:block/golden_plush_box_bottom",
+    "north": "a_man_with_plushies:block/golden_plush_box_side",
+    "east": "a_man_with_plushies:block/golden_plush_box_side",
+    "south": "a_man_with_plushies:block/golden_plush_box_side",
+    "west": "a_man_with_plushies:block/golden_plush_box_side",
+    "particle": "a_man_with_plushies:block/golden_plush_box_side"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "a_man_with_plushies:companion_block_plushie"
+    },
+    "title": "99.9% Non-Organic Material!",
+    "description": "Obtain a Companion Cube plushie",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "get_companion_block_plush": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:companion_block_plushie"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "a_man_with_plushies:first_rare_plush_trigger"
+  },
+  "parent": "a_man_with_plushies:get_heavy_plush"
+}

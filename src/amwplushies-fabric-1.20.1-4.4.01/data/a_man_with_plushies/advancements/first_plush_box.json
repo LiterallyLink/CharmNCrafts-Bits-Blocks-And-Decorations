@@ -1,0 +1,42 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "a_man_with_plushies:plush_box"
+    },
+    "title": "Plushies!",
+    "description": "Obtain your first plush box",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "first_plush_box": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "a_man_with_plushies:plush_box"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "a_man_with_plushies:plush_box_recipe",
+      "a_man_with_plushies:plush_box_recipe_2",
+      "a_man_with_plushies:golden_plush_box_recipe",
+      "a_man_with_plushies:golden_plush_box_smelt",
+      "a_man_with_plushies:golden_plush_box_blasting"
+    ]
+  }
+}

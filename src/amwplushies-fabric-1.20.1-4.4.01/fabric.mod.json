@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "a_man_with_plushies",
+  "version": "4.4.01",
+  "name": "A Man With Plushies",
+  "description": "Adds characters from other games as plushies!",
+  "authors": [
+    "Maxsteelbro"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/a-man-with-plushies",
+    "sources": ""
+  },
+  "license": "MIT License",
+  "icon": "assets/a_man_with_plushies/icon.png",
+  "accessWidener": "a_man_with_plushies.accesswidener",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.mcreator.a_man_with_plushies.AManWithPlushiesMod"
+    ],
+    "client": [
+      "net.mcreator.a_man_with_plushies.ClientInit"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  },
+  "mixins": [
+    "a_man_with_plushies.mixins.json"
+  ]
+}

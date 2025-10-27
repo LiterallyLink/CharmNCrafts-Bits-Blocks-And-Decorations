@@ -1,0 +1,9 @@
+{
+  "parent": "a_man_with_plushies:custom/crabster_plushie",
+  "textures": {
+    "all": "a_man_with_plushies:block/crabster_plushie",
+    "particle": "a_man_with_plushies:block/rainbow_wool",
+    "0": "a_man_with_plushies:block/crabster_plushie"
+  },
+  "render_type": "solid"
+}

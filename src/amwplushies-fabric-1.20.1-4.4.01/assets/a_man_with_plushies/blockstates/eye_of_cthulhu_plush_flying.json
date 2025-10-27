@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "a_man_with_plushies:block/eye_of_cthulhu_plush_flying"
+    },
+    "facing=east": {
+      "model": "a_man_with_plushies:block/eye_of_cthulhu_plush_flying",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "a_man_with_plushies:block/eye_of_cthulhu_plush_flying",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "a_man_with_plushies:block/eye_of_cthulhu_plush_flying",
+      "y": 270
+    }
+  }
+}
