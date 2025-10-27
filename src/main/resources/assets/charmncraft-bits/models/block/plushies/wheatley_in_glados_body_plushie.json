@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:custom/wheatley_in_glados_body",
+  "parent": "charmncraft-bits:custom/wheatley_in_glados_body_plushie",
   "textures": {
     "all": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",

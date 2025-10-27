@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:custom/animdude_plush",
+  "parent": "charmncraft-bits:custom/animdude_plushie",
   "textures": {
     "all": "charmncraft-bits:block/plushies/animdude_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
