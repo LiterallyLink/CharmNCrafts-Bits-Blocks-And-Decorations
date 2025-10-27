@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/cuphead_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/cuphead_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/cuphead_plushie"
+  },
+  "render_type": "solid"
+}

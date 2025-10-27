@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:red_pikmin_plushie"
+    },
+    "title": "PIKWIN",
+    "description": "Obtain a Pikmin plushie",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "get_pikmin_plushie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "charmncraft-bits:red_pikmin_plushie"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "charmncraft-bits:first_common_plushie_trigger"
+  },
+  "parent": "charmncraft-bits:get_henry_stickmin_plushie"
+}

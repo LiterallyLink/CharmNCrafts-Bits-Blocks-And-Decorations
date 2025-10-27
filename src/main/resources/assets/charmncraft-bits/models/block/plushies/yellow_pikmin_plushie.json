@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/yellow_pikmin_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/yellow_pikmin_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/yellow_pikmin_plushie"
+  },
+  "render_type": "solid"
+}

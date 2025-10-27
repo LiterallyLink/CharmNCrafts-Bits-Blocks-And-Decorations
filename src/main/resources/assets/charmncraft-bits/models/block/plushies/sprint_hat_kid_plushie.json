@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/sprint_hat_kid_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/hat_kid_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/hat_kid_plushie",
+    "2": "charmncraft-bits:block/plushies/sprint_hat_plushie"
+  },
+  "render_type": "cutout_mipped"
+}

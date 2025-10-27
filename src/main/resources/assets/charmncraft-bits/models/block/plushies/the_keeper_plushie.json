@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/the_keeper_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/the_keeper_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/the_keeper_plushie"
+  },
+  "render_type": "solid"
+}

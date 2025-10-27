@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/sudowoodo_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/sudowoodo_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/sudowoodo_plushie"
+  },
+  "render_type": "solid"
+}

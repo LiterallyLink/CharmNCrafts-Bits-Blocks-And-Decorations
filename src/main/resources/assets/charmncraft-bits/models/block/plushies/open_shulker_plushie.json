@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/open_shulker_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/shulker_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "4": "charmncraft-bits:block/plushies/shulker_plushie"
+  },
+  "render_type": "cutout_mipped"
+}

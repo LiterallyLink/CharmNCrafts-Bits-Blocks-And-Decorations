@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:wool"
+    },
+    "b": {
+      "item": "charmncraft-bits:glados_plushie"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:glados_plushie",
+    "count": 2
+  }
+}

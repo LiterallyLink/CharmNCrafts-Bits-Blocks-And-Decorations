@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/masked_employee_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/employee_purple_suit_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/employee_purple_suit_plushie",
+    "1": "charmncraft-bits:block/plushies/comedy_mask_plushie"
+  },
+  "render_type": "solid"
+}

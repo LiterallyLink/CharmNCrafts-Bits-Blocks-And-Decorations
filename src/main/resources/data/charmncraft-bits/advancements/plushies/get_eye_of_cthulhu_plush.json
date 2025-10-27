@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:eye_of_cthulhu_plushie"
+    },
+    "title": "Evil Presence Watching You!",
+    "description": "Obtain an Eye Of Cthulhu plushie",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "get_eye_of_cthulhu_plushie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "charmncraft-bits:eye_of_cthulhu_plushie"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "charmncraft-bits:first_rare_plushie_trigger"
+  },
+  "parent": "charmncraft-bits:get_shovel_knight_plushie"
+}

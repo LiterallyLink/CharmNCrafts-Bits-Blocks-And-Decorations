@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/camper_baldi_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/baldi_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/baldi_plushie"
+  },
+  "render_type": "solid"
+}

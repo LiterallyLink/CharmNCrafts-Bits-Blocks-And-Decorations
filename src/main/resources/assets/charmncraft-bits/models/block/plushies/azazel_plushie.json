@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/azazel_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/azazel_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/azazel_plushie"
+  },
+  "render_type": "cutout_mipped"
+}

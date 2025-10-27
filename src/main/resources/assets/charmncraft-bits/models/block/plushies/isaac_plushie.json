@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/isaac_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/isaac_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/isaac_plushie"
+  },
+  "render_type": "solid"
+}

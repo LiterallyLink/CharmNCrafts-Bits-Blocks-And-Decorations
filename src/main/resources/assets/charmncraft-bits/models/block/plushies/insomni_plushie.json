@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/insomni_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/insomni_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/insomni_plushie"
+  },
+  "render_type": "solid"
+}

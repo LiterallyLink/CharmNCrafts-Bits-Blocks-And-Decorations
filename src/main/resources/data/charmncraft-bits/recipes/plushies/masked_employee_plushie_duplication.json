@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ab ",
+    "bcb",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:quartz"
+    },
+    "b": {
+      "tag": "minecraft:wool"
+    },
+    "c": {
+      "item": "charmncraft-bits:masked_employee_orange_suit_plushie"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:masked_employee_orange_suit_plushie",
+    "count": 2
+  }
+}

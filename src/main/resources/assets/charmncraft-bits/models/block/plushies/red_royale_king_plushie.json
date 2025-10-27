@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/royale_king_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/red_royale_king_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/red_royale_king_plushie"
+  },
+  "render_type": "solid"
+}

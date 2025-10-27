@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/steppa_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/steppa_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/steppa_plushie"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/hat_kid_raincoat_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/hat_kid_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/hat_kid_raincoat_plushie",
+    "5": "charmncraft-bits:block/plushies/hat_kid_plushie"
+  },
+  "render_type": "solid"
+}

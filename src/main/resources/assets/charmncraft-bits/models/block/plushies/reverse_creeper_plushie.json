@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/creeper_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/reverse_creeper_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/reverse_creeper_plushie"
+  },
+  "render_type": "solid"
+}

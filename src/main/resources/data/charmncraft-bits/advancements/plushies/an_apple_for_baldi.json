@@ -1,0 +1,47 @@
+{
+        "display": {
+          "icon": {
+            "item": "charmncraft-bits:baldi_plushie_eating_an_apple"
+          },
+          "title": ""An apple?, for me?"",
+          "description": ""Thanks!"",
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+    "criteria": {
+      "an_apple_for_baldi": {
+  "trigger": "minecraft:inventory_changed",
+  "conditions": {
+    "items": [
+      {
+        "items": [
+            "charmncraft-bits:baldi_plushie_eating_an_apple"
+        ],
+        "count": {
+          "min": 1,
+          "max": 2368
+        }
+      }
+    ]
+  }
+}
+    }
+    ,
+    "rewards": {
+        "experience": 0
+
+        ,
+        "function": "charmncraft-bits:first_uncommon_plushie_trigger"
+
+        
+        ,
+        "recipes": [
+                "charmncraft-bits:baldi_plushie_eating_an_apple_duplication_recipe",
+                "charmncraft-bits:baldi_plushie_eating_an_apple_2",
+                "charmncraft-bits:baldi_plushie_eating_an_apple_3",
+                "charmncraft-bits:baldi_plushie_eating_an_apple_4"        ]
+    }
+    ,"parent": "charmncraft-bits:get_baldi_plushie"
+}

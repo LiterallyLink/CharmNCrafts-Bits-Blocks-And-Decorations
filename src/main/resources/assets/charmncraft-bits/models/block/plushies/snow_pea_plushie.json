@@ -1,0 +1,11 @@
+{
+  "parent": "charmncraft-bits:custom/snow_pea_flower_pot",
+  "textures": {
+    "all": "charmncraft-bits:block/flower_pot",
+    "particle": "charmncraft-bits:block/flower_pot",
+    "0": "charmncraft-bits:block/plushies/snow_pea_plushie",
+    "flowerpot": "charmncraft-bits:block/flower_pot",
+    "dirt": "charmncraft-bits:block/dirt"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/junimo_plushie_sitting",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/orange_junimo_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/orange_junimo_plushie"
+  },
+  "render_type": "solid"
+}

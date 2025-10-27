@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:wool"
+    },
+    "b": {
+      "item": "charmncraft-bits:wiglin_plushie"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:wiglin_plushie",
+    "count": 2
+  }
+}

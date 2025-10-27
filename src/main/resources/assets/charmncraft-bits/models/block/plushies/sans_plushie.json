@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/sans_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/sans_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/sans_plushie"
+  },
+  "render_type": "solid"
+}

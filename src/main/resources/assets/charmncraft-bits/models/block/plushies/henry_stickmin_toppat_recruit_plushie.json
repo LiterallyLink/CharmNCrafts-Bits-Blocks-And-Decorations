@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/henry_stickmin_toppat_recruit_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/henry_stickmin_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/henry_stickmin_plushie",
+    "1": "charmncraft-bits:block/plushies/toppat_recruit_plushie"
+  },
+  "render_type": "solid"
+}

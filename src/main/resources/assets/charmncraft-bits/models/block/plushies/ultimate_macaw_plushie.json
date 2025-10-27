@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/ultimate_macaw_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/ultimate_macaw_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "2": "charmncraft-bits:block/plushies/ultimate_macaw_plushie"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/employee_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/employee_pajama_suit_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/employee_pajama_suit_plushie"
+  },
+  "render_type": "solid"
+}

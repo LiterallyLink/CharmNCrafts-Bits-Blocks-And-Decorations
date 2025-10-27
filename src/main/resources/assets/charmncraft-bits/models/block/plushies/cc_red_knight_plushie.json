@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/cc_knight_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/cc_red_knight_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/cc_red_knight_plushie"
+  },
+  "render_type": "solid"
+}

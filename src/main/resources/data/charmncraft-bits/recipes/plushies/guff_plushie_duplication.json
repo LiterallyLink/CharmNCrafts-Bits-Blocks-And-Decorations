@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:wool"
+    },
+    "b": {
+      "item": "charmncraft-bits:guff_plushie"
+    }
+  },
+  "result": {
+    "item": "charmncraft-bits:guff_plushie",
+    "count": 2
+  }
+}

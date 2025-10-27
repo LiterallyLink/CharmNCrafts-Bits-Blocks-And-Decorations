@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/red_pikmin_sprout",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/red_pikmin_plushie",
+    "particle": "charmncraft-bits:block/plushies/red_pikmin_plushie",
+    "0": "charmncraft-bits:block/plushies/red_pikmin_plushie",
+    "1": "charmncraft-bits:block/plushies/red_pikmin_plushie"
+  },
+  "render_type": "solid"
+}

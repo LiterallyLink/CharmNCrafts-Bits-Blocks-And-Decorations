@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:potatos_plushie"
+    },
+    "title": "How are you holding up?",
+    "description": "Turn GLaDOS into a potato",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "im_a_potato": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "charmncraft-bits:glados_convertion_recipe"
+    ]
+  },
+  "parent": "charmncraft-bits:get_glados_plushie"
+}

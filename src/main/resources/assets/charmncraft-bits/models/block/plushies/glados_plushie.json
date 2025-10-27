@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/glados_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/glados_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/glados_plushie"
+  },
+  "render_type": "solid"
+}

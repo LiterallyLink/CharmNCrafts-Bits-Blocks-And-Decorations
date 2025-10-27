@@ -1,0 +1,33 @@
+{
+  "freddy_nose_honk": {
+    "sounds": ["charmncraft-bits:plushies/freddys_nose_honk"]
+  },
+  "candy_nose_honk": {
+    "sounds": ["charmncraft-bits:plushies/candys_nose_honk"]
+  },
+  "cindy_nose_honk": {
+    "sounds": ["charmncraft-bits:plushies/cindys_nose_honk"]
+  },
+  "popgoes_nose_pop": {
+    "sounds": ["charmncraft-bits:plushies/popgoes_nose_pop"]
+  },
+  "goose_honk": {
+    "sounds": ["charmncraft-bits:plushies/goose_honk"]
+  },
+  "coil_head_spring": {
+    "sounds": ["charmncraft-bits:plushies/coil_head_spring_sound_effect"]
+  },
+  "ratatin_voice": {
+    "sounds": ["charmncraft-bits:plushies/soy_el_ratatin_gaming"]
+  },
+  "spamton_voice": {
+    "sounds": [
+      "charmncraft-bits:plushies/spamton_plush_voice_line_1",
+      "charmncraft-bits:plushies/spamton_plush_voice_line_2",
+      "charmncraft-bits:plushies/spamton_plush_voice_line_3",
+      "charmncraft-bits:plushies/spamton_plush_voice_line_4",
+      "charmncraft-bits:plushies/spamton_plush_voice_line_5",
+      "charmncraft-bits:plushies/spamton_plush_voice_line_6"
+    ]
+  }
+}

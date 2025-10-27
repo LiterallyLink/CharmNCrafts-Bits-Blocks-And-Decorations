@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "charmncraft-bits:block/plushies/snow_pea_plush_flower_pot"
+    },
+    "facing=east": {
+      "model": "charmncraft-bits:block/plushies/snow_pea_plush_flower_pot",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "charmncraft-bits:block/plushies/snow_pea_plush_flower_pot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "charmncraft-bits:block/plushies/snow_pea_plush_flower_pot",
+      "y": 270
+    }
+  }
+}

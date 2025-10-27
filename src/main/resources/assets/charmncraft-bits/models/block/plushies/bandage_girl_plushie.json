@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/bandage_girl_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/bandage_girl_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/bandage_girl_plushie"
+  },
+  "render_type": "solid"
+}

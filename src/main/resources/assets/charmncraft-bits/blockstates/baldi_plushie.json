@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "charmncraft-bits:block/plushies/baldi_plush_eating_an_apple"
+    },
+    "facing=east": {
+      "model": "charmncraft-bits:block/plushies/baldi_plush_eating_an_apple",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "charmncraft-bits:block/plushies/baldi_plush_eating_an_apple",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "charmncraft-bits:block/plushies/baldi_plush_eating_an_apple",
+      "y": 270
+    }
+  }
+}

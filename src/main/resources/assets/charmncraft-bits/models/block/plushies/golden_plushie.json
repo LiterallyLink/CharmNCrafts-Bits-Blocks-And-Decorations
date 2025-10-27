@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "charmncraft-bits:block/golden_plush_box_bottom",
+    "up": "charmncraft-bits:block/golden_plush_box_bottom",
+    "north": "charmncraft-bits:block/golden_plush_box_side",
+    "east": "charmncraft-bits:block/golden_plush_box_side",
+    "south": "charmncraft-bits:block/golden_plush_box_side",
+    "west": "charmncraft-bits:block/golden_plush_box_side",
+    "particle": "charmncraft-bits:block/golden_plush_box_side"
+  },
+  "render_type": "solid"
+}

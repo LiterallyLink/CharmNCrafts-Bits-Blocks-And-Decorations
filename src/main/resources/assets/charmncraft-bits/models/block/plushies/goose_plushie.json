@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/goose_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/goose_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/goose_plushie"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/companion_cube_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/companion_cube_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/companion_cube_plushie"
+  },
+  "render_type": "solid"
+}

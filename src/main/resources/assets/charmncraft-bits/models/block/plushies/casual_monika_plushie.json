@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/casual_monika_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/casual_monika_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/casual_monika_plushie"
+  },
+  "render_type": "cutout_mipped"
+}

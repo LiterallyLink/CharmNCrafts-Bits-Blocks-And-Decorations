@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/animdude_plush",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/animdude_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/animdude_plushie"
+  },
+  "render_type": "solid"
+}

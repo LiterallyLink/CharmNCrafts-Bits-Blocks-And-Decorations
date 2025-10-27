@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:wiglin_plushie"
+    },
+    "title": "Big Brain Strategy",
+    "description": "Have 6 Wiglin plushies",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "have_6_wiglins": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "charmncraft-bits:wiglin_plushie"
+            ],
+            "count": {
+              "min": 6,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "charmncraft-bits:first_uncommon_plushie_trigger",
+    "recipes": [
+      "charmncraft-bits:plush_box_recipe",
+      "charmncraft-bits:plush_box_recipe_2",
+      "charmncraft-bits:golden_plushie_box_recipe",
+      "charmncraft-bits:golden_plushie_box_smelt",
+      "charmncraft-bits:golden_plushie_box_blasting"
+    ]
+  },
+  "parent": "charmncraft-bits:get_wiglin_plushie"
+}

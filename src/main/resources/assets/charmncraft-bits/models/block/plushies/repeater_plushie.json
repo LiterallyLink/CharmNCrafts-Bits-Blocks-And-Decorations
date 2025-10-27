@@ -1,0 +1,11 @@
+{
+  "parent": "charmncraft-bits:custom/repeater_flower_pot",
+  "textures": {
+    "all": "charmncraft-bits:block/flower_pot",
+    "particle": "charmncraft-bits:block/flower_pot",
+    "0": "charmncraft-bits:block/plushies/peashooter_plushie",
+    "flowerpot": "charmncraft-bits:block/flower_pot",
+    "dirt": "charmncraft-bits:block/dirt"
+  },
+  "render_type": "solid"
+}

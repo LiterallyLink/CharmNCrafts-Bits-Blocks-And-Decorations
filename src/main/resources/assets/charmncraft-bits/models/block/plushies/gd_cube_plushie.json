@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/gd_cube_plushie_1",
+  "textures": {
+    "all": "charmncraft-bits:block/gd_cube_texture_1",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/gd_cube_texture_1"
+  },
+  "render_type": "solid"
+}

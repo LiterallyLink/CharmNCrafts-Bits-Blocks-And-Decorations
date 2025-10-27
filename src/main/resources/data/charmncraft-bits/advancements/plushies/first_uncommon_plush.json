@@ -1,0 +1,29 @@
+{
+  "display": {
+    "background": "charmncraft-bits:textures/screens/green_wool.png",
+    "icon": {
+      "item": "minecraft:emerald"
+    },
+    "title": "Uncommon Collection",
+    "description": "Start collecting uncommon plushies",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "first_uncommon_plushie": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "charmncraft-bits:plush_box_recipe",
+      "charmncraft-bits:plush_box_recipe_2",
+      "charmncraft-bits:golden_plushie_box_recipe",
+      "charmncraft-bits:golden_plushie_box_smelt",
+      "charmncraft-bits:golden_plushie_box_blasting"
+    ]
+  }
+}

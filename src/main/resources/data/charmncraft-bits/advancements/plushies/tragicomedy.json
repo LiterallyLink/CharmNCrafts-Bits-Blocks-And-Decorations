@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:masked_employee_orange_suit_plushie"
+    },
+    "title": "Tragicomedy",
+    "description": "Give a nether quartz to one of your employees!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tragicomedy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "charmncraft-bits:first_uncommon_plushie_trigger"
+  },
+  "parent": "charmncraft-bits:get_employee_plushie"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/female_indeedee_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/female_indeedee_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/female_indeedee_plushie"
+  },
+  "render_type": "solid"
+}

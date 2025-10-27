@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/the_lamb_purple_cape_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/the_lamb_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/the_lamb_plushie",
+    "1": "charmncraft-bits:block/plushies/capes_plushie"
+  },
+  "render_type": "cutout_mipped"
+}

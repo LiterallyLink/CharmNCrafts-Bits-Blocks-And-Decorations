@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:blue_pikmin_plushie"
+    },
+    "title": "PIKHACKER",
+    "description": "Have 200 (64x3+8) Pikmin in your inventory",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "have_200_pikmin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "charmncraft-bits:red_pikmin_plushie"
+            ],
+            "count": {
+              "min": 200,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 100,
+    "recipes": [
+      "charmncraft-bits:plush_box_recipe",
+      "charmncraft-bits:plush_box_recipe_2",
+      "charmncraft-bits:golden_plushie_box_recipe",
+      "charmncraft-bits:golden_plushie_box_smelt",
+      "charmncraft-bits:golden_plushie_box_blasting"
+    ]
+  },
+  "parent": "charmncraft-bits:have_100_pikmin"
+}

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "charmncraft-bits:heavy_plushie"
+    },
+    "title": "The Heavy Fabric Guy",
+    "description": "Obtain a Heavy plushie",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "get_heavy_plushie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "charmncraft-bits:heavy_plushie"
+            ],
+            "count": {
+              "min": 1,
+              "max": 2368
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "function": "charmncraft-bits:first_rare_plushie_trigger"
+  },
+  "parent": "charmncraft-bits:get_candy_plushie"
+}

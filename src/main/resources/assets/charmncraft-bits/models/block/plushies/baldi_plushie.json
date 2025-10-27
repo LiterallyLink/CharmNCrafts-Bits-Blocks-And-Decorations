@@ -1,0 +1,10 @@
+{
+  "parent": "charmncraft-bits:custom/baldi_plushie_eating_an_apple",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/baldi_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/baldi_plushie",
+    "1": "charmncraft-bits:block/baldi_eating_apple_animation"
+  },
+  "render_type": "cutout_mipped"
+}

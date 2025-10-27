@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/wheatley_crab_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/plushies/wheatley_crab_plushie",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "1": "charmncraft-bits:block/plushies/wheatley_crab_plushie"
+  },
+  "render_type": "solid"
+}
