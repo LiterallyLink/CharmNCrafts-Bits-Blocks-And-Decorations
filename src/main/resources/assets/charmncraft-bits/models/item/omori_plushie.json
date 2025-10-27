@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/omori_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/omori_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

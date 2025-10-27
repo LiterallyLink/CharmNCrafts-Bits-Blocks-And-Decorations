@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/shadow_freddy_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/shadow_freddy_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

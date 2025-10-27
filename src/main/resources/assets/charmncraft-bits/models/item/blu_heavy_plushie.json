@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/blu_heavy_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/blu_heavy_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

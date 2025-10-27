@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/bandaga_girl_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/bandaga_girl_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/glados_plush_lying_down",
+  "parent": "charmncraft-bits:block/plushies/glados_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

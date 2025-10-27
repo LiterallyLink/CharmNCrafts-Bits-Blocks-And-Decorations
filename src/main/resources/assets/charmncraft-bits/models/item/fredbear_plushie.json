@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/fredbear_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/fredbear_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "charmncraft-bits:block/plushies/the_knight_plush"
+      "model": "charmncraft-bits:block/plushies/the_knight_plushie"
     },
     "facing=east": {
-      "model": "charmncraft-bits:block/plushies/the_knight_plush",
+      "model": "charmncraft-bits:block/plushies/the_knight_plushie",
       "y": 90
     },
     "facing=south": {
-      "model": "charmncraft-bits:block/plushies/the_knight_plush",
+      "model": "charmncraft-bits:block/plushies/the_knight_plushie",
       "y": 180
     },
     "facing=west": {
-      "model": "charmncraft-bits:block/plushies/the_knight_plush",
+      "model": "charmncraft-bits:block/plushies/the_knight_plushie",
       "y": 270
     }
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/cuphead_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/cuphead_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

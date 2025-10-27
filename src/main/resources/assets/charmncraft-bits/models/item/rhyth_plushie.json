@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/rhyth_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/rhyth_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

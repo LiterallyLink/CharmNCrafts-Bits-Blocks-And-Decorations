@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/monika_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/monika_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

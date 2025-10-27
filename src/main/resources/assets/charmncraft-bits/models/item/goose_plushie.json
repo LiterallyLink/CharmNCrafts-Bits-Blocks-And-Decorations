@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/goose_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/goose_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

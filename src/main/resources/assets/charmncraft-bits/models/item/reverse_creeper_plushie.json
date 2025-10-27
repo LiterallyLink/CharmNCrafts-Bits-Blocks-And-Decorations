@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/reverse_creeper_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/reverse_creeper_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

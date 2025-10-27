@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/aggressive_spazmatism_plush_flying",
+  "parent": "charmncraft-bits:block/plushies/aggressive_spazmatism_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

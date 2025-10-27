@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/peppino_garish_cook_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/peppino_garish_cook_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

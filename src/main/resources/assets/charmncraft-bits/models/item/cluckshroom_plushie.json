@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/cluckshroom_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/cluckshroom_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

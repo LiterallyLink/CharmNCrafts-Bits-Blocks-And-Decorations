@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/ultimate_chicken_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/ultimate_chicken_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

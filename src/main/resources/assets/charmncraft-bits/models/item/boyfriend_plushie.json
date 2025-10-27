@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/boyfriend_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/boyfriend_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

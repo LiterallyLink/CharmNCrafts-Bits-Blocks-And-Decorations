@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/red_royale_king_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/red_royale_king_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

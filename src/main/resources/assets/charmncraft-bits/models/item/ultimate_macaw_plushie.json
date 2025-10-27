@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/ultimate_macaw_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/ultimate_macaw_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

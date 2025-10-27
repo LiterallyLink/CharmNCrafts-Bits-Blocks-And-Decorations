@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plush_lying_down",
+  "parent": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

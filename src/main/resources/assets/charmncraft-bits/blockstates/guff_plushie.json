@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "charmncraft-bits:block/plushies/guff_plush"
+      "model": "charmncraft-bits:block/plushies/guff_plushie"
     },
     "facing=east": {
-      "model": "charmncraft-bits:block/plushies/guff_plush",
+      "model": "charmncraft-bits:block/plushies/guff_plushie",
       "y": 90
     },
     "facing=south": {
-      "model": "charmncraft-bits:block/plushies/guff_plush",
+      "model": "charmncraft-bits:block/plushies/guff_plushie",
       "y": 180
     },
     "facing=west": {
-      "model": "charmncraft-bits:block/plushies/guff_plush",
+      "model": "charmncraft-bits:block/plushies/guff_plushie",
       "y": 270
     }
   }

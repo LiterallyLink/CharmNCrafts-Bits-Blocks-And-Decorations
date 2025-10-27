@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/v_1_knucklebuster_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/v_1_knucklebuster_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

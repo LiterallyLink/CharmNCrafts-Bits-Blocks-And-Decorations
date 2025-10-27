@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/fedora_glados_plush_lying_down",
+  "parent": "charmncraft-bits:block/plushies/fedora_glados_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

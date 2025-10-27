@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/ratatin_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/ratatin_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

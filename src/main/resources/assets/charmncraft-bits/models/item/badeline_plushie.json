@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/badeline_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/badeline_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

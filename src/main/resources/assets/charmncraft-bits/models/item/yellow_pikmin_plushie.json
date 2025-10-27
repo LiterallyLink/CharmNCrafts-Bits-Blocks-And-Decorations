@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/yellow_pikmin_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/yellow_pikmin_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/old_cartoon_bendy_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/old_cartoon_bendy_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

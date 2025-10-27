@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/wiglin_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/wiglin_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

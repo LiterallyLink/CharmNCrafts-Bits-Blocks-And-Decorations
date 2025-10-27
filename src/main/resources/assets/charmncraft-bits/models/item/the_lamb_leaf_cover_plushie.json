@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/the_lamb_leaf_cover_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/the_lamb_leaf_cover_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/green_crewmate_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/green_crewmate_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

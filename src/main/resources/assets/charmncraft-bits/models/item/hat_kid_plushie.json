@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/hat_kid_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/hat_kid_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

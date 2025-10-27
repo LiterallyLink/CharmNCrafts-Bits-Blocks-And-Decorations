@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/filter_mask_high_roller_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/filter_mask_high_roller_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

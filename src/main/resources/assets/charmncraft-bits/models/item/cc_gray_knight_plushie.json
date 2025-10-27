@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/cc_gray_knight_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/cc_gray_knight_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

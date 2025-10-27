@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/the_dealer_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/the_dealer_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

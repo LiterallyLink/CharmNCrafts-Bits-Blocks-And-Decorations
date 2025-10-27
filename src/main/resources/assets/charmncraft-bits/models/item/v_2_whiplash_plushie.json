@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/v_2_whiplash_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/v_2_whiplash_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

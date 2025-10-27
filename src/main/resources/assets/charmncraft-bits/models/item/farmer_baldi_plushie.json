@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/farmer_baldi_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/farmer_baldi_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

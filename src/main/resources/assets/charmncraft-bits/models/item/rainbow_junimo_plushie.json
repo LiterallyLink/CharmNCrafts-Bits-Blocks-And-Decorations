@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/rainbow_junimo_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/rainbow_junimo_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

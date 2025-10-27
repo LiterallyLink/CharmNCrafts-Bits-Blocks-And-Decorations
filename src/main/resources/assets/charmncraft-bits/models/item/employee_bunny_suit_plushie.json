@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/employee_bunny_suit_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/employee_bunny_suit_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

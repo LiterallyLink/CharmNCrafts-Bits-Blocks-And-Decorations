@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/retinazer_plush_flying",
+  "parent": "charmncraft-bits:block/plushies/retinazer_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

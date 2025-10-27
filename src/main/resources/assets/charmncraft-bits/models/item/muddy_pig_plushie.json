@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/muddy_pig_plush_sitting",
+  "parent": "charmncraft-bits:block/plushies/muddy_pig_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

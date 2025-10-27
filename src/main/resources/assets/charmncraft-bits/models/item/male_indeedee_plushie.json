@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/male_indeedee_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/male_indeedee_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

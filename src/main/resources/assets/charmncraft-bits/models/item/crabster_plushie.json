@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/crabster_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/crabster_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

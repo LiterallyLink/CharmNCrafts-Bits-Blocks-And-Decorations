@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/audino_plush_standing",
+  "parent": "charmncraft-bits:block/plushies/audino_plushie",
   "display": {
     "thirdperson": {
       "rotation": [
