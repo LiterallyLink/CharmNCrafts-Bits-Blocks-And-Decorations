@@ -6,6 +6,9 @@ import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import com.charmed.charmncraft.bits.blocks.AzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.PottedAzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.MagnumTorchBlock;
+import com.charmed.charmncraft.bits.blocks.NubertBlock;
+import com.charmed.charmncraft.bits.blocks.TennaStatueBlock;
+import com.charmed.charmncraft.bits.blocks.TennaPoleBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerPotBlock;
@@ -131,6 +134,11 @@ public class ModBlocks {
     public static final Block AZALEA_FLOWERS;
     public static final Block POTTED_AZALEA_FLOWERS;
 
+    // Deltarune Doodads (not plushies!)
+    public static final Block NUBERT;
+    public static final Block TENNA_STATUE;
+    public static final Block TENNA_POLE;
+
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
         "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie",
@@ -142,13 +150,13 @@ public class ModBlocks {
         "glow_squid_plushie", "goat_plushie", "guardian_plushie", "hoglin_plushie",
         "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
         "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "mooshroom_plushie",
-        "nubert", "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
+        "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
         "pig_plushie", "piglin_brute_plushie", "piglin_plushie", "pillager_plushie",
         "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie", "red_fox_plushie",
         "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
         "silverfish_plushie", "skeleton_horse_plushie", "skeleton_plushie", "slime_plushie",
         "sniffer_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
-        "stray_plushie", "strider_plushie", "tadpole_plushie", "tenna_statue", "tenna_pole", "toast_rabbit_plushie",
+        "stray_plushie", "strider_plushie", "tadpole_plushie", "toast_rabbit_plushie",
         "turtle_plushie", "vex_plushie", "villager_plushie", "vindicator_plushie",
         "wandering_trader_plushie", "warden_plushie", "warm_frog_plushie", "white_fox_plushie",
         "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
@@ -262,32 +270,6 @@ public class ModBlocks {
         "stacked_stripped_warped_stems", "stacked_warped_planks", "stacked_warped_stems"
     };
 
-    // Nubert hitbox - custom shape based on the model
-    private static final VoxelShape NUBERT_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
-        VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
-        VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
-    );
-
-    // Tenna pole hitbox - custom shape based on the model
-    private static final VoxelShape TENNA_POLE_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(7/16f, 0, 7/16f, 9/16f, 9/16f, 9/16f),  // Stick base
-        VoxelShapes.cuboid(6/16f, 9/16f, 6/16f, 10/16f, 10/16f, 10/16f),  // Connection
-        VoxelShapes.cuboid(5/16f, 10/16f, 6/16f, 11/16f, 14/16f, 10/16f),  // Main antenna body
-        VoxelShapes.cuboid(5/16f, 14/16f, 6/16f, 11/16f, 18/16f, 10/16f)   // Antenna top
-    );
-
-    // Tenna statue hitbox - custom shape based on the model
-    private static final VoxelShape TENNA_STATUE_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(3/16f, 0, 3/16f, 13/16f, 2/16f, 13/16f),  // Base platform
-        VoxelShapes.cuboid(7/16f, 0, 5/16f, 10/16f, 3/16f, 11/16f),   // Feet
-        VoxelShapes.cuboid(7/16f, 3/16f, 6/16f, 10/16f, 13/16f, 10/16f),  // Lower body/stick
-        VoxelShapes.cuboid(0/16f, 14/16f, 1/16f, 8/16f, 18/16f, 6/16f),   // Left arm extended
-        VoxelShapes.cuboid(6/16f, 13/16f, 4/16f, 11/16f, 21/16f, 12/16f), // Main body
-        VoxelShapes.cuboid(6/16f, 21/16f, 4/16f, 11/16f, 29/16f, 16/16f), // Upper body and head
-        VoxelShapes.cuboid(6/16f, 26/16f, 13/16f, 10/16f, 32/16f, 16/16f) // Antenna extending back
-    );
-
     static {
         // Register Azalea Flowers first (needed for potted version)
         AZALEA_FLOWERS = registerAzaleaFlowersBlock("azalea_flowers");
@@ -300,6 +282,11 @@ public class ModBlocks {
         registerColoredBlocks("frog", COLORS);
         registerColoredBlocks("mushroom", COLORS);
         registerColoredBlocks("octopus", COLORS);
+
+        // Register Deltarune Doodads (not plushies!)
+        NUBERT = registerNubert("nubert");
+        TENNA_STATUE = registerTennaStatue("tenna_statue");
+        TENNA_POLE = registerTennaPole("tenna_pole");
 
         // Register all plushie blocks
         registerPlushies();
@@ -2528,9 +2515,7 @@ public class ModBlocks {
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
 
         // Add to appropriate list for creative tab registration
-        if (name.equals("nubert") || name.equals("tenna_pole") || name.equals("tenna_statue")) {
-            DELTARUNE_BLOCKS.add(block);
-        } else if (AMW_PLUSHIE_NAMES.contains(name)) {
+        if (AMW_PLUSHIE_NAMES.contains(name)) {
             AMW_PLUSHIE_BLOCKS.add(block);
         } else {
             PLUSHIE_BLOCKS.add(block);
@@ -2692,6 +2677,51 @@ public class ModBlocks {
 
         // Add to console blocks list for creative tab registration
         CONSOLE_BLOCKS.add(block);
+    }
+
+    private static Block registerNubert(String name) {
+        // Nubert - uses slime sounds (squelchy, squishy sounds)
+        Block block = new NubertBlock(
+            Block.Settings.create()
+                .strength(0.5f, 0.5f)
+                .sounds(BlockSoundGroup.SLIME)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
+    }
+
+    private static Block registerTennaStatue(String name) {
+        // Tenna Statue - uses metal/gold sounds
+        Block block = new TennaStatueBlock(
+            Block.Settings.create()
+                .strength(1.5f, 6.0f)
+                .sounds(BlockSoundGroup.METAL)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
+    }
+
+    private static Block registerTennaPole(String name) {
+        // Tenna Pole - uses metal/gold sounds
+        Block block = new TennaPoleBlock(
+            Block.Settings.create()
+                .strength(1.5f, 6.0f)
+                .sounds(BlockSoundGroup.METAL)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
     }
 
     private static Block registerAzaleaFlowersBlock(String name) {
