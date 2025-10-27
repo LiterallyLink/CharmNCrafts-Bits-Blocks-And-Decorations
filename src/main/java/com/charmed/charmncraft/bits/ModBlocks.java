@@ -20,7 +20,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.util.shape.VoxelShape;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ModBlocks {
     // Hitbox dimension constants (in 1/16th block units)
@@ -50,12 +53,79 @@ public class ModBlocks {
     // Store blocks for creative tab registration
     private static final List<Block> COLORED_BLOCKS = new ArrayList<>();
     private static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
+    private static final List<Block> AMW_PLUSHIE_BLOCKS = new ArrayList<>();
     private static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
     private static final List<Block> STACKED_BLOCKS = new ArrayList<>();
     private static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
     private static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
     private static final List<Block> CRATE_BLOCKS = new ArrayList<>();
     private static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>();
+
+    // Set of AMW (A Man With Plushies) plushie names for efficient lookup
+    private static final Set<String> AMW_PLUSHIE_NAMES = new HashSet<>(Arrays.asList(
+        "abbie_plushie", "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
+        "aggressive_spazmatism_plushie", "angry_baldi_plushie", "angry_camper_baldi_plushie",
+        "angry_farmer_baldi_plushie", "animdude_plushie", "audino_plushie", "azazel_plushie",
+        "badeline_plushie", "baldi_plushie", "bandage_girl_plushie", "bendy_plushie",
+        "black_crewmate_plushie", "black_junimo_plushie", "blissey_almost_full_egg_holder_plushie",
+        "blissey_egg_holder_plushie", "blissey_full_egg_holder_plushie", "blissey_plushie",
+        "blu_heavy_plushie", "blu_spycrab_plushie", "blue_baby_plushie", "blue_crewmate_plushie",
+        "blue_junimo_plushie", "blue_pikmin_plushie", "blue_royale_king_plushie", "boyfriend_plushie",
+        "brown_crewmate_plushie", "cain_plushie", "camper_baldi_plushie", "candy_plushie",
+        "carrot_eater_pufferfish_plushie", "casual_monika_plushie", "cc_blue_knight_plushie",
+        "cc_gray_knight_plushie", "cc_green_knight_plushie", "cc_orange_knight_plushie",
+        "cc_red_knight_plushie", "cindy_plushie", "cluckshroom_plushie", "coil_head_plushie",
+        "companion_block_v2_plushie", "companion_block_plushie", "coreless_glados_body_plushie",
+        "crabster_plushie", "cuphead_plushie", "cyan_crewmate_plushie", "employee_bee_suit_plushie",
+        "employee_bunny_suit_plushie", "employee_green_suit_plushie", "employee_hazard_suit_plushie",
+        "employee_orange_suit_plushie", "employee_pajama_suit_plushie", "employee_purple_suit_plushie",
+        "enderman_plush_with_block_plushie", "eye_of_cthulhu_plushie", "fact_core_plushie",
+        "fall_guy_plushie", "fallen_angel_monika_plushie", "farmer_baldi_plushie",
+        "fedora_glados_plushie", "female_indeedee_plushie", "filter_mask_high_roller_plushie",
+        "fredbear_plushie", "freddy_fazbear_plushie", "fully_puffed_pufferfish_plushie",
+        "gas_mask_high_roller_plushie", "gd_cube_plushie", "gdm_cube_plushie", "gds_cube_plushie",
+        "genuine_blu_spycrab_plushie", "genuine_red_spycrab_plushie", "glados_plushie",
+        "golden_freddy_plushie", "golden_plushie", "golden_rambley_plushie", "goose_plushie",
+        "green_crewmate_plushie", "green_shovel_knight_plushie", "guff_plushie", "happycane_plushie",
+        "hat_kid_plushie", "hat_kid_raincoat_plushie", "headcrab_plushie", "heavy_plushie",
+        "henry_stickmin_plushie", "henry_stickmin_toppat_leader_plushie",
+        "henry_stickmin_toppat_recruit_plushie", "herobrine_plushie", "insomni_plushie",
+        "isaac_plushie", "junimo_plushie", "lariat_plushie", "lime_crewmate_plushie",
+        "little_lariat_plushie", "madeline_plushie", "magical_girl_abbie_plushie",
+        "male_indeedee_plushie", "masked_employee_bee_suit_plushie",
+        "masked_employee_bunny_suit_plushie", "masked_employee_green_suit_plushie",
+        "masked_employee_hazard_suit_plushie", "masked_employee_orange_suit_plushie",
+        "masked_employee_pajama_suit_plushie", "masked_employee_purple_suit_plushie",
+        "meat_boy_plushie", "mind_abbie_plushie", "moai_plushie", "monika_plushie",
+        "moobloom_plushie", "muddy_pig_plushie", "mugman_plushie", "ninji_plushie",
+        "nyakuza_metro_hat_kid_plushie", "off_plushie", "old_cartoon_bendy_plushie",
+        "omori_plushie", "open_shulker_plushie", "orange_crewmate_plushie", "orange_junimo_plushie",
+        "original_glados_plushie", "peashooter_plushie", "peppino_blood_red_plushie",
+        "peppino_dark_cook_plushie", "peppino_dirt_cook_plushie", "peppino_garish_cook_plushie",
+        "peppino_golden_god_plushie", "peppino_money_green_plushie", "peppino_mooney_orange_plushie",
+        "peppino_plushie", "peppino_sage_blue_plushie", "peppino_tv_purple_plushie",
+        "peppino_unfunny_cook_plushie", "pink_crewmate_plushie", "pink_junimo_plushie",
+        "popgoes_plushie", "potato_wheatley_plushie", "potatos_plushie", "purple_crewmate_plushie",
+        "purple_junimo_plushie", "ragedude_plushie", "rainbow_crewmate_plushie",
+        "rainbow_junimo_plushie", "rambley_plushie", "ratatin_plushie", "red_junimo_plushie",
+        "red_pikmin_plushie", "red_royale_king_plushie", "red_spycrab_plushie", "repeater_plushie",
+        "retinazer_plushie", "rhyth_plushie", "rick_plushie", "sackboy_plushie", "sans_plushie",
+        "semi_puffed_pufferfish_plushie", "sensei_seaweed_plushie", "shadow_freddy_plushie",
+        "shovel_knight_plushie", "snow_pea_plushie", "space_core_plushie", "spamton_plushie",
+        "spazmatism_plushie", "split_pea_plushie", "sprint_hat_kid_plushie", "steppa_plushie",
+        "steve_plushie", "sudowoodo_plushie", "summer_monika_plushie", "sunny_plushie",
+        "tainted_the_keeper_plushie", "the_dealer_plushie", "the_keeper_plushie",
+        "the_knight_plushie", "the_lamb_blue_cape_plushie", "the_lamb_gold_cape_plushie",
+        "the_lamb_green_cape_plushie", "the_lamb_leaf_cover_plushie", "the_lamb_purple_cape_plushie",
+        "the_lamb_red_cape_plushie", "the_lamb_white_cape_plushie", "true_eye_of_cthulhu_plushie",
+        "ultimate_chicken_plushie", "ultimate_macaw_plushie", "v_1_knucklebuster_plushie",
+        "v_1_plushie", "v_1_whiplash_plushie", "v_2_plushie", "v_2_whiplash_plushie",
+        "vault_boy_plushie", "vault_boy_thumbs_up_plushie", "welding_mask_high_roller_plushie",
+        "wheatley_crab_plushie", "wheatley_in_glados_body_plushie", "wheatley_plushie",
+        "white_crewmate_plushie", "white_junimo_plushie", "wiglin_plushie", "wilson_plushie",
+        "wobblewok_closed_plushie", "wobblewok_plushie", "yellow_crewmate_plushie",
+        "yellow_junimo_plushie", "yellow_pikmin_plushie"
+    ));
 
     // Azalea Flowers blocks
     public static final Block AZALEA_FLOWERS;
@@ -262,6 +332,14 @@ public class ModBlocks {
                 }
             });
 
+        // Register A Man With Plushies to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.AMW_PLUSHIES_KEY)
+            .register(entries -> {
+                for (Block block : AMW_PLUSHIE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
         // Register Deltarune Doodads to custom creative tab
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_KEY)
             .register(entries -> {
@@ -443,6 +521,8 @@ public class ModBlocks {
         // Add to appropriate list for creative tab registration
         if (name.equals("nubert") || name.equals("tenna_pole") || name.equals("tenna_statue")) {
             DELTARUNE_BLOCKS.add(block);
+        } else if (AMW_PLUSHIE_NAMES.contains(name)) {
+            AMW_PLUSHIE_BLOCKS.add(block);
         } else {
             PLUSHIE_BLOCKS.add(block);
         }
