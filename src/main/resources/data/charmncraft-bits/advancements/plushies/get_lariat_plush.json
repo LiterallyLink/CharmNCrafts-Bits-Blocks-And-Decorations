@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "charmncraft-bits:lariat_plushieie"
+      "item": "charmncraft-bits:lariat_plushie"
     },
     "title": "Fun-Sized Trivia!",
     "description": "Obtain a Lariat plushie",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "charmncraft-bits:lariat_plushieie"
+              "charmncraft-bits:lariat_plushie"
             ],
             "count": {
               "min": 1,

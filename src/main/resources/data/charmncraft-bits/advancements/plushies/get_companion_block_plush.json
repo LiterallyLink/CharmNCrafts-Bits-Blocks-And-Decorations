@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "charmncraft-bits:companion_block_plushieie"
+      "item": "charmncraft-bits:companion_block_plushie"
     },
     "title": "99.9% Non-Organic Material!",
     "description": "Obtain a Companion Cube plushie",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "charmncraft-bits:companion_block_plushieie"
+              "charmncraft-bits:companion_block_plushie"
             ],
             "count": {
               "min": 1,

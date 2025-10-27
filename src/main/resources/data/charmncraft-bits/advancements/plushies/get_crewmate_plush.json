@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "charmncraft-bits:crewmate_plushie"
+      "item": "charmncraft-bits:blue_crewmate_plushie"
     },
     "title": "Only Plushie You Can Trust...?",
     "description": "Obtain a Crewmate plushie",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "charmncraft-bits:crewmate_plushie"
+              "charmncraft-bits:blue_crewmate_plushie"
             ],
             "count": {
               "min": 1,

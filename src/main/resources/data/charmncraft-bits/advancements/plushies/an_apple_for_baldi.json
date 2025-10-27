@@ -3,8 +3,8 @@
           "icon": {
             "item": "charmncraft-bits:baldi_plushie_eating_an_apple"
           },
-          "title": ""An apple?, for me?"",
-          "description": ""Thanks!"",
+          "title": "\"An apple?, for me?\"",
+          "description": "\"Thanks!\"",
           "frame": "task",
           "show_toast": true,
           "announce_to_chat": true,
