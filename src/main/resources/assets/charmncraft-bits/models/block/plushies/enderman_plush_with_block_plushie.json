@@ -1,0 +1,9 @@
+{
+  "parent": "charmncraft-bits:custom/enderman_plushie_with_block_plushie",
+  "textures": {
+    "all": "charmncraft-bits:block/enderman_texture",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/enderman_texture"
+  },
+  "render_type": "solid"
+}

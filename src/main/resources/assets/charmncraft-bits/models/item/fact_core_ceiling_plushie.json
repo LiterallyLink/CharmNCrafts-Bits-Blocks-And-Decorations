@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/fact_core_ceiling_plush",
+  "parent": "charmncraft-bits:block/plushies/fact_core_ceiling_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

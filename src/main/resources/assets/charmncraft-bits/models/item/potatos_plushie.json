@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/potatos_plush",
+  "parent": "charmncraft-bits:block/plushies/potatos_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

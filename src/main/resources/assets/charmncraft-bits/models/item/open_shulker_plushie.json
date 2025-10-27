@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/open_shulker_plush",
+  "parent": "charmncraft-bits:block/plushies/open_shulker_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

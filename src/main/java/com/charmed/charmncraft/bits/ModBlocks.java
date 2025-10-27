@@ -149,7 +149,7 @@ public class ModBlocks {
         "ultimate_chicken_plushie", "ultimate_macaw_plushie", "v_1_knucklebuster_plushie",
         "v_1_plushie", "v_1_whiplash_plushie", "v_2_plushie",
         "v_2_whiplash_plushie", "vault_boy_plushie", "vault_boy_thumbs_up_plushie",
-        "welding_mask_high_roller_plushie", "wheatley_crab", "wheatley_in_glados_body_plushie",
+        "welding_mask_high_roller_plushie", "wheatley_crab_plushie", "wheatley_in_glados_body_plushie",
         "wheatley_plushie", "white_crewmate_plushie", "white_junimo_plushie",
         "wiglin_plushie", "wilson_plushie", "wobblewok_closed_plushie",
         "wobblewok_plushie", "yellow_crewmate_plushie", "yellow_junimo_plushie",

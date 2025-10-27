@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/insomni_plush",
+  "parent": "charmncraft-bits:block/plushies/insomni_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

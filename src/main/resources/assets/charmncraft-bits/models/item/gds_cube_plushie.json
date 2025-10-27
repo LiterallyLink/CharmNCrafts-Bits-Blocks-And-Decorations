@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/gds_cube_plush",
+  "parent": "charmncraft-bits:block/plushies/gds_cube_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/wheatley_ceiling_plush",
+  "parent": "charmncraft-bits:block/plushies/wheatley_ceiling_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

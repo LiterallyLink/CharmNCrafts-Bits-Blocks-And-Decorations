@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/wobblewok_closed_plush",
+  "parent": "charmncraft-bits:block/plushies/wobblewok_closed_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

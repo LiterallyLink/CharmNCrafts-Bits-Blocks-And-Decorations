@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/fully_puffed_pufferfish_plush",
+  "parent": "charmncraft-bits:block/plushies/fully_puffed_pufferfish_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

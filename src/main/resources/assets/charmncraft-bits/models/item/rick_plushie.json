@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/rick_plush",
+  "parent": "charmncraft-bits:block/plushies/rick_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

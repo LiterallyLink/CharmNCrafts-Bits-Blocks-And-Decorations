@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/moai_plush",
+  "parent": "charmncraft-bits:block/plushies/moai_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

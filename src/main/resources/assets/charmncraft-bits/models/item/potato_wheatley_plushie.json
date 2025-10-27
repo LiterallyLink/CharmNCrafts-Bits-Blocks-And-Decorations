@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/potato_wheatley_plush",
+  "parent": "charmncraft-bits:block/plushies/potato_wheatley_plushie",
   "display": {
     "thirdperson": {
       "rotation": [
