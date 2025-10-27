@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/moobloom_plushie",
   "textures": {
-    "all": "a_man_with_plushies:block/moobloom_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "0": "a_man_with_plushies:block/moobloom_texture"
+    "all": "charmncraft-bits:block/plushies/moobloom_texture",
+    "particle": "charmncraft-bits:block/rainbow_wool",
+    "0": "charmncraft-bits:block/plushies/moobloom_texture"
   },
   "render_type": "cutout_mipped"
 }

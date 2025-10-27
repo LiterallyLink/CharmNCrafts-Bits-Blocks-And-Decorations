@@ -1,7 +1,28 @@
 {
   "variants": {
-    "": {
-      "model": "charmncraft-bits:block/plushies/golden_plush_box"
+    "facing=north,waterlogged=false": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=east,waterlogged=false": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=west,waterlogged=false": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=east,waterlogged=true": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=south,waterlogged=true": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
+    },
+    "facing=west,waterlogged=true": {
+      "model": "charmncraft-bits:block/plushies/golden_plushie"
     }
   }
 }

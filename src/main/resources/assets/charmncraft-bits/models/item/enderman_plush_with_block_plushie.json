@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/enderman_plush_with_block_plushie",
+  "parent": "charmncraft-bits:block/plushies/enderman_plush_with_block_plushie",
   "display": {
     "thirdperson": {
       "rotation": [
