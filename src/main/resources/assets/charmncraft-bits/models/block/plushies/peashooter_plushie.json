@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:custom/peashooter",
+  "parent": "charmncraft-bits:custom/peashooter_plushie",
   "textures": {
     "all": "charmncraft-bits:block/plushies/peashooter_plushie",
     "particle": "charmncraft-bits:block/plushies/peashooter_plushie",
