@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/repeater_plush_flower_pot",
+  "parent": "charmncraft-bits:block/plushies/repeater_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

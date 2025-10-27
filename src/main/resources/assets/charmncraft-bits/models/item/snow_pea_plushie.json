@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/snow_pea_plush_flower_pot",
+  "parent": "charmncraft-bits:block/plushies/snow_pea_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

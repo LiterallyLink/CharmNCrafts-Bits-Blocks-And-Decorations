@@ -1,11 +1,9 @@
 {
-  "parent": "charmncraft-bits:custom/peashooter_flower_pot",
+  "parent": "charmncraft-bits:custom/peashooter",
   "textures": {
-    "all": "charmncraft-bits:block/flower_pot",
-    "particle": "charmncraft-bits:block/flower_pot",
-    "0": "charmncraft-bits:block/plushies/peashooter_plushie",
-    "flowerpot": "charmncraft-bits:block/flower_pot",
-    "dirt": "charmncraft-bits:block/dirt"
+    "all": "charmncraft-bits:block/plushies/peashooter_plushie",
+    "particle": "charmncraft-bits:block/plushies/peashooter_plushie",
+    "0": "charmncraft-bits:block/plushies/peashooter_plushie"
   },
   "render_type": "solid"
 }

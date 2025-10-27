@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/golden_plush_box",
+  "parent": "charmncraft-bits:block/plushies/golden_plushie",
   "display": {
     "thirdperson": {
       "rotation": [

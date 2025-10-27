@@ -1,5 +1,5 @@
 {
-  "parent": "charmncraft-bits:block/plushies/peashooter_plush_flower_pot",
+  "parent": "charmncraft-bits:block/plushies/peashooter_plushie",
   "display": {
     "thirdperson": {
       "rotation": [
