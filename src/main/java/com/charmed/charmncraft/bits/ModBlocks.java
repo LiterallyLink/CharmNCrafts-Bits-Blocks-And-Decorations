@@ -6,6 +6,9 @@ import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import com.charmed.charmncraft.bits.blocks.AzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.PottedAzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.MagnumTorchBlock;
+import com.charmed.charmncraft.bits.blocks.NubertBlock;
+import com.charmed.charmncraft.bits.blocks.TennaStatueBlock;
+import com.charmed.charmncraft.bits.blocks.TennaPoleBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerPotBlock;
@@ -131,6 +134,11 @@ public class ModBlocks {
     public static final Block AZALEA_FLOWERS;
     public static final Block POTTED_AZALEA_FLOWERS;
 
+    // Deltarune Doodads (not plushies!)
+    public static final Block NUBERT;
+    public static final Block TENNA_STATUE;
+    public static final Block TENNA_POLE;
+
     // List of all plushie types to register
     private static final String[] PLUSHIES = {
         "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie",
@@ -142,13 +150,13 @@ public class ModBlocks {
         "glow_squid_plushie", "goat_plushie", "guardian_plushie", "hoglin_plushie",
         "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
         "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "mooshroom_plushie",
-        "nubert", "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
+        "ocelot_plushie", "panda_plushie", "parrot_plushie", "phantom_plushie",
         "pig_plushie", "piglin_brute_plushie", "piglin_plushie", "pillager_plushie",
         "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie", "red_fox_plushie",
         "salmon_plushie", "salt_rabbit_plushie", "sheep_plushie", "shulker_plushie",
         "silverfish_plushie", "skeleton_horse_plushie", "skeleton_plushie", "slime_plushie",
         "sniffer_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
-        "stray_plushie", "strider_plushie", "tadpole_plushie", "tenna_statue", "tenna_pole", "toast_rabbit_plushie",
+        "stray_plushie", "strider_plushie", "tadpole_plushie", "toast_rabbit_plushie",
         "turtle_plushie", "vex_plushie", "villager_plushie", "vindicator_plushie",
         "wandering_trader_plushie", "warden_plushie", "warm_frog_plushie", "white_fox_plushie",
         "white_rabbit_plushie", "white_splotched_rabbit_plushie", "witch_plushie", "wither_plushie",
@@ -262,33 +270,764 @@ public class ModBlocks {
         "stacked_stripped_warped_stems", "stacked_warped_planks", "stacked_warped_stems"
     };
 
-    // Nubert hitbox - custom shape based on the model
-    private static final VoxelShape NUBERT_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
-        VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
-        VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
-    );
+    static {
+        // Register Azalea Flowers first (needed for potted version)
+        AZALEA_FLOWERS = registerAzaleaFlowersBlock("azalea_flowers");
+        POTTED_AZALEA_FLOWERS = registerPottedAzaleaFlowersBlock("potted_azalea_flowers");
 
-    // Tenna pole hitbox - custom shape based on the model
-    private static final VoxelShape TENNA_POLE_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(7/16f, 0, 7/16f, 9/16f, 9/16f, 9/16f),  // Stick base
-        VoxelShapes.cuboid(6/16f, 9/16f, 6/16f, 10/16f, 10/16f, 10/16f),  // Connection
-        VoxelShapes.cuboid(5/16f, 10/16f, 6/16f, 11/16f, 14/16f, 10/16f),  // Main antenna body
-        VoxelShapes.cuboid(5/16f, 14/16f, 6/16f, 11/16f, 18/16f, 10/16f)   // Antenna top
-    );
+        // Register flower pot interaction for azalea flowers
+        FlowerPotBlock.CONTENT_TO_POTTED.put(AZALEA_FLOWERS, POTTED_AZALEA_FLOWERS);
 
-    // Tenna statue hitbox - custom shape based on the model
-    private static final VoxelShape TENNA_STATUE_SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(3/16f, 0, 3/16f, 13/16f, 2/16f, 13/16f),  // Base platform
-        VoxelShapes.cuboid(7/16f, 0, 5/16f, 10/16f, 3/16f, 11/16f),   // Feet
-        VoxelShapes.cuboid(7/16f, 3/16f, 6/16f, 10/16f, 13/16f, 10/16f),  // Lower body/stick
-        VoxelShapes.cuboid(0/16f, 14/16f, 1/16f, 8/16f, 18/16f, 6/16f),   // Left arm extended
-        VoxelShapes.cuboid(6/16f, 13/16f, 4/16f, 11/16f, 21/16f, 12/16f), // Main body
-        VoxelShapes.cuboid(6/16f, 21/16f, 4/16f, 11/16f, 29/16f, 16/16f), // Upper body and head
-        VoxelShapes.cuboid(6/16f, 26/16f, 13/16f, 10/16f, 32/16f, 16/16f) // Antenna extending back
-    );
+        // Register all night light blocks with lit property
+        registerColoredBlocks("frog", COLORS);
+        registerColoredBlocks("mushroom", COLORS);
+        registerColoredBlocks("octopus", COLORS);
 
+        // Register Deltarune Doodads (not plushies!)
+        NUBERT = registerNubert("nubert");
+        TENNA_STATUE = registerTennaStatue("tenna_statue");
+        TENNA_POLE = registerTennaPole("tenna_pole");
 
+        // Register all plushie blocks
+        registerPlushies();
+
+        // Register all stacked blocks
+        registerStackedBlocks();
+
+        // Register all crate and bag blocks
+        registerCrates();
+
+        // Register console blocks (starting with NES as test)
+        registerConsoles();
+
+        // Register magnum torches
+        registerMagnumTorches();
+
+        // Register Night Lights to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
+            .register(entries -> {
+                for (Block block : COLORED_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Plushies to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.PLUSHIES_KEY)
+            .register(entries -> {
+                for (Block block : PLUSHIE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register A Man With Plushies to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.AMW_PLUSHIES_KEY)
+            .register(entries -> {
+                for (Block block : AMW_PLUSHIE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Deltarune Doodads to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_KEY)
+            .register(entries -> {
+                for (Block block : DELTARUNE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Stacked Blocks to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.STACKED_BLOCKS_KEY)
+            .register(entries -> {
+                for (Block block : STACKED_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Consoles to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CONSOLES_KEY)
+            .register(entries -> {
+                for (Block block : CONSOLE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Twigs items to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.TWIGS_KEY)
+            .register(entries -> {
+                for (Block block : TWIGS_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Crates to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CRATES_KEY)
+            .register(entries -> {
+                for (Block block : CRATE_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+
+        // Register Magnum Torches to custom creative tab
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGNUM_TORCHES_KEY)
+            .register(entries -> {
+                for (Block block : MAGNUM_TORCH_BLOCKS) {
+                    entries.add(block.asItem());
+                }
+            });
+    }
+
+    private static void registerColoredBlocks(String baseName, String[] colors) {
+        for (String color : colors) {
+            String blockName = baseName + "_" + color;
+            VoxelShape shape = getShapeForBlockType(baseName);
+
+            // Create night light block with glowstone-level lighting (15) when lit
+            Block block = new NightLightBlock(
+                Block.Settings.create()
+                    .strength(0.8f, 0.8f)
+                    .sounds(BlockSoundGroup.WOOL)
+                    .luminance(state -> state.get(NightLightBlock.LIT) ? 7 : 0),
+                shape
+            );
+
+            registerBlock(blockName, block);
+        }
+    }
+
+    private static VoxelShape getShapeForBlockType(String baseName) {
+        switch (baseName) {
+            case "frog":
+                // Frog: 6x6x6 centered cube for body
+                return VoxelShapes.cuboid(FROG_MIN, 0, FROG_MIN, FROG_MAX, FROG_HEIGHT, FROG_MAX);
+
+            case "mushroom":
+                // Mushroom: vertical stem + wider cap
+                VoxelShape stem = VoxelShapes.cuboid(
+                    MUSHROOM_STEM_MIN, 0, MUSHROOM_STEM_MIN,
+                    MUSHROOM_STEM_MAX, MUSHROOM_STEM_HEIGHT, MUSHROOM_STEM_MAX
+                );
+                VoxelShape cap = VoxelShapes.cuboid(
+                    MUSHROOM_CAP_MIN, MUSHROOM_CAP_START, MUSHROOM_CAP_MIN,
+                    MUSHROOM_CAP_MAX, MUSHROOM_CAP_END, MUSHROOM_CAP_MAX
+                );
+                return VoxelShapes.union(stem, cap);
+
+            case "octopus":
+                // Octopus: 6x6x6 centered cube for body
+                return VoxelShapes.cuboid(OCTOPUS_MIN, 0, OCTOPUS_MIN, OCTOPUS_MAX, OCTOPUS_HEIGHT, OCTOPUS_MAX);
+
+            default:
+                return VoxelShapes.fullCube();
+        }
+    }
+
+    private static void registerPlushies() {
+        for (String plushieName : PLUSHIES) {
+            // Use custom shapes for special blocks, default for others
+            VoxelShape shape = null;
+            if (plushieName.equals("abbie_plushie")) {
+                shape = ABBIE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("aggressive_eye_of_cthulhu_plushie")) {
+                shape = AGGRESSIVE_EYE_OF_CTHULHU_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("aggressive_retinazer_plushie")) {
+                shape = AGGRESSIVE_RETINAZER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("aggressive_spazmatism_plushie")) {
+                shape = AGGRESSIVE_SPAZMATISM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("allay_plushie")) {
+                shape = ALLAY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("angry_baldi_plushie")) {
+                shape = ANGRY_BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("angry_camper_baldi_plushie")) {
+                shape = ANGRY_CAMPER_BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("angry_farmer_baldi_plushie")) {
+                shape = ANGRY_FARMER_BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("animdude_plushie")) {
+                shape = ANIMDUDE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("audino_plushie")) {
+                shape = AUDINO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("axolotl_plushie")) {
+                shape = AXOLOTL_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("azazel_plushie")) {
+                shape = AZAZEL_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("badeline_plushie")) {
+                shape = BADELINE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("baldi_plushie")) {
+                shape = BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("bandage_girl_plushie")) {
+                shape = BANDAGE_GIRL_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("bat_plushie")) {
+                shape = BAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("bee_plushie")) {
+                shape = BEE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("bendy_plushie")) {
+                shape = BENDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("black_crewmate_plushie")) {
+                shape = BLACK_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("black_junimo_plushie")) {
+                shape = BLACK_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("black_rabbit_plushie")) {
+                shape = BLACK_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blaze_plushie")) {
+                shape = BLAZE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blissey_almost_full_egg_holder_plushie")) {
+                shape = BLISSEY_ALMOST_FULL_EGG_HOLDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blissey_egg_holder_plushie")) {
+                shape = BLISSEY_EGG_HOLDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blissey_full_egg_holder_plushie")) {
+                shape = BLISSEY_FULL_EGG_HOLDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blissey_plushie")) {
+                shape = BLISSEY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blu_heavy_plushie")) {
+                shape = BLU_HEAVY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blu_spycrab_plushie")) {
+                shape = BLU_SPYCRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blue_baby_plushie")) {
+                shape = BLUE_BABY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blue_crewmate_plushie")) {
+                shape = BLUE_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blue_junimo_plushie")) {
+                shape = BLUE_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blue_pikmin_plushie")) {
+                shape = BLUE_PIKMIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("blue_royale_king_plushie")) {
+                shape = BLUE_ROYALE_KING_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("boyfriend_plushie")) {
+                shape = BOYFRIEND_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("brown_crewmate_plushie")) {
+                shape = BROWN_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("brown_rabbit_plushie")) {
+                shape = BROWN_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cain_plushie")) {
+                shape = CAIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("camel_plushie")) {
+                shape = CAMEL_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("camper_baldi_plushie")) {
+                shape = CAMPER_BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("candy_plushie")) {
+                shape = CANDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("carrot_eater_pufferfish_plushie")) {
+                shape = CARROT_EATER_PUFFERFISH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("casual_monika_plushie")) {
+                shape = CASUAL_MONIKA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cat_plushie")) {
+                shape = CAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cave_spider_plushie")) {
+                shape = CAVE_SPIDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cc_blue_knight_plushie")) {
+                shape = CC_BLUE_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cc_gray_knight_plushie")) {
+                shape = CC_GRAY_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cc_green_knight_plushie")) {
+                shape = CC_GREEN_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cc_orange_knight_plushie")) {
+                shape = CC_ORANGE_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cc_red_knight_plushie")) {
+                shape = CC_RED_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("chicken_plushie")) {
+                shape = CHICKEN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cindy_plushie")) {
+                shape = CINDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cluckshroom_plushie")) {
+                shape = CLUCKSHROOM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cod_plushie")) {
+                shape = COD_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("coil_head_plushie")) {
+                shape = COIL_HEAD_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cold_frog_plushie")) {
+                shape = COLD_FROG_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("companion_block_plushie")) {
+                shape = COMPANION_BLOCK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("companion_block_v2_plushie")) {
+                shape = COMPANION_BLOCK_V2_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("coreless_glados_body_plushie")) {
+                shape = CORELESS_GLADOS_BODY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cow_plushie")) {
+                shape = COW_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("crabster_plushie")) {
+                shape = CRABSTER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("creeper_plushie")) {
+                shape = CREEPER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cuphead_plushie")) {
+                shape = CUPHEAD_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("cyan_crewmate_plushie")) {
+                shape = CYAN_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("dolphin_plushie")) {
+                shape = DOLPHIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("dragon_plushie")) {
+                shape = DRAGON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("drowned_plushie")) {
+                shape = DROWNED_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("elder_guardian_plushie")) {
+                shape = ELDER_GUARDIAN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_bee_suit_plushie")) {
+                shape = EMPLOYEE_BEE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_bunny_suit_plushie")) {
+                shape = EMPLOYEE_BUNNY_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_green_suit_plushie")) {
+                shape = EMPLOYEE_GREEN_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_hazard_suit_plushie")) {
+                shape = EMPLOYEE_HAZARD_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_orange_suit_plushie")) {
+                shape = EMPLOYEE_ORANGE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_pajama_suit_plushie")) {
+                shape = EMPLOYEE_PAJAMA_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("employee_purple_suit_plushie")) {
+                shape = EMPLOYEE_PURPLE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("enderman_plush_with_block_plushie")) {
+                shape = ENDERMAN_PLUSH_WITH_BLOCK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("enderman_plushie")) {
+                shape = ENDERMAN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("endermite_plushie")) {
+                shape = ENDERMITE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("evoker_plushie")) {
+                shape = EVOKER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("eye_of_cthulhu_plushie")) {
+                shape = EYE_OF_CTHULHU_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fact_core_plushie")) {
+                shape = FACT_CORE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fall_guy_plushie")) {
+                shape = FALL_GUY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fallen_angel_monika_plushie")) {
+                shape = FALLEN_ANGEL_MONIKA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("farmer_baldi_plushie")) {
+                shape = FARMER_BALDI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fedora_glados_plushie")) {
+                shape = FEDORA_GLADOS_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("female_indeedee_plushie")) {
+                shape = FEMALE_INDEEDEE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("filter_mask_high_roller_plushie")) {
+                shape = FILTER_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fredbear_plushie")) {
+                shape = FREDBEAR_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("freddy_fazbear_plushie")) {
+                shape = FREDDY_FAZBEAR_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("frog_plushie")) {
+                shape = FROG_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("fully_puffed_pufferfish_plushie")) {
+                shape = FULLY_PUFFED_PUFFERFISH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("gas_mask_high_roller_plushie")) {
+                shape = GAS_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("gd_cube_plushie")) {
+                shape = GD_CUBE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("gdm_cube_plushie")) {
+                shape = GDM_CUBE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("gds_cube_plushie")) {
+                shape = GDS_CUBE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("genuine_blu_spycrab_plushie")) {
+                shape = GENUINE_BLU_SPYCRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("genuine_red_spycrab_plushie")) {
+                shape = GENUINE_RED_SPYCRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ghast_plushie")) {
+                shape = GHAST_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("glados_plushie")) {
+                shape = GLADOS_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("glow_squid_plushie")) {
+                shape = GLOW_SQUID_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("goat_plushie")) {
+                shape = GOAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("golden_freddy_plushie")) {
+                shape = GOLDEN_FREDDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("golden_rambley_plushie")) {
+                shape = GOLDEN_RAMBLEY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("goose_plushie")) {
+                shape = GOOSE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("green_crewmate_plushie")) {
+                shape = GREEN_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("green_shovel_knight_plushie")) {
+                shape = GREEN_SHOVEL_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("guardian_plushie")) {
+                shape = GUARDIAN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("guff_plushie")) {
+                shape = GUFF_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("happycane_plushie")) {
+                shape = HAPPYCANE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("hat_kid_plushie")) {
+                shape = HAT_KID_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("hat_kid_raincoat_plushie")) {
+                shape = HAT_KID_RAINCOAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("headcrab_plushie")) {
+                shape = HEADCRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("heavy_plushie")) {
+                shape = HEAVY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("henry_stickmin_plushie")) {
+                shape = HENRY_STICKMIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("henry_stickmin_toppat_leader_plushie")) {
+                shape = HENRY_STICKMIN_TOPPAT_LEADER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("henry_stickmin_toppat_recruit_plushie")) {
+                shape = HENRY_STICKMIN_TOPPAT_RECRUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("herobrine_plushie")) {
+                shape = HEROBRINE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("hoglin_plushie")) {
+                shape = HOGLIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("horse_plushie")) {
+                shape = HORSE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("husk_plushie")) {
+                shape = HUSK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("illusioner_plushie")) {
+                shape = ILLUSIONER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("insomni_plushie")) {
+                shape = INSOMNI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("iron_golem_plushie")) {
+                shape = IRON_GOLEM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("isaac_plushie")) {
+                shape = ISAAC_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("junimo_plushie")) {
+                shape = JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("killer_bunny_plushie")) {
+                shape = KILLER_BUNNY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("lariat_plushie")) {
+                shape = LARIAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("lime_crewmate_plushie")) {
+                shape = LIME_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("little_lariat_plushie")) {
+                shape = LITTLE_LARIAT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("llama_plushie")) {
+                shape = LLAMA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("madeline_plushie")) {
+                shape = MADELINE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("magical_girl_abbie_plushie")) {
+                shape = MAGICAL_GIRL_ABBIE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("magma_cube_plushie")) {
+                shape = MAGMA_CUBE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("male_indeedee_plushie")) {
+                shape = MALE_INDEEDEE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_bee_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_BEE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_bunny_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_BUNNY_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_green_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_GREEN_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_hazard_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_HAZARD_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_orange_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_ORANGE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_pajama_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_PAJAMA_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("masked_employee_purple_suit_plushie")) {
+                shape = MASKED_EMPLOYEE_PURPLE_SUIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("meat_boy_plushie")) {
+                shape = MEAT_BOY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("mind_abbie_plushie")) {
+                shape = MIND_ABBIE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("moai_plushie")) {
+                shape = MOAI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("monika_plushie")) {
+                shape = MONIKA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("moobloom_plushie")) {
+                shape = MOOBLOOM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("mooshroom_plushie")) {
+                shape = MOOSHROOM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("muddy_pig_plushie")) {
+                shape = MUDDY_PIG_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("mugman_plushie")) {
+                shape = MUGMAN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ninji_plushie")) {
+                shape = NINJI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("nyakuza_metro_hat_kid_plushie")) {
+                shape = NYAKUZA_METRO_HAT_KID_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ocelot_plushie")) {
+                shape = OCELOT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("off_plushie")) {
+                shape = OFF_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("old_cartoon_bendy_plushie")) {
+                shape = OLD_CARTOON_BENDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("omori_plushie")) {
+                shape = OMORI_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("open_shulker_plushie")) {
+                shape = OPEN_SHULKER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("orange_crewmate_plushie")) {
+                shape = ORANGE_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("orange_junimo_plushie")) {
+                shape = ORANGE_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("original_glados_plushie")) {
+                shape = ORIGINAL_GLADOS_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("panda_plushie")) {
+                shape = PANDA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("parrot_plushie")) {
+                shape = PARROT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peashooter_plushie")) {
+                shape = PEASHOOTER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_blood_red_plushie")) {
+                shape = PEPPINO_BLOOD_RED_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_dark_cook_plushie")) {
+                shape = PEPPINO_DARK_COOK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_dirt_cook_plushie")) {
+                shape = PEPPINO_DIRT_COOK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_garish_cook_plushie")) {
+                shape = PEPPINO_GARISH_COOK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_golden_god_plushie")) {
+                shape = PEPPINO_GOLDEN_GOD_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_money_green_plushie")) {
+                shape = PEPPINO_MONEY_GREEN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_mooney_orange_plushie")) {
+                shape = PEPPINO_MOONEY_ORANGE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_plushie")) {
+                shape = PEPPINO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_sage_blue_plushie")) {
+                shape = PEPPINO_SAGE_BLUE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_tv_purple_plushie")) {
+                shape = PEPPINO_TV_PURPLE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("peppino_unfunny_cook_plushie")) {
+                shape = PEPPINO_UNFUNNY_COOK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("phantom_plushie")) {
+                shape = PHANTOM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("pig_plushie")) {
+                shape = PIG_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("piglin_brute_plushie")) {
+                shape = PIGLIN_BRUTE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("piglin_plushie")) {
+                shape = PIGLIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("pillager_plushie")) {
+                shape = PILLAGER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("pink_crewmate_plushie")) {
+                shape = PINK_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("pink_junimo_plushie")) {
+                shape = PINK_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("polar_bear_plushie")) {
+                shape = POLAR_BEAR_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("popgoes_plushie")) {
+                shape = POPGOES_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("potato_wheatley_plushie")) {
+                shape = POTATO_WHEATLEY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("potatos_plushie")) {
+                shape = POTATOS_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("pufferfish_plushie")) {
+                shape = PUFFERFISH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("purple_crewmate_plushie")) {
+                shape = PURPLE_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("purple_junimo_plushie")) {
+                shape = PURPLE_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ragedude_plushie")) {
+                shape = RAGEDUDE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("rainbow_crewmate_plushie")) {
+                shape = RAINBOW_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("rainbow_junimo_plushie")) {
+                shape = RAINBOW_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("rambley_plushie")) {
+                shape = RAMBLEY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ratatin_plushie")) {
+                shape = RATATIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ravager_plushie")) {
+                shape = RAVAGER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("red_fox_plushie")) {
+                shape = RED_FOX_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("red_junimo_plushie")) {
+                shape = RED_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("red_pikmin_plushie")) {
+                shape = RED_PIKMIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("red_royale_king_plushie")) {
+                shape = RED_ROYALE_KING_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("red_spycrab_plushie")) {
+                shape = RED_SPYCRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("repeater_plushie")) {
+                shape = REPEATER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("retinazer_plushie")) {
+                shape = RETINAZER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("rhyth_plushie")) {
+                shape = RHYTH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("rick_plushie")) {
+                shape = RICK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sackboy_plushie")) {
+                shape = SACKBOY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("salmon_plushie")) {
+                shape = SALMON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("salt_rabbit_plushie")) {
+                shape = SALT_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sans_plushie")) {
+                shape = SANS_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("semi_puffed_pufferfish_plushie")) {
+                shape = SEMI_PUFFED_PUFFERFISH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sensei_seaweed_plushie")) {
+                shape = SENSEI_SEAWEED_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("shadow_freddy_plushie")) {
+                shape = SHADOW_FREDDY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sheep_plushie")) {
+                shape = SHEEP_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("shovel_knight_plushie")) {
+                shape = SHOVEL_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("shulker_plushie")) {
+                shape = SHULKER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("silverfish_plushie")) {
+                shape = SILVERFISH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("skeleton_horse_plushie")) {
+                shape = SKELETON_HORSE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("skeleton_plushie")) {
+                shape = SKELETON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("slime_plushie")) {
+                shape = SLIME_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sniffer_plushie")) {
+                shape = SNIFFER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("snow_golem_plushie")) {
+                shape = SNOW_GOLEM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("snow_pea_plushie")) {
+                shape = SNOW_PEA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("space_core_plushie")) {
+                shape = SPACE_CORE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("spamton_plushie")) {
+                shape = SPAMTON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("spazmatism_plushie")) {
+                shape = SPAZMATISM_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("spider_plushie")) {
+                shape = SPIDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("split_pea_plushie")) {
+                shape = SPLIT_PEA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sprint_hat_kid_plushie")) {
+                shape = SPRINT_HAT_KID_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("squid_plushie")) {
+                shape = SQUID_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("steppa_plushie")) {
+                shape = STEPPA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("steve_plushie")) {
+                shape = STEVE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("stray_plushie")) {
+                shape = STRAY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("strider_plushie")) {
+                shape = STRIDER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sudowoodo_plushie")) {
+                shape = SUDOWOODO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("summer_monika_plushie")) {
+                shape = SUMMER_MONIKA_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("sunny_plushie")) {
+                shape = SUNNY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("tadpole_plushie")) {
+                shape = TADPOLE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("tainted_the_keeper_plushie")) {
+                shape = TAINTED_THE_KEEPER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_dealer_plushie")) {
+                shape = THE_DEALER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_keeper_plushie")) {
+                shape = THE_KEEPER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_knight_plushie")) {
+                shape = THE_KNIGHT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_blue_cape_plushie")) {
+                shape = THE_LAMB_BLUE_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_gold_cape_plushie")) {
+                shape = THE_LAMB_GOLD_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_green_cape_plushie")) {
+                shape = THE_LAMB_GREEN_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_leaf_cover_plushie")) {
+                shape = THE_LAMB_LEAF_COVER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_purple_cape_plushie")) {
+                shape = THE_LAMB_PURPLE_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_red_cape_plushie")) {
+                shape = THE_LAMB_RED_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("the_lamb_white_cape_plushie")) {
+                shape = THE_LAMB_WHITE_CAPE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("toast_rabbit_plushie")) {
+                shape = TOAST_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("true_eye_of_cthulhu_plushie")) {
+                shape = TRUE_EYE_OF_CTHULHU_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("turtle_plushie")) {
+                shape = TURTLE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ultimate_chicken_plushie")) {
+                shape = ULTIMATE_CHICKEN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("ultimate_macaw_plushie")) {
+                shape = ULTIMATE_MACAW_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("v_1_knucklebuster_plushie")) {
+                shape = V_1_KNUCKLEBUSTER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("v_1_plushie")) {
+                shape = V_1_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("v_1_whiplash_plushie")) {
+                shape = V_1_WHIPLASH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("v_2_plushie")) {
+                shape = V_2_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("v_2_whiplash_plushie")) {
+                shape = V_2_WHIPLASH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("vault_boy_plushie")) {
+                shape = VAULT_BOY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("vault_boy_thumbs_up_plushie")) {
+                shape = VAULT_BOY_THUMBS_UP_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("vex_plushie")) {
+                shape = VEX_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("villager_plushie")) {
+                shape = VILLAGER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("vindicator_plushie")) {
+                shape = VINDICATOR_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wandering_trader_plushie")) {
+                shape = WANDERING_TRADER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("warden_plushie")) {
+                shape = WARDEN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("warm_frog_plushie")) {
+                shape = WARM_FROG_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("welding_mask_high_roller_plushie")) {
+                shape = WELDING_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wheatley_crab_plushie")) {
+                shape = WHEATLEY_CRAB_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wheatley_in_glados_body_plushie")) {
+                shape = WHEATLEY_IN_GLADOS_BODY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wheatley_plushie")) {
+                shape = WHEATLEY_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("white_crewmate_plushie")) {
+                shape = WHITE_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("white_fox_plushie")) {
+                shape = WHITE_FOX_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("white_junimo_plushie")) {
+                shape = WHITE_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("white_rabbit_plushie")) {
+                shape = WHITE_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("white_splotched_rabbit_plushie")) {
+                shape = WHITE_SPLOTCHED_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wiglin_plushie")) {
+                shape = WIGLIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wilson_plushie")) {
+                shape = WILSON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("witch_plushie")) {
+                shape = WITCH_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wither_plushie")) {
+                shape = WITHER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wither_skeleton_plushie")) {
+                shape = WITHER_SKELETON_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wobblewok_closed_plushie")) {
+                shape = WOBBLEWOK_CLOSED_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wobblewok_plushie")) {
+                shape = WOBBLEWOK_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("wolf_plushie")) {
+                shape = WOLF_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("yellow_crewmate_plushie")) {
+                shape = YELLOW_CREWMATE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("yellow_junimo_plushie")) {
+                shape = YELLOW_JUNIMO_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("yellow_pikmin_plushie")) {
+                shape = YELLOW_PIKMIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("yellow_rabbit_plushie")) {
+                shape = YELLOW_RABBIT_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("zoglin_plushie")) {
+                shape = ZOGLIN_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("zombie_plushie")) {
+                shape = ZOMBIE_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("zombie_villager_plushie")) {
+                shape = ZOMBIE_VILLAGER_PLUSHIE_SHAPE;
+            } else if (plushieName.equals("zombiefied_piglin_plushie")) {
+                shape = ZOMBIEFIED_PIGLIN_PLUSHIE_SHAPE;
+            }
+
+            // Create plushie block with wool sounds and waterlogging
+            Block plushieBlock;
+            if (shape != null) {
+                plushieBlock = new PlushieBlock(
+                    Block.Settings.create()
+                        .strength(0.7f, 0.7f)
+                        .sounds(BlockSoundGroup.WOOL)
+                        .nonOpaque(), // Prevent face culling on blocks below
+                    shape
+                );
+            } else {
+                plushieBlock = new PlushieBlock(
+                    Block.Settings.create()
+                        .strength(0.7f, 0.7f)
+                        .sounds(BlockSoundGroup.WOOL)
+                        .nonOpaque() // Prevent face culling on blocks below
+                );
+            }
+
+            registerPlushieBlock(plushieName, plushieBlock);
+        }
+    }
+
+    private static void registerStackedBlocks() {
+        for (String blockName : STACKED_BLOCK_TYPES) {
+            // Create simple block with stone properties
+            Block stackedBlock 
     // ========== PLUSHIE CUSTOM HITBOXES (AUTO-GENERATED) ==========
     // Generated by generate_plushie_hitboxes.py
     // To regenerate, run: python3 generate_plushie_hitboxes.py
@@ -1729,759 +2468,7 @@ public class ModBlocks {
     );
     // ========== END PLUSHIE HITBOXES ==========
 
-    static {
-        // Register Azalea Flowers first (needed for potted version)
-        AZALEA_FLOWERS = registerAzaleaFlowersBlock("azalea_flowers");
-        POTTED_AZALEA_FLOWERS = registerPottedAzaleaFlowersBlock("potted_azalea_flowers");
-
-        // Register flower pot interaction for azalea flowers
-        FlowerPotBlock.CONTENT_TO_POTTED.put(AZALEA_FLOWERS, POTTED_AZALEA_FLOWERS);
-
-        // Register all night light blocks with lit property
-        registerColoredBlocks("frog", COLORS);
-        registerColoredBlocks("mushroom", COLORS);
-        registerColoredBlocks("octopus", COLORS);
-
-        // Register all plushie blocks
-        registerPlushies();
-
-        // Register all stacked blocks
-        registerStackedBlocks();
-
-        // Register all crate and bag blocks
-        registerCrates();
-
-        // Register console blocks (starting with NES as test)
-        registerConsoles();
-
-        // Register magnum torches
-        registerMagnumTorches();
-
-        // Register Night Lights to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.NIGHT_LIGHTS_KEY)
-            .register(entries -> {
-                for (Block block : COLORED_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Plushies to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.PLUSHIES_KEY)
-            .register(entries -> {
-                for (Block block : PLUSHIE_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register A Man With Plushies to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.AMW_PLUSHIES_KEY)
-            .register(entries -> {
-                for (Block block : AMW_PLUSHIE_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Deltarune Doodads to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.DELTARUNE_DOODADS_KEY)
-            .register(entries -> {
-                for (Block block : DELTARUNE_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Stacked Blocks to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.STACKED_BLOCKS_KEY)
-            .register(entries -> {
-                for (Block block : STACKED_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Consoles to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CONSOLES_KEY)
-            .register(entries -> {
-                for (Block block : CONSOLE_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Twigs items to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.TWIGS_KEY)
-            .register(entries -> {
-                for (Block block : TWIGS_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Crates to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CRATES_KEY)
-            .register(entries -> {
-                for (Block block : CRATE_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-
-        // Register Magnum Torches to custom creative tab
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGNUM_TORCHES_KEY)
-            .register(entries -> {
-                for (Block block : MAGNUM_TORCH_BLOCKS) {
-                    entries.add(block.asItem());
-                }
-            });
-    }
-
-    private static void registerColoredBlocks(String baseName, String[] colors) {
-        for (String color : colors) {
-            String blockName = baseName + "_" + color;
-            VoxelShape shape = getShapeForBlockType(baseName);
-
-            // Create night light block with glowstone-level lighting (15) when lit
-            Block block = new NightLightBlock(
-                Block.Settings.create()
-                    .strength(0.8f, 0.8f)
-                    .sounds(BlockSoundGroup.WOOL)
-                    .luminance(state -> state.get(NightLightBlock.LIT) ? 7 : 0),
-                shape
-            );
-
-            registerBlock(blockName, block);
-        }
-    }
-
-    private static VoxelShape getShapeForBlockType(String baseName) {
-        switch (baseName) {
-            case "frog":
-                // Frog: 6x6x6 centered cube for body
-                return VoxelShapes.cuboid(FROG_MIN, 0, FROG_MIN, FROG_MAX, FROG_HEIGHT, FROG_MAX);
-
-            case "mushroom":
-                // Mushroom: vertical stem + wider cap
-                VoxelShape stem = VoxelShapes.cuboid(
-                    MUSHROOM_STEM_MIN, 0, MUSHROOM_STEM_MIN,
-                    MUSHROOM_STEM_MAX, MUSHROOM_STEM_HEIGHT, MUSHROOM_STEM_MAX
-                );
-                VoxelShape cap = VoxelShapes.cuboid(
-                    MUSHROOM_CAP_MIN, MUSHROOM_CAP_START, MUSHROOM_CAP_MIN,
-                    MUSHROOM_CAP_MAX, MUSHROOM_CAP_END, MUSHROOM_CAP_MAX
-                );
-                return VoxelShapes.union(stem, cap);
-
-            case "octopus":
-                // Octopus: 6x6x6 centered cube for body
-                return VoxelShapes.cuboid(OCTOPUS_MIN, 0, OCTOPUS_MIN, OCTOPUS_MAX, OCTOPUS_HEIGHT, OCTOPUS_MAX);
-
-            default:
-                return VoxelShapes.fullCube();
-        }
-    }
-
-    private static void registerPlushies() {
-        for (String plushieName : PLUSHIES) {
-            // Use custom shapes for special blocks, default for others
-            VoxelShape shape = null;
-            if (plushieName.equals("abbie_plushie")) {
-                shape = ABBIE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("aggressive_eye_of_cthulhu_plushie")) {
-                shape = AGGRESSIVE_EYE_OF_CTHULHU_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("aggressive_retinazer_plushie")) {
-                shape = AGGRESSIVE_RETINAZER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("aggressive_spazmatism_plushie")) {
-                shape = AGGRESSIVE_SPAZMATISM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("allay_plushie")) {
-                shape = ALLAY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("angry_baldi_plushie")) {
-                shape = ANGRY_BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("angry_camper_baldi_plushie")) {
-                shape = ANGRY_CAMPER_BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("angry_farmer_baldi_plushie")) {
-                shape = ANGRY_FARMER_BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("animdude_plushie")) {
-                shape = ANIMDUDE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("audino_plushie")) {
-                shape = AUDINO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("axolotl_plushie")) {
-                shape = AXOLOTL_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("azazel_plushie")) {
-                shape = AZAZEL_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("badeline_plushie")) {
-                shape = BADELINE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("baldi_plushie")) {
-                shape = BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("bandage_girl_plushie")) {
-                shape = BANDAGE_GIRL_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("bat_plushie")) {
-                shape = BAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("bee_plushie")) {
-                shape = BEE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("bendy_plushie")) {
-                shape = BENDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("black_crewmate_plushie")) {
-                shape = BLACK_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("black_junimo_plushie")) {
-                shape = BLACK_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("black_rabbit_plushie")) {
-                shape = BLACK_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blaze_plushie")) {
-                shape = BLAZE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blissey_almost_full_egg_holder_plushie")) {
-                shape = BLISSEY_ALMOST_FULL_EGG_HOLDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blissey_egg_holder_plushie")) {
-                shape = BLISSEY_EGG_HOLDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blissey_full_egg_holder_plushie")) {
-                shape = BLISSEY_FULL_EGG_HOLDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blissey_plushie")) {
-                shape = BLISSEY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blu_heavy_plushie")) {
-                shape = BLU_HEAVY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blu_spycrab_plushie")) {
-                shape = BLU_SPYCRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blue_baby_plushie")) {
-                shape = BLUE_BABY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blue_crewmate_plushie")) {
-                shape = BLUE_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blue_junimo_plushie")) {
-                shape = BLUE_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blue_pikmin_plushie")) {
-                shape = BLUE_PIKMIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("blue_royale_king_plushie")) {
-                shape = BLUE_ROYALE_KING_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("boyfriend_plushie")) {
-                shape = BOYFRIEND_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("brown_crewmate_plushie")) {
-                shape = BROWN_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("brown_rabbit_plushie")) {
-                shape = BROWN_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cain_plushie")) {
-                shape = CAIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("camel_plushie")) {
-                shape = CAMEL_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("camper_baldi_plushie")) {
-                shape = CAMPER_BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("candy_plushie")) {
-                shape = CANDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("carrot_eater_pufferfish_plushie")) {
-                shape = CARROT_EATER_PUFFERFISH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("casual_monika_plushie")) {
-                shape = CASUAL_MONIKA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cat_plushie")) {
-                shape = CAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cave_spider_plushie")) {
-                shape = CAVE_SPIDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cc_blue_knight_plushie")) {
-                shape = CC_BLUE_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cc_gray_knight_plushie")) {
-                shape = CC_GRAY_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cc_green_knight_plushie")) {
-                shape = CC_GREEN_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cc_orange_knight_plushie")) {
-                shape = CC_ORANGE_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cc_red_knight_plushie")) {
-                shape = CC_RED_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("chicken_plushie")) {
-                shape = CHICKEN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cindy_plushie")) {
-                shape = CINDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cluckshroom_plushie")) {
-                shape = CLUCKSHROOM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cod_plushie")) {
-                shape = COD_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("coil_head_plushie")) {
-                shape = COIL_HEAD_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cold_frog_plushie")) {
-                shape = COLD_FROG_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("companion_block_plushie")) {
-                shape = COMPANION_BLOCK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("companion_block_v2_plushie")) {
-                shape = COMPANION_BLOCK_V2_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("coreless_glados_body_plushie")) {
-                shape = CORELESS_GLADOS_BODY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cow_plushie")) {
-                shape = COW_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("crabster_plushie")) {
-                shape = CRABSTER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("creeper_plushie")) {
-                shape = CREEPER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cuphead_plushie")) {
-                shape = CUPHEAD_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("cyan_crewmate_plushie")) {
-                shape = CYAN_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("dolphin_plushie")) {
-                shape = DOLPHIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("dragon_plushie")) {
-                shape = DRAGON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("drowned_plushie")) {
-                shape = DROWNED_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("elder_guardian_plushie")) {
-                shape = ELDER_GUARDIAN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_bee_suit_plushie")) {
-                shape = EMPLOYEE_BEE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_bunny_suit_plushie")) {
-                shape = EMPLOYEE_BUNNY_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_green_suit_plushie")) {
-                shape = EMPLOYEE_GREEN_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_hazard_suit_plushie")) {
-                shape = EMPLOYEE_HAZARD_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_orange_suit_plushie")) {
-                shape = EMPLOYEE_ORANGE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_pajama_suit_plushie")) {
-                shape = EMPLOYEE_PAJAMA_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("employee_purple_suit_plushie")) {
-                shape = EMPLOYEE_PURPLE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("enderman_plush_with_block_plushie")) {
-                shape = ENDERMAN_PLUSH_WITH_BLOCK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("enderman_plushie")) {
-                shape = ENDERMAN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("endermite_plushie")) {
-                shape = ENDERMITE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("evoker_plushie")) {
-                shape = EVOKER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("eye_of_cthulhu_plushie")) {
-                shape = EYE_OF_CTHULHU_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fact_core_plushie")) {
-                shape = FACT_CORE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fall_guy_plushie")) {
-                shape = FALL_GUY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fallen_angel_monika_plushie")) {
-                shape = FALLEN_ANGEL_MONIKA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("farmer_baldi_plushie")) {
-                shape = FARMER_BALDI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fedora_glados_plushie")) {
-                shape = FEDORA_GLADOS_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("female_indeedee_plushie")) {
-                shape = FEMALE_INDEEDEE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("filter_mask_high_roller_plushie")) {
-                shape = FILTER_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fredbear_plushie")) {
-                shape = FREDBEAR_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("freddy_fazbear_plushie")) {
-                shape = FREDDY_FAZBEAR_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("frog_plushie")) {
-                shape = FROG_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("fully_puffed_pufferfish_plushie")) {
-                shape = FULLY_PUFFED_PUFFERFISH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("gas_mask_high_roller_plushie")) {
-                shape = GAS_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("gd_cube_plushie")) {
-                shape = GD_CUBE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("gdm_cube_plushie")) {
-                shape = GDM_CUBE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("gds_cube_plushie")) {
-                shape = GDS_CUBE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("genuine_blu_spycrab_plushie")) {
-                shape = GENUINE_BLU_SPYCRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("genuine_red_spycrab_plushie")) {
-                shape = GENUINE_RED_SPYCRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ghast_plushie")) {
-                shape = GHAST_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("glados_plushie")) {
-                shape = GLADOS_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("glow_squid_plushie")) {
-                shape = GLOW_SQUID_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("goat_plushie")) {
-                shape = GOAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("golden_freddy_plushie")) {
-                shape = GOLDEN_FREDDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("golden_rambley_plushie")) {
-                shape = GOLDEN_RAMBLEY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("goose_plushie")) {
-                shape = GOOSE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("green_crewmate_plushie")) {
-                shape = GREEN_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("green_shovel_knight_plushie")) {
-                shape = GREEN_SHOVEL_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("guardian_plushie")) {
-                shape = GUARDIAN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("guff_plushie")) {
-                shape = GUFF_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("happycane_plushie")) {
-                shape = HAPPYCANE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("hat_kid_plushie")) {
-                shape = HAT_KID_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("hat_kid_raincoat_plushie")) {
-                shape = HAT_KID_RAINCOAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("headcrab_plushie")) {
-                shape = HEADCRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("heavy_plushie")) {
-                shape = HEAVY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("henry_stickmin_plushie")) {
-                shape = HENRY_STICKMIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("henry_stickmin_toppat_leader_plushie")) {
-                shape = HENRY_STICKMIN_TOPPAT_LEADER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("henry_stickmin_toppat_recruit_plushie")) {
-                shape = HENRY_STICKMIN_TOPPAT_RECRUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("herobrine_plushie")) {
-                shape = HEROBRINE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("hoglin_plushie")) {
-                shape = HOGLIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("horse_plushie")) {
-                shape = HORSE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("husk_plushie")) {
-                shape = HUSK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("illusioner_plushie")) {
-                shape = ILLUSIONER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("insomni_plushie")) {
-                shape = INSOMNI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("iron_golem_plushie")) {
-                shape = IRON_GOLEM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("isaac_plushie")) {
-                shape = ISAAC_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("junimo_plushie")) {
-                shape = JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("killer_bunny_plushie")) {
-                shape = KILLER_BUNNY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("lariat_plushie")) {
-                shape = LARIAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("lime_crewmate_plushie")) {
-                shape = LIME_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("little_lariat_plushie")) {
-                shape = LITTLE_LARIAT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("llama_plushie")) {
-                shape = LLAMA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("madeline_plushie")) {
-                shape = MADELINE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("magical_girl_abbie_plushie")) {
-                shape = MAGICAL_GIRL_ABBIE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("magma_cube_plushie")) {
-                shape = MAGMA_CUBE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("male_indeedee_plushie")) {
-                shape = MALE_INDEEDEE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_bee_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_BEE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_bunny_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_BUNNY_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_green_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_GREEN_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_hazard_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_HAZARD_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_orange_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_ORANGE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_pajama_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_PAJAMA_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("masked_employee_purple_suit_plushie")) {
-                shape = MASKED_EMPLOYEE_PURPLE_SUIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("meat_boy_plushie")) {
-                shape = MEAT_BOY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("mind_abbie_plushie")) {
-                shape = MIND_ABBIE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("moai_plushie")) {
-                shape = MOAI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("monika_plushie")) {
-                shape = MONIKA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("moobloom_plushie")) {
-                shape = MOOBLOOM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("mooshroom_plushie")) {
-                shape = MOOSHROOM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("muddy_pig_plushie")) {
-                shape = MUDDY_PIG_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("mugman_plushie")) {
-                shape = MUGMAN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ninji_plushie")) {
-                shape = NINJI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("nyakuza_metro_hat_kid_plushie")) {
-                shape = NYAKUZA_METRO_HAT_KID_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ocelot_plushie")) {
-                shape = OCELOT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("off_plushie")) {
-                shape = OFF_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("old_cartoon_bendy_plushie")) {
-                shape = OLD_CARTOON_BENDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("omori_plushie")) {
-                shape = OMORI_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("open_shulker_plushie")) {
-                shape = OPEN_SHULKER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("orange_crewmate_plushie")) {
-                shape = ORANGE_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("orange_junimo_plushie")) {
-                shape = ORANGE_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("original_glados_plushie")) {
-                shape = ORIGINAL_GLADOS_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("panda_plushie")) {
-                shape = PANDA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("parrot_plushie")) {
-                shape = PARROT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peashooter_plushie")) {
-                shape = PEASHOOTER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_blood_red_plushie")) {
-                shape = PEPPINO_BLOOD_RED_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_dark_cook_plushie")) {
-                shape = PEPPINO_DARK_COOK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_dirt_cook_plushie")) {
-                shape = PEPPINO_DIRT_COOK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_garish_cook_plushie")) {
-                shape = PEPPINO_GARISH_COOK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_golden_god_plushie")) {
-                shape = PEPPINO_GOLDEN_GOD_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_money_green_plushie")) {
-                shape = PEPPINO_MONEY_GREEN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_mooney_orange_plushie")) {
-                shape = PEPPINO_MOONEY_ORANGE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_plushie")) {
-                shape = PEPPINO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_sage_blue_plushie")) {
-                shape = PEPPINO_SAGE_BLUE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_tv_purple_plushie")) {
-                shape = PEPPINO_TV_PURPLE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("peppino_unfunny_cook_plushie")) {
-                shape = PEPPINO_UNFUNNY_COOK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("phantom_plushie")) {
-                shape = PHANTOM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("pig_plushie")) {
-                shape = PIG_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("piglin_brute_plushie")) {
-                shape = PIGLIN_BRUTE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("piglin_plushie")) {
-                shape = PIGLIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("pillager_plushie")) {
-                shape = PILLAGER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("pink_crewmate_plushie")) {
-                shape = PINK_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("pink_junimo_plushie")) {
-                shape = PINK_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("polar_bear_plushie")) {
-                shape = POLAR_BEAR_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("popgoes_plushie")) {
-                shape = POPGOES_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("potato_wheatley_plushie")) {
-                shape = POTATO_WHEATLEY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("potatos_plushie")) {
-                shape = POTATOS_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("pufferfish_plushie")) {
-                shape = PUFFERFISH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("purple_crewmate_plushie")) {
-                shape = PURPLE_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("purple_junimo_plushie")) {
-                shape = PURPLE_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ragedude_plushie")) {
-                shape = RAGEDUDE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("rainbow_crewmate_plushie")) {
-                shape = RAINBOW_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("rainbow_junimo_plushie")) {
-                shape = RAINBOW_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("rambley_plushie")) {
-                shape = RAMBLEY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ratatin_plushie")) {
-                shape = RATATIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ravager_plushie")) {
-                shape = RAVAGER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("red_fox_plushie")) {
-                shape = RED_FOX_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("red_junimo_plushie")) {
-                shape = RED_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("red_pikmin_plushie")) {
-                shape = RED_PIKMIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("red_royale_king_plushie")) {
-                shape = RED_ROYALE_KING_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("red_spycrab_plushie")) {
-                shape = RED_SPYCRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("repeater_plushie")) {
-                shape = REPEATER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("retinazer_plushie")) {
-                shape = RETINAZER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("rhyth_plushie")) {
-                shape = RHYTH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("rick_plushie")) {
-                shape = RICK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sackboy_plushie")) {
-                shape = SACKBOY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("salmon_plushie")) {
-                shape = SALMON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("salt_rabbit_plushie")) {
-                shape = SALT_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sans_plushie")) {
-                shape = SANS_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("semi_puffed_pufferfish_plushie")) {
-                shape = SEMI_PUFFED_PUFFERFISH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sensei_seaweed_plushie")) {
-                shape = SENSEI_SEAWEED_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("shadow_freddy_plushie")) {
-                shape = SHADOW_FREDDY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sheep_plushie")) {
-                shape = SHEEP_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("shovel_knight_plushie")) {
-                shape = SHOVEL_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("shulker_plushie")) {
-                shape = SHULKER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("silverfish_plushie")) {
-                shape = SILVERFISH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("skeleton_horse_plushie")) {
-                shape = SKELETON_HORSE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("skeleton_plushie")) {
-                shape = SKELETON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("slime_plushie")) {
-                shape = SLIME_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sniffer_plushie")) {
-                shape = SNIFFER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("snow_golem_plushie")) {
-                shape = SNOW_GOLEM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("snow_pea_plushie")) {
-                shape = SNOW_PEA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("space_core_plushie")) {
-                shape = SPACE_CORE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("spamton_plushie")) {
-                shape = SPAMTON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("spazmatism_plushie")) {
-                shape = SPAZMATISM_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("spider_plushie")) {
-                shape = SPIDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("split_pea_plushie")) {
-                shape = SPLIT_PEA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sprint_hat_kid_plushie")) {
-                shape = SPRINT_HAT_KID_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("squid_plushie")) {
-                shape = SQUID_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("steppa_plushie")) {
-                shape = STEPPA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("steve_plushie")) {
-                shape = STEVE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("stray_plushie")) {
-                shape = STRAY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("strider_plushie")) {
-                shape = STRIDER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sudowoodo_plushie")) {
-                shape = SUDOWOODO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("summer_monika_plushie")) {
-                shape = SUMMER_MONIKA_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("sunny_plushie")) {
-                shape = SUNNY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("tadpole_plushie")) {
-                shape = TADPOLE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("tainted_the_keeper_plushie")) {
-                shape = TAINTED_THE_KEEPER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_dealer_plushie")) {
-                shape = THE_DEALER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_keeper_plushie")) {
-                shape = THE_KEEPER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_knight_plushie")) {
-                shape = THE_KNIGHT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_blue_cape_plushie")) {
-                shape = THE_LAMB_BLUE_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_gold_cape_plushie")) {
-                shape = THE_LAMB_GOLD_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_green_cape_plushie")) {
-                shape = THE_LAMB_GREEN_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_leaf_cover_plushie")) {
-                shape = THE_LAMB_LEAF_COVER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_purple_cape_plushie")) {
-                shape = THE_LAMB_PURPLE_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_red_cape_plushie")) {
-                shape = THE_LAMB_RED_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("the_lamb_white_cape_plushie")) {
-                shape = THE_LAMB_WHITE_CAPE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("toast_rabbit_plushie")) {
-                shape = TOAST_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("true_eye_of_cthulhu_plushie")) {
-                shape = TRUE_EYE_OF_CTHULHU_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("turtle_plushie")) {
-                shape = TURTLE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ultimate_chicken_plushie")) {
-                shape = ULTIMATE_CHICKEN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("ultimate_macaw_plushie")) {
-                shape = ULTIMATE_MACAW_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("v_1_knucklebuster_plushie")) {
-                shape = V_1_KNUCKLEBUSTER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("v_1_plushie")) {
-                shape = V_1_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("v_1_whiplash_plushie")) {
-                shape = V_1_WHIPLASH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("v_2_plushie")) {
-                shape = V_2_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("v_2_whiplash_plushie")) {
-                shape = V_2_WHIPLASH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("vault_boy_plushie")) {
-                shape = VAULT_BOY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("vault_boy_thumbs_up_plushie")) {
-                shape = VAULT_BOY_THUMBS_UP_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("vex_plushie")) {
-                shape = VEX_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("villager_plushie")) {
-                shape = VILLAGER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("vindicator_plushie")) {
-                shape = VINDICATOR_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wandering_trader_plushie")) {
-                shape = WANDERING_TRADER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("warden_plushie")) {
-                shape = WARDEN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("warm_frog_plushie")) {
-                shape = WARM_FROG_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("welding_mask_high_roller_plushie")) {
-                shape = WELDING_MASK_HIGH_ROLLER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wheatley_crab_plushie")) {
-                shape = WHEATLEY_CRAB_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wheatley_in_glados_body_plushie")) {
-                shape = WHEATLEY_IN_GLADOS_BODY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wheatley_plushie")) {
-                shape = WHEATLEY_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("white_crewmate_plushie")) {
-                shape = WHITE_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("white_fox_plushie")) {
-                shape = WHITE_FOX_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("white_junimo_plushie")) {
-                shape = WHITE_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("white_rabbit_plushie")) {
-                shape = WHITE_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("white_splotched_rabbit_plushie")) {
-                shape = WHITE_SPLOTCHED_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wiglin_plushie")) {
-                shape = WIGLIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wilson_plushie")) {
-                shape = WILSON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("witch_plushie")) {
-                shape = WITCH_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wither_plushie")) {
-                shape = WITHER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wither_skeleton_plushie")) {
-                shape = WITHER_SKELETON_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wobblewok_closed_plushie")) {
-                shape = WOBBLEWOK_CLOSED_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wobblewok_plushie")) {
-                shape = WOBBLEWOK_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("wolf_plushie")) {
-                shape = WOLF_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("yellow_crewmate_plushie")) {
-                shape = YELLOW_CREWMATE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("yellow_junimo_plushie")) {
-                shape = YELLOW_JUNIMO_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("yellow_pikmin_plushie")) {
-                shape = YELLOW_PIKMIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("yellow_rabbit_plushie")) {
-                shape = YELLOW_RABBIT_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("zoglin_plushie")) {
-                shape = ZOGLIN_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("zombie_plushie")) {
-                shape = ZOMBIE_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("zombie_villager_plushie")) {
-                shape = ZOMBIE_VILLAGER_PLUSHIE_SHAPE;
-            } else if (plushieName.equals("zombiefied_piglin_plushie")) {
-                shape = ZOMBIEFIED_PIGLIN_PLUSHIE_SHAPE;
-            }
-
-            // Create plushie block with wool sounds and waterlogging
-            Block plushieBlock;
-            if (shape != null) {
-                plushieBlock = new PlushieBlock(
-                    Block.Settings.create()
-                        .strength(0.7f, 0.7f)
-                        .sounds(BlockSoundGroup.WOOL)
-                        .nonOpaque(), // Prevent face culling on blocks below
-                    shape
-                );
-            } else {
-                plushieBlock = new PlushieBlock(
-                    Block.Settings.create()
-                        .strength(0.7f, 0.7f)
-                        .sounds(BlockSoundGroup.WOOL)
-                        .nonOpaque() // Prevent face culling on blocks below
-                );
-            }
-
-            registerPlushieBlock(plushieName, plushieBlock);
-        }
-    }
-
-    private static void registerStackedBlocks() {
-        for (String blockName : STACKED_BLOCK_TYPES) {
-            // Create simple block with stone properties
-            Block stackedBlock = new Block(
+= new Block(
                 Block.Settings.create()
                     .strength(2.0f, 6.0f)
                     .sounds(BlockSoundGroup.WOOD)
@@ -2528,9 +2515,7 @@ public class ModBlocks {
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
 
         // Add to appropriate list for creative tab registration
-        if (name.equals("nubert") || name.equals("tenna_pole") || name.equals("tenna_statue")) {
-            DELTARUNE_BLOCKS.add(block);
-        } else if (AMW_PLUSHIE_NAMES.contains(name)) {
+        if (AMW_PLUSHIE_NAMES.contains(name)) {
             AMW_PLUSHIE_BLOCKS.add(block);
         } else {
             PLUSHIE_BLOCKS.add(block);
@@ -2692,6 +2677,51 @@ public class ModBlocks {
 
         // Add to console blocks list for creative tab registration
         CONSOLE_BLOCKS.add(block);
+    }
+
+    private static Block registerNubert(String name) {
+        // Nubert - uses slime sounds (squelchy, squishy sounds)
+        Block block = new NubertBlock(
+            Block.Settings.create()
+                .strength(0.5f, 0.5f)
+                .sounds(BlockSoundGroup.SLIME)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
+    }
+
+    private static Block registerTennaStatue(String name) {
+        // Tenna Statue - uses metal/gold sounds
+        Block block = new TennaStatueBlock(
+            Block.Settings.create()
+                .strength(1.5f, 6.0f)
+                .sounds(BlockSoundGroup.METAL)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
+    }
+
+    private static Block registerTennaPole(String name) {
+        // Tenna Pole - uses metal/gold sounds
+        Block block = new TennaPoleBlock(
+            Block.Settings.create()
+                .strength(1.5f, 6.0f)
+                .sounds(BlockSoundGroup.METAL)
+                .nonOpaque()
+        );
+        Registry.register(Registries.BLOCK, Identifier.of(Charmncraftbits.MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(Charmncraftbits.MOD_ID, name),
+            new BlockItem(block, new Item.Settings()));
+        DELTARUNE_BLOCKS.add(block);
+        return block;
     }
 
     private static Block registerAzaleaFlowersBlock(String name) {
