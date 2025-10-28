@@ -1,5 +1,6 @@
 package com.charmed.charmncraft.bits;
 
+import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import com.charmed.charmncraft.bits.blocks.NubertBlock;
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
