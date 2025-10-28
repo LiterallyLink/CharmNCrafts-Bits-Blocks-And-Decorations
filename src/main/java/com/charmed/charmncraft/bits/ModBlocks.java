@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class ModBlocks {
+    // Use the correct MOD_ID from main class
+    private static final String MOD_ID = Charmncraftbits.MOD_ID;
 
     // ====== MASTER BLOCK LISTS ======
     public static final List<Block> STACKED_BLOCKS = new ArrayList<>();
@@ -75,7 +77,7 @@ public class ModBlocks {
     // ====== REGISTER HELPERS ======
     private static Block registerBasicBlock(String name, Block.Settings settings) {
         Block block = new Block(settings);
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         return block;
@@ -83,7 +85,7 @@ public class ModBlocks {
 
     private static void registerColoredBlock(String name, Block.Settings settings) {
         Block block = new Block(settings);
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         COLORED_BLOCKS.add(block);
@@ -103,7 +105,7 @@ public class ModBlocks {
     }
 
     private static void registerStackedBlock(String name, Block block) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         STACKED_BLOCKS.add(block);
@@ -122,7 +124,7 @@ public class ModBlocks {
     }
 
     private static void registerCrateBlock(String name, Block block) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         CRATE_BLOCKS.add(block);
@@ -162,7 +164,7 @@ public class ModBlocks {
     }
 
     private static void registerConsoleBlock(String name, Block block) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         CONSOLE_BLOCKS.add(block);
@@ -180,7 +182,7 @@ public class ModBlocks {
                     .strength(1.5f)
                     .sounds(BlockSoundGroup.GLASS)
                     .nonOpaque());
-            Identifier id = Identifier.of("charmncraftbits", name);
+            Identifier id = Identifier.of(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, block);
             Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
             DELTARUNE_BLOCKS.add(block);
@@ -199,7 +201,7 @@ public class ModBlocks {
                     .strength(1.0f)
                     .sounds(BlockSoundGroup.WOOD)
                     .nonOpaque());
-            Identifier id = Identifier.of("charmncraftbits", torch);
+            Identifier id = Identifier.of(MOD_ID, torch);
             Registry.register(Registries.BLOCK, id, torchBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(torchBlock, new Item.Settings()));
             MAGNUM_TORCH_BLOCKS.add(torchBlock);
@@ -255,7 +257,7 @@ public class ModBlocks {
     }
 
     private static void registerPlushieBlock(String name, Block block) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         PLUSHIE_BLOCKS.add(block);
@@ -271,7 +273,7 @@ public class ModBlocks {
             Block block = new Block(FabricBlockSettings.create()
                     .strength(1.0f, 2.0f)
                     .sounds(BlockSoundGroup.WOOD));
-            Identifier id = Identifier.of("charmncraftbits", twig);
+            Identifier id = Identifier.of(MOD_ID, twig);
             Registry.register(Registries.BLOCK, id, block);
             Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
             TWIGS_BLOCKS.add(block);
@@ -318,12 +320,12 @@ public class ModBlocks {
     // ====== BLOCK RETRIEVAL HELPERS ======
 
     public static Block getBlockByName(String name) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         return Registries.BLOCK.get(id);
     }
 
     public static boolean isRegistered(String name) {
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         return Registries.BLOCK.containsId(id);
     }
 
@@ -450,7 +452,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(0.5f)
                 .sounds(BlockSoundGroup.GRASS));
-        Identifier azaleaId = Identifier.of("charmncraftbits", "azalea_flowers");
+        Identifier azaleaId = Identifier.of(MOD_ID, "azalea_flowers");
         Registry.register(Registries.BLOCK, azaleaId, azaleaFlowers);
         Registry.register(Registries.ITEM, azaleaId, new BlockItem(azaleaFlowers, new Item.Settings()));
         TWIGS_BLOCKS.add(azaleaFlowers);
@@ -459,7 +461,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(0.3f)
                 .sounds(BlockSoundGroup.GRASS));
-        Identifier pottedId = Identifier.of("charmncraftbits", "potted_azalea_flowers");
+        Identifier pottedId = Identifier.of(MOD_ID, "potted_azalea_flowers");
         Registry.register(Registries.BLOCK, pottedId, pottedAzalea);
         Registry.register(Registries.ITEM, pottedId, new BlockItem(pottedAzalea, new Item.Settings()));
         TWIGS_BLOCKS.add(pottedAzalea);
@@ -477,7 +479,7 @@ public class ModBlocks {
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.WOOD)
                 .nonOpaque());
-        Identifier id = Identifier.of("charmncraftbits", name);
+        Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         MAGNUM_TORCH_BLOCKS.add(block);
@@ -551,7 +553,7 @@ public class ModBlocks {
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL));
 
-            Identifier id = Identifier.of("charmncraftbits", name);
+            Identifier id = Identifier.of(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, plushieBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(plushieBlock, new Item.Settings()));
             PLUSHIE_BLOCKS.add(plushieBlock);
@@ -579,7 +581,7 @@ public class ModBlocks {
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.GLASS), nightLightShape);
 
-            Identifier id = Identifier.of("charmncraftbits", name);
+            Identifier id = Identifier.of(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, nightLightBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(nightLightBlock, new Item.Settings()));
             NIGHT_LIGHT_BLOCKS.add(nightLightBlock);
@@ -599,7 +601,7 @@ public class ModBlocks {
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL));
 
-            Identifier id = Identifier.of("charmncraftbits", name);
+            Identifier id = Identifier.of(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, bagBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(bagBlock, new Item.Settings()));
             BAG_BLOCKS.add(bagBlock);
@@ -613,7 +615,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(0.5f)
                 .sounds(BlockSoundGroup.SLIME));
-        Identifier nubertId = Identifier.of("charmncraftbits", "nubert");
+        Identifier nubertId = Identifier.of(MOD_ID, "nubert");
         Registry.register(Registries.BLOCK, nubertId, nubertBlock);
         Registry.register(Registries.ITEM, nubertId, new BlockItem(nubertBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(nubertBlock);
@@ -623,7 +625,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.METAL));
-        Identifier tennaStatueId = Identifier.of("charmncraftbits", "tenna_statue");
+        Identifier tennaStatueId = Identifier.of(MOD_ID, "tenna_statue");
         Registry.register(Registries.BLOCK, tennaStatueId, tennaStatueBlock);
         Registry.register(Registries.ITEM, tennaStatueId, new BlockItem(tennaStatueBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(tennaStatueBlock);
@@ -633,7 +635,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.METAL));
-        Identifier tennaPoleId = Identifier.of("charmncraftbits", "tenna_pole");
+        Identifier tennaPoleId = Identifier.of(MOD_ID, "tenna_pole");
         Registry.register(Registries.BLOCK, tennaPoleId, tennaPoleBlock);
         Registry.register(Registries.ITEM, tennaPoleId, new BlockItem(tennaPoleBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(tennaPoleBlock);
