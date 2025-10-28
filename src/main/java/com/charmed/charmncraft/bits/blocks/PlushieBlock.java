@@ -1,22 +1,17 @@
 package com.charmed.charmncraft.bits.blocks;
 
 import net.minecraft.block.*;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable {
+public class PlushieBlock extends HorizontalFacingBlock {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     // Default plushie hitbox: 8x8x8 centered cube (similar to your other decorative blocks)
     private static final VoxelShape DEFAULT_SHAPE = VoxelShapes.cuboid(
@@ -32,7 +27,6 @@ public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable
         this.setDefaultState(
             this.stateManager.getDefaultState()
                 .with(FACING, Direction.NORTH)
-                .with(WATERLOGGED, false)
         );
     }
 
@@ -42,20 +36,13 @@ public class PlushieBlock extends HorizontalFacingBlock implements Waterloggable
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACING);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         return this.getDefaultState()
-            .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite())
-            .with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
-    }
-
-    @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+            .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
