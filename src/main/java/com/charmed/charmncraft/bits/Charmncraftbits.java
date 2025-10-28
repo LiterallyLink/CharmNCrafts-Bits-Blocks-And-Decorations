@@ -22,5 +22,7 @@ public class Charmncraftbits implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		ModItemGroups.initialize();
 		ModBlocks.initialize();
+		ModItemGroups.populateItemGroups();
+		LOGGER.info("All blocks registered and added to creative tabs!");
 	}
 }

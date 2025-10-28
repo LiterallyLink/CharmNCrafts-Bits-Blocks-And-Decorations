@@ -1,6 +1,8 @@
 package com.charmed.charmncraft.bits;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -87,5 +89,85 @@ public class ModItemGroups {
 
     public static void initialize() {
         // This method is called to trigger the static initializer
+    }
+
+    public static void populateItemGroups() {
+        // Add stacked blocks to STACKED_BLOCKS_GROUP
+        ItemGroupEvents.modifyEntriesEvent(STACKED_BLOCKS_KEY).register(entries -> {
+            for (Block block : ModBlocks.STACKED_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add crates to CRATES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(CRATES_KEY).register(entries -> {
+            for (Block block : ModBlocks.CRATE_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add colored blocks to appropriate group (using STACKED_BLOCKS for now)
+        ItemGroupEvents.modifyEntriesEvent(STACKED_BLOCKS_KEY).register(entries -> {
+            for (Block block : ModBlocks.COLORED_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add magnum torches to MAGNUM_TORCHES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(MAGNUM_TORCHES_KEY).register(entries -> {
+            for (Block block : ModBlocks.MAGNUM_TORCH_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add console blocks to CONSOLES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(CONSOLES_KEY).register(entries -> {
+            for (Block block : ModBlocks.CONSOLE_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add twigs blocks to TWIGS_GROUP
+        ItemGroupEvents.modifyEntriesEvent(TWIGS_KEY).register(entries -> {
+            for (Block block : ModBlocks.TWIGS_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add deltarune blocks to DELTARUNE_DOODADS_GROUP
+        ItemGroupEvents.modifyEntriesEvent(DELTARUNE_DOODADS_KEY).register(entries -> {
+            for (Block block : ModBlocks.DELTARUNE_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add AMW plushies to AMW_PLUSHIES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(AMW_PLUSHIES_KEY).register(entries -> {
+            // Get the registered AMW plushie blocks
+            entries.add(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "abbie_plushie")));
+            entries.add(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "maddie_plushie")));
+            entries.add(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "willow_plushie")));
+        });
+
+        // Add all plushies to PLUSHIES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(PLUSHIES_KEY).register(entries -> {
+            for (Block block : ModBlocks.PLUSHIE_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add night lights to NIGHT_LIGHTS_GROUP
+        ItemGroupEvents.modifyEntriesEvent(NIGHT_LIGHTS_KEY).register(entries -> {
+            for (Block block : ModBlocks.NIGHT_LIGHT_BLOCKS) {
+                entries.add(block);
+            }
+        });
+
+        // Add bag blocks to TWIGS_GROUP (or appropriate group)
+        ItemGroupEvents.modifyEntriesEvent(TWIGS_KEY).register(entries -> {
+            for (Block block : ModBlocks.BAG_BLOCKS) {
+                entries.add(block);
+            }
+        });
     }
 }
