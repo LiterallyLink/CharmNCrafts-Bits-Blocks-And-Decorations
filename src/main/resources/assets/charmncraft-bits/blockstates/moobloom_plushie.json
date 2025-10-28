@@ -1,32 +1,17 @@
 {
   "variants": {
-    "facing=north,waterlogged=false": {
+    "facing=north": {
       "model": "charmncraft-bits:block/plushies/moobloom_plushie"
     },
-    "facing=east,waterlogged=false": {
+    "facing=east": {
       "model": "charmncraft-bits:block/plushies/moobloom_plushie",
       "y": 90
     },
-    "facing=south,waterlogged=false": {
+    "facing=south": {
       "model": "charmncraft-bits:block/plushies/moobloom_plushie",
       "y": 180
     },
-    "facing=west,waterlogged=false": {
-      "model": "charmncraft-bits:block/plushies/moobloom_plushie",
-      "y": 270
-    },
-    "facing=north,waterlogged=true": {
-      "model": "charmncraft-bits:block/plushies/moobloom_plushie"
-    },
-    "facing=east,waterlogged=true": {
-      "model": "charmncraft-bits:block/plushies/moobloom_plushie",
-      "y": 90
-    },
-    "facing=south,waterlogged=true": {
-      "model": "charmncraft-bits:block/plushies/moobloom_plushie",
-      "y": 180
-    },
-    "facing=west,waterlogged=true": {
+    "facing=west": {
       "model": "charmncraft-bits:block/plushies/moobloom_plushie",
       "y": 270
     }
