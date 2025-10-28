@@ -232,16 +232,12 @@ public class ModBlocks {
     private static void registerAMWPlushies() {
         for (String name : AMW_PLUSHIE_NAMES) {
             VoxelShape shape = getAMWPlushieShape(name);
-            Block plushieBlock = new Block(FabricBlockSettings.create()
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .sounds(BlockSoundGroup.WOOL)) {
-
-                @Override
-                public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-                    return shape;
-                }
-            };
+            Block plushieBlock = new PlushieBlock(
+                    FabricBlockSettings.create()
+                            .nonOpaque()
+                            .strength(0.5f)
+                            .sounds(BlockSoundGroup.WOOL),
+                    shape);
 
             registerPlushieBlock(name, plushieBlock);
         }
@@ -344,104 +340,125 @@ public class ModBlocks {
     // ====== EXTENDED CONSOLE SHAPES ======
     private static void registerExtendedConsoles() {
         // Dreamcast
-        registerConsoleBlock("dreamcast", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("dreamcast", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.0f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Nintendo DS
-        registerConsoleBlock("ds", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("ds", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.5f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // GameBoys (combined shape)
-        registerConsoleBlock("gameboys", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("gameboys", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.5f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // GameCube
-        registerConsoleBlock("gamecube", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("gamecube", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.0f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Dock
-        registerConsoleBlock("dock", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("dock", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.5f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Nintendo 64
-        registerConsoleBlock("n_64", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("n_64", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // PS1–PS5
-        registerConsoleBlock("ps_1", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("ps_1", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.5f)
                 .sounds(BlockSoundGroup.METAL)));
 
-        registerConsoleBlock("ps_2", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("ps_2", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.7f)
                 .sounds(BlockSoundGroup.METAL)));
 
-        registerConsoleBlock("ps_4", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("ps_4", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.0f)
                 .sounds(BlockSoundGroup.METAL)));
 
-        registerConsoleBlock("ps_5", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("ps_5", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.2f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // PSP
-        registerConsoleBlock("psp", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("psp", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.3f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Sega Genesis
-        registerConsoleBlock("sega_genesis", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("sega_genesis", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.5f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // SNES
-        registerConsoleBlock("snes", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("snes", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Switch in Dock
-        registerConsoleBlock("switch_in_dock", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("switch_in_dock", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Switch
-        registerConsoleBlock("switch", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("switch", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.6f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // TV
-        registerConsoleBlock("tv", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("tv", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Wii
-        registerConsoleBlock("wii", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("wii", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Xbox
-        registerConsoleBlock("xbox", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("xbox", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(1.8f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Xbox One
-        registerConsoleBlock("xbox_1", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("xbox_1", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.0f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Xbox Series S
-        registerConsoleBlock("xbox_series_s", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("xbox_series_s", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.0f)
                 .sounds(BlockSoundGroup.METAL)));
 
         // Xbox Series X
-        registerConsoleBlock("xbox_series_x", new Block(FabricBlockSettings.create()
+        registerConsoleBlock("xbox_series_x", new ConsoleBlock(FabricBlockSettings.create()
+                .nonOpaque()
                 .strength(2.2f)
                 .sounds(BlockSoundGroup.METAL)));
     }
