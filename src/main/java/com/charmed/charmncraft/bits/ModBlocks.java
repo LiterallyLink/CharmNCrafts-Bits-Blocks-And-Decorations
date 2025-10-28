@@ -258,6 +258,7 @@ public class ModBlocks {
         Identifier id = Identifier.of("charmncraftbits", name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+        PLUSHIE_BLOCKS.add(block);
     }
 
     // ====== TWIGS DECOR BLOCKS ======
@@ -485,8 +486,9 @@ public class ModBlocks {
     // ====== PLUSHIES REGISTRATION ======
     private static void registerAllPlushies() {
         // Get all plushie blockstates from resources
+        // NOTE: abbie_plushie, maddie_plushie, and willow_plushie are registered separately in registerAMWPlushies()
         String[] plushieNames = {
-            "abbie_plushie", "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
+            "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
             "aggressive_spazmatism_plushie", "allay_plushie", "angry_baldi_plushie",
             "angry_camper_baldi_plushie", "angry_farmer_baldi_plushie", "animdude_plushie",
             "audino_plushie", "axolotl_plushie", "azazel_plushie", "badeline_plushie",
@@ -517,7 +519,7 @@ public class ModBlocks {
             "light_blue_junimo_plushie", "light_blue_slime_plushie", "light_gray_crewmate_plushie",
             "light_gray_junimo_plushie", "light_gray_slime_plushie", "lilith_plushie",
             "lime_crewmate_plushie", "lime_junimo_plushie", "lime_slime_plushie",
-            "lost_plushie", "luigi_plushie", "maddie_plushie", "madeline_plushie",
+            "lost_plushie", "luigi_plushie", "madeline_plushie",
             "magenta_crewmate_plushie", "magenta_junimo_plushie", "magenta_slime_plushie",
             "magma_cube_plushie", "magnemite_plushie", "magnetite_plushie", "mario_plushie",
             "meatboy_plushie", "meowscles_plushie", "michael_plushie", "moobloom_plushie",
@@ -538,7 +540,7 @@ public class ModBlocks {
             "terrarian_plushie", "tinted_plushie", "toad_plushie", "tom_nook_plushie",
             "toriel_plushie", "towelie_plushie", "trader_llama_plushie", "tuff_golem_plushie",
             "undyne_plushie", "warden_plushie", "white_crewmate_plushie", "white_junimo_plushie",
-            "white_slime_plushie", "willow_plushie", "wooly_cow_plushie", "wumpus_plushie",
+            "white_slime_plushie", "wooly_cow_plushie", "wumpus_plushie",
             "yellow_crewmate_plushie", "yellow_junimo_plushie", "yellow_slime_plushie",
             "zombie_plushie"
         };
