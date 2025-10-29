@@ -1,6 +1,7 @@
 package com.charmed.charmncraft.bits;
 
 import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
+import com.charmed.charmncraft.bits.blocks.MagnumTorchBlock;
 import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import com.charmed.charmncraft.bits.blocks.NubertBlock;
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
@@ -470,15 +471,17 @@ public class ModBlocks {
     }
 
     // ====== MAGNUM TORCH REGISTRATION ======
+    // All magnum torches emit maximum light (15) - brighter than regular torches (14)
+    // Custom hitbox matches the 4x16x4 texture model
     private static void registerMagnumTorches() {
-        registerMagnumTorchBlock("amethyst_magnum_torch", 13);
-        registerMagnumTorchBlock("diamond_magnum_torch", 14);
-        registerMagnumTorchBlock("emerald_magnum_torch", 15);
+        registerMagnumTorchBlock("amethyst_magnum_torch");
+        registerMagnumTorchBlock("diamond_magnum_torch");
+        registerMagnumTorchBlock("emerald_magnum_torch");
     }
 
-    private static void registerMagnumTorchBlock(String name, int luminance) {
-        Block block = new Block(FabricBlockSettings.create()
-                .luminance(luminance)
+    private static void registerMagnumTorchBlock(String name) {
+        Block block = new MagnumTorchBlock(FabricBlockSettings.create()
+                .luminance(15)  // Maximum light level - brighter than regular torches
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.WOOD)
                 .nonOpaque());
