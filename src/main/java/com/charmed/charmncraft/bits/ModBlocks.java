@@ -172,11 +172,6 @@ public class ModBlocks {
         CONSOLE_BLOCKS.add(block);
     }
 
-    // ====== DELTARUNE BLOCKS ======
-    // Removed incorrect items: dark_fountain_crystal, save_point, card_castle_banner
-    // Only tenna_statue, tenna_pole, and nubert should be in the Deltarune category
-    // These are registered in registerSpecialDeltaruneBlocks()
-
     // ====== MAGNUM TORCHES ======
     // Magnum torches are powerful decorative light sources
     // Only three variants: Amethyst, Diamond, and Emerald
@@ -259,7 +254,7 @@ public class ModBlocks {
         registerNightLights();
         registerTwigsBlocks();
         registerConsoleBlocks();
-        registerSpecialDeltaruneBlocks();
+        registerDeltaruneBlocks();
         registerColoredVariants();
         registerExtendedConsoles();
         registerAzaleaDecor();
@@ -602,8 +597,8 @@ public class ModBlocks {
         }
     }
 
-    // ====== SPECIAL DELTARUNE BLOCKS ======
-    private static void registerSpecialDeltaruneBlocks() {
+    // ====== DELTARUNE BLOCKS ======
+    private static void registerDeltaruneBlocks() {
         // Nubert block
         Block nubertBlock = new NubertBlock(FabricBlockSettings.create()
                 .nonOpaque()
