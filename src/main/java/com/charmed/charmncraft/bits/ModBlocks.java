@@ -471,20 +471,23 @@ public class ModBlocks {
     }
 
     // ====== MAGNUM TORCH REGISTRATION ======
-    // All magnum torches emit maximum light (15) - brighter than regular torches (14)
-    // Custom hitbox matches the 4x16x4 texture model
+    // Magnum torches prevent mob spawning in a 32-block radius
+    // - Diamond: Prevents hostile mobs (zombies, skeletons, creepers, spiders, phantoms, etc.)
+    // - Emerald: Prevents passive mobs (wandering traders, trader llamas, animals)
+    // - Amethyst: Prevents cave/water mobs (bats, squids, axolotls, fish)
+    // All emit light level 14 (same as regular torches)
     private static void registerMagnumTorches() {
-        registerMagnumTorchBlock("amethyst_magnum_torch");
-        registerMagnumTorchBlock("diamond_magnum_torch");
-        registerMagnumTorchBlock("emerald_magnum_torch");
+        registerMagnumTorchBlock("amethyst_magnum_torch", MagnumTorchBlock.TorchType.AMETHYST);
+        registerMagnumTorchBlock("diamond_magnum_torch", MagnumTorchBlock.TorchType.DIAMOND);
+        registerMagnumTorchBlock("emerald_magnum_torch", MagnumTorchBlock.TorchType.EMERALD);
     }
 
-    private static void registerMagnumTorchBlock(String name) {
+    private static void registerMagnumTorchBlock(String name, MagnumTorchBlock.TorchType torchType) {
         Block block = new MagnumTorchBlock(FabricBlockSettings.create()
-                .luminance(15)  // Maximum light level - brighter than regular torches
+                .luminance(14)  // Same as regular torch
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.WOOD)
-                .nonOpaque());
+                .nonOpaque(), torchType);
         Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
