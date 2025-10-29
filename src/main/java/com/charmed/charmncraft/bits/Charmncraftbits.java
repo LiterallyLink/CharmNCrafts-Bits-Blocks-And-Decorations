@@ -23,6 +23,8 @@ public class Charmncraftbits implements ModInitializer {
 		ModItemGroups.initialize();
 		ModBlocks.initialize();
 		ModItemGroups.populateItemGroups();
+		MagnumTorchSpawnHandler.register();
 		LOGGER.info("All blocks registered and added to creative tabs!");
+		LOGGER.info("Magnum Torch spawn prevention registered!");
 	}
 }
