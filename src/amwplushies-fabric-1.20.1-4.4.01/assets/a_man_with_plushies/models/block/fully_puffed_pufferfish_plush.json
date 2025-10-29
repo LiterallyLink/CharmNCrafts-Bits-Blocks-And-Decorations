@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/fully_puffed_pufferfish_plushie",
-  "textures": {
-    "all": "a_man_with_plushies:block/fully_puffed_pufferfish_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "2": "a_man_with_plushies:block/fully_puffed_pufferfish_texture"
-  },
-  "render_type": "cutout_mipped"
-}

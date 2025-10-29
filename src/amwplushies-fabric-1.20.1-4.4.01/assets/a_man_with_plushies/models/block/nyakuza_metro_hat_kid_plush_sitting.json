@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/nyakuza_metro_hat_kid_plushie_sitting",
-  "textures": {
-    "all": "a_man_with_plushies:block/nyakuza_metro_hat_kid_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "5": "a_man_with_plushies:block/nyakuza_metro_hat_kid_texture"
-  },
-  "render_type": "solid"
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/spycrab_plushie",
-  "textures": {
-    "all": "a_man_with_plushies:block/red_spycrab_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "0": "a_man_with_plushies:block/red_spycrab_texture"
-  },
-  "render_type": "solid"
-}

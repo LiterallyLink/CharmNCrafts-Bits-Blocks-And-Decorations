@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/chicken_plushie_sitting",
-  "textures": {
-    "all": "a_man_with_plushies:block/chicken_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "1": "a_man_with_plushies:block/chicken_texture"
-  },
-  "render_type": "solid"
-}

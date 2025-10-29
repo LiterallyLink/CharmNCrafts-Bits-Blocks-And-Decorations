@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/cc_knight_plushie",
-  "textures": {
-    "all": "a_man_with_plushies:block/cc_green_knight_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "1": "a_man_with_plushies:block/cc_green_knight_texture"
-  },
-  "render_type": "solid"
-}

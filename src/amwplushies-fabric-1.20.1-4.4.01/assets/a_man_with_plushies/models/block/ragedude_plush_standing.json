@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/ragedude_plush_standing",
-  "textures": {
-    "all": "a_man_with_plushies:block/ragedude_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "0": "a_man_with_plushies:block/ragedude_texture"
-  },
-  "render_type": "solid"
-}

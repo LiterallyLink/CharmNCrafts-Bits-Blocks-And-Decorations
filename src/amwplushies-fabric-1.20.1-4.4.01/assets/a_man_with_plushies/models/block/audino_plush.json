@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/audino_plushie",
-  "textures": {
-    "all": "a_man_with_plushies:block/audino_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "2": "a_man_with_plushies:block/audino_texture"
-  },
-  "render_type": "solid"
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/odd_tree",
-  "textures": {
-    "all": "a_man_with_plushies:block/odd_tree_texture",
-    "particle": "a_man_with_plushies:block/odd_tree_texture",
-    "0": "a_man_with_plushies:block/odd_tree_texture"
-  },
-  "render_type": "cutout"
-}

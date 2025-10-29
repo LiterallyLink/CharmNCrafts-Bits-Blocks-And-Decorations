@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/eye_of_cthulhu_plushie",
-  "textures": {
-    "all": "a_man_with_plushies:block/true_eye_of_cthulhu_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "1": "a_man_with_plushies:block/true_eye_of_cthulhu_texture"
-  },
-  "render_type": "solid"
-}

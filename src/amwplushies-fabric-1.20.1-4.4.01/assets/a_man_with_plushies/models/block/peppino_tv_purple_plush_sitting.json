@@ -1,9 +1,0 @@
-{
-  "parent": "a_man_with_plushies:custom/peppino_plushie_sitting",
-  "textures": {
-    "all": "a_man_with_plushies:block/peppino_tv_purple_texture",
-    "particle": "a_man_with_plushies:block/rainbow_wool",
-    "0": "a_man_with_plushies:block/peppino_tv_purple_texture"
-  },
-  "render_type": "solid"
-}
