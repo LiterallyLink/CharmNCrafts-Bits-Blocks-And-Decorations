@@ -190,24 +190,9 @@ public class ModBlocks {
         }
     }
 
-    // ====== MAGNUM TORCHS ======
-    private static void registerMagnumTorches() {
-        String[] torchNames = {
-                "magnum_torch_oak", "magnum_torch_birch", "magnum_torch_spruce"
-        };
-
-        for (String torch : torchNames) {
-            Block torchBlock = new Block(FabricBlockSettings.create()
-                    .luminance(15)
-                    .strength(1.0f)
-                    .sounds(BlockSoundGroup.WOOD)
-                    .nonOpaque());
-            Identifier id = Identifier.of(MOD_ID, torch);
-            Registry.register(Registries.BLOCK, id, torchBlock);
-            Registry.register(Registries.ITEM, id, new BlockItem(torchBlock, new Item.Settings()));
-            MAGNUM_TORCH_BLOCKS.add(torchBlock);
-        }
-    }
+    // ====== MAGNUM TORCHES ======
+    // Magnum torches are powerful decorative light sources
+    // Only three variants: Amethyst, Diamond, and Emerald
 
     // ====== COLORED BLOCK VARIANTS ======
     private static void registerColoredVariants() {
@@ -289,11 +274,10 @@ public class ModBlocks {
         registerConsoleBlocks();
         registerDeltaruneBlocks();
         registerSpecialDeltaruneBlocks();
-        registerMagnumTorches();
         registerColoredVariants();
         registerExtendedConsoles();
         registerAzaleaDecor();
-        registerExtraMagnumTorches();
+        registerMagnumTorches();
         registerBagBlocks();
 
         System.out.println("[Charm n Craft Bits] All custom blocks registered successfully.");
@@ -485,8 +469,9 @@ public class ModBlocks {
         TWIGS_BLOCKS.add(pottedAzalea);
     }
 
-    // ====== MAGNUM TORCH VARIANTS ======
-    private static void registerExtraMagnumTorches() {
+    // ====== MAGNUM TORCH REGISTRATION ======
+    private static void registerMagnumTorches() {
+        registerMagnumTorchBlock("amethyst_magnum_torch", 13);
         registerMagnumTorchBlock("diamond_magnum_torch", 14);
         registerMagnumTorchBlock("emerald_magnum_torch", 15);
     }
