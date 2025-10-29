@@ -173,23 +173,9 @@ public class ModBlocks {
     }
 
     // ====== DELTARUNE BLOCKS ======
-    private static void registerDeltaruneBlocks() {
-        String[] deltaruneProps = {
-                "dark_fountain_crystal", "save_point", "card_castle_banner"
-        };
-
-        for (String name : deltaruneProps) {
-            Block block = new Block(FabricBlockSettings.create()
-                    .luminance(8)
-                    .strength(1.5f)
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque());
-            Identifier id = Identifier.of(MOD_ID, name);
-            Registry.register(Registries.BLOCK, id, block);
-            Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-            DELTARUNE_BLOCKS.add(block);
-        }
-    }
+    // Removed incorrect items: dark_fountain_crystal, save_point, card_castle_banner
+    // Only tenna_statue, tenna_pole, and nubert should be in the Deltarune category
+    // These are registered in registerSpecialDeltaruneBlocks()
 
     // ====== MAGNUM TORCHES ======
     // Magnum torches are powerful decorative light sources
@@ -273,7 +259,6 @@ public class ModBlocks {
         registerNightLights();
         registerTwigsBlocks();
         registerConsoleBlocks();
-        registerDeltaruneBlocks();
         registerSpecialDeltaruneBlocks();
         registerColoredVariants();
         registerExtendedConsoles();
