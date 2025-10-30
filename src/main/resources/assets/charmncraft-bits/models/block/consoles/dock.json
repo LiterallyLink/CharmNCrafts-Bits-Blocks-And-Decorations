@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/dock",
     "particle": "charmncraft-bits:block/consoles/dock",
-    "2": "charmncraft-bits:block/consoles/dock"
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
   "render_type": "cutout"
 }

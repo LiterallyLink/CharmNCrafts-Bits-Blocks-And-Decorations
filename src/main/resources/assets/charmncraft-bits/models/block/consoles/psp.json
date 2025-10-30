@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/psp",
     "particle": "charmncraft-bits:block/consoles/psp",
-    "2": "charmncraft-bits:block/consoles/psp"
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
   "render_type": "cutout"
 }

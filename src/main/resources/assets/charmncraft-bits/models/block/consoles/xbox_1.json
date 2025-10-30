@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/xbox_1",
     "particle": "charmncraft-bits:block/consoles/xbox_1",
-    "2": "charmncraft-bits:block/consoles/xbox_1"
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
   "render_type": "cutout"
 }
