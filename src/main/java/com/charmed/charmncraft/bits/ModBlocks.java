@@ -307,8 +307,8 @@ public class ModBlocks {
     );
 
     private static final VoxelShape N64_SHAPE = VoxelShapes.cuboid(
-        -0.01f/16f, -0.01f/16f, 1.49f/16f,
-        16.01f/16f, 6f/16f, 14f/16f
+        0f/16f, 0f/16f, 1.49f/16f,
+        16f/16f, 6f/16f, 14f/16f
     );
 
     private static final VoxelShape NES_SHAPE = VoxelShapes.cuboid(
@@ -332,13 +332,13 @@ public class ModBlocks {
     );
 
     private static final VoxelShape OG_XBOX_SHAPE = VoxelShapes.cuboid(
-        -1.5f/16f, 0f/16f, 0.5f/16f,
-        17.5f/16f, 6f/16f, 15.5f/16f
+        0f/16f, 0f/16f, 0.5f/16f,
+        16f/16f, 6f/16f, 15.5f/16f
     );
 
     private static final VoxelShape XBOX_1_SHAPE = VoxelShapes.cuboid(
         0f/16f, 0f/16f, 2f/16f,
-        17f/16f, 4f/16f, 15f/16f
+        16f/16f, 4f/16f, 15f/16f
     );
 
     private static final VoxelShape XBOX_SERIES_S_SHAPE = VoxelShapes.cuboid(
@@ -362,7 +362,7 @@ public class ModBlocks {
     );
 
     private static final VoxelShape DS_SHAPE = VoxelShapes.cuboid(
-        4.99f/16f, -0.51f/16f, 2.8f/16f,
+        4.99f/16f, 0f/16f, 2.8f/16f,
         14.01f/16f, 5.51f/16f, 9.51f/16f
     );
 
@@ -377,8 +377,8 @@ public class ModBlocks {
     );
 
     private static final VoxelShape SWITCH_IN_DOCK_SHAPE = VoxelShapes.cuboid(
-        -2f/16f, 0f/16f, 6f/16f,
-        17f/16f, 10f/16f, 10f/16f
+        0f/16f, 0f/16f, 6f/16f,
+        16f/16f, 10f/16f, 10f/16f
     );
 
     private static final VoxelShape TV_SHAPE = VoxelShapes.cuboid(
@@ -386,62 +386,63 @@ public class ModBlocks {
         15.5f/16f, 11f/16f, 12f/16f
     );
 
+    // ====== CONSOLE REGISTRATION DATA ======
+    // Static final maps to avoid recreating them on every registration call
+    private static final Map<String, Float> CONSOLE_STRENGTH = Map.ofEntries(
+            Map.entry("dreamcast", 2.0f),
+            Map.entry("ds", 1.5f),
+            Map.entry("gameboys", 1.5f),
+            Map.entry("gamecube", 2.0f),
+            Map.entry("dock", 1.5f),
+            Map.entry("n_64", 1.8f),
+            Map.entry("nes", 1.7f),
+            Map.entry("ps_1", 1.5f),
+            Map.entry("ps_2", 1.7f),
+            Map.entry("ps_4", 2.0f),
+            Map.entry("ps_5", 2.2f),
+            Map.entry("psp", 1.3f),
+            Map.entry("sega_genesis", 1.5f),
+            Map.entry("snes", 1.8f),
+            Map.entry("switch_in_dock", 1.8f),
+            Map.entry("tv", 1.8f),
+            Map.entry("wii", 1.8f),
+            Map.entry("xbox", 1.8f),
+            Map.entry("xbox_1", 2.0f),
+            Map.entry("xbox_series_s", 2.0f),
+            Map.entry("xbox_series_x", 2.2f)
+    );
+
+    private static final Map<String, VoxelShape> CONSOLE_SHAPES = Map.ofEntries(
+            Map.entry("dreamcast", DREAMCAST_SHAPE),
+            Map.entry("ds", DS_SHAPE),
+            Map.entry("gameboys", GAMEBOYS_SHAPE),
+            Map.entry("gamecube", GAMECUBE_SHAPE),
+            Map.entry("dock", SWITCH_DOCK_SHAPE),
+            Map.entry("n_64", N64_SHAPE),
+            Map.entry("nes", NES_SHAPE),
+            Map.entry("ps_1", PS1_SHAPE),
+            Map.entry("ps_2", PS2_SHAPE),
+            Map.entry("ps_4", PS4_SHAPE),
+            Map.entry("ps_5", PS5_SHAPE),
+            Map.entry("psp", PSP_SHAPE),
+            Map.entry("sega_genesis", SEGA_GEN_SHAPE),
+            Map.entry("snes", SNES_SHAPE),
+            Map.entry("switch_in_dock", SWITCH_IN_DOCK_SHAPE),
+            Map.entry("tv", TV_SHAPE),
+            Map.entry("wii", WII_SHAPE),
+            Map.entry("xbox", OG_XBOX_SHAPE),
+            Map.entry("xbox_1", XBOX_1_SHAPE),
+            Map.entry("xbox_series_s", XBOX_SERIES_S_SHAPE),
+            Map.entry("xbox_series_x", XBOX_SERIES_X_SHAPE)
+    );
+
     // ====== EXTENDED CONSOLE SHAPES ======
     private static void registerExtendedConsoles() {
-        // Define console strength and shape values
-        Map<String, Float> extendedConsoleStrength = Map.ofEntries(
-                Map.entry("dreamcast", 2.0f),
-                Map.entry("ds", 1.5f),
-                Map.entry("gameboys", 1.5f),
-                Map.entry("gamecube", 2.0f),
-                Map.entry("dock", 1.5f),
-                Map.entry("n_64", 1.8f),
-                Map.entry("nes", 1.7f),
-                Map.entry("ps_1", 1.5f),
-                Map.entry("ps_2", 1.7f),
-                Map.entry("ps_4", 2.0f),
-                Map.entry("ps_5", 2.2f),
-                Map.entry("psp", 1.3f),
-                Map.entry("sega_genesis", 1.5f),
-                Map.entry("snes", 1.8f),
-                Map.entry("switch_in_dock", 1.8f),
-                Map.entry("tv", 1.8f),
-                Map.entry("wii", 1.8f),
-                Map.entry("xbox", 1.8f),
-                Map.entry("xbox_1", 2.0f),
-                Map.entry("xbox_series_s", 2.0f),
-                Map.entry("xbox_series_x", 2.2f)
-        );
-
-        Map<String, VoxelShape> consoleShapes = Map.ofEntries(
-                Map.entry("dreamcast", DREAMCAST_SHAPE),
-                Map.entry("ds", DS_SHAPE),
-                Map.entry("gameboys", GAMEBOYS_SHAPE),
-                Map.entry("gamecube", GAMECUBE_SHAPE),
-                Map.entry("dock", SWITCH_DOCK_SHAPE),
-                Map.entry("n_64", N64_SHAPE),
-                Map.entry("nes", NES_SHAPE),
-                Map.entry("ps_1", PS1_SHAPE),
-                Map.entry("ps_2", PS2_SHAPE),
-                Map.entry("ps_4", PS4_SHAPE),
-                Map.entry("ps_5", PS5_SHAPE),
-                Map.entry("psp", PSP_SHAPE),
-                Map.entry("sega_genesis", SEGA_GEN_SHAPE),
-                Map.entry("snes", SNES_SHAPE),
-                Map.entry("switch_in_dock", SWITCH_IN_DOCK_SHAPE),
-                Map.entry("tv", TV_SHAPE),
-                Map.entry("wii", WII_SHAPE),
-                Map.entry("xbox", OG_XBOX_SHAPE),
-                Map.entry("xbox_1", XBOX_1_SHAPE),
-                Map.entry("xbox_series_s", XBOX_SERIES_S_SHAPE),
-                Map.entry("xbox_series_x", XBOX_SERIES_X_SHAPE)
-        );
-
-        // Register all extended consoles with their respective strength and shape values
-        for (Map.Entry<String, Float> entry : extendedConsoleStrength.entrySet()) {
+        // Register all consoles with their respective strength and shape values
+        for (Map.Entry<String, Float> entry : CONSOLE_STRENGTH.entrySet()) {
             String name = entry.getKey();
             float strength = entry.getValue();
-            VoxelShape shape = consoleShapes.get(name);
+            VoxelShape shape = CONSOLE_SHAPES.get(name);
 
             Block consoleBlock = new ConsoleBlock(
                     FabricBlockSettings.create()
