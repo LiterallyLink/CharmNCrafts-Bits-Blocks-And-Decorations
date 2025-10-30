@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "side": "charmncraft-bits:block/cod_crate_side",
-    "bottom": "charmncraft-bits:block/crate_bottom",
-    "top": "charmncraft-bits:block/cod_crate_top"
-  }
-}

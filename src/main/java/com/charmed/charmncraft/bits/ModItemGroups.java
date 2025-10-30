@@ -12,6 +12,20 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+/**
+ * ModItemGroups - Creative tab organization for Charm n Craft Bits
+ *
+ * This class defines and populates all custom creative tabs:
+ * - Stacked Blocks: Decorative material blocks and colored bricks
+ * - Crates: Wood crates and ingredient/powder bags
+ * - Twigs: Nature decorations
+ * - Consoles: Gaming console decorations
+ * - Deltarune Doodads: Deltarune-themed blocks
+ * - Magnum Torches: Anti-spawn torches
+ * - Plushies: Character plushies
+ * - AMW Plushies: Special AMW character plushies
+ * - Night Lights: Interactive decorative lights
+ */
 public class ModItemGroups {
     // Registry keys for item groups
     public static final RegistryKey<ItemGroup> DELTARUNE_DOODADS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"));
@@ -70,7 +84,7 @@ public class ModItemGroups {
             Identifier.of(Charmncraftbits.MOD_ID, "crates"),
             FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.charmncraft-bits.crates"))
-                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "apple_crate"))))
+                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "oak_crate"))))
                     .build());
 
     public static final ItemGroup MAGNUM_TORCHES_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -163,8 +177,8 @@ public class ModItemGroups {
             }
         });
 
-        // Add bag blocks to TWIGS_GROUP (or appropriate group)
-        ItemGroupEvents.modifyEntriesEvent(TWIGS_KEY).register(entries -> {
+        // Add bag blocks to CRATES_GROUP
+        ItemGroupEvents.modifyEntriesEvent(CRATES_KEY).register(entries -> {
             for (Block block : ModBlocks.BAG_BLOCKS) {
                 entries.add(block);
             }

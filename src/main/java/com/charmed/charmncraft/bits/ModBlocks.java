@@ -31,21 +31,37 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * ModBlocks - Central registration hub for all custom blocks in Charm n Craft Bits
+ *
+ * This class organizes and registers blocks into the following categories:
+ * - Stacked Blocks: Decorative material blocks
+ * - Crates: Wood crates for storage
+ * - Bags: Ingredient and powder bags
+ * - Twigs: Nature decorations (azalea flowers)
+ * - Consoles: Gaming console decorations
+ * - Deltarune: Deltarune-themed blocks
+ * - Magnum Torches: Anti-spawn torches with special abilities
+ * - Plushies: Character plushies
+ * - Night Lights: Interactive decorative lights
+ * - Colored Variants: Colored brick blocks
+ */
 public class ModBlocks {
     // Use the correct MOD_ID from main class
     private static final String MOD_ID = Charmncraftbits.MOD_ID;
 
     // ====== MASTER BLOCK LISTS ======
-    public static final List<Block> STACKED_BLOCKS = new ArrayList<>();
-    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();
-    public static final List<Block> COLORED_BLOCKS = new ArrayList<>();
-    public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>();
-    public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
-    public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
-    public static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
-    public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
-    public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();
-    public static final List<Block> BAG_BLOCKS = new ArrayList<>();
+    // These lists organize blocks by category for creative tabs and easier management
+    public static final List<Block> STACKED_BLOCKS = new ArrayList<>();      // Decorative stacked material blocks
+    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();        // Wood crates and storage blocks
+    public static final List<Block> BAG_BLOCKS = new ArrayList<>();          // Ingredient and powder bags
+    public static final List<Block> COLORED_BLOCKS = new ArrayList<>();      // Colored brick variants
+    public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>(); // Anti-spawn torches
+    public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();      // Gaming console decorations
+    public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();        // Nature decorations (azalea)
+    public static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();    // Deltarune-themed blocks
+    public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();      // Character plushies
+    public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();  // Decorative lights
 
     // ====== BLOCK TYPE REGISTRIES ======
     private static final String[] STACKED_BLOCK_TYPES = {
@@ -146,8 +162,24 @@ public class ModBlocks {
     );
 
     // ====== CONSOLE BLOCKS ======
-    // Removed registerConsoleBlocks() - nintendo_console, playstation_console, xbox_console had no textures
-    // All console blocks are now registered in registerExtendedConsoles()
+    private static void registerConsoleBlocks() {
+        Map<String, Float> consoleHardness = Map.of(
+                "nintendo_console", 1.5f,
+                "playstation_console", 2.0f,
+                "xbox_console", 2.5f
+        );
+
+        for (Map.Entry<String, Float> entry : consoleHardness.entrySet()) {
+            String name = entry.getKey();
+            float hardness = entry.getValue();
+
+            Block consoleBlock = new Block(FabricBlockSettings.create()
+                    .strength(hardness, hardness * 2)
+                    .sounds(BlockSoundGroup.METAL));
+
+            registerConsoleBlock(name, consoleBlock);
+        }
+    }
 
     private static void registerConsoleBlock(String name, Block block) {
         Identifier id = Identifier.of(MOD_ID, name);
@@ -212,21 +244,8 @@ public class ModBlocks {
     }
 
     // ====== TWIGS DECOR BLOCKS ======
-    private static void registerTwigsBlocks() {
-        String[] twigBlockNames = {
-                "twig_table", "twig_chair", "twig_stool"
-        };
-
-        for (String twig : twigBlockNames) {
-            Block block = new Block(FabricBlockSettings.create()
-                    .strength(1.0f, 2.0f)
-                    .sounds(BlockSoundGroup.WOOD));
-            Identifier id = Identifier.of(MOD_ID, twig);
-            Registry.register(Registries.BLOCK, id, block);
-            Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-            TWIGS_BLOCKS.add(block);
-        }
-    }
+    // Note: Twig furniture items (twig_table, twig_chair, twig_stool) have been removed
+    // Only azalea decor items remain in the twigs category
 
     // ====== MASTER INITIALIZER ======
     public static void initialize() {
@@ -236,7 +255,7 @@ public class ModBlocks {
         registerAMWPlushies();
         registerAllPlushies();
         registerNightLights();
-        registerTwigsBlocks();
+        registerConsoleBlocks();
         registerDeltaruneBlocks();
         registerColoredVariants();
         registerExtendedConsoles();
@@ -251,14 +270,20 @@ public class ModBlocks {
 
     public static void printRegisteredBlockCounts() {
         System.out.println("==== CharmnCraftBits Block Summary ====");
-        System.out.println("Stacked: " + STACKED_BLOCKS.size());
+        System.out.println("Stacked Blocks: " + STACKED_BLOCKS.size());
         System.out.println("Crates: " + CRATE_BLOCKS.size());
-        System.out.println("Plushies: " + AMW_PLUSHIE_NAMES.size());
+        System.out.println("Bags: " + BAG_BLOCKS.size());
+        System.out.println("Plushies: " + PLUSHIE_BLOCKS.size());
         System.out.println("Twigs: " + TWIGS_BLOCKS.size());
-        System.out.println("Console: " + CONSOLE_BLOCKS.size());
+        System.out.println("Consoles: " + CONSOLE_BLOCKS.size());
         System.out.println("Deltarune: " + DELTARUNE_BLOCKS.size());
         System.out.println("Magnum Torches: " + MAGNUM_TORCH_BLOCKS.size());
+        System.out.println("Night Lights: " + NIGHT_LIGHT_BLOCKS.size());
         System.out.println("Colored Variants: " + COLORED_BLOCKS.size());
+        System.out.println("Total: " + (STACKED_BLOCKS.size() + CRATE_BLOCKS.size() + BAG_BLOCKS.size() +
+                                       PLUSHIE_BLOCKS.size() + TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
+                                       DELTARUNE_BLOCKS.size() + MAGNUM_TORCH_BLOCKS.size() +
+                                       NIGHT_LIGHT_BLOCKS.size() + COLORED_BLOCKS.size()));
         System.out.println("=======================================");
     }
 
@@ -278,18 +303,21 @@ public class ModBlocks {
         List<Block> all = new ArrayList<>();
         all.addAll(STACKED_BLOCKS);
         all.addAll(CRATE_BLOCKS);
+        all.addAll(BAG_BLOCKS);
         all.addAll(TWIGS_BLOCKS);
         all.addAll(CONSOLE_BLOCKS);
         all.addAll(DELTARUNE_BLOCKS);
         all.addAll(MAGNUM_TORCH_BLOCKS);
+        all.addAll(PLUSHIE_BLOCKS);
+        all.addAll(NIGHT_LIGHT_BLOCKS);
         all.addAll(COLORED_BLOCKS);
         return all;
     }
 
-    // ====== CONSOLE BLOCKS REGISTRATION ======
+    // ====== EXTENDED CONSOLE SHAPES ======
     private static void registerExtendedConsoles() {
-        // Map of console names to their hardness values
-        Map<String, Float> consoleHardness = Map.ofEntries(
+        // Define console strength values in a map for cleaner code
+        Map<String, Float> extendedConsoleStrength = Map.ofEntries(
                 Map.entry("dreamcast", 2.0f),
                 Map.entry("ds", 1.5f),
                 Map.entry("gameboys", 1.5f),
@@ -313,37 +341,41 @@ public class ModBlocks {
                 Map.entry("xbox_series_x", 2.2f)
         );
 
-        // Register all console blocks with their respective hardness
-        for (Map.Entry<String, Float> entry : consoleHardness.entrySet()) {
+        // Register all extended consoles with their respective strength values
+        for (Map.Entry<String, Float> entry : extendedConsoleStrength.entrySet()) {
             String name = entry.getKey();
-            float hardness = entry.getValue();
+            float strength = entry.getValue();
 
-            registerConsoleBlock(name, new ConsoleBlock(FabricBlockSettings.create()
+            Block consoleBlock = new ConsoleBlock(FabricBlockSettings.create()
                     .nonOpaque()
-                    .strength(hardness)
-                    .sounds(BlockSoundGroup.METAL)));
+                    .strength(strength)
+                    .sounds(BlockSoundGroup.METAL));
+
+            registerConsoleBlock(name, consoleBlock);
         }
     }
 
     // ====== AZALEA DECOR ======
     private static void registerAzaleaDecor() {
-        Block azaleaFlowers = new Block(FabricBlockSettings.create()
+        // Azalea flowers
+        registerTwigsBlock("azalea_flowers", new Block(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.5f)
-                .sounds(BlockSoundGroup.GRASS));
-        Identifier azaleaId = Identifier.of(MOD_ID, "azalea_flowers");
-        Registry.register(Registries.BLOCK, azaleaId, azaleaFlowers);
-        Registry.register(Registries.ITEM, azaleaId, new BlockItem(azaleaFlowers, new Item.Settings()));
-        TWIGS_BLOCKS.add(azaleaFlowers);
+                .sounds(BlockSoundGroup.GRASS)));
 
-        Block pottedAzalea = new Block(FabricBlockSettings.create()
+        // Potted azalea flowers
+        registerTwigsBlock("potted_azalea_flowers", new Block(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.3f)
-                .sounds(BlockSoundGroup.GRASS));
-        Identifier pottedId = Identifier.of(MOD_ID, "potted_azalea_flowers");
-        Registry.register(Registries.BLOCK, pottedId, pottedAzalea);
-        Registry.register(Registries.ITEM, pottedId, new BlockItem(pottedAzalea, new Item.Settings()));
-        TWIGS_BLOCKS.add(pottedAzalea);
+                .sounds(BlockSoundGroup.GRASS)));
+    }
+
+    // Helper method for registering twigs blocks
+    private static void registerTwigsBlock(String name, Block block) {
+        Identifier id = Identifier.of(MOD_ID, name);
+        Registry.register(Registries.BLOCK, id, block);
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+        TWIGS_BLOCKS.add(block);
     }
 
     // ====== MAGNUM TORCH REGISTRATION ======
