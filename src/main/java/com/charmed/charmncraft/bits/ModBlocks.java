@@ -130,17 +130,17 @@ public class ModBlocks {
             "piglin_brute_plushie", "pillager_plushie", "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie",
             "salmon_plushie", "sheep_plushie", "shulker_plushie", "silverfish_plushie", "skeleton_plushie",
             "skeleton_horse_plushie", "slime_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
-            "stray_plushie", "strider_plushie", "tadpole_plushie", "trader_llama_plushie", "turtle_plushie",
+            "stray_plushie", "strider_plushie", "tadpole_plushie", "turtle_plushie",
             "vex_plushie", "villager_plushie", "vindicator_plushie", "wandering_trader_plushie", "warden_plushie",
             "witch_plushie", "wither_plushie", "wither_skeleton_plushie", "wolf_plushie", "zombie_plushie",
             "zombie_villager_plushie", "zoglin_plushie", "crabster_plushie", "copper_golem_plushie", "glare_plushie",
-            "tuff_golem_plushie", "wooly_cow_plushie", "cluckshroom_plushie", "panda_plushie", "parrot_plushie",
+            "cluckshroom_plushie", "panda_plushie", "parrot_plushie",
             "mushroom_cow_plushie",
-            // Slime Color Variants (16)
+            // Slime Color Variants (14)
             "black_slime_plushie", "blue_slime_plushie", "brown_slime_plushie", "cyan_slime_plushie",
             "green_slime_plushie", "gray_slime_plushie", "light_blue_slime_plushie", "light_gray_slime_plushie",
             "lime_slime_plushie", "magenta_slime_plushie", "orange_slime_plushie", "pink_slime_plushie",
-            "purple_slime_plushie", "red_slime_plushie", "white_slime_plushie", "yellow_slime_plushie",
+            "purple_slime_plushie", "red_slime_plushie",
             // Frog Variants (2)
             "cold_frog_plushie", "warm_frog_plushie",
             // Pufferfish Variants (3)
@@ -620,10 +620,10 @@ public class ModBlocks {
             "sprig_plushie", "steve_plushie", "stray_plushie", "sunflower_plushie",
             "sus_jerma_plushie", "susie_plushie", "tadpole_plushie", "tarnished_plushie",
             "terrarian_plushie", "tinted_plushie", "toad_plushie", "tom_nook_plushie",
-            "toriel_plushie", "towelie_plushie", "trader_llama_plushie", "tuff_golem_plushie",
+            "toriel_plushie", "towelie_plushie",
             "undyne_plushie", "warden_plushie", "white_crewmate_plushie", "white_junimo_plushie",
-            "white_slime_plushie", "wooly_cow_plushie", "wumpus_plushie",
-            "yellow_crewmate_plushie", "yellow_junimo_plushie", "yellow_slime_plushie",
+            "wumpus_plushie",
+            "yellow_crewmate_plushie", "yellow_junimo_plushie",
             "zombie_plushie"
         };
 
