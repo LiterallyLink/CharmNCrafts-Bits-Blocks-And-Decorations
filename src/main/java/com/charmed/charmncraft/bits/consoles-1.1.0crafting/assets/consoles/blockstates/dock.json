@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/dock"
+    },
+    "facing=east": {
+      "model": "consoles:block/dock",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/dock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/dock",
+      "y": 270
+    }
+  }
+}

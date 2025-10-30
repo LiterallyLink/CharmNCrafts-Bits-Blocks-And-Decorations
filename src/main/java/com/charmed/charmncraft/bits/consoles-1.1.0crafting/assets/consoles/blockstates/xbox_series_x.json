@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/xbox_series_x"
+    },
+    "facing=east": {
+      "model": "consoles:block/xbox_series_x",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/xbox_series_x",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/xbox_series_x",
+      "y": 270
+    }
+  }
+}

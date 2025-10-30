@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/gamecube"
+    },
+    "facing=east": {
+      "model": "consoles:block/gamecube",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/gamecube",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/gamecube",
+      "y": 270
+    }
+  }
+}

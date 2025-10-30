@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "consoles:item/xbox_seres_x"
+  },
+  "render_type": "translucent"
+}

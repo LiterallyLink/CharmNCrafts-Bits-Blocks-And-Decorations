@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ab"
+  ],
+  "key": {
+    "a": {
+      "item": "consoles:switcsh"
+    },
+    "b": {
+      "item": "consoles:dock"
+    }
+  },
+  "result": {
+    "item": "consoles:switch_in_dock",
+    "count": 1
+  }
+}

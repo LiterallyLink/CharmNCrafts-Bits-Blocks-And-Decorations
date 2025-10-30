@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/tv",
+  "textures": {
+    "all": "consoles:block/tv",
+    "particle": "consoles:block/tv",
+    "0": "consoles:block/tv"
+  },
+  "render_type": "solid"
+}

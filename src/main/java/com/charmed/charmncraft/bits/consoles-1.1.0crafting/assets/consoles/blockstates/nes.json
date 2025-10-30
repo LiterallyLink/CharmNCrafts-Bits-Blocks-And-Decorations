@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/nes"
+    },
+    "facing=east": {
+      "model": "consoles:block/nes",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/nes",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/nes",
+      "y": 270
+    }
+  }
+}

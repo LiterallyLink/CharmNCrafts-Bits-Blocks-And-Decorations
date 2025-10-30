@@ -1,0 +1,9 @@
+{
+  "parent": "consoles:custom/n64",
+  "textures": {
+    "all": "consoles:block/n64",
+    "particle": "consoles:block/n64",
+    "2": "consoles:block/pasted"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "consoles:ps_5",
+    "consoles:nes",
+    "consoles:snes",
+    "consoles:n_64",
+    "consoles:gamecube",
+    "consoles:wii",
+    "consoles:switcsh",
+    "consoles:dock",
+    "consoles:switch_in_dock",
+    "consoles:ps_1",
+    "consoles:ps_2",
+    "consoles:ps_4",
+    "consoles:psp",
+    "consoles:xbox",
+    "consoles:xbox_1",
+    "consoles:xbox_series_x",
+    "consoles:gameboys",
+    "consoles:ds",
+    "consoles:dreamcast",
+    "consoles:sega_genesis",
+    "consoles:tv"
+  ]
+}

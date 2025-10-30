@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/psp"
+    },
+    "facing=east": {
+      "model": "consoles:block/psp",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/psp",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/psp",
+      "y": 270
+    }
+  }
+}

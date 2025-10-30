@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "consoles:block/sega_genesis"
+    },
+    "facing=east": {
+      "model": "consoles:block/sega_genesis",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "consoles:block/sega_genesis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "consoles:block/sega_genesis",
+      "y": 270
+    }
+  }
+}

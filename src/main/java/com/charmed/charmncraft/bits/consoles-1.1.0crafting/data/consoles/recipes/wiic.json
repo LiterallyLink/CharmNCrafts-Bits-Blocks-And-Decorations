@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "bca",
+    "ddd"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:white_concrete"
+    },
+    "b": {
+      "item": "minecraft:light_blue_stained_glass_pane"
+    },
+    "c": {
+      "item": "minecraft:comparator"
+    },
+    "d": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  },
+  "result": {
+    "item": "consoles:wii",
+    "count": 1
+  }
+}
