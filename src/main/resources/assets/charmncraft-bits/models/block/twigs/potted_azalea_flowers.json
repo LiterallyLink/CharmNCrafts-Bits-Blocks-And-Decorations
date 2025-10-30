@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/flower_pot_cross",
   "textures": {
-    "plant": "charmncraft-bits:block/twigs/azalea_flowers"
+    "plant": "charmncraft-bits:block/twigs/potted_azalea_flowers"
   }
 }
