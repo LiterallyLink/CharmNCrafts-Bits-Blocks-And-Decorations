@@ -383,7 +383,7 @@ public class ModBlocks {
 
     private static final VoxelShape TV_SHAPE = VoxelShapes.cuboid(
         0.5f/16f, 0f/16f, 4f/16f,
-        15.5f/16f, 25f/16f, 13f/16f
+        15.5f/16f, 11f/16f, 12f/16f
     );
 
     // ====== EXTENDED CONSOLE SHAPES ======
