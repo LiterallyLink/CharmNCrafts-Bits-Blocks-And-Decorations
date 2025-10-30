@@ -15,9 +15,13 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
+import java.util.EnumMap;
+import java.util.Map;
+
 /**
- * Azalea Flowers block that can be placed on multiple surfaces like carpet.
- * Can be placed on ground, walls, and ceiling.
+ * Azalea Flowers block that can be placed on multiple surfaces (ground, walls, ceiling).
+ * Similar to carpet or glow lichen, allowing decorative placement on any solid surface.
+ * Supports waterlogging and multi-face placement on a single block.
  */
 public class AzaleaFlowersBlock extends Block implements Waterloggable {
     public static final BooleanProperty NORTH = Properties.NORTH;
@@ -27,6 +31,18 @@ public class AzaleaFlowersBlock extends Block implements Waterloggable {
     public static final BooleanProperty UP = Properties.UP;
     public static final BooleanProperty DOWN = Properties.DOWN;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
+    // Direction to property mapping for efficient lookups
+    private static final Map<Direction, BooleanProperty> DIRECTION_TO_PROPERTY = new EnumMap<>(Direction.class);
+
+    static {
+        DIRECTION_TO_PROPERTY.put(Direction.NORTH, NORTH);
+        DIRECTION_TO_PROPERTY.put(Direction.SOUTH, SOUTH);
+        DIRECTION_TO_PROPERTY.put(Direction.EAST, EAST);
+        DIRECTION_TO_PROPERTY.put(Direction.WEST, WEST);
+        DIRECTION_TO_PROPERTY.put(Direction.UP, UP);
+        DIRECTION_TO_PROPERTY.put(Direction.DOWN, DOWN);
+    }
 
     // Thin carpet-like shapes for each direction
     private static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
@@ -152,24 +168,21 @@ public class AzaleaFlowersBlock extends Block implements Waterloggable {
     }
 
     /**
-     * Check if the state has any face with flowers
+     * Check if the state has any face with flowers.
      */
     private boolean hasAnyFace(BlockState state) {
-        return state.get(NORTH) || state.get(SOUTH) || state.get(EAST) ||
-               state.get(WEST) || state.get(UP) || state.get(DOWN);
+        for (BooleanProperty property : DIRECTION_TO_PROPERTY.values()) {
+            if (state.get(property)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
-     * Get the property for a given direction
+     * Get the property for a given direction using cached mapping.
      */
     private static BooleanProperty getProperty(Direction direction) {
-        return switch (direction) {
-            case NORTH -> NORTH;
-            case SOUTH -> SOUTH;
-            case EAST -> EAST;
-            case WEST -> WEST;
-            case UP -> UP;
-            case DOWN -> DOWN;
-        };
+        return DIRECTION_TO_PROPERTY.get(direction);
     }
 }

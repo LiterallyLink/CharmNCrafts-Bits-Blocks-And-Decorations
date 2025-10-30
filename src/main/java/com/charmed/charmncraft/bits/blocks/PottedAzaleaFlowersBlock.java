@@ -9,12 +9,24 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 /**
- * Potted Azalea Flowers block - a decorative flower pot variant.
+ * Potted Azalea Flowers block - decorative flower pot variant of azalea flowers.
+ * Provides a contained, potted version suitable for indoor decoration.
+ *
+ * Uses standard Minecraft flower pot mechanics and rendering.
  */
 public class PottedAzaleaFlowersBlock extends FlowerPotBlock {
-    // Standard flower pot shape from Minecraft
+    /**
+     * Standard flower pot shape (6x6x6 pixels, centered at bottom).
+     * Matches vanilla Minecraft flower pot dimensions.
+     */
     private static final VoxelShape SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0);
 
+    /**
+     * Creates a new potted azalea flowers block.
+     *
+     * @param content The flower content (azalea flowers block)
+     * @param settings Block settings including material and sound
+     */
     public PottedAzaleaFlowersBlock(Block content, Settings settings) {
         super(content, settings);
     }
