@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/consoles/deamcast"
+    "layer0": "charmncraft-bits:item/consoles/dreamcast"
   },
   "render_type": "translucent"
 }

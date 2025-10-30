@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "charmncraft-bits:item/consoles/xbox_seres_x"
+    "layer0": "charmncraft-bits:item/consoles/xbox_series_x"
   },
   "render_type": "translucent"
 }
