@@ -1,6 +1,25 @@
 {
-  "parent": "minecraft:block/cross",
+  "ambientocclusion": false,
   "textures": {
-    "cross": "charmncraft-bits:block/twigs/azalea_flowers"
-  }
+    "texture": "charmncraft-bits:block/twigs/azalea_flowers",
+    "particle": "charmncraft-bits:block/twigs/azalea_flowers"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 0],
+      "faces": {
+        "north": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#texture",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#texture",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
 }
