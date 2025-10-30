@@ -165,9 +165,20 @@ public class ModItemGroups {
             entries.add(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "willow_plushie")));
         });
 
-        // Add all plushies to PLUSHIES_GROUP
+        // Add all plushies to PLUSHIES_GROUP (excluding AMW plushies which have their own tab)
         ItemGroupEvents.modifyEntriesEvent(PLUSHIES_KEY).register(entries -> {
             for (Block block : ModBlocks.PLUSHIE_BLOCKS) {
+                // Get the block's identifier
+                Identifier blockId = Registries.BLOCK.getId(block);
+                String blockName = blockId.getPath();
+
+                // Skip AMW plushies - they belong in the AMW Plushies tab
+                if (blockName.equals("abbie_plushie") ||
+                    blockName.equals("maddie_plushie") ||
+                    blockName.equals("willow_plushie")) {
+                    continue;
+                }
+
                 entries.add(block);
             }
         });
