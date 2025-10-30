@@ -107,7 +107,13 @@ public class ModBlocks {
     };
 
     private static final Set<String> AMW_PLUSHIE_NAMES = Set.of(
-            "abbie_plushie", "maddie_plushie", "willow_plushie", "magical_girl_abbie_plushie", "mind_abbie_plushie"
+            // A Man With Plans characters
+            "abbie_plushie", "maddie_plushie", "willow_plushie", "magical_girl_abbie_plushie", "mind_abbie_plushie",
+            // Baldi's Basics characters
+            "angry_baldi_plushie", "angry_camper_baldi_plushie", "angry_farmer_baldi_plushie",
+            "baldi_plushie", "camper_baldi_plushie", "farmer_baldi_plushie",
+            "happy_baldi_plushie", "happy_camper_baldi_plushie", "happy_farmer_baldi_plushie",
+            "principal_plushie"
     );
 
     // Minecraft mob plushies (107 total) - all official Minecraft creatures and variations
