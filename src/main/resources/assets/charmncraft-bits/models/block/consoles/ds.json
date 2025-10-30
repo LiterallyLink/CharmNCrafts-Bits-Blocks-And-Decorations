@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/ds",
     "2": "charmncraft-bits:block/consoles/ds"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

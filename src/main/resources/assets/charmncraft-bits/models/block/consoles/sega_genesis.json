@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/sega_gen",
     "2": "charmncraft-bits:block/consoles/sega_gen"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

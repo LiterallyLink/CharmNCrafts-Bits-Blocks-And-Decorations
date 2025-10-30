@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/dreamcast",
     "2": "charmncraft-bits:block/consoles/dreamcast"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

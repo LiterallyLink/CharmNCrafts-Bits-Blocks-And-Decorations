@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/snes",
     "2": "charmncraft-bits:block/consoles/snes"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/xbox_1",
     "2": "charmncraft-bits:block/consoles/xbox_1"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }
