@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/n64",
     "particle": "charmncraft-bits:block/consoles/n64",
-    "2": "charmncraft-bits:block/consoles/n64"
+    "2": "charmncraft-bits:block/consoles/pasted"
   },
-  "render_type": "cutout"
+  "render_type": "solid"
 }
