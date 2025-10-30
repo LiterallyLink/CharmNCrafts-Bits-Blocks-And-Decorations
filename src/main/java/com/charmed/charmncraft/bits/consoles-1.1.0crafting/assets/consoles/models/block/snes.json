@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/snes",
-  "textures": {
-    "all": "consoles:block/snes",
-    "particle": "consoles:block/snes",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

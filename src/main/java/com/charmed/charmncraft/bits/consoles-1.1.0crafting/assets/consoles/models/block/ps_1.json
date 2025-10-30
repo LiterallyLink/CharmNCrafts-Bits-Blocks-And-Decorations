@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/ps1",
-  "textures": {
-    "all": "consoles:block/ps1",
-    "particle": "consoles:block/ps1",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

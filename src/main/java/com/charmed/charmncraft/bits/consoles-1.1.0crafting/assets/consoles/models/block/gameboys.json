@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/gameboys",
-  "textures": {
-    "all": "consoles:block/gameboys",
-    "particle": "consoles:block/gameboys",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

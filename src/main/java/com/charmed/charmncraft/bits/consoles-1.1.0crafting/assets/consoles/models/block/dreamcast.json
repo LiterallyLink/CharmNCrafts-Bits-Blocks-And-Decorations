@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/dreamcast",
-  "textures": {
-    "all": "consoles:block/deamcast",
-    "particle": "consoles:block/deamcast",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

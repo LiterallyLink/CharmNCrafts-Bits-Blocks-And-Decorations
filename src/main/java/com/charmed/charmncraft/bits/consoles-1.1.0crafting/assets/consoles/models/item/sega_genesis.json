@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "consoles:item/sega_gen"
-  },
-  "render_type": "translucent"
-}

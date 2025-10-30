@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/wii",
-  "textures": {
-    "all": "consoles:block/wii",
-    "particle": "consoles:block/wii",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

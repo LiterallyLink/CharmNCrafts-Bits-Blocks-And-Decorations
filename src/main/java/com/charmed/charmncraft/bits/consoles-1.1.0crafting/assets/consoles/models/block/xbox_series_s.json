@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/xbox_seres_s",
-  "textures": {
-    "all": "consoles:block/xbox_seres_s",
-    "particle": "consoles:block/xbox_seres_s",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}

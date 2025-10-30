@@ -1,9 +1,0 @@
-{
-  "parent": "consoles:custom/gamecube",
-  "textures": {
-    "all": "consoles:block/gamecube",
-    "particle": "consoles:block/gamecube",
-    "2": "consoles:block/pasted"
-  },
-  "render_type": "solid"
-}
