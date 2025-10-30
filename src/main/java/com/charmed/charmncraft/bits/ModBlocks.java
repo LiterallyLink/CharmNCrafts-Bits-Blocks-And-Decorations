@@ -31,21 +31,37 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * ModBlocks - Central registration hub for all custom blocks in Charm n Craft Bits
+ *
+ * This class organizes and registers blocks into the following categories:
+ * - Stacked Blocks: Decorative material blocks
+ * - Crates: Wood crates for storage
+ * - Bags: Ingredient and powder bags
+ * - Twigs: Nature decorations (azalea flowers)
+ * - Consoles: Gaming console decorations
+ * - Deltarune: Deltarune-themed blocks
+ * - Magnum Torches: Anti-spawn torches with special abilities
+ * - Plushies: Character plushies
+ * - Night Lights: Interactive decorative lights
+ * - Colored Variants: Colored brick blocks
+ */
 public class ModBlocks {
     // Use the correct MOD_ID from main class
     private static final String MOD_ID = Charmncraftbits.MOD_ID;
 
     // ====== MASTER BLOCK LISTS ======
-    public static final List<Block> STACKED_BLOCKS = new ArrayList<>();
-    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();
-    public static final List<Block> COLORED_BLOCKS = new ArrayList<>();
-    public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>();
-    public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();
-    public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();
-    public static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();
-    public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();
-    public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();
-    public static final List<Block> BAG_BLOCKS = new ArrayList<>();
+    // These lists organize blocks by category for creative tabs and easier management
+    public static final List<Block> STACKED_BLOCKS = new ArrayList<>();      // Decorative stacked material blocks
+    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();        // Wood crates and storage blocks
+    public static final List<Block> BAG_BLOCKS = new ArrayList<>();          // Ingredient and powder bags
+    public static final List<Block> COLORED_BLOCKS = new ArrayList<>();      // Colored brick variants
+    public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>(); // Anti-spawn torches
+    public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();      // Gaming console decorations
+    public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();        // Nature decorations (azalea)
+    public static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();    // Deltarune-themed blocks
+    public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();      // Character plushies
+    public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();  // Decorative lights
 
     // ====== BLOCK TYPE REGISTRIES ======
     private static final String[] STACKED_BLOCK_TYPES = {
@@ -228,21 +244,8 @@ public class ModBlocks {
     }
 
     // ====== TWIGS DECOR BLOCKS ======
-    private static void registerTwigsBlocks() {
-        String[] twigBlockNames = {
-                "twig_table", "twig_chair", "twig_stool"
-        };
-
-        for (String twig : twigBlockNames) {
-            Block block = new Block(FabricBlockSettings.create()
-                    .strength(1.0f, 2.0f)
-                    .sounds(BlockSoundGroup.WOOD));
-            Identifier id = Identifier.of(MOD_ID, twig);
-            Registry.register(Registries.BLOCK, id, block);
-            Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-            TWIGS_BLOCKS.add(block);
-        }
-    }
+    // Note: Twig furniture items (twig_table, twig_chair, twig_stool) have been removed
+    // Only azalea decor items remain in the twigs category
 
     // ====== MASTER INITIALIZER ======
     public static void initialize() {
@@ -252,7 +255,6 @@ public class ModBlocks {
         registerAMWPlushies();
         registerAllPlushies();
         registerNightLights();
-        registerTwigsBlocks();
         registerConsoleBlocks();
         registerDeltaruneBlocks();
         registerColoredVariants();
@@ -268,14 +270,20 @@ public class ModBlocks {
 
     public static void printRegisteredBlockCounts() {
         System.out.println("==== CharmnCraftBits Block Summary ====");
-        System.out.println("Stacked: " + STACKED_BLOCKS.size());
+        System.out.println("Stacked Blocks: " + STACKED_BLOCKS.size());
         System.out.println("Crates: " + CRATE_BLOCKS.size());
-        System.out.println("Plushies: " + AMW_PLUSHIE_NAMES.size());
+        System.out.println("Bags: " + BAG_BLOCKS.size());
+        System.out.println("Plushies: " + PLUSHIE_BLOCKS.size());
         System.out.println("Twigs: " + TWIGS_BLOCKS.size());
-        System.out.println("Console: " + CONSOLE_BLOCKS.size());
+        System.out.println("Consoles: " + CONSOLE_BLOCKS.size());
         System.out.println("Deltarune: " + DELTARUNE_BLOCKS.size());
         System.out.println("Magnum Torches: " + MAGNUM_TORCH_BLOCKS.size());
+        System.out.println("Night Lights: " + NIGHT_LIGHT_BLOCKS.size());
         System.out.println("Colored Variants: " + COLORED_BLOCKS.size());
+        System.out.println("Total: " + (STACKED_BLOCKS.size() + CRATE_BLOCKS.size() + BAG_BLOCKS.size() +
+                                       PLUSHIE_BLOCKS.size() + TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
+                                       DELTARUNE_BLOCKS.size() + MAGNUM_TORCH_BLOCKS.size() +
+                                       NIGHT_LIGHT_BLOCKS.size() + COLORED_BLOCKS.size()));
         System.out.println("=======================================");
     }
 
@@ -295,159 +303,79 @@ public class ModBlocks {
         List<Block> all = new ArrayList<>();
         all.addAll(STACKED_BLOCKS);
         all.addAll(CRATE_BLOCKS);
+        all.addAll(BAG_BLOCKS);
         all.addAll(TWIGS_BLOCKS);
         all.addAll(CONSOLE_BLOCKS);
         all.addAll(DELTARUNE_BLOCKS);
         all.addAll(MAGNUM_TORCH_BLOCKS);
+        all.addAll(PLUSHIE_BLOCKS);
+        all.addAll(NIGHT_LIGHT_BLOCKS);
         all.addAll(COLORED_BLOCKS);
         return all;
     }
 
     // ====== EXTENDED CONSOLE SHAPES ======
     private static void registerExtendedConsoles() {
-        // Dreamcast
-        registerConsoleBlock("dreamcast", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.0f)
-                .sounds(BlockSoundGroup.METAL)));
+        // Define console strength values in a map for cleaner code
+        Map<String, Float> extendedConsoleStrength = Map.ofEntries(
+                Map.entry("dreamcast", 2.0f),
+                Map.entry("ds", 1.5f),
+                Map.entry("gameboys", 1.5f),
+                Map.entry("gamecube", 2.0f),
+                Map.entry("dock", 1.5f),
+                Map.entry("n_64", 1.8f),
+                Map.entry("ps_1", 1.5f),
+                Map.entry("ps_2", 1.7f),
+                Map.entry("ps_4", 2.0f),
+                Map.entry("ps_5", 2.2f),
+                Map.entry("psp", 1.3f),
+                Map.entry("sega_genesis", 1.5f),
+                Map.entry("snes", 1.8f),
+                Map.entry("switch_in_dock", 1.8f),
+                Map.entry("switch", 1.6f),
+                Map.entry("tv", 1.8f),
+                Map.entry("wii", 1.8f),
+                Map.entry("xbox", 1.8f),
+                Map.entry("xbox_1", 2.0f),
+                Map.entry("xbox_series_s", 2.0f),
+                Map.entry("xbox_series_x", 2.2f)
+        );
 
-        // Nintendo DS
-        registerConsoleBlock("ds", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.5f)
-                .sounds(BlockSoundGroup.METAL)));
+        // Register all extended consoles with their respective strength values
+        for (Map.Entry<String, Float> entry : extendedConsoleStrength.entrySet()) {
+            String name = entry.getKey();
+            float strength = entry.getValue();
 
-        // GameBoys (combined shape)
-        registerConsoleBlock("gameboys", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.5f)
-                .sounds(BlockSoundGroup.METAL)));
+            Block consoleBlock = new ConsoleBlock(FabricBlockSettings.create()
+                    .nonOpaque()
+                    .strength(strength)
+                    .sounds(BlockSoundGroup.METAL));
 
-        // GameCube
-        registerConsoleBlock("gamecube", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.0f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Dock
-        registerConsoleBlock("dock", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.5f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Nintendo 64
-        registerConsoleBlock("n_64", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // PS1–PS5
-        registerConsoleBlock("ps_1", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.5f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        registerConsoleBlock("ps_2", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.7f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        registerConsoleBlock("ps_4", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.0f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        registerConsoleBlock("ps_5", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.2f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // PSP
-        registerConsoleBlock("psp", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.3f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Sega Genesis
-        registerConsoleBlock("sega_genesis", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.5f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // SNES
-        registerConsoleBlock("snes", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Switch in Dock
-        registerConsoleBlock("switch_in_dock", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Switch
-        registerConsoleBlock("switch", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.6f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // TV
-        registerConsoleBlock("tv", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Wii
-        registerConsoleBlock("wii", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Xbox
-        registerConsoleBlock("xbox", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(1.8f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Xbox One
-        registerConsoleBlock("xbox_1", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.0f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Xbox Series S
-        registerConsoleBlock("xbox_series_s", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.0f)
-                .sounds(BlockSoundGroup.METAL)));
-
-        // Xbox Series X
-        registerConsoleBlock("xbox_series_x", new ConsoleBlock(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(2.2f)
-                .sounds(BlockSoundGroup.METAL)));
+            registerConsoleBlock(name, consoleBlock);
+        }
     }
 
     // ====== AZALEA DECOR ======
     private static void registerAzaleaDecor() {
-        Block azaleaFlowers = new Block(FabricBlockSettings.create()
+        // Azalea flowers
+        registerTwigsBlock("azalea_flowers", new Block(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.5f)
-                .sounds(BlockSoundGroup.GRASS));
-        Identifier azaleaId = Identifier.of(MOD_ID, "azalea_flowers");
-        Registry.register(Registries.BLOCK, azaleaId, azaleaFlowers);
-        Registry.register(Registries.ITEM, azaleaId, new BlockItem(azaleaFlowers, new Item.Settings()));
-        TWIGS_BLOCKS.add(azaleaFlowers);
+                .sounds(BlockSoundGroup.GRASS)));
 
-        Block pottedAzalea = new Block(FabricBlockSettings.create()
+        // Potted azalea flowers
+        registerTwigsBlock("potted_azalea_flowers", new Block(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.3f)
-                .sounds(BlockSoundGroup.GRASS));
-        Identifier pottedId = Identifier.of(MOD_ID, "potted_azalea_flowers");
-        Registry.register(Registries.BLOCK, pottedId, pottedAzalea);
-        Registry.register(Registries.ITEM, pottedId, new BlockItem(pottedAzalea, new Item.Settings()));
-        TWIGS_BLOCKS.add(pottedAzalea);
+                .sounds(BlockSoundGroup.GRASS)));
+    }
+
+    // Helper method for registering twigs blocks
+    private static void registerTwigsBlock(String name, Block block) {
+        Identifier id = Identifier.of(MOD_ID, name);
+        Registry.register(Registries.BLOCK, id, block);
+        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
+        TWIGS_BLOCKS.add(block);
     }
 
     // ====== MAGNUM TORCH REGISTRATION ======
