@@ -464,7 +464,7 @@ public class ModBlocks {
                     .nonOpaque()
                     .luminance(state -> state.get(NightLightBlock.LIT) ? 15 : 0)
                     .strength(0.5f)
-                    .sounds(BlockSoundGroup.GLASS), nightLightShape);
+                    .sounds(BlockSoundGroup.WOOL), nightLightShape);
 
             Identifier id = Identifier.of(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, nightLightBlock);
