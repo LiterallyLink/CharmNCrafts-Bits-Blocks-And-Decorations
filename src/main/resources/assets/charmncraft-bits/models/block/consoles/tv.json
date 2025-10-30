@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/tv",
     "0": "charmncraft-bits:block/consoles/tv"
   },
-  "render_type": "cutout"
+  "render_type": "cutout_mipped"
 }

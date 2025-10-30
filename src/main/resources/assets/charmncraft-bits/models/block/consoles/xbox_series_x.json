@@ -5,5 +5,5 @@
     "particle": "charmncraft-bits:block/consoles/xbox_series_x",
     "2": "charmncraft-bits:block/consoles/xbox_series_x"
   },
-  "render_type": "cutout"
+  "render_type": "cutout_mipped"
 }
