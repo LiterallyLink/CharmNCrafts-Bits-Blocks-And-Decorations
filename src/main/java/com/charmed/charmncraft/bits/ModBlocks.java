@@ -36,7 +36,6 @@ import java.util.Set;
  *
  * This class organizes and registers blocks into the following categories:
  * - Stacked Blocks: Decorative material blocks
- * - Crates: Wood crates for storage
  * - Bags: Ingredient and powder bags
  * - Twigs: Nature decorations (azalea flowers)
  * - Consoles: Gaming console decorations
@@ -44,7 +43,6 @@ import java.util.Set;
  * - Magnum Torches: Anti-spawn torches with special abilities
  * - Plushies: Character plushies
  * - Night Lights: Interactive decorative lights
- * - Colored Variants: Colored brick blocks
  */
 public class ModBlocks {
     // Use the correct MOD_ID from main class
@@ -53,9 +51,7 @@ public class ModBlocks {
     // ====== MASTER BLOCK LISTS ======
     // These lists organize blocks by category for creative tabs and easier management
     public static final List<Block> STACKED_BLOCKS = new ArrayList<>();      // Decorative stacked material blocks
-    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();        // Wood crates and storage blocks
     public static final List<Block> BAG_BLOCKS = new ArrayList<>();          // Ingredient and powder bags
-    public static final List<Block> COLORED_BLOCKS = new ArrayList<>();      // Colored brick variants
     public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>(); // Anti-spawn torches
     public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();      // Gaming console decorations
     public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();        // Nature decorations (azalea)
@@ -64,28 +60,41 @@ public class ModBlocks {
     public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();  // Decorative lights
 
     // ====== BLOCK TYPE REGISTRIES ======
+    // Organized by category for better maintainability
     private static final String[] STACKED_BLOCK_TYPES = {
-            "stacked_acacia_logs", "stacked_acacia_planks", "stacked_bamboo_blocks", "stacked_bamboo_planks",
-            "stacked_birch_logs", "stacked_birch_planks", "stacked_bricks", "stacked_cherry_logs",
-            "stacked_cherry_planks", "stacked_coal_blocks", "stacked_cobblestone_blocks", "stacked_crimson_planks",
-            "stacked_crimson_stems", "stacked_dark_oak_logs", "stacked_dark_oak_planks", "stacked_diamond_blocks",
-            "stacked_emerald_blocks", "stacked_gold_blocks", "stacked_iron_blocks", "stacked_jungle_logs",
-            "stacked_jungle_planks", "stacked_lapis_blocks", "stacked_mangrove_logs", "stacked_mangrove_planks",
-            "stacked_melons", "stacked_netherite_blocks", "stacked_netherrack_blocks", "stacked_oak_logs",
-            "stacked_oak_planks", "stacked_organic_compost", "stacked_pumpkins", "stacked_quartz_blocks",
-            "stacked_raw_copper_blocks", "stacked_raw_gold_blocks", "stacked_raw_iron_blocks", "stacked_redstone_blocks",
-            "stacked_spruce_logs", "stacked_spruce_planks", "stacked_stone_blocks", "stacked_stripped_acacia_logs",
-            "stacked_stripped_bamboo_blocks", "stacked_stripped_birch_logs", "stacked_stripped_cherry_logs",
-            "stacked_stripped_crimson_stems", "stacked_stripped_dark_oak_logs", "stacked_stripped_jungle_logs",
-            "stacked_stripped_mangrove_logs", "stacked_stripped_oak_logs", "stacked_stripped_spruce_logs",
-            "stacked_stripped_warped_stems", "stacked_warped_planks", "stacked_warped_stems",
-            "stacked_resin_blocks", "stacked_resin_bricks", "stacked_pale_oak_logs", "stacked_stripped_pale_oak_logs"
-    };
+            // Wood Logs (Overworld)
+            "stacked_oak_logs", "stacked_spruce_logs", "stacked_birch_logs", "stacked_jungle_logs",
+            "stacked_acacia_logs", "stacked_dark_oak_logs", "stacked_mangrove_logs", "stacked_cherry_logs",
+            "stacked_bamboo_blocks", "stacked_pale_oak_logs",
 
-    private static final String[] CRATE_TYPES = {
-            "oak_crate", "birch_crate", "spruce_crate", "jungle_crate",
-            "acacia_crate", "dark_oak_crate", "mangrove_crate", "cherry_crate",
-            "bamboo_crate"
+            // Stripped Wood Logs (Overworld)
+            "stacked_stripped_oak_logs", "stacked_stripped_spruce_logs", "stacked_stripped_birch_logs",
+            "stacked_stripped_jungle_logs", "stacked_stripped_acacia_logs", "stacked_stripped_dark_oak_logs",
+            "stacked_stripped_mangrove_logs", "stacked_stripped_cherry_logs", "stacked_stripped_bamboo_blocks",
+            "stacked_stripped_pale_oak_logs",
+
+            // Nether Stems
+            "stacked_crimson_stems", "stacked_warped_stems",
+            "stacked_stripped_crimson_stems", "stacked_stripped_warped_stems",
+
+            // Wood Planks
+            "stacked_oak_planks", "stacked_spruce_planks", "stacked_birch_planks", "stacked_jungle_planks",
+            "stacked_acacia_planks", "stacked_dark_oak_planks", "stacked_mangrove_planks", "stacked_cherry_planks",
+            "stacked_bamboo_planks", "stacked_crimson_planks", "stacked_warped_planks",
+
+            // Stone & Building Blocks
+            "stacked_stone_blocks", "stacked_cobblestone_blocks", "stacked_netherrack_blocks",
+            "stacked_bricks", "stacked_quartz_blocks", "stacked_resin_blocks", "stacked_resin_bricks",
+
+            // Mineral Blocks
+            "stacked_coal_blocks", "stacked_iron_blocks", "stacked_gold_blocks", "stacked_lapis_blocks",
+            "stacked_redstone_blocks", "stacked_diamond_blocks", "stacked_emerald_blocks", "stacked_netherite_blocks",
+
+            // Raw Ore Blocks
+            "stacked_raw_iron_blocks", "stacked_raw_gold_blocks", "stacked_raw_copper_blocks",
+
+            // Organic/Food Blocks
+            "stacked_melons", "stacked_pumpkins", "stacked_organic_compost"
     };
 
     private static final Set<String> AMW_PLUSHIE_NAMES = Set.of(
@@ -101,51 +110,34 @@ public class ModBlocks {
         return block;
     }
 
-    private static void registerColoredBlock(String name, Block.Settings settings) {
-        Block block = new Block(settings);
-        Identifier id = Identifier.of(MOD_ID, name);
-        Registry.register(Registries.BLOCK, id, block);
-        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-        COLORED_BLOCKS.add(block);
-    }
-
     // ====== STACKED BLOCKS ======
+    // Reusable settings for all stacked blocks to improve performance
+    private static final Block.Settings STACKED_BLOCK_SETTINGS = Block.Settings.create()
+            .strength(2.0f, 6.0f)
+            .sounds(BlockSoundGroup.WOOD)
+            .requiresTool();
+
+    /**
+     * Registers all stacked block variants.
+     * All blocks share the same properties for consistency and balance.
+     */
     private static void registerStackedBlocks() {
         for (String blockName : STACKED_BLOCK_TYPES) {
-            Block stackedBlock = new Block(
-                    Block.Settings.create()
-                            .strength(2.0f, 6.0f)
-                            .sounds(BlockSoundGroup.WOOD)
-                            .requiresTool()
-            );
+            Block stackedBlock = new Block(STACKED_BLOCK_SETTINGS);
             registerStackedBlock(blockName, stackedBlock);
         }
     }
 
+    /**
+     * Helper method to register a single stacked block and add it to the collection.
+     * @param name The block identifier name
+     * @param block The block instance to register
+     */
     private static void registerStackedBlock(String name, Block block) {
         Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         STACKED_BLOCKS.add(block);
-    }
-
-    // ====== CRATES ======
-    private static void registerCrates() {
-        for (String crateName : CRATE_TYPES) {
-            Block crateBlock = new Block(
-                    Block.Settings.create()
-                            .strength(2.0f, 3.0f)
-                            .sounds(BlockSoundGroup.WOOD)
-            );
-            registerCrateBlock(crateName, crateBlock);
-        }
-    }
-
-    private static void registerCrateBlock(String name, Block block) {
-        Identifier id = Identifier.of(MOD_ID, name);
-        Registry.register(Registries.BLOCK, id, block);
-        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-        CRATE_BLOCKS.add(block);
     }
 
     // ====== PLUSHIE CUSTOM HITBOXES ======
@@ -192,21 +184,6 @@ public class ModBlocks {
     // Magnum torches are powerful decorative light sources
     // Only three variants: Amethyst, Diamond, and Emerald
 
-    // ====== COLORED BLOCK VARIANTS ======
-    private static void registerColoredVariants() {
-        String[] colorNames = {
-                "red_bricks", "blue_bricks", "green_bricks", "yellow_bricks",
-                "purple_bricks", "black_bricks", "white_bricks"
-        };
-
-        for (String color : colorNames) {
-            registerColoredBlock(color, FabricBlockSettings.create()
-                    .strength(1.5f, 3.0f)
-                    .sounds(BlockSoundGroup.STONE));
-        }
-    }
-
-
     private static final VoxelShape WILLOW_PLUSHIE_SHAPE = VoxelShapes.cuboid(
             2.0f / 16f, 0f / 16f, 4.0f / 16f,
             14.5f / 16f, 10.5f / 16f, 12.5f / 16f
@@ -251,13 +228,11 @@ public class ModBlocks {
     public static void initialize() {
         // Order matters only for logging / clarity, not dependency
         registerStackedBlocks();
-        registerCrates();
         registerAMWPlushies();
         registerAllPlushies();
         registerNightLights();
         registerConsoleBlocks();
         registerDeltaruneBlocks();
-        registerColoredVariants();
         registerExtendedConsoles();
         registerAzaleaDecor();
         registerMagnumTorches();
@@ -271,7 +246,6 @@ public class ModBlocks {
     public static void printRegisteredBlockCounts() {
         System.out.println("==== CharmnCraftBits Block Summary ====");
         System.out.println("Stacked Blocks: " + STACKED_BLOCKS.size());
-        System.out.println("Crates: " + CRATE_BLOCKS.size());
         System.out.println("Bags: " + BAG_BLOCKS.size());
         System.out.println("Plushies: " + PLUSHIE_BLOCKS.size());
         System.out.println("Twigs: " + TWIGS_BLOCKS.size());
@@ -279,11 +253,10 @@ public class ModBlocks {
         System.out.println("Deltarune: " + DELTARUNE_BLOCKS.size());
         System.out.println("Magnum Torches: " + MAGNUM_TORCH_BLOCKS.size());
         System.out.println("Night Lights: " + NIGHT_LIGHT_BLOCKS.size());
-        System.out.println("Colored Variants: " + COLORED_BLOCKS.size());
-        System.out.println("Total: " + (STACKED_BLOCKS.size() + CRATE_BLOCKS.size() + BAG_BLOCKS.size() +
+        System.out.println("Total: " + (STACKED_BLOCKS.size() + BAG_BLOCKS.size() +
                                        PLUSHIE_BLOCKS.size() + TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
                                        DELTARUNE_BLOCKS.size() + MAGNUM_TORCH_BLOCKS.size() +
-                                       NIGHT_LIGHT_BLOCKS.size() + COLORED_BLOCKS.size()));
+                                       NIGHT_LIGHT_BLOCKS.size()));
         System.out.println("=======================================");
     }
 
@@ -302,7 +275,6 @@ public class ModBlocks {
     public static List<Block> getAllBlocks() {
         List<Block> all = new ArrayList<>();
         all.addAll(STACKED_BLOCKS);
-        all.addAll(CRATE_BLOCKS);
         all.addAll(BAG_BLOCKS);
         all.addAll(TWIGS_BLOCKS);
         all.addAll(CONSOLE_BLOCKS);
@@ -310,7 +282,6 @@ public class ModBlocks {
         all.addAll(MAGNUM_TORCH_BLOCKS);
         all.addAll(PLUSHIE_BLOCKS);
         all.addAll(NIGHT_LIGHT_BLOCKS);
-        all.addAll(COLORED_BLOCKS);
         return all;
     }
 

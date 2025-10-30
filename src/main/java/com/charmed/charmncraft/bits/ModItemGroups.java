@@ -16,8 +16,8 @@ import net.minecraft.util.Identifier;
  * ModItemGroups - Creative tab organization for Charm n Craft Bits
  *
  * This class defines and populates all custom creative tabs:
- * - Stacked Blocks: Decorative material blocks and colored bricks
- * - Crates: Wood crates and ingredient/powder bags
+ * - Stacked Blocks: Decorative material blocks
+ * - Bags: Ingredient and powder bags
  * - Twigs: Nature decorations
  * - Consoles: Gaming console decorations
  * - Deltarune Doodads: Deltarune-themed blocks
@@ -34,7 +34,7 @@ public class ModItemGroups {
     public static final RegistryKey<ItemGroup> STACKED_BLOCKS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "stacked_blocks"));
     public static final RegistryKey<ItemGroup> CONSOLES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "consoles"));
     public static final RegistryKey<ItemGroup> TWIGS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "twigs"));
-    public static final RegistryKey<ItemGroup> CRATES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "crates"));
+    public static final RegistryKey<ItemGroup> BAGS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "bags"));
     public static final RegistryKey<ItemGroup> MAGNUM_TORCHES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "magnum_torches"));
     public static final RegistryKey<ItemGroup> AMW_PLUSHIES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "amw_plushies"));
     // Register custom creative tabs for each mod
@@ -80,11 +80,11 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "azalea_flowers"))))
                     .build());
 
-    public static final ItemGroup CRATES_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(Charmncraftbits.MOD_ID, "crates"),
+    public static final ItemGroup BAGS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Charmncraftbits.MOD_ID, "bags"),
             FabricItemGroup.builder()
-                    .displayName(Text.translatable("itemgroup.charmncraft-bits.crates"))
-                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "oak_crate"))))
+                    .displayName(Text.translatable("itemgroup.charmncraft-bits.bags"))
+                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "sugar_bag"))))
                     .build());
 
     public static final ItemGroup MAGNUM_TORCHES_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -109,20 +109,6 @@ public class ModItemGroups {
         // Add stacked blocks to STACKED_BLOCKS_GROUP
         ItemGroupEvents.modifyEntriesEvent(STACKED_BLOCKS_KEY).register(entries -> {
             for (Block block : ModBlocks.STACKED_BLOCKS) {
-                entries.add(block);
-            }
-        });
-
-        // Add crates to CRATES_GROUP
-        ItemGroupEvents.modifyEntriesEvent(CRATES_KEY).register(entries -> {
-            for (Block block : ModBlocks.CRATE_BLOCKS) {
-                entries.add(block);
-            }
-        });
-
-        // Add colored blocks to appropriate group (using STACKED_BLOCKS for now)
-        ItemGroupEvents.modifyEntriesEvent(STACKED_BLOCKS_KEY).register(entries -> {
-            for (Block block : ModBlocks.COLORED_BLOCKS) {
                 entries.add(block);
             }
         });
@@ -177,8 +163,8 @@ public class ModItemGroups {
             }
         });
 
-        // Add bag blocks to CRATES_GROUP
-        ItemGroupEvents.modifyEntriesEvent(CRATES_KEY).register(entries -> {
+        // Add bag blocks to BAGS_GROUP
+        ItemGroupEvents.modifyEntriesEvent(BAGS_KEY).register(entries -> {
             for (Block block : ModBlocks.BAG_BLOCKS) {
                 entries.add(block);
             }
