@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/switch-dock",
   "textures": {
-    "all": "charmncraft-bits:block/consoles/pasted",
-    "particle": "charmncraft-bits:block/consoles/pasted",
-    "2": "charmncraft-bits:block/consoles/pasted"
+    "all": "charmncraft-bits:block/consoles/dock",
+    "particle": "charmncraft-bits:block/consoles/dock",
+    "2": "charmncraft-bits:block/consoles/dock"
   },
   "render_type": "solid"
 }

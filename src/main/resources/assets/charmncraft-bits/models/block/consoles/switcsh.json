@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/switch",
-  "textures": {
-    "all": "charmncraft-bits:block/consoles/switch",
-    "particle": "charmncraft-bits:block/consoles/switch",
-    "2": "charmncraft-bits:block/consoles/pasted"
-  },
-  "render_type": "solid"
-}

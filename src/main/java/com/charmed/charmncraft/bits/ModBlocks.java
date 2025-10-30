@@ -161,23 +161,10 @@ public class ModBlocks {
     );
 
     // ====== CONSOLE BLOCKS ======
+    // Note: Basic console registration removed - all consoles now use extended registration with proper models
     private static void registerConsoleBlocks() {
-        Map<String, Float> consoleHardness = Map.of(
-                "nintendo_console", 1.5f,
-                "playstation_console", 2.0f,
-                "xbox_console", 2.5f
-        );
-
-        for (Map.Entry<String, Float> entry : consoleHardness.entrySet()) {
-            String name = entry.getKey();
-            float hardness = entry.getValue();
-
-            Block consoleBlock = new Block(FabricBlockSettings.create()
-                    .strength(hardness, hardness * 2)
-                    .sounds(BlockSoundGroup.METAL));
-
-            registerConsoleBlock(name, consoleBlock);
-        }
+        // This method is kept for backwards compatibility but does nothing
+        // All console registration happens in registerExtendedConsoles()
     }
 
     private static void registerConsoleBlock(String name, Block block) {
@@ -302,6 +289,7 @@ public class ModBlocks {
                 Map.entry("gamecube", 2.0f),
                 Map.entry("dock", 1.5f),
                 Map.entry("n_64", 1.8f),
+                Map.entry("nes", 1.7f),
                 Map.entry("ps_1", 1.5f),
                 Map.entry("ps_2", 1.7f),
                 Map.entry("ps_4", 2.0f),
@@ -310,7 +298,6 @@ public class ModBlocks {
                 Map.entry("sega_genesis", 1.5f),
                 Map.entry("snes", 1.8f),
                 Map.entry("switch_in_dock", 1.8f),
-                Map.entry("switch", 1.6f),
                 Map.entry("tv", 1.8f),
                 Map.entry("wii", 1.8f),
                 Map.entry("xbox", 1.8f),

@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/xbox_seres_s",
   "textures": {
-    "all": "charmncraft-bits:block/consoles/xbox_seres_s",
-    "particle": "charmncraft-bits:block/consoles/xbox_seres_s",
-    "2": "charmncraft-bits:block/consoles/pasted"
+    "all": "charmncraft-bits:block/consoles/xbox_series_s",
+    "particle": "charmncraft-bits:block/consoles/xbox_series_s",
+    "2": "charmncraft-bits:block/consoles/xbox_series_s"
   },
   "render_type": "solid"
 }

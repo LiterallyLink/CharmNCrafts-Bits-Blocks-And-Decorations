@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/ps1",
     "particle": "charmncraft-bits:block/consoles/ps1",
-    "2": "charmncraft-bits:block/consoles/pasted"
+    "2": "charmncraft-bits:block/consoles/ps1"
   },
   "render_type": "solid"
 }

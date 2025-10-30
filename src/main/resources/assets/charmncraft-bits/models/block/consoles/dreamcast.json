@@ -1,9 +1,9 @@
 {
   "parent": "charmncraft-bits:custom/dreamcast",
   "textures": {
-    "all": "charmncraft-bits:block/consoles/deamcast",
-    "particle": "charmncraft-bits:block/consoles/deamcast",
-    "2": "charmncraft-bits:block/consoles/pasted"
+    "all": "charmncraft-bits:block/consoles/dreamcast",
+    "particle": "charmncraft-bits:block/consoles/dreamcast",
+    "2": "charmncraft-bits:block/consoles/dreamcast"
   },
   "render_type": "solid"
 }

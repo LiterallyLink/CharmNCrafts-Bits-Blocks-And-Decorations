@@ -3,7 +3,7 @@
   "textures": {
     "all": "charmncraft-bits:block/consoles/gameboys",
     "particle": "charmncraft-bits:block/consoles/gameboys",
-    "2": "charmncraft-bits:block/consoles/pasted"
+    "2": "charmncraft-bits:block/consoles/gameboys"
   },
   "render_type": "solid"
 }
