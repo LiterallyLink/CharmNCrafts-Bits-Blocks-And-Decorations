@@ -107,8 +107,56 @@ public class ModBlocks {
     };
 
     private static final Set<String> AMW_PLUSHIE_NAMES = Set.of(
-            "abbie_plushie", "maddie_plushie", "willow_plushie"
+            "abbie_plushie", "maddie_plushie", "willow_plushie", "magical_girl_abbie_plushie", "mind_abbie_plushie"
     );
+
+    // Minecraft mob plushies (107 total) - all official Minecraft creatures and variations
+    private static final Set<String> MOB_PLUSHIE_NAMES = Set.of(
+            // Basic Mobs
+            "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie", "blaze_plushie", "cave_spider_plushie",
+            "chicken_plushie", "cod_plushie", "cow_plushie", "creeper_plushie", "dolphin_plushie", "drowned_plushie",
+            "elder_guardian_plushie", "ender_dragon_plushie", "ender_drake_plushie", "enderman_plushie",
+            "endermite_plushie", "evoker_plushie", "fox_plushie", "frog_plushie", "ghast_plushie",
+            "glow_squid_plushie", "goat_plushie", "guardian_plushie", "herobrine_plushie", "hoglin_plushie",
+            "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie", "jellie_plushie",
+            "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "moobloom_plushie", "mooshroom_plushie",
+            "muddy_pig_plushie", "ocelot_plushie", "phantom_plushie", "pig_plushie", "piglin_plushie",
+            "piglin_brute_plushie", "pillager_plushie", "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie",
+            "salmon_plushie", "sheep_plushie", "shulker_plushie", "silverfish_plushie", "skeleton_plushie",
+            "skeleton_horse_plushie", "slime_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
+            "stray_plushie", "strider_plushie", "tadpole_plushie", "trader_llama_plushie", "turtle_plushie",
+            "vex_plushie", "villager_plushie", "vindicator_plushie", "wandering_trader_plushie", "warden_plushie",
+            "witch_plushie", "wither_plushie", "wither_skeleton_plushie", "wolf_plushie", "zombie_plushie",
+            "zombie_villager_plushie", "zoglin_plushie", "crabster_plushie", "copper_golem_plushie", "glare_plushie",
+            "tuff_golem_plushie", "wooly_cow_plushie", "cluckshroom_plushie", "panda_plushie", "parrot_plushie",
+            "mushroom_cow_plushie",
+            // Slime Color Variants (16)
+            "black_slime_plushie", "blue_slime_plushie", "brown_slime_plushie", "cyan_slime_plushie",
+            "green_slime_plushie", "gray_slime_plushie", "light_blue_slime_plushie", "light_gray_slime_plushie",
+            "lime_slime_plushie", "magenta_slime_plushie", "orange_slime_plushie", "pink_slime_plushie",
+            "purple_slime_plushie", "red_slime_plushie", "white_slime_plushie", "yellow_slime_plushie",
+            // Frog Variants (2)
+            "cold_frog_plushie", "warm_frog_plushie",
+            // Pufferfish Variants (3)
+            "carrot_eater_pufferfish_plushie", "fully_puffed_pufferfish_plushie", "semi_puffed_pufferfish_plushie",
+            // Special Variants (3)
+            "enderman_plush_with_block", "reverse_creeper_plushie", "open_shulker_plushie"
+    );
+
+    // ====== PLUSHIE CATEGORY HELPERS ======
+    /**
+     * Check if a plushie name belongs to the AMW category
+     */
+    public static boolean isAMWPlushie(String blockName) {
+        return AMW_PLUSHIE_NAMES.contains(blockName);
+    }
+
+    /**
+     * Check if a plushie name belongs to the Minecraft mob category
+     */
+    public static boolean isMobPlushie(String blockName) {
+        return MOB_PLUSHIE_NAMES.contains(blockName);
+    }
 
     // ====== REGISTER HELPERS ======
     private static Block registerBasicBlock(String name, Block.Settings settings) {
