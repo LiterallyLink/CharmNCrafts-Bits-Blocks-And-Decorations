@@ -24,8 +24,7 @@ import net.minecraft.util.Identifier;
  * - Deltarune Doodads: Deltarune-themed blocks
  * - Magnum Torches: Anti-spawn torches
  * - Mob Plushies: Minecraft mob plushies
- * - Character Plushies: Game and media character plushies
- * - AMW Plushies: Special AMW character plushies
+ * - A Man With Plushies: All character plushies from games and media
  * - Night Lights: Interactive decorative lights
  */
 public class ModItemGroups {
@@ -33,7 +32,6 @@ public class ModItemGroups {
     public static final RegistryKey<ItemGroup> DELTARUNE_DOODADS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "deltarune_doodads"));
     public static final RegistryKey<ItemGroup> NIGHT_LIGHTS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "night_lights"));
     public static final RegistryKey<ItemGroup> MOB_PLUSHIES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "mob_plushies"));
-    public static final RegistryKey<ItemGroup> CHARACTER_PLUSHIES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "character_plushies"));
     public static final RegistryKey<ItemGroup> STACKED_BLOCKS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "stacked_blocks"));
     public static final RegistryKey<ItemGroup> CONSOLES_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "consoles"));
     public static final RegistryKey<ItemGroup> TWIGS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Charmncraftbits.MOD_ID, "twigs"));
@@ -61,13 +59,6 @@ public class ModItemGroups {
             FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.charmncraft-bits.mob_plushies"))
                     .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "creeper_plushie"))))
-                    .build());
-
-    public static final ItemGroup CHARACTER_PLUSHIES_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(Charmncraftbits.MOD_ID, "character_plushies"),
-            FabricItemGroup.builder()
-                    .displayName(Text.translatable("itemgroup.charmncraft-bits.character_plushies"))
-                    .icon(() -> new ItemStack(Registries.BLOCK.get(Identifier.of(Charmncraftbits.MOD_ID, "isaac_plushie"))))
                     .build());
 
     public static final ItemGroup STACKED_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -166,17 +157,6 @@ public class ModItemGroups {
             }
         });
 
-        // Add AMW plushies to AMW_PLUSHIES_GROUP
-        ItemGroupEvents.modifyEntriesEvent(AMW_PLUSHIES_KEY).register(entries -> {
-            for (Block block : ModBlocks.PLUSHIE_BLOCKS) {
-                Identifier blockId = Registries.BLOCK.getId(block);
-                String blockName = blockId.getPath();
-                if (ModBlocks.isAMWPlushie(blockName)) {
-                    entries.add(block);
-                }
-            }
-        });
-
         // Add mob plushies to MOB_PLUSHIES_GROUP (Minecraft mobs only)
         ItemGroupEvents.modifyEntriesEvent(MOB_PLUSHIES_KEY).register(entries -> {
             for (Block block : ModBlocks.PLUSHIE_BLOCKS) {
@@ -188,13 +168,13 @@ public class ModItemGroups {
             }
         });
 
-        // Add character plushies to CHARACTER_PLUSHIES_GROUP (game/media characters)
-        ItemGroupEvents.modifyEntriesEvent(CHARACTER_PLUSHIES_KEY).register(entries -> {
+        // Add character plushies to AMW_PLUSHIES_GROUP (all non-mob plushies)
+        ItemGroupEvents.modifyEntriesEvent(AMW_PLUSHIES_KEY).register(entries -> {
             for (Block block : ModBlocks.PLUSHIE_BLOCKS) {
                 Identifier blockId = Registries.BLOCK.getId(block);
                 String blockName = blockId.getPath();
-                // Character plushies are everything that's not mob or AMW plushies
-                if (!ModBlocks.isMobPlushie(blockName) && !ModBlocks.isAMWPlushie(blockName)) {
+                // A Man With Plushies contains all character plushies (not mobs)
+                if (!ModBlocks.isMobPlushie(blockName)) {
                     entries.add(block);
                 }
             }
