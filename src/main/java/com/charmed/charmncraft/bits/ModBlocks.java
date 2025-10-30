@@ -569,17 +569,17 @@ public class ModBlocks {
     // ====== PLUSHIES REGISTRATION ======
     private static void registerAllPlushies() {
         // Get all plushie blockstates from resources
-        // NOTE: abbie_plushie, maddie_plushie, and willow_plushie are registered separately in registerAMWPlushies()
+        // NOTE: AMW plushies (abbie, maddie, willow, magical_girl_abbie, mind_abbie) and
+        // Baldi plushies are registered separately in registerAMWPlushies()
         String[] plushieNames = {
             "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
-            "aggressive_spazmatism_plushie", "allay_plushie", "angry_baldi_plushie",
-            "angry_camper_baldi_plushie", "angry_farmer_baldi_plushie", "animdude_plushie",
+            "aggressive_spazmatism_plushie", "allay_plushie", "animdude_plushie",
             "audino_plushie", "axolotl_plushie", "azazel_plushie", "badeline_plushie",
-            "baldi_plushie", "bandage_girl_plushie", "bat_plushie", "bee_plushie", "bendy_plushie",
+            "bandage_girl_plushie", "bat_plushie", "bee_plushie", "bendy_plushie",
             "black_crewmate_plushie", "black_junimo_plushie", "black_slime_plushie",
             "blob_plushie", "blue_crewmate_plushie", "blue_junimo_plushie", "blue_slime_plushie",
             "bmo_plushie", "breadbug_plushie", "brown_crewmate_plushie", "brown_junimo_plushie",
-            "brown_slime_plushie", "cal_kestis_plushie", "camper_baldi_plushie", "carrot_plushie",
+            "brown_slime_plushie", "cal_kestis_plushie", "carrot_plushie",
             "caterpillar_plushie", "catnap_plushie", "celeste_plushie", "chicken_plushie",
             "chomper_plushie", "clem_plushie", "clicker_plushie", "cold_frog_plushie",
             "copper_golem_plushie", "cow_plushie", "creeper_plushie", "crewmate_plushie",
@@ -587,14 +587,13 @@ public class ModBlocks {
             "dark_knight_plushie", "death_plushie", "demon_plushie", "diamond_steve_plushie",
             "doggo_plushie", "dusty_plushie", "eden_plushie", "egg_plushie",
             "emerald_steve_plushie", "enderman_plushie", "ender_dragon_plushie",
-            "ender_drake_plushie", "eve_plushie", "eye_of_cthulhu_plushie", "farmer_baldi_plushie",
+            "ender_drake_plushie", "eve_plushie", "eye_of_cthulhu_plushie",
             "finn_plushie", "flowey_plushie", "forgotten_plushie", "fox_plushie",
             "frog_plushie", "ghostface_plushie", "giant_plushie", "glaggle_plushie",
             "glare_plushie", "gloria_plushie", "gold_steve_plushie", "grandma_plushie",
             "gray_crewmate_plushie", "gray_junimo_plushie", "gray_slime_plushie",
             "green_crewmate_plushie", "green_junimo_plushie", "green_slime_plushie",
-            "grumbo_jumbo_plushie", "happy_baldi_plushie", "happy_camper_baldi_plushie",
-            "happy_farmer_baldi_plushie", "hello_charlotte_plushie", "hopps_plushie",
+            "grumbo_jumbo_plushie", "hello_charlotte_plushie", "hopps_plushie",
             "iron_golem_plushie", "isaac_plushie", "isabelle_plushie", "jacob_plushie",
             "jake_plushie", "jellie_plushie", "junimo_plushie", "kerfur_plushie",
             "killer_bunny_plushie", "king_of_hearts_plushie", "kissy_missy_plushie",
@@ -611,7 +610,7 @@ public class ModBlocks {
             "orange_slime_plushie", "pale_king_plushie", "papyrus_plushie", "peashooter_plushie",
             "peepy_plushie", "penguin_plushie", "pig_plushie", "pink_crewmate_plushie",
             "pink_junimo_plushie", "pink_slime_plushie", "player_plushie", "poke_ball_plushie",
-            "principal_plushie", "purple_crewmate_plushie", "purple_junimo_plushie",
+            "purple_crewmate_plushie", "purple_junimo_plushie",
             "purple_slime_plushie", "queen_bee_plushie", "ralsei_plushie", "red_crewmate_plushie",
             "red_junimo_plushie", "red_slime_plushie", "retinazer_plushie", "roomba_plushie",
             "rudolph_plushie", "sad_ghost_plushie", "samson_plushie", "sans_plushie",
