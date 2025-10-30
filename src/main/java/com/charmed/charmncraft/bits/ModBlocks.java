@@ -38,6 +38,7 @@ import java.util.Set;
  *
  * This class organizes and registers blocks into the following categories:
  * - Stacked Blocks: Decorative material blocks
+ * - Crates: Food and produce storage crates
  * - Bags: Ingredient and powder bags
  * - Twigs: Nature decorations (azalea flowers)
  * - Consoles: Gaming console decorations
@@ -53,6 +54,7 @@ public class ModBlocks {
     // ====== MASTER BLOCK LISTS ======
     // These lists organize blocks by category for creative tabs and easier management
     public static final List<Block> STACKED_BLOCKS = new ArrayList<>();      // Decorative stacked material blocks
+    public static final List<Block> CRATE_BLOCKS = new ArrayList<>();        // Food and produce storage crates
     public static final List<Block> BAG_BLOCKS = new ArrayList<>();          // Ingredient and powder bags
     public static final List<Block> MAGNUM_TORCH_BLOCKS = new ArrayList<>(); // Anti-spawn torches
     public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();      // Gaming console decorations
@@ -230,6 +232,7 @@ public class ModBlocks {
         registerExtendedConsoles();
         registerAzaleaDecor();
         registerMagnumTorches();
+        registerCrateBlocks();
         registerBagBlocks();
 
         System.out.println("[Charm n Craft Bits] All custom blocks registered successfully.");
@@ -240,6 +243,7 @@ public class ModBlocks {
     public static void printRegisteredBlockCounts() {
         System.out.println("==== CharmnCraftBits Block Summary ====");
         System.out.println("Stacked Blocks: " + STACKED_BLOCKS.size());
+        System.out.println("Crates: " + CRATE_BLOCKS.size());
         System.out.println("Bags: " + BAG_BLOCKS.size());
         System.out.println("Plushies: " + PLUSHIE_BLOCKS.size());
         System.out.println("Twigs: " + TWIGS_BLOCKS.size());
@@ -247,7 +251,7 @@ public class ModBlocks {
         System.out.println("Deltarune: " + DELTARUNE_BLOCKS.size());
         System.out.println("Magnum Torches: " + MAGNUM_TORCH_BLOCKS.size());
         System.out.println("Night Lights: " + NIGHT_LIGHT_BLOCKS.size());
-        System.out.println("Total: " + (STACKED_BLOCKS.size() + BAG_BLOCKS.size() +
+        System.out.println("Total: " + (STACKED_BLOCKS.size() + CRATE_BLOCKS.size() + BAG_BLOCKS.size() +
                                        PLUSHIE_BLOCKS.size() + TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
                                        DELTARUNE_BLOCKS.size() + MAGNUM_TORCH_BLOCKS.size() +
                                        NIGHT_LIGHT_BLOCKS.size()));
@@ -269,6 +273,7 @@ public class ModBlocks {
     public static List<Block> getAllBlocks() {
         List<Block> all = new ArrayList<>();
         all.addAll(STACKED_BLOCKS);
+        all.addAll(CRATE_BLOCKS);
         all.addAll(BAG_BLOCKS);
         all.addAll(TWIGS_BLOCKS);
         all.addAll(CONSOLE_BLOCKS);
@@ -607,6 +612,31 @@ public class ModBlocks {
             Registry.register(Registries.BLOCK, id, nightLightBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(nightLightBlock, new Item.Settings()));
             NIGHT_LIGHT_BLOCKS.add(nightLightBlock);
+        }
+    }
+
+    // ====== CRATE BLOCKS REGISTRATION ======
+    private static void registerCrateBlocks() {
+        String[] crateNames = {
+            "apple_crate", "bass_crate", "beetroot_crate", "berry_crate",
+            "black_berry_crate", "blueberry_crate", "brown_mushroom_crate",
+            "carrot_crate", "catfish_crate", "cod_crate", "diamond_apple_crate",
+            "duck_egg_crate", "egg_crate", "end_fish_crate", "glowberry_crate",
+            "golden_apple_crate", "golden_carrot_crate", "green_berry_crate",
+            "kiwi_egg_crate", "kiwifruit_crate", "orange_berry_crate",
+            "peanut_crate", "potato_crate", "purple_berry_crate",
+            "red_mushroom_crate", "salmon_crate", "yellow_berry_crate"
+        };
+
+        for (String name : crateNames) {
+            Block crateBlock = new Block(FabricBlockSettings.create()
+                    .strength(2.0f)
+                    .sounds(BlockSoundGroup.WOOD));
+
+            Identifier id = Identifier.of(MOD_ID, name);
+            Registry.register(Registries.BLOCK, id, crateBlock);
+            Registry.register(Registries.ITEM, id, new BlockItem(crateBlock, new Item.Settings()));
+            CRATE_BLOCKS.add(crateBlock);
         }
     }
 
