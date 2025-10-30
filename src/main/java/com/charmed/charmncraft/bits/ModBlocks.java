@@ -557,7 +557,4 @@ public class ModBlocks {
         Registry.register(Registries.ITEM, tennaPoleId, new BlockItem(tennaPoleBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(tennaPoleBlock);
     }
-
-    // ====== FINAL INITIALIZER EXTENSION ======
-    // Note: initializeExtended() is now called from initialize() to avoid duplication
 }
