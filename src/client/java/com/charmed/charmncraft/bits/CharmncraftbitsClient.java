@@ -14,7 +14,9 @@ public class CharmncraftbitsClient implements ClientModInitializer {
 		LOGGER.info("=== CLIENT INITIALIZATION STARTING ===");
 
 		// Register render layers for blocks with transparency
-		// Note: Azalea blocks are now registered as regular blocks, so no special render layer needed
+		// CUTOUT layer enables proper alpha channel rendering (transparent pixels instead of black)
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.AZALEA_FLOWERS, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_AZALEA_FLOWERS, RenderLayer.getCutout());
 
 		LOGGER.info("=== CLIENT INITIALIZATION COMPLETE ===");
 	}

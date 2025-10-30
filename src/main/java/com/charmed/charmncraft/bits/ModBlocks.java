@@ -61,6 +61,11 @@ public class ModBlocks {
     public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();      // Character plushies
     public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();  // Decorative lights
 
+    // ====== TWIGS INDIVIDUAL BLOCKS ======
+    // Public references for blocks that need special client-side handling (render layers, etc.)
+    public static Block AZALEA_FLOWERS;
+    public static Block POTTED_AZALEA_FLOWERS;
+
     // ====== BLOCK TYPE REGISTRIES ======
     // Organized by category for better maintainability
     private static final String[] STACKED_BLOCK_TYPES = {
@@ -331,20 +336,21 @@ public class ModBlocks {
     // ====== AZALEA DECOR ======
     private static void registerAzaleaDecor() {
         // Azalea flowers - multi-surface placement block
-        Block azaleaFlowers = new AzaleaFlowersBlock(FabricBlockSettings.create()
+        AZALEA_FLOWERS = new AzaleaFlowersBlock(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.5f)
                 .noCollision()
                 .sounds(BlockSoundGroup.GRASS));
-        registerTwigsBlock("azalea_flowers", azaleaFlowers);
+        registerTwigsBlock("azalea_flowers", AZALEA_FLOWERS);
 
         // Potted azalea flowers - decorative flower pot variant
-        registerTwigsBlock("potted_azalea_flowers", new PottedAzaleaFlowersBlock(
-                azaleaFlowers,
+        POTTED_AZALEA_FLOWERS = new PottedAzaleaFlowersBlock(
+                AZALEA_FLOWERS,
                 FabricBlockSettings.create()
                         .nonOpaque()
                         .strength(0.3f)
-                        .sounds(BlockSoundGroup.GRASS)));
+                        .sounds(BlockSoundGroup.GRASS));
+        registerTwigsBlock("potted_azalea_flowers", POTTED_AZALEA_FLOWERS);
     }
 
     // Helper method for registering twigs blocks
