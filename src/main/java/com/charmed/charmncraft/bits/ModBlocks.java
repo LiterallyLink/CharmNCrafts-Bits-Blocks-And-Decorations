@@ -1,10 +1,12 @@
 package com.charmed.charmncraft.bits;
 
+import com.charmed.charmncraft.bits.blocks.AzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.ConsoleBlock;
 import com.charmed.charmncraft.bits.blocks.MagnumTorchBlock;
 import com.charmed.charmncraft.bits.blocks.NightLightBlock;
 import com.charmed.charmncraft.bits.blocks.NubertBlock;
 import com.charmed.charmncraft.bits.blocks.PlushieBlock;
+import com.charmed.charmncraft.bits.blocks.PottedAzaleaFlowersBlock;
 import com.charmed.charmncraft.bits.blocks.TennaPoleBlock;
 import com.charmed.charmncraft.bits.blocks.TennaStatueBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -328,17 +330,21 @@ public class ModBlocks {
 
     // ====== AZALEA DECOR ======
     private static void registerAzaleaDecor() {
-        // Azalea flowers
-        registerTwigsBlock("azalea_flowers", new Block(FabricBlockSettings.create()
+        // Azalea flowers - multi-surface placement block
+        Block azaleaFlowers = new AzaleaFlowersBlock(FabricBlockSettings.create()
                 .nonOpaque()
                 .strength(0.5f)
-                .sounds(BlockSoundGroup.GRASS)));
+                .noCollision()
+                .sounds(BlockSoundGroup.GRASS));
+        registerTwigsBlock("azalea_flowers", azaleaFlowers);
 
-        // Potted azalea flowers
-        registerTwigsBlock("potted_azalea_flowers", new Block(FabricBlockSettings.create()
-                .nonOpaque()
-                .strength(0.3f)
-                .sounds(BlockSoundGroup.GRASS)));
+        // Potted azalea flowers - decorative flower pot variant
+        registerTwigsBlock("potted_azalea_flowers", new PottedAzaleaFlowersBlock(
+                azaleaFlowers,
+                FabricBlockSettings.create()
+                        .nonOpaque()
+                        .strength(0.3f)
+                        .sounds(BlockSoundGroup.GRASS)));
     }
 
     // Helper method for registering twigs blocks
