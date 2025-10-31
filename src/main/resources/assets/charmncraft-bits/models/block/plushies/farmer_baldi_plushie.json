@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/farmer_baldi_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/farmer_baldi_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/farmer_baldi_plushie"
-  },
-  "render_type": "cutout_mipped"
-}

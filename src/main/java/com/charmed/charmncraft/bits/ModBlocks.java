@@ -106,16 +106,6 @@ public class ModBlocks {
             "stacked_melons", "stacked_pumpkins", "stacked_organic_compost"
     };
 
-    private static final Set<String> AMW_PLUSHIE_NAMES = Set.of(
-            // A Man With Plans characters
-            "abbie_plushie", "maddie_plushie", "willow_plushie", "magical_girl_abbie_plushie", "mind_abbie_plushie",
-            // Baldi's Basics characters
-            "angry_baldi_plushie", "angry_camper_baldi_plushie", "angry_farmer_baldi_plushie",
-            "baldi_plushie", "camper_baldi_plushie", "farmer_baldi_plushie",
-            "happy_baldi_plushie", "happy_camper_baldi_plushie", "happy_farmer_baldi_plushie",
-            "principal_plushie"
-    );
-
     // Minecraft mob plushies (105 total) - all official Minecraft creatures and variations
     private static final Set<String> MOB_PLUSHIE_NAMES = Set.of(
             // Basic Mobs
@@ -144,13 +134,6 @@ public class ModBlocks {
     );
 
     // ====== PLUSHIE CATEGORY HELPERS ======
-    /**
-     * Check if a plushie name belongs to the AMW category
-     */
-    public static boolean isAMWPlushie(String blockName) {
-        return AMW_PLUSHIE_NAMES.contains(blockName);
-    }
-
     /**
      * Check if a plushie name belongs to the Minecraft mob category
      */
@@ -197,19 +180,6 @@ public class ModBlocks {
         STACKED_BLOCKS.add(block);
     }
 
-    // ====== PLUSHIE CUSTOM HITBOXES ======
-    // Auto-generated plushie voxel shapes (example shown for ABBIE)
-    // These are static final so they're initialized once and reused.
-    private static final VoxelShape ABBIE_PLUSHIE_SHAPE = VoxelShapes.cuboid(
-            2.5f / 16f, 0f / 16f, 5.375f / 16f,  // min x, y, z
-            15.25f / 16f, 11f / 16f, 13.5f / 16f // max x, y, z
-    );
-
-    private static final VoxelShape MADDIE_PLUSHIE_SHAPE = VoxelShapes.cuboid(
-            3.0f / 16f, 0f / 16f, 6.0f / 16f,
-            14.0f / 16f, 11.0f / 16f, 13.0f / 16f
-    );
-
     // ====== CONSOLE BLOCKS ======
     // Note: Basic console registration removed - all consoles now use extended registration with proper models
     private static void registerConsoleBlocks() {
@@ -228,35 +198,7 @@ public class ModBlocks {
     // Magnum torches are powerful decorative light sources
     // Only three variants: Amethyst, Diamond, and Emerald
 
-    private static final VoxelShape WILLOW_PLUSHIE_SHAPE = VoxelShapes.cuboid(
-            2.0f / 16f, 0f / 16f, 4.0f / 16f,
-            14.5f / 16f, 10.5f / 16f, 12.5f / 16f
-    );
-
     // ====== PLUSHIE REGISTRATION ======
-    private static void registerAMWPlushies() {
-        for (String name : AMW_PLUSHIE_NAMES) {
-            VoxelShape shape = getAMWPlushieShape(name);
-            Block plushieBlock = new PlushieBlock(
-                    FabricBlockSettings.create()
-                            .nonOpaque()
-                            .strength(0.5f)
-                            .sounds(BlockSoundGroup.WOOL),
-                    shape);
-
-            registerPlushieBlock(name, plushieBlock);
-        }
-    }
-
-    private static VoxelShape getAMWPlushieShape(String name) {
-        return switch (name) {
-            case "abbie_plushie" -> ABBIE_PLUSHIE_SHAPE;
-            case "maddie_plushie" -> MADDIE_PLUSHIE_SHAPE;
-            case "willow_plushie" -> WILLOW_PLUSHIE_SHAPE;
-            default -> VoxelShapes.fullCube();
-        };
-    }
-
     private static void registerPlushieBlock(String name, Block block) {
         Identifier id = Identifier.of(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
@@ -272,7 +214,6 @@ public class ModBlocks {
     public static void initialize() {
         // Order matters only for logging / clarity, not dependency
         registerStackedBlocks();
-        registerAMWPlushies();
         registerAllPlushies();
         registerNightLights();
         registerConsoleBlocks();
@@ -563,8 +504,6 @@ public class ModBlocks {
     // ====== PLUSHIES REGISTRATION ======
     private static void registerAllPlushies() {
         // Get all plushie blockstates from resources
-        // NOTE: AMW plushies (abbie, maddie, willow, magical_girl_abbie, mind_abbie) and
-        // Baldi plushies are registered separately in registerAMWPlushies()
         String[] plushieNames = {
             "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
             "aggressive_spazmatism_plushie", "allay_plushie", "animdude_plushie",
