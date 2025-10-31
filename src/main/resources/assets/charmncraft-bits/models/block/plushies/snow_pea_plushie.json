@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/snow_pea_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/snow_pea_plushie",
-    "particle": "charmncraft-bits:block/plushies/snow_pea_plushie",
-    "0": "charmncraft-bits:block/plushies/snow_pea_plushie"
-  },
-  "render_type": "solid"
-}

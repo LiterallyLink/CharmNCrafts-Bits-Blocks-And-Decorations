@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/lariat_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/lariat_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/lariat_plushie"
-  },
-  "render_type": "solid"
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/blissey_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/blissey_plushie",
-    "particle": "charmncraft-bits:block/plushies/blissey_plushie",
-    "0": "charmncraft-bits:block/plushies/blissey_plushie"
-  },
-  "render_type": "solid"
-}

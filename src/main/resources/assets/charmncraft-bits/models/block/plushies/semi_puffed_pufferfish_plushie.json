@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/semi-puffed_pufferfish_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/semi-puffed_pufferfish_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "1": "charmncraft-bits:block/plushies/semi-puffed_pufferfish_plushie"
-  },
-  "render_type": "cutout_mipped"
-}

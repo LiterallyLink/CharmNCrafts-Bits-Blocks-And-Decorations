@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/henry_stickmin_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/henry_stickmin_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/henry_stickmin_plushie"
-  },
-  "render_type": "solid"
-}

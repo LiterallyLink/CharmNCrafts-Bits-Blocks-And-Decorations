@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/wiglin_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/wiglin_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/wiglin_plushie"
-  },
-  "render_type": "solid"
-}

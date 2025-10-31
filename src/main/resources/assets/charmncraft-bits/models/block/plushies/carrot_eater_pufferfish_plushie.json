@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/carrot_eater_pufferfish_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/carrot_eater_pufferfish_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "2": "charmncraft-bits:block/plushies/carrot_eater_pufferfish_plushie"
-  },
-  "render_type": "cutout_mipped"
-}

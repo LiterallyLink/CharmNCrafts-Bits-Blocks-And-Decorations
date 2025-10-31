@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/split_pea_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/peashooter_plushie",
-    "particle": "charmncraft-bits:block/plushies/peashooter_plushie",
-    "0": "charmncraft-bits:block/plushies/peashooter_plushie"
-  },
-  "render_type": "solid"
-}

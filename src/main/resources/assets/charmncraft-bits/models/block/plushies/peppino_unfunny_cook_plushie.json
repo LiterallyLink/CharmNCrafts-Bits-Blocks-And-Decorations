@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/peppino_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/peppino_unfunny_cook_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/peppino_unfunny_cook_plushie"
-  },
-  "render_type": "solid"
-}

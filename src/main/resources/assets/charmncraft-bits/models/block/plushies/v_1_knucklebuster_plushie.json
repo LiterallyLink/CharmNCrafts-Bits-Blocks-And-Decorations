@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/v1_knucklebuster_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/v1_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/v1_plushie"
-  },
-  "render_type": "solid"
-}

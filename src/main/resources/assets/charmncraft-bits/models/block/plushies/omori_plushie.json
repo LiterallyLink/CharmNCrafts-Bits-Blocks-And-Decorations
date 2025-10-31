@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/omori_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/plushies/omori_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/plushies/omori_plushie"
-  },
-  "render_type": "solid"
-}

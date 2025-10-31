@@ -44,7 +44,6 @@ import java.util.Set;
  * - Consoles: Gaming console decorations
  * - Deltarune: Deltarune-themed blocks
  * - Magnum Torches: Anti-spawn torches with special abilities
- * - Plushies: Character plushies
  * - Night Lights: Interactive decorative lights
  */
 public class ModBlocks {
@@ -60,7 +59,6 @@ public class ModBlocks {
     public static final List<Block> CONSOLE_BLOCKS = new ArrayList<>();      // Gaming console decorations
     public static final List<Block> TWIGS_BLOCKS = new ArrayList<>();        // Nature decorations (azalea)
     public static final List<Block> DELTARUNE_BLOCKS = new ArrayList<>();    // Deltarune-themed blocks
-    public static final List<Block> PLUSHIE_BLOCKS = new ArrayList<>();      // Character plushies
     public static final List<Block> NIGHT_LIGHT_BLOCKS = new ArrayList<>();  // Decorative lights
 
     // ====== TWIGS INDIVIDUAL BLOCKS ======
@@ -105,41 +103,6 @@ public class ModBlocks {
             // Organic/Food Blocks
             "stacked_melons", "stacked_pumpkins", "stacked_organic_compost"
     };
-
-    // Minecraft mob plushies (105 total) - all official Minecraft creatures and variations
-    private static final Set<String> MOB_PLUSHIE_NAMES = Set.of(
-            // Basic Mobs
-            "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie", "blaze_plushie", "cave_spider_plushie",
-            "chicken_plushie", "cod_plushie", "cow_plushie", "creeper_plushie", "dolphin_plushie", "drowned_plushie",
-            "elder_guardian_plushie", "enderman_plushie",
-            "endermite_plushie", "evoker_plushie", "frog_plushie", "ghast_plushie",
-            "glow_squid_plushie", "goat_plushie", "guardian_plushie", "herobrine_plushie", "hoglin_plushie",
-            "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
-            "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "moobloom_plushie", "mooshroom_plushie",
-            "muddy_pig_plushie", "ocelot_plushie", "phantom_plushie", "pig_plushie", "piglin_plushie",
-            "piglin_brute_plushie", "pillager_plushie", "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie",
-            "salmon_plushie", "sheep_plushie", "shulker_plushie", "silverfish_plushie", "skeleton_plushie",
-            "skeleton_horse_plushie", "slime_plushie", "snow_golem_plushie", "spider_plushie", "squid_plushie",
-            "stray_plushie", "strider_plushie", "tadpole_plushie", "turtle_plushie",
-            "vex_plushie", "villager_plushie", "vindicator_plushie", "wandering_trader_plushie", "warden_plushie",
-            "witch_plushie", "wither_plushie", "wither_skeleton_plushie", "wolf_plushie", "zombie_plushie",
-            "zombie_villager_plushie", "zoglin_plushie", "crabster_plushie",
-            "cluckshroom_plushie", "panda_plushie", "parrot_plushie",
-            // Frog Variants (2)
-            "cold_frog_plushie", "warm_frog_plushie",
-            // Pufferfish Variants (3)
-            "carrot_eater_pufferfish_plushie", "fully_puffed_pufferfish_plushie", "semi_puffed_pufferfish_plushie",
-            // Special Variants (3)
-            "enderman_plush_with_block", "reverse_creeper_plushie", "open_shulker_plushie"
-    );
-
-    // ====== PLUSHIE CATEGORY HELPERS ======
-    /**
-     * Check if a plushie name belongs to the Minecraft mob category
-     */
-    public static boolean isMobPlushie(String blockName) {
-        return MOB_PLUSHIE_NAMES.contains(blockName);
-    }
 
     // ====== REGISTER HELPERS ======
     private static Block registerBasicBlock(String name, Block.Settings settings) {
@@ -198,14 +161,6 @@ public class ModBlocks {
     // Magnum torches are powerful decorative light sources
     // Only three variants: Amethyst, Diamond, and Emerald
 
-    // ====== PLUSHIE REGISTRATION ======
-    private static void registerPlushieBlock(String name, Block block) {
-        Identifier id = Identifier.of(MOD_ID, name);
-        Registry.register(Registries.BLOCK, id, block);
-        Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-        PLUSHIE_BLOCKS.add(block);
-    }
-
     // ====== TWIGS DECOR BLOCKS ======
     // Note: Twig furniture items (twig_table, twig_chair, twig_stool) have been removed
     // Only azalea decor items remain in the twigs category
@@ -214,7 +169,6 @@ public class ModBlocks {
     public static void initialize() {
         // Order matters only for logging / clarity, not dependency
         registerStackedBlocks();
-        registerAllPlushies();
         registerNightLights();
         registerConsoleBlocks();
         registerDeltaruneBlocks();
@@ -234,14 +188,13 @@ public class ModBlocks {
         System.out.println("Stacked Blocks: " + STACKED_BLOCKS.size());
         System.out.println("Crates: " + CRATE_BLOCKS.size());
         System.out.println("Bags: " + BAG_BLOCKS.size());
-        System.out.println("Plushies: " + PLUSHIE_BLOCKS.size());
         System.out.println("Twigs: " + TWIGS_BLOCKS.size());
         System.out.println("Consoles: " + CONSOLE_BLOCKS.size());
         System.out.println("Deltarune: " + DELTARUNE_BLOCKS.size());
         System.out.println("Magnum Torches: " + MAGNUM_TORCH_BLOCKS.size());
         System.out.println("Night Lights: " + NIGHT_LIGHT_BLOCKS.size());
         System.out.println("Total: " + (STACKED_BLOCKS.size() + CRATE_BLOCKS.size() + BAG_BLOCKS.size() +
-                                       PLUSHIE_BLOCKS.size() + TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
+                                       TWIGS_BLOCKS.size() + CONSOLE_BLOCKS.size() +
                                        DELTARUNE_BLOCKS.size() + MAGNUM_TORCH_BLOCKS.size() +
                                        NIGHT_LIGHT_BLOCKS.size()));
         System.out.println("=======================================");
@@ -268,7 +221,6 @@ public class ModBlocks {
         all.addAll(CONSOLE_BLOCKS);
         all.addAll(DELTARUNE_BLOCKS);
         all.addAll(MAGNUM_TORCH_BLOCKS);
-        all.addAll(PLUSHIE_BLOCKS);
         all.addAll(NIGHT_LIGHT_BLOCKS);
         return all;
     }
@@ -499,20 +451,6 @@ public class ModBlocks {
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         MAGNUM_TORCH_BLOCKS.add(block);
-    }
-
-    // ====== PLUSHIES REGISTRATION ======
-    private static void registerAllPlushies() {
-        // Register only Minecraft mob plushies
-        // Character plushies have been removed - only mob plushies remain
-        for (String name : MOB_PLUSHIE_NAMES) {
-            Block plushieBlock = new PlushieBlock(FabricBlockSettings.create()
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .sounds(BlockSoundGroup.WOOL));
-
-            registerPlushieBlock(name, plushieBlock);
-        }
     }
 
     // ====== NIGHT LIGHTS REGISTRATION ======

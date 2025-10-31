@@ -1,9 +1,0 @@
-{
-  "parent": "charmncraft-bits:custom/crabster_plushie",
-  "textures": {
-    "all": "charmncraft-bits:block/crabster_plushie",
-    "particle": "charmncraft-bits:block/rainbow_wool",
-    "0": "charmncraft-bits:block/crabster_plushie"
-  },
-  "render_type": "solid"
-}
