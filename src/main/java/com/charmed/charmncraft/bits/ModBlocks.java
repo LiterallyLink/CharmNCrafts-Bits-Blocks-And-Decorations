@@ -107,7 +107,7 @@ public class ModBlocks {
     // ====== REGISTER HELPERS ======
     private static Block registerBasicBlock(String name, Block.Settings settings) {
         Block block = new Block(settings);
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         return block;
@@ -137,7 +137,7 @@ public class ModBlocks {
      * @param block The block instance to register
      */
     private static void registerStackedBlock(String name, Block block) {
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         STACKED_BLOCKS.add(block);
@@ -151,7 +151,7 @@ public class ModBlocks {
     }
 
     private static void registerConsoleBlock(String name, Block block) {
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         CONSOLE_BLOCKS.add(block);
@@ -203,12 +203,12 @@ public class ModBlocks {
     // ====== BLOCK RETRIEVAL HELPERS ======
 
     public static Block getBlockByName(String name) {
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         return Registries.BLOCK.get(id);
     }
 
     public static boolean isRegistered(String name) {
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         return Registries.BLOCK.containsId(id);
     }
 
@@ -423,7 +423,7 @@ public class ModBlocks {
 
     // Helper method for registering twigs blocks
     private static void registerTwigsBlock(String name, Block block) {
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         TWIGS_BLOCKS.add(block);
@@ -447,7 +447,7 @@ public class ModBlocks {
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.WOOD)
                 .nonOpaque(), torchType);
-        Identifier id = Identifier.of(MOD_ID, name);
+        Identifier id = new Identifier(MOD_ID, name);
         Registry.register(Registries.BLOCK, id, block);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
         MAGNUM_TORCH_BLOCKS.add(block);
@@ -474,7 +474,7 @@ public class ModBlocks {
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL), nightLightShape);
 
-            Identifier id = Identifier.of(MOD_ID, name);
+            Identifier id = new Identifier(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, nightLightBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(nightLightBlock, new Item.Settings()));
             NIGHT_LIGHT_BLOCKS.add(nightLightBlock);
@@ -499,7 +499,7 @@ public class ModBlocks {
                     .strength(2.0f)
                     .sounds(BlockSoundGroup.WOOD));
 
-            Identifier id = Identifier.of(MOD_ID, name);
+            Identifier id = new Identifier(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, crateBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(crateBlock, new Item.Settings()));
             CRATE_BLOCKS.add(crateBlock);
@@ -519,7 +519,7 @@ public class ModBlocks {
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL));
 
-            Identifier id = Identifier.of(MOD_ID, name);
+            Identifier id = new Identifier(MOD_ID, name);
             Registry.register(Registries.BLOCK, id, bagBlock);
             Registry.register(Registries.ITEM, id, new BlockItem(bagBlock, new Item.Settings()));
             BAG_BLOCKS.add(bagBlock);
@@ -533,7 +533,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(0.5f)
                 .sounds(BlockSoundGroup.SLIME));
-        Identifier nubertId = Identifier.of(MOD_ID, "nubert");
+        Identifier nubertId = new Identifier(MOD_ID, "nubert");
         Registry.register(Registries.BLOCK, nubertId, nubertBlock);
         Registry.register(Registries.ITEM, nubertId, new BlockItem(nubertBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(nubertBlock);
@@ -543,7 +543,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.METAL));
-        Identifier tennaStatueId = Identifier.of(MOD_ID, "tenna_statue");
+        Identifier tennaStatueId = new Identifier(MOD_ID, "tenna_statue");
         Registry.register(Registries.BLOCK, tennaStatueId, tennaStatueBlock);
         Registry.register(Registries.ITEM, tennaStatueId, new BlockItem(tennaStatueBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(tennaStatueBlock);
@@ -553,7 +553,7 @@ public class ModBlocks {
                 .nonOpaque()
                 .strength(1.0f)
                 .sounds(BlockSoundGroup.METAL));
-        Identifier tennaPoleId = Identifier.of(MOD_ID, "tenna_pole");
+        Identifier tennaPoleId = new Identifier(MOD_ID, "tenna_pole");
         Registry.register(Registries.BLOCK, tennaPoleId, tennaPoleBlock);
         Registry.register(Registries.ITEM, tennaPoleId, new BlockItem(tennaPoleBlock, new Item.Settings()));
         DELTARUNE_BLOCKS.add(tennaPoleBlock);
