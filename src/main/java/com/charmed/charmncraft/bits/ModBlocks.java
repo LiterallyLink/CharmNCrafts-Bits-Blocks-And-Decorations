@@ -503,73 +503,15 @@ public class ModBlocks {
 
     // ====== PLUSHIES REGISTRATION ======
     private static void registerAllPlushies() {
-        // Get all plushie blockstates from resources
-        String[] plushieNames = {
-            "aggressive_eye_of_cthulhu_plushie", "aggressive_retinazer_plushie",
-            "aggressive_spazmatism_plushie", "allay_plushie", "animdude_plushie",
-            "audino_plushie", "axolotl_plushie", "azazel_plushie", "badeline_plushie",
-            "bandage_girl_plushie", "bat_plushie", "bee_plushie", "bendy_plushie",
-            "black_crewmate_plushie", "black_junimo_plushie",
-            "blob_plushie", "blue_crewmate_plushie", "blue_junimo_plushie",
-            "bmo_plushie", "breadbug_plushie", "brown_crewmate_plushie", "brown_junimo_plushie",
-            "cal_kestis_plushie", "carrot_plushie",
-            "caterpillar_plushie", "catnap_plushie", "celeste_plushie", "chicken_plushie",
-            "chomper_plushie", "clem_plushie", "clicker_plushie", "cold_frog_plushie",
-            "cow_plushie", "creeper_plushie", "crewmate_plushie",
-            "cyan_crewmate_plushie", "cyan_junimo_plushie",
-            "dark_knight_plushie", "death_plushie", "demon_plushie", "diamond_steve_plushie",
-            "doggo_plushie", "dusty_plushie", "eden_plushie", "egg_plushie",
-            "emerald_steve_plushie", "enderman_plushie",
-            "eve_plushie", "eye_of_cthulhu_plushie",
-            "finn_plushie", "flowey_plushie", "forgotten_plushie",
-            "frog_plushie", "ghostface_plushie", "giant_plushie", "glaggle_plushie",
-            "gloria_plushie", "gold_steve_plushie", "grandma_plushie",
-            "gray_crewmate_plushie", "gray_junimo_plushie",
-            "green_crewmate_plushie", "green_junimo_plushie",
-            "grumbo_jumbo_plushie", "hello_charlotte_plushie", "hopps_plushie",
-            "iron_golem_plushie", "isaac_plushie", "isabelle_plushie", "jacob_plushie",
-            "jake_plushie", "junimo_plushie", "kerfur_plushie",
-            "killer_bunny_plushie", "king_of_hearts_plushie", "kissy_missy_plushie",
-            "knight_of_hearts_plushie", "lazarus_plushie", "life_plushie", "light_blue_crewmate_plushie",
-            "light_blue_junimo_plushie", "light_gray_crewmate_plushie",
-            "light_gray_junimo_plushie", "lilith_plushie",
-            "lime_crewmate_plushie", "lime_junimo_plushie",
-            "lost_plushie", "luigi_plushie", "madeline_plushie",
-            "magenta_crewmate_plushie", "magenta_junimo_plushie",
-            "magma_cube_plushie", "magnemite_plushie", "magnetite_plushie", "mario_plushie",
-            "meatboy_plushie", "meowscles_plushie", "michael_plushie", "moobloom_plushie",
-            "moon_presence_plushie", "noelle_plushie", "nubert_plushie",
-            "ochaco_plushie", "omurice_plushie", "orange_crewmate_plushie", "orange_junimo_plushie",
-            "pale_king_plushie", "papyrus_plushie", "peashooter_plushie",
-            "peepy_plushie", "penguin_plushie", "pig_plushie", "pink_crewmate_plushie",
-            "pink_junimo_plushie", "player_plushie", "poke_ball_plushie",
-            "purple_crewmate_plushie", "purple_junimo_plushie",
-            "queen_bee_plushie", "ralsei_plushie", "red_crewmate_plushie",
-            "red_junimo_plushie", "retinazer_plushie", "roomba_plushie",
-            "rudolph_plushie", "sad_ghost_plushie", "samson_plushie", "sans_plushie",
-            "scp_999_plushie", "scp_131_plushie", "sheep_plushie", "sibling_plushie",
-            "skeletron_plushie", "slime_plushie", "smugdoka_plushie", "sniffer_plushie",
-            "snowman_plushie", "spazmatism_plushie", "spider_plushie", "spiffo_plushie",
-            "sprig_plushie", "steve_plushie", "stray_plushie", "sunflower_plushie",
-            "sus_jerma_plushie", "susie_plushie", "tadpole_plushie", "tarnished_plushie",
-            "terrarian_plushie", "tinted_plushie", "toad_plushie", "tom_nook_plushie",
-            "toriel_plushie", "towelie_plushie",
-            "undyne_plushie", "warden_plushie", "white_crewmate_plushie", "white_junimo_plushie",
-            "wumpus_plushie",
-            "yellow_crewmate_plushie", "yellow_junimo_plushie",
-            "zombie_plushie"
-        };
-
-        for (String name : plushieNames) {
+        // Register only Minecraft mob plushies
+        // Character plushies have been removed - only mob plushies remain
+        for (String name : MOB_PLUSHIE_NAMES) {
             Block plushieBlock = new PlushieBlock(FabricBlockSettings.create()
                     .nonOpaque()
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL));
 
-            Identifier id = Identifier.of(MOD_ID, name);
-            Registry.register(Registries.BLOCK, id, plushieBlock);
-            Registry.register(Registries.ITEM, id, new BlockItem(plushieBlock, new Item.Settings()));
-            PLUSHIE_BLOCKS.add(plushieBlock);
+            registerPlushieBlock(name, plushieBlock);
         }
     }
 
