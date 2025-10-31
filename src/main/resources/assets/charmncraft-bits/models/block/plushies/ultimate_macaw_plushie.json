@@ -3,7 +3,8 @@
   "textures": {
     "all": "charmncraft-bits:block/plushies/ultimate_macaw_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
-    "2": "charmncraft-bits:block/plushies/ultimate_macaw_plushie"
+    "2": "charmncraft-bits:block/plushies/ultimate_macaw_plushie",
+    "0": "charmncraft-bits:block/plushies/ultimate_macaw_plushie"
   },
   "render_type": "solid"
 }

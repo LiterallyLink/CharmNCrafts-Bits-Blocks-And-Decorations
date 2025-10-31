@@ -3,7 +3,8 @@
   "textures": {
     "all": "charmncraft-bits:block/plushies/ultimate_chicken_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
-    "2": "charmncraft-bits:block/plushies/ultimate_chicken_plushie"
+    "2": "charmncraft-bits:block/plushies/ultimate_chicken_plushie",
+    "0": "charmncraft-bits:block/plushies/ultimate_chicken_plushie"
   },
   "render_type": "solid"
 }

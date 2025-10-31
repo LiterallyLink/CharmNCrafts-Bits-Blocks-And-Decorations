@@ -4,7 +4,8 @@
     "all": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
     "1": "charmncraft-bits:block/plushies/glados_plushie",
-    "2": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie"
+    "2": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie",
+    "0": "charmncraft-bits:block/plushies/wheatley_in_glados_body_plushie"
   },
   "render_type": "solid"
 }

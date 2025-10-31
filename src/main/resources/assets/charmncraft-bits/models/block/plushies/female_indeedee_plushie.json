@@ -3,7 +3,8 @@
   "textures": {
     "all": "charmncraft-bits:block/plushies/female_indeedee_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
-    "1": "charmncraft-bits:block/plushies/female_indeedee_plushie"
+    "1": "charmncraft-bits:block/plushies/female_indeedee_plushie",
+    "0": "charmncraft-bits:block/plushies/female_indeedee_plushie"
   },
   "render_type": "solid"
 }

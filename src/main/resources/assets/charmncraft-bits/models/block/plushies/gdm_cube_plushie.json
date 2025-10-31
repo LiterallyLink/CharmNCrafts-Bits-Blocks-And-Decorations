@@ -3,7 +3,8 @@
   "textures": {
     "all": "charmncraft-bits:block/gd_cube_texture_2",
     "particle": "charmncraft-bits:block/rainbow_wool",
-    "2": "charmncraft-bits:block/gd_cube_texture_2"
+    "2": "charmncraft-bits:block/gd_cube_texture_2",
+    "0": "charmncraft-bits:block/gd_cube_texture_2"
   },
   "render_type": "solid"
 }

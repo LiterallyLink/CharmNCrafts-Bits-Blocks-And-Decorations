@@ -3,7 +3,8 @@
   "textures": {
     "all": "charmncraft-bits:block/plushies/cc_green_knight_plushie",
     "particle": "charmncraft-bits:block/rainbow_wool",
-    "1": "charmncraft-bits:block/plushies/cc_green_knight_plushie"
+    "1": "charmncraft-bits:block/plushies/cc_green_knight_plushie",
+    "0": "charmncraft-bits:block/plushies/cc_green_knight_plushie"
   },
   "render_type": "solid"
 }
