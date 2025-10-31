@@ -1,5 +1,6 @@
 package com.charmed.charmncraft.bits.blocks;
 
+import com.charmed.charmncraft.bits.util.VoxelShapeHelper;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -14,20 +15,29 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
+import java.util.Map;
+
 /**
  * Nubert block - a unique decorative block from Deltarune.
  * Not a plushie! Uses slime sounds and custom hitbox.
+ * Optimized with cached shape rotations.
  */
 public class NubertBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    // Nubert hitbox - custom shape based on the model
-    private static final VoxelShape SHAPE = VoxelShapes.union(
-        VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
-        VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
-        VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
-    );
+    // Cached rotated shapes for each direction - prevents runtime shape calculations
+    private static final Map<Direction, VoxelShape> CACHED_SHAPES;
+
+    static {
+        // Nubert base shape facing west - custom shape based on the model
+        VoxelShape baseShape = VoxelShapes.union(
+            VoxelShapes.cuboid(2/16f, 0, 2/16f, 14/16f, 1/16f, 14/16f),  // Base
+            VoxelShapes.cuboid(3/16f, 1/16f, 3/16f, 13/16f, 8/16f, 13/16f),  // Body
+            VoxelShapes.cuboid(4/16f, 8/16f, 4/16f, 12/16f, 9/16f, 12/16f)   // Top
+        );
+        CACHED_SHAPES = VoxelShapeHelper.createHorizontalRotationsFromWest(baseShape);
+    }
 
     public NubertBlock(Settings settings) {
         super(settings);
@@ -58,46 +68,11 @@ public class NubertBlock extends HorizontalFacingBlock implements Waterloggable 
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return rotateShape(SHAPE, state.get(FACING));
+        return CACHED_SHAPES.get(state.get(FACING));
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return rotateShape(SHAPE, state.get(FACING));
-    }
-
-    /**
-     * Rotates a VoxelShape based on the horizontal facing direction.
-     * West is the default orientation (0 degrees) as models are defined facing west.
-     */
-    private static VoxelShape rotateShape(VoxelShape shape, Direction direction) {
-        if (direction == Direction.WEST) {
-            return shape;
-        }
-
-        VoxelShape[] buffer = {shape, VoxelShapes.empty()};
-
-        int rotations = switch (direction) {
-            case NORTH -> 1;  // 90 degrees clockwise from west
-            case EAST -> 2;   // 180 degrees from west
-            case SOUTH -> 3;  // 270 degrees clockwise from west
-            default -> 0;
-        };
-
-        for (int i = 0; i < rotations; i++) {
-            buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> {
-                // Rotate 90 degrees clockwise around Y axis (center at 0.5, 0.5)
-                double newMinX = 1 - maxZ;
-                double newMaxX = 1 - minZ;
-                double newMinZ = minX;
-                double newMaxZ = maxX;
-                buffer[1] = VoxelShapes.union(buffer[1],
-                    VoxelShapes.cuboid(newMinX, minY, newMinZ, newMaxX, maxY, newMaxZ));
-            });
-            buffer[0] = buffer[1];
-            buffer[1] = VoxelShapes.empty();
-        }
-
-        return buffer[0];
+        return CACHED_SHAPES.get(state.get(FACING));
     }
 }
