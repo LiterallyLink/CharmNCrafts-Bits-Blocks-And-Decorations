@@ -116,15 +116,15 @@ public class ModBlocks {
             "principal_plushie"
     );
 
-    // Minecraft mob plushies (107 total) - all official Minecraft creatures and variations
+    // Minecraft mob plushies (105 total) - all official Minecraft creatures and variations
     private static final Set<String> MOB_PLUSHIE_NAMES = Set.of(
             // Basic Mobs
             "allay_plushie", "axolotl_plushie", "bat_plushie", "bee_plushie", "blaze_plushie", "cave_spider_plushie",
             "chicken_plushie", "cod_plushie", "cow_plushie", "creeper_plushie", "dolphin_plushie", "drowned_plushie",
-            "elder_guardian_plushie", "ender_dragon_plushie", "enderman_plushie",
+            "elder_guardian_plushie", "enderman_plushie",
             "endermite_plushie", "evoker_plushie", "frog_plushie", "ghast_plushie",
             "glow_squid_plushie", "goat_plushie", "guardian_plushie", "herobrine_plushie", "hoglin_plushie",
-            "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie", "jellie_plushie",
+            "horse_plushie", "husk_plushie", "illusioner_plushie", "iron_golem_plushie",
             "killer_bunny_plushie", "llama_plushie", "magma_cube_plushie", "moobloom_plushie", "mooshroom_plushie",
             "muddy_pig_plushie", "ocelot_plushie", "phantom_plushie", "pig_plushie", "piglin_plushie",
             "piglin_brute_plushie", "pillager_plushie", "polar_bear_plushie", "pufferfish_plushie", "ravager_plushie",
@@ -580,7 +580,7 @@ public class ModBlocks {
             "cyan_crewmate_plushie", "cyan_junimo_plushie",
             "dark_knight_plushie", "death_plushie", "demon_plushie", "diamond_steve_plushie",
             "doggo_plushie", "dusty_plushie", "eden_plushie", "egg_plushie",
-            "emerald_steve_plushie", "enderman_plushie", "ender_dragon_plushie",
+            "emerald_steve_plushie", "enderman_plushie",
             "eve_plushie", "eye_of_cthulhu_plushie",
             "finn_plushie", "flowey_plushie", "forgotten_plushie",
             "frog_plushie", "ghostface_plushie", "giant_plushie", "glaggle_plushie",
@@ -589,7 +589,7 @@ public class ModBlocks {
             "green_crewmate_plushie", "green_junimo_plushie",
             "grumbo_jumbo_plushie", "hello_charlotte_plushie", "hopps_plushie",
             "iron_golem_plushie", "isaac_plushie", "isabelle_plushie", "jacob_plushie",
-            "jake_plushie", "jellie_plushie", "junimo_plushie", "kerfur_plushie",
+            "jake_plushie", "junimo_plushie", "kerfur_plushie",
             "killer_bunny_plushie", "king_of_hearts_plushie", "kissy_missy_plushie",
             "knight_of_hearts_plushie", "lazarus_plushie", "life_plushie", "light_blue_crewmate_plushie",
             "light_blue_junimo_plushie", "light_gray_crewmate_plushie",
